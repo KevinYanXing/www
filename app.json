@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "page/index/index",
+    "page/list/corpList",
+    "page/list/caseList",
+    "page/add/corpAdd",
+    "page/add/caseAdd",
+    "page/contact/contact",
+    
+    "page/detail/detail",
+    "page/detail/editAddr",
+    "page/search/search"
+    ],
+  "window": {
+    "navigationBarTextStyle": "#fff",
+    "navigationBarTitleText": "执法系统",
+    "navigationBarBackgroundColor": "#0091ff",
+    "backgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#7f8389",
+    "selectedColor": "#2fa7e0",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "page/index/index",
+      "iconPath": "image/4.png",
+      "selectedIconPath": "image/hover4.png",
+      "text": "录入数据"
+    }, {
+      "pagePath": "page/list/corpList",
+      "iconPath": "image/1.png",
+      "selectedIconPath": "image/hover1.png",
+      "text": "企业列表"
+    },{
+      "pagePath": "page/list/caseList",
+      "iconPath": "image/2.png",
+      "selectedIconPath": "image/hover2.png",
+      "text": "案件列表"
+    }, {
+      "pagePath": "page/personal/personal",
+      "iconPath": "image/3.png",
+      "selectedIconPath": "image/hover3.png",
+      "text": "个人中心"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
+

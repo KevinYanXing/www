@@ -1,0 +1,87 @@
+@import "../../common/lib/weui.wxss";
+
+.addr-body{
+}
+.input-long{
+    width: 79%;
+}
+.inline-block{
+    display: inline-block;
+}
+.form{
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x:hidden;
+}
+.top-sec{
+}
+/*标题*/
+.weuijz {
+    padding:0 34rpx;
+  position:relative;
+  height:90rpx;
+  line-height:90rpx;
+  color:#9097a2;
+}
+.weui{
+  font-size:13px;
+line-height:31rpx;
+margin-top:0;
+display:inline-block;
+}
+
+.tb-width{
+    width:45rpx;
+    height:45rpx;
+    display:inline-block;
+    position:relative;
+    top:11rpx;
+
+}
+.nav-right {
+    font-size:30rpx;
+    float:right;
+    color: #0292db;
+    display:inline-block;
+}
+/*标题 end*/
+/*编辑*/
+.input-wrapper{
+    padding:0 34rpx;
+    box-sizing:border-box;
+    font-size:30rpx;
+    background: white;
+    border-bottom:1rpx solid #e5e5e5;
+    border-top:1rpx solid #e5e5e5;
+    margin-bottom:-1rpx;
+}
+.input-w{
+    padding:32rpx 0;
+    line-height:52rpx;
+
+}
+.input-wrapper .input-title{
+    float:left;
+}
+.input-cell{
+    margin-left:76px;
+}
+.input-wrapper .input-cell input{
+    vertical-align: top;
+    display: inline-block;
+}
+/*编辑 end*/
+/*选择*/
+.navigator-arrow{
+    position: initial;
+    top: 0;
+    margin-right: 0;
+}
+.input-wrapper .input-text{
+    display: inline-block;
+    margin-right: 40rpx;
+}
+picker {
+    text-align:right;
+}
+/*选择 end*/

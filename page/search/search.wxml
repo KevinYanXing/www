@@ -1,0 +1,85 @@
+
+<!--<include src="../template/commonSearch.wxml" />-->
+<view class="header_search">
+  <view class="search">
+    <image class="search_icon" src="../../image/icon_search.png"></image>
+    <input type="text" value="" class="input" bindinput="oninput" placeholder="请输入产品名称/条形码/关键字检索" />
+  </view>
+</view>
+<view class="content {{searchToggle==true ? 'c-close': 'c-show'}}">
+  <scroll-view class="stateList" scroll-y="true">
+    <view wx:for="{{state}}" class="state_name {{select == index?'active':'' }} " data-index="{{index}}" id="{{item.statename}}" bindtap="showList">
+      <view class="item_name border {{bol[index].flag == true?'show_item_list':''}}">
+        {{item.statename}}
+        <image wx:if="{{index >0}}" class="arrowRight" src="../../image/arrowright.png">
+        </image>
+      </view>
+      <view class="item_list {{bol[index].flag == true?'show_item_list':''}}" data-flag="{{bol[index].flag}}" wx:if="{{index > 0}}">
+        <view class="item_list_num border {{item.countryname==countryname?'active':''}}" wx:for="{{item.countrylist}}" catchtap="changeContent" data-name="{{item.countryname}}">
+          {{item.countryname}}
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="cityList" scroll-y="true">
+    <navigator class="city-detail" url="../index/index?id={{item.cityid}}&name={{item.cityname}}" redirect  wx:for="{{firstShow}}" id="{{item.cityid}}" hover-class="none">
+      <image class="img" src="{{item.citycover}}"></image>
+      <view class="d-right">
+        <text>{{item.cityname}}</text>
+        <text>条形码：6917878026268</text>
+        <text>价格：<text class="red block-no">12.00</text>元</text>
+      </view>
+      <view class="xuanZe">添加</view>
+    </navigator>
+  </scroll-view>
+</view>
+<view class="search-show cityList {{searchToggle==true?'s-show':'c-close'}}">
+  <view 
+  class="error {{error == true?'s-show':'c-close'}}"
+  >
+  非常抱歉，没有搜索到产
+  </view>
+  <view class="{{error == false?'s-show':'c-close'}} ">
+    <view class="destination" wx:for="{{about}}" wx:if="{{item.data.length > 0}}">
+      <view class="title">{{item.title}}</view>
+      <view wx:if="{{item.type=='city'}}">
+
+
+        <navigator class="city-detail" url="../index/index?id={{itemName.id}}&name={{itemName.name}}" redirect wx:for="{{item.data}}" wx:for-item="itemName">
+          <image class="img" src="{{itemName.cover}}"></image>
+          <view class="d-right">
+            <text>{{itemName.name}}</text>
+            <text>条形码：6917878026268</text>
+            <text>价格：<text class="red block-no">12.00</text>元</text>
+          </view>
+          <view class="xuanZe">添加</view>
+        </navigator>
+      </view>
+      <view wx:if="{{item.type=='rest'}}">
+        <navigator class="city-detail" url="../rdetail/rdetail?id={{itemName.id}}&name={{itemName.city}}"  wx:for="{{item.data}}" wx:for-item="itemName">
+          <image class="img" style="margin-top:8rpx" src="{{itemName.cover}}"></image>
+          <view class="d-right">
+            <text>{{itemName.name}}</text>
+            <text class="location">{{itemName.city}}</text>
+            <text wx:if="{{item.type == 'mustdish'}}">
+              {{itemName.sum}}
+            </text>
+            <text wx:else>{{itemName.summary}}</text>
+          </view>
+        </navigator>
+      </view>
+      <view class="city-b" wx:if="{{item.type=='mustdish'}}">
+        <navigator class="city-detail" url="../musteat/musteat?id={{itemName.id}}&name={{name}}"  wx:for="{{item.data}}" wx:for-item="itemName">
+          <image class="img" src="{{itemName.cover}}"></image>
+          <view class="d-right">
+            <text>{{itemName.name}}</text>
+            <text wx:if="{{item.type == 'mustdish'}}">
+              {{itemName.sum}}
+            </text>
+            <text wx:else>{{itemName.summary}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

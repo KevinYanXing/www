@@ -1,0 +1,183 @@
+@import "../../common/lib/weui.wxss";
+
+.addr-body{
+}
+.input-long{
+    width: 79%;
+}
+.inline-block{
+    display: inline-block;
+}
+.form{
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x:hidden;
+}
+.top-sec{
+}
+/*标题*/
+.weuijz {
+    padding:0 34rpx;
+  position:relative;
+  height:90rpx;
+  line-height:90rpx;
+  color:#9097a2;
+}
+.weui{
+  font-size:13px;
+line-height:31rpx;
+margin-top:0;
+display:inline-block;
+}
+
+.tb-width{
+    width:45rpx;
+    height:45rpx;
+    display:inline-block;
+    position:relative;
+    top:11rpx;
+
+}
+.nav-right {
+    font-size:30rpx;
+    float:right;
+    color: #0292db;
+    display:inline-block;
+}
+/*标题 end*/
+/*编辑*/
+.input-wrapper{
+    padding:0 34rpx;
+    box-sizing:border-box;
+    font-size:30rpx;
+    background: white;
+    border-bottom:1rpx solid #e5e5e5;
+    border-top:1rpx solid #e5e5e5;
+    margin-bottom:-1rpx;
+}
+.input-w{
+    padding:32rpx 0;
+    line-height:52rpx;
+
+}
+.input-wrapper .input-title{
+    float:left;
+}
+.input-cell{
+    margin-left:76px;
+}
+.input-wrapper .input-cell input{
+    vertical-align: top;
+    display: inline-block;
+}
+/*编辑 end*/
+/*选择*/
+.navigator-arrow{
+    position: initial;
+    top: 0;
+    margin-right: 0;
+}
+.input-wrapper .input-text{
+    display: inline-block;
+    margin-right: 40rpx;
+}
+picker {
+    text-align:right;
+}
+/*选择 end*/
+
+/*点选控件*/
+.bottom-sec{
+    padding:0 34rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #e5e5e5;
+    border-top: 1rpx solid #e5e5e5;
+    background: white;
+}
+.check-box{
+    position: relative;
+    padding-left: 50rpx;
+}
+.check-box:before, .active:after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.active:after{
+    left: 8rpx;
+    width: 12rpx;
+    height: 12rpx;
+    background-color: #2fa7e0;
+    border-radius: 50%;
+}
+.check-box:before{
+    left: 0;
+    width: 24rpx;
+    height: 24rpx;
+    border: 1px solid #2fa7e0;
+    border-radius: 50%;
+}
+.bottom-sec .input-wrapper{
+    padding: 0;
+}
+/*点选控件 end*/
+/*上拉选择菜单*/
+.set-area-wrapper{
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.area-mask{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.6);
+}
+.white-bg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: white;
+    opacity: 1;
+    color: black;
+    z-index: 1000;
+}
+.top-option{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 100%;
+    font-size: 32rpx;
+    color: #2ea4ff;
+    z-index: 10000;
+    opacity: 1;
+    background: white;
+    border-bottom: 1px solid #2fa7e0;
+}
+.ok, .cancel{
+    position: absolute;
+    top: 0;
+    height: 40px;
+    line-height: 40px;
+    width: 50%;
+    color: #2ea4ff !important;
+}
+.ok{
+    left: 24rpx;
+    text-align: left;
+}
+.cancel{
+    right: 24rpx;
+    text-align: right;
+}
+.page-section .weui-cell{
+    padding:20rpx 0;
+}
+/*上拉选择菜单 end*/

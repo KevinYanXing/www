@@ -1,0 +1,115 @@
+<view class="addr-body">
+    <form class = "form main-bottom" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="top-sec">
+            <view class="noing">
+                <view class="weuijz prl">
+                    <view class="weui">企业信息</view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">市场名称</view>
+                    <view class="input-cell">
+                        <input bindinput = "setName" name="input" placeholder="请输入市场名称" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">市场性质</view>
+                    <view class="input-cell">
+                        <picker mode="selector" bindchange="bindPickerChange" placeholder="选择性质" value="{{index}}" range="{{array}}">
+                            <view class="input-text">{{array[index]}}</view>
+                            <view class="navigator-arrow"></view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">负责人</view>
+                    <view class="input-cell">
+                        <input bindinput = "setName" name="input" placeholder="请输负责人姓名" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+
+            <template is="head" data="{{title: 'choose/previewImage'}}"/>
+                <form>
+                <view class="page-section input-wrapper mb20">
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd">
+                        <view class="weui-uploader">
+                            <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">添加门店招牌、营业执照、店内情况照片</view>
+                            <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                            </view>
+                            <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files">
+                                <block wx:for="{{imageList}}" wx:for-item="image">
+                                <view class="weui-uploader__file">
+                                    <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                                </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                            </view>
+                        </view>
+                        </view>
+                    </view>
+                </view>
+                </form>
+            <template is="foot" />
+             <view class="input-wrapper mb20">
+                <view class="input-w">
+                    <view class="input-title">打击情况</view>
+                    <view class="input-cell">
+                        <picker mode="selector" bindchange="bindPickerChange" placeholder="选择情况" value="{{index}}" range="{{strike}}">
+                            <view class="input-text">{{strike[index]}}</view>
+                            <view class="navigator-arrow"></view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+            <view class="noing">
+                <view class="weuijz prl">
+                    <view class="weui">联系人信息</view>
+                </view>
+            </view>
+             <view class="input-wrapper mb20">
+                <view class="input-w" url="../contact/contact">
+                    <view class="input-title">联系信息</view>
+                    <view class="input-cell tr">
+                        <view class="navigator-arrow"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="noing">
+                <view class="weuijz prl">
+                    <view class="weui">查扣产品信息</view>
+                </view>
+            </view>
+             <view class="input-wrapper mb20">
+                <view class="input-w">
+                    <view class="input-title">产品信息</view>
+                    <view class="input-cell tr">
+                        <view class="navigator-arrow"></view>
+                    </view>
+                </view>
+            </view>
+        
+        </view>
+
+            
+        <view class="bottom-sec">
+            <view class="input-wrapper">
+                <view  class = "check-box {{address.isDefault == '1'? 'active': ''}}" value="radio1" bindtap = "setDefault">选择1</view>
+            </view>
+        </view>
+    </form>
+    <view class="add-address">
+        <button class = "address-btn" formType="submit" bindtap = "saveAddr">保存</button>
+    </view>
+</view>

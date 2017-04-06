@@ -1,0 +1,48 @@
+
+<view class="purchase">
+    <view class="header">
+        <view class="list-sous {{scrollDown?'scrolled':''}}">
+            <view class="search" bindtap="tapSearch">
+                <image class="icon" src="/image/icon_search.png"/>
+                <i class="fa fa-home"></i>
+                <input type="text" value="" class="input" bindinput="oninput" placeholder="输入关键字搜索" />
+            </view>
+        </view>
+        <view class="list-tab">
+            <view class="header-wrapper"  style = "width: {{length *300}}rpx">
+                <view class = "single" wx:for="{{product}}" wx:for-index="index" data-index = "{{index}}"  bindtap="switchTab">
+                    <text class = "text-detail {{curNav == index ? 'active' : ''}}">{{item.title}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class = "main-container chanPing">
+        <block wx:if="{{list.caseList == null}}">
+            <view class = "wait-more">暂无数据</view>
+        </block>
+        <block wx:if="{{list.caseList != null}}">
+            <view class = "caeslist" wx:for="{{list.caseList}}" wx:for-item="item" data-value = "{{item}}">
+                <view class = "caeslist-sec" url="/page/detail/detail">
+                    <view class = "">
+                        <view class="caseNow">{{item.sellPrice}}</view>
+                        <view class = "top-title">
+                            <view class = "case-title inline-block">{{item.goodsName}}</view>
+                            <view class = "case-tex inline-block">{{item.tagline}}</view>
+                            <view class = "go-buy">完成</view>
+                        </view>
+                        <view class = "top-title">
+                            <view class = "case-title inline-block">{{item.time}}</view>
+                            <view class = "case-tex inline-block">{{item.TimeDate}}</view>
+                        </view>
+                        <view class = "top-title">
+                            <view class = "case-title inline-block">{{item.addr}}</view>
+                            <view class = "case-tex inline-block">{{item.address}}</view>
+                        </view>
+                
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+
+</view>
