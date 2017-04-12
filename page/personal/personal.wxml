@@ -1,25 +1,19 @@
-<!--<view class="nav">
-        <image src="../images/left_arrow.png"></image>
-        <text>基本信息</text>
-</view>-->
 <view class="info">
     <view class="protrait" bindtap="changPic">
         <image class="head" src="{{userInfo.avatarUrl}}"></image>
-        
-        <image class="right" src="../images/right_arrow@3x.png" bindtap="changNickname"></image>
         <text>点击更换头像</text>
     </view>
     <view class="content">
         <view class="intro" bindtap="changNickname">
             <text class="txt">昵称</text>
-            <text class="nickname">{{name}}</text>
-            <image class="right" src="../images/right_arrow@3x.png"></image>
+            <text class="nickname">{{userInfo.nickName}}</text>
+            <image class="right"></image>
             <text class="reset" bindtap="changNickname">修改</text>
         </view>
         <view class="intro" bindtap="write">
             <text class="txt">简介</text>
-            <image class="right" src="../images/right_arrow@3x.png"></image>
-            <text class="message" bindtap="write">{{introduction}}</text>
+            <image class="right"></image>
+            <text class="message" bindtap="write">{{userInfo.province}}{{userInfo.city}}{{userInfo.country}}</text>
         </view>
     </view>
 </view>

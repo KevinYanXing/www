@@ -1,4 +1,4 @@
-// page/contact/contact.js
+// page/corpDetail/corpDetail.js
 Page({
   data:{},
   onLoad:function(options){

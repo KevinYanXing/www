@@ -4,52 +4,37 @@
 			<view class="">
 				<view class="logo-cen">
 					<image src="/image/logo.png"/>
-					<text>为您提供便捷执法录入系统 </text>
+					<text>创建新的普查与案件</text>
+					<text>可以直接选择添加按钮录入系统需要的数据</text>
 				</view>
 			</view>
-			<view>
-				<swiper class="submit-x" bindtap="actionSheetTap">
+			<view class="mon-b">
+				<navigator class="submit-x" url="../add/add" >
 					<view class="icon">
 						<view class="vertical-centering">
 							<view class="l-img">
 								<image src="/image/icon_1.png"/>
 							</view>
 							<view class="r-text">
-								<view>提交线索</view>
-								<view class="w-small">购样线索录入</view>
+								<view class="w-small">添加市场普查数据</view>
 							</view>
 						</view>
 					</view>
-				</swiper>
+				</navigator>
 
-				<swiper class="submit-x mfr" bindtap="actionSheetTap2">
+				<navigator class="submit-x color-b" url="../add/corpAdd">
 					<view class="icon">
 						<view class="vertical-centering">
 							<view class="l-img">
 								<image src="/image/icon_2.png"/>
 							</view>
 							<view class="r-text">
-								<view>市场普查</view>
-								<view class="w-small">市场普查录入</view>
+								<view class="w-small">添加线索信息数据</view>
 							</view>
 						</view>
 					</view>
-				</swiper>
-
-				<swiper class="submit-x" bindtap="actionSheetTap3">
-					<view class="icon">
-						<view class="vertical-centering">
-							<view class="l-img">
-								<image src="/image/icon_3.png"/>
-							</view>
-							<view class="r-text">
-								<view>行政打击</view>
-								<view class="w-small">购样线索录入</view>
-							</view>
-						</view>
-					</view>
-				</swiper>
-
+				</navigator>
+<!--
 				<swiper class="submit-x mfr" bindtap="actionSheetTap4">
 					<view class="icon">
 						<view class="vertical-centering">
@@ -62,7 +47,7 @@
 							</view>
 						</view>
 					</view>
-				</swiper>
+				</swiper>-->
 
 			</view>
 		</view>
