@@ -6,9 +6,6 @@ function sendPhotos(arr){
         url: 'http://192.168.0.115:5000/img/', //仅为示例，非真实的接口地址
         filePath: arr[0],
         name: 'file',
-        formData:{
-          'user': 'test'
-        },
         success: function(res){
           var rData = JSON.parse(res.data)
           if(rData.ok == true){
@@ -113,7 +110,6 @@ Page({
   //图片预览
   pPhotoshow: function(e) {
     var current = e.target.dataset.src
-    console.debug(current)
     wx.previewImage({
       current: current,
       urls: this.data.imageList
@@ -225,7 +221,6 @@ Page({
   },
   pConfirm: function() {
     var that = this
-    console.debug(that.data.pname,!that.data.pname)
       if(!that.data.pname){
         wx.showModal({
             title: '提示',
@@ -238,7 +233,7 @@ Page({
         })
       }else{
         var tempFilePaths = that.data.imageList
-        if(!tempFilePaths){
+        if(tempFilePaths.length=0){
             wx.showModal({
               title: '提示',
               content: '请先上传图片！',
@@ -247,60 +242,63 @@ Page({
               }
           })
         }else{
+            console.debug(imageName,111)
             sendPhotos(tempFilePaths)
-        }
-        
-        if(!imageName){
-            wx.showModal({
-              title: '提示',
-              content: '图片上传失败，请重新上传！',
-              success: function(res) {
-                  
-              }
-          })
-        }
-        that.data.dTarget.imageName = imageName
-        wx.setStorageSync('mTarget', that.data.dTarget)
-        var submitData = wx.getStorageSync('mTarget')
-        if(submitData){
-            wx.request({
-              url: 'http://192.168.0.115:5000/msave/',
-              data: {data:wx.getStorageSync('mTarget')},
-              method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-              // header: {}, // 设置请求的 header
-              success: function(res){
-                //清除缓存
-                wx.removeStorageSync('mTarget')
-                //跳转页面
-                wx.switchTab({
-                  url: '../corp/corp',
-                  success: function(res){
-                    wx.showToast({
-                        title: '保存成功!',
-                        icon: 'success',
-                        duration: 2000
-                    })
-                  },
-                  fail: function(res) {
-                    console.debug(res)// fail
+            console.debug(imageName,222)
+            if(imageName.length=0){
+                wx.showModal({
+                  title: '提示',
+                  content: '图片上传失败，请重新上传！',
+                  success: function(res) {
+                      
                   }
-                })
-              },
-              fail: function(res) {
-                console.debug(res)// fail
-              }
-            })
-        }else{
-            wx.showModal({
-              title: '提示',
-              content: '请填写完整信息！',
-              success: function(res) {
-                  that.setData({
-                    focus:true
+              })
+            }else{
+                console.debug(imageName)
+                that.data.dTarget.imageName = imageName
+                wx.setStorageSync('mTarget', that.data.dTarget)
+                var submitData = wx.getStorageSync('mTarget')
+                if(submitData){
+                    wx.request({
+                      url: 'http://192.168.0.115:5000/msave/',
+                      data: {data:wx.getStorageSync('mTarget')},
+                      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                      // header: {}, // 设置请求的 header
+                      success: function(res){
+                        //清除缓存
+                        wx.removeStorageSync('mTarget')
+                        //跳转页面
+                        wx.switchTab({
+                          url: '../corp/corp',
+                          success: function(res){
+                            wx.showToast({
+                                title: '保存成功!',
+                                icon: 'success',
+                                duration: 2000
+                            })
+                          },
+                          fail: function(res) {
+                            console.debug(res)// fail
+                          }
+                        })
+                      },
+                      fail: function(res) {
+                        console.debug(res)// fail
+                      }
+                    })
+                }else{
+                    wx.showModal({
+                      title: '提示',
+                      content: '请填写完整信息！',
+                      success: function(res) {
+                          that.setData({
+                            focus:true
+                          })
+                      }
                   })
               }
-          })
-        }
+            }
+          }
       }
   },
 })
