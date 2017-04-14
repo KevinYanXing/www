@@ -317,17 +317,6 @@ right:38rpx;
 .tr{
     text-align: right;
 }
-.form{
-    width: 100%;
-    box-sizing: border-box;
-    
-}
-.main-bottom {
-    position:absolute;
-    bottom:138rpx;
-    top:0;
-    overflow-x:hidden;
-}
 /*搜索*/
 .non{
   text-align:center;
@@ -417,6 +406,36 @@ input {
   color: #7d7d7d;
 }
 /*提示暂无数据 end*/
+
+/*固定位置*/
+.form{
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x:hidden;
+}
+.header-top{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:999;
+  padding: 22rpx;
+  background-color:#f0eff4;
+}
+.main-top {
+    position:absolute;
+    top:137rpx;
+    bottom:0;
+    overflow-x:hidden;
+}
+.main-bottom {
+    position:absolute;
+    bottom:138rpx;
+    top:0;
+    overflow-x:hidden;
+}
+/*固定位置 end*/
+
 /*按钮*/
 .add-address{
   position:absolute;
@@ -438,6 +457,7 @@ input {
     line-height:2.55555556;
 }
 /*按钮 end*/
+
 /*标题*/
 .weuijz {
     padding:0 34rpx;
@@ -468,6 +488,7 @@ input {
     display:inline-block;
 }
 /*标题 end*/
+
 /*内容*/
 .myLists {
     border-top:1px solid #e8e8e8;
@@ -513,6 +534,7 @@ input {
   display: initial;
 }
 /*内容 end*/
+
 /*编辑*/
 .input-wrapper{
     padding:0 34rpx;
@@ -538,6 +560,7 @@ input {
     display: inline-block;
 }
 /*编辑 end*/
+
 /*选择*/
 .navigator-arrow{
     position: initial;
@@ -552,16 +575,7 @@ picker {
     text-align:right;
 }
 /*选择 end*/
-.p35{
-    padding: 0 35rpx;
-}
-.p20{
-    padding: 20rpx 35rpx;
-    background: #ffffff;
-}
-.inline-block{
-    display: inline-block;
-}
+
 /*add 上传图片*/
 .page-section .weui-cell{
     padding:20rpx 0;
@@ -572,3 +586,13 @@ picker {
     align-items:initial;
 }
 /*add 上传图片 end*/
+.p35{
+    padding: 0 35rpx;
+}
+.p20{
+    padding: 20rpx 35rpx;
+    background: #ffffff;
+}
+.inline-block{
+    display: inline-block;
+}

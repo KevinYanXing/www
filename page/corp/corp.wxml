@@ -24,7 +24,7 @@
             </view>
         </view>
     </view>
-    <view class = "main-container">
+    <form class = "main-container">
         <view class="chanPing">
             <block wx:if="{{list.minfo == null}}">
                 <view class = "wait-more">暂无数据</view>
@@ -39,10 +39,10 @@
                         <view class="inline-block background">
                             <view class="p35">
                                 <view class="image" wx:if="{{item.imageName[0]}}">
-                                    <image mode="aspectFill" mode="aspectFit" src="{{item.imageName[0]}}" background-size="cover"></image>
+                                    <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>
                                 </view>
                                 <view class="image" wx:else>
-                                    <image mode="aspectFit" src="../../image/zw.png" background-size="cover"></image>
+                                    <image mode="aspectFill" src="../../image/zw.png" background-size="cover"></image>
                                 </view>
                                 <view class = "bottom-sec">
                                     <view class="now">{{item.pname}}</view>
@@ -89,6 +89,6 @@
                 </view>
             </block>
         </view>
-    </view>
+    </form>
 
 </view>

@@ -1,5 +1,19 @@
 /* pages/index/index.wxss */
-
+/*固定*/
+.form {
+  width:100%;
+  box-sizing:initial;
+  overflow-x:initial;
+}
+.main-top {
+  position:absolute;
+  top:134rpx;
+  overflow-x:initial;
+}
+.cityList{
+  overflow-x:hidden;
+}
+/*固定 end*/
 .active {
   color: #0091ff !important;
   background: #fff;

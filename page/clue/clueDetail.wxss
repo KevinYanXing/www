@@ -1,3 +1,6 @@
+.purchase {
+    overflow-x:initial;
+}
 .sec-kill {
   height: 100%;
   position: relative;

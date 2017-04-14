@@ -1,47 +1,49 @@
 
 <!--<include src="../template/commonSearch.wxml" />-->
-<view class="header_search">
+<view class="header_search header-top">
   <view class="search">
     <image class="search_icon" src="../../image/icon_search.png"></image>
     <input type="text" value="" class="input" bindinput="oninput" placeholder="请输入产品名称/条形码/关键字检索" />
   </view>
 </view>
-<view class="content {{searchToggle==true ? 'c-close': 'c-show'}}">
-  <scroll-view class="stateList" scroll-y="true">
-    <view wx:for="{{state}}" class="state_name {{select == index?'active':'' }} ">
-      <view class="item_name border" catchtap="changeContent" data-name="{{item.bname}}">
-        {{item.bname}}
+<form class="form main-top">
+  <view class="content {{searchToggle==true ? 'c-close': 'c-show'}}">
+    <scroll-view class="stateList" scroll-y="true">
+      <view wx:for="{{state}}" class="state_name {{select == index?'active':'' }} ">
+        <view class="item_name border" catchtap="changeContent" data-name="{{item.bname}}">
+          {{item.bname}}
+        </view>
       </view>
-    </view>
-  </scroll-view>
-  <scroll-view class="cityList" scroll-y="true">
-    <view class="city-detail" bindtap="selectProduct"  wx:for="{{firstShow}}" id="{{index}}" hover-class="none">
-      <image class="img" src="{{item.logoid}}"></image>
-      <view class="d-right">
-        <text>{{item.name}}</text>
-        <text>条形码：{{item.num}}</text>
-        <text>价格：<text class="red block-no">{{item.sprice}}</text>元</text>
+    </scroll-view>
+    <scroll-view class="cityList" scroll-y="true">
+      <view class="city-detail" bindtap="selectProduct"  wx:for="{{firstShow}}" id="{{index}}" hover-class="none">
+        <image class="img" src="{{item.logoid}}"></image>
+        <view class="d-right">
+          <text>{{item.name}}</text>
+          <text>条形码：{{item.num}}</text>
+          <text>价格：<text class="red block-no">{{item.sprice}}</text>元</text>
+        </view>
       </view>
-    </view>
-  </scroll-view>
-</view>
-<view class="search-show cityList {{searchToggle==true?'s-show':'c-close'}}">
-  <view class="error {{error == true?'s-show':'c-close'}}">
-      非常抱歉，没有搜索到产品
+    </scroll-view>
   </view>
-  <view class="{{error == false?'s-show':'c-close'}} ">
-    <view class="destination" wx:for="{{about}}" wx:if="{{item.plist.length > 0}}">
-      <view class="title">{{item.bname}}</view>
-      <view >
-        <navigator class="city-detail" url="../add/product/addProduct" redirect wx:for="{{item.plist}}" wx:for-item="itemplist">
-          <image class="img" src="{{itemplist.logoid}}"></image>
-          <view class="d-right">
-            <text>{{itemplist.name}}</text>
-            <text>条形码：{{itemplist.num}}</text>
-            <text>价格：<text class="red block-no">{{itemplist.sprice}}</text>元</text>
-          </view>
-        </navigator>
+  <view class="search-show cityList {{searchToggle==true?'s-show':'c-close'}}">
+    <view class="error {{error == true?'s-show':'c-close'}}">
+        非常抱歉，没有搜索到产品
+    </view>
+    <view class="{{error == false?'s-show':'c-close'}} ">
+      <view class="destination" wx:for="{{about}}" wx:if="{{item.plist.length > 0}}">
+        <view class="title">{{item.bname}}</view>
+        <view >
+          <navigator class="city-detail" url="../add/product/addProduct" redirect wx:for="{{item.plist}}" wx:for-item="itemplist">
+            <image class="img" src="{{itemplist.logoid}}"></image>
+            <view class="d-right">
+              <text>{{itemplist.name}}</text>
+              <text>条形码：{{itemplist.num}}</text>
+              <text>价格：<text class="red block-no">{{itemplist.sprice}}</text>元</text>
+            </view>
+          </navigator>
+        </view>
       </view>
     </view>
   </view>
-</view>
+</form>

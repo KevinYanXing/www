@@ -1,14 +1,8 @@
 @import "../../common/lib/weui.wxss";
-
 .addr-body{
 }
 .input-long{
     width: 79%;
-}
-.form{
-    width: 100%;
-    box-sizing: border-box;
-    overflow-x:hidden;
 }
 .add-address{
     position:initial;
