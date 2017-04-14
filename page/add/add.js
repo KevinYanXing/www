@@ -94,7 +94,6 @@ Page({
         pname:mTarget.pname,
         ptype:mTarget.ptype,
         pstate:mTarget.pstate,
-        imageList:mTarget.imageList,
         pperson:mTarget.pperson,
         pmarket:mTarget.pmarket,
         plocation:mTarget.plocation,
@@ -103,6 +102,10 @@ Page({
       if(mTarget.id){
         this.setData({
         imageList:mTarget.imageName,
+      })
+      }else{
+        this.setData({
+        imageList:mTarget.imageList
       })
       }
     }else{
