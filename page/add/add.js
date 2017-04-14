@@ -100,6 +100,11 @@ Page({
         plocation:mTarget.plocation,
         pcontact:mTarget.pcontact
       })
+      if(mTarget.id){
+        this.setData({
+        imageList:mTarget.imageName,
+      })
+      }
     }else{
       wx.setStorageSync('mTarget', {})
     }
@@ -164,24 +169,33 @@ Page({
               urls: that.data.imageList
             })
         }else if(e.tapIndex==1){
-          that.data.imageList.splice(current,1)
+          var newList = []
+          for(var i=0;i<that.data.imageList.length;i++){
+            if(that.data.imageList[i]!=current){
+              newList.push(that.data.imageList[i])
+            }
+          }
           that.setData({
-            imageList:that.data.imageList
+            imageList:newList
           })
           
           var mTarget = wx.getStorageSync('mTarget')
-          console.debug(mTarget.imageName)
           mTarget.imageList = that.data.imageList
           if(mTarget.id){
               mTarget.imageList = that.data.imageList
               var pre = mTarget.prelationship
               for(var i=0;i<pre.length;i++){
-                  if(pre[i][0]==current){
-                    mTarget.imageName.splice(pre[i][0],1)
+                  if(pre[i][0]==current || pre[i][1]==current){
+                    var newName = []
+                    for(var j=0;j<mTarget.imageName.length;j++){
+                      if(mTarget.imageName[j]!=pre[i][0] && mTarget.imageName[j]!=pre[i][1]){
+                        newName.push(mTarget.imageName[j])
+                      }
+                    }
+                    mTarget.imageName = newName
                   }
               }
           }
-          console.debug(mTarget.imageName)
           wx.setStorageSync('mTarget', mTarget)
         }
         }
@@ -219,16 +233,21 @@ Page({
                             var content = res.data.ok;
                             if (content == true) {
                               var pinfo = res.data.data[0].plist[0]
+                              if(wx.getStorageSync('mProduct')){
+                                  var setPinfo = wx.getStorageSync('mProduct')
+                                }else{
+                                  var setPinfo = {}
+                                }
+                                setPinfo.id=pinfo.id
+                                setPinfo.name=pinfo.name
+                                setPinfo.sprice=pinfo.sprice
+                                setPinfo.logoid=pinfo.logoid
+                                setPinfo.num=pinfo.num
+                                wx.setStorageSync('mProduct',setPinfo)
                               wx.navigateTo({
                                 url: './product/addProduct?rd=1',
                                 success: function(res){
-                                    var setPinfo = app.globalData.mProduct
-                                    setPinfo.id=pinfo.id
-                                    setPinfo.name=pinfo.name
-                                    setPinfo.sprice=pinfo.sprice
-                                    setPinfo.logoid=pinfo.logoid
-                                    setPinfo.num=pinfo.num
-                                    app.globalData.mProduct = setPinfo
+                                    console.debug(res.data)
                                 },
                                 fail: function() {
                                   // fail
@@ -316,19 +335,21 @@ Page({
         var tempImage = that.data.imageList
         if(tempImage.length!=0){
              wx.showToast({
-                title: '上传中!',
+                title: '正在上传',
                 icon: 'loading',
                 duration: 100000
             })
             
             if(mTarget.id){
-              var checkImage = []
+              var checkImageList = []
+              var checkImageName = []
               for(var j=0;j<mTarget.prelationship.length;j++){
-                    checkImage.push(mTarget.prelationship[j][0])
+                    checkImageList.push(mTarget.prelationship[j][0])
+                    checkImageName.push(mTarget.prelationship[j][1])
               }
               var uploadImage = []
                 for(var i=0;i<tempImage.length;i++){
-                    if(contains(checkImage,tempImage[i])){
+                    if(contains(checkImageList,tempImage[i]) || contains(checkImageName,tempImage[i])){
 
                     }else{
                       uploadImage.push(tempImage[i])

@@ -1,15 +1,4 @@
 var common = require('../../util/util.js');
-var detail = {
-  data: [
-    {
-      imageList: ["../../image/test.jpg","../../image/test1.jpg",
-        "../../image/test2.jpg","../../image/test3.jpg"
-      ]
-     
-    }
-  
-  ]
-}
 
 
 
@@ -19,68 +8,63 @@ var app = getApp()
 
 Page({  
   data: {  
- 
+    id:'',
+    imageName:[],
     // 换轮图切换 
     indicatorDots: true,
     interval: 5000,
     duration: 1000,
-    curNav: "1",
+    curNav: "0",
     circular: true,
 
-    // 切换卡
-    hasData: true,
-    navTab: ["基本信息", "线索进展"],
-    currentNavtab:0,
-
     //内容
-    myInfro:[],
-    money:[],
+    mdetail:{},
     hasData:true,
     isHidden:true,
     hide:"hide",
     noHid:"noHid",
 
   },  
-  onLoad: function() {  
-    var that = this;  
-  
-    /** 
-     * 获取系统信息 
-     */  
-    wx.getSystemInfo( {  
-  
-      success: function( res ) {  
-        that.setData( {  
-          winWidth: res.windowWidth,  
-          winHeight: res.windowHeight  
-        });  
-      }  
-  
-    });  
-  },  
-
- /*换轮图切换 */  
-  onLoad: function() {
+  onLoad: function(options) {
+    this.setData({
+      id:options.id
+    })
+    
   },
   onHide: function() {
   },
   onShow: function() {
-    var self   = this,
-        info   = detail.data,
-        info_des = info[0];
-    self.setData({
-      product: info,
-      list: info_des,
-      length: info.length
-    });
+    var that = this
+    var id = this.data.id
+    wx.request({
+      url: 'http://192.168.0.115:5000/mdetail/'+id+'/',
+      method: 'GET', 
+      success: function(res){
+        if(res.data.ok==true){
+            that.setData({
+                imageName:res.data.mdetail.imageName,
+                mdetail:res.data.mdetail
+            })
+        }else{
+          wx.showToast({
+            title: '请求失败!',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+      },
+      fail: function() {
+        // fail
+      }
+    })
   },
-  switchTab: function(e) {
-    var self  = this,
-        index = e.currentTarget.dataset.index;
-      self.setData({
-        curNav: index
-      });
-  },
-    
+  bigImage:function(e){
+    var that = this
+    var current = e.target.dataset.src
+    wx.previewImage({
+      current: current,
+      urls: that.data.imageName
+    })
+  }
   
 })

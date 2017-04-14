@@ -40,7 +40,6 @@
             <text>条形码：{{itemplist.num}}</text>
             <text>价格：<text class="red block-no">{{itemplist.sprice}}</text>元</text>
           </view>
-          <view class="xuanZe">添加</view>
         </navigator>
       </view>
     </view>

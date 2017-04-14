@@ -24,8 +24,9 @@ Page({
   showView:(options.showView=="true"?true:false)
   },
   onShow:function(){
+    var mProduct = wx.getStorageSync('mProduct')
     this.setData({
-      pinfo:app.globalData.mProduct
+      pinfo:mProduct
     })
     if(this.data.idx){
       this.setData({  
@@ -69,38 +70,92 @@ Page({
     this.data.pinfo.exp = e.detail.value
   },
   reselect:function(){
-    if(this.data.idx){
-      wx.navigateTo({
-        url: '../../search/search?idx='+this.data.idx,
-        success: function(res){
-          // success
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
+    var that = this
+    wx.showActionSheet({
+      itemList: ['扫描产品', '选择产品'],
+      success: function (e) {
+        if(e.tapIndex==0){
+              wx.scanCode({
+                success: function(res){
+                  var code = res.result
+                  wx.request({
+                      url: 'http://192.168.0.115:5000/plist/?keyword='+code,
+                      method: 'GET', 
+                      success: function(res){
+                        var content = res.data.ok;
+                        if (content == true) {
+                          var pinfo = res.data.data[0].plist[0]
+                              if(wx.getStorageSync('mProduct')){
+                                var setPinfo = wx.getStorageSync('mProduct')
+                              }else{
+                                var setPinfo = {}
+                              }
+                              setPinfo.id=pinfo.id
+                              setPinfo.name=pinfo.name
+                              setPinfo.sprice=pinfo.sprice
+                              setPinfo.logoid=pinfo.logoid
+                              setPinfo.num=pinfo.num
+                              wx.setStorageSync('mProduct',setPinfo)
+                              that.setData({
+                                pinfo:setPinfo
+                              })
+                        } else {
+                          wx.showModal({
+                              title: '提示',
+                              content: '找不到该条形码的产品，请手动选择'
+                          })
+                        }
+                      },
+                      fail: function() {
+                        // fail
+                      }
+                  })
+                },
+                fail: function() {
+                  wx.showModal({
+                        title: '提示',
+                        content: '扫描失败，请重试！'
+                    })
+                }
+              })
+        }else if(e.tapIndex==1){
+          // wx.navigateTo({url: '../search/search'});
+          if(that.data.idx){
+            wx.navigateTo({
+              url: '../../search/search?idx='+that.data.idx,
+              success: function(res){
+                // success
+              },
+              fail: function() {
+                // fail
+              },
+              complete: function() {
+                // complete
+              }
+            })
+          }else{
+            wx.navigateBack({
+              delta: 1, // 回退前 delta(默认为1) 页面
+              success: function(res){
+                // success
+              },
+              fail: function() {
+                // fail
+              },
+              complete: function() {
+                // complete
+              }
+            })
+          }
         }
-      })
-    }else{
-      wx.navigateBack({
-        delta: 1, // 回退前 delta(默认为1) 页面
-        success: function(res){
-          // success
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-        }
-      })
-    }
+      }
+    })
+    
   },
   saveProduct:function(){
     var that = this
     var mTarget = wx.getStorageSync('mTarget')
-    app.globalData.mProduct = {}
+    wx.removeStorageSync('mProduct')
     if(mTarget.pproduct && this.data.idx){
       mTarget.pproduct[this.data.idx] = this.data.pinfo
     }else if(mTarget.pproduct){

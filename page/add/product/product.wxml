@@ -28,14 +28,6 @@
                                 </view>
                             </view>
                             <view class="bottom-sec">
-                                <!--<navigator  url="./addProduct?idx={{ index }}"  class="edit inline-block">
-                                    <image src="../../../image/edit.png" class="arrow  biao-arrow"/>
-                                    编辑
-                                </navigator>
-                                <view bindtap="del" id="{{ index }}" class="delete inline-block">
-                                    <image src="../../../image/delete.png" class="arrow  biao-arrow"/>
-                                    删除
-                                </view>-->
                             </view>
                         </view>
                     </block>
