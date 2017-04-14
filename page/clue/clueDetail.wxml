@@ -64,17 +64,18 @@
                                 </view>
                             </view>
                         </view>
-                    </view>
-                    <view class="back">
-                        <view class="top-slider">
-                            <swiper class="slider-sec" indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-                                <block wx:for="{{list.imageList}}">
-                                    <swiper-item>
-                                        <image mode="aspectFill" src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
-                                    </swiper-item>
-                                </block>
-                            </swiper>
+                    
+                        <view class="p35">
+                            <view class="top-slider">
+                                <swiper class="slider-sec" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                                    <block wx:for="{{list.imageList}}">
+                                        <swiper-item>
+                                            <image mode="aspectFill" src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
+                                        </swiper-item>
+                                    </block>
+                                </swiper>
+                            </view>
                         </view>
                     </view>
                     <view class="back">
