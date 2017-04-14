@@ -9,7 +9,7 @@
 				</view>
 			</view>
 			<view class="mon-b">
-				<navigator class="submit-x" url="../add/add" >
+				<view class="submit-x" bindtap="addTarget">
 					<view class="icon">
 						<view class="vertical-centering">
 							<view class="l-img">
@@ -20,7 +20,7 @@
 							</view>
 						</view>
 					</view>
-				</navigator>
+				</view>
 
 				<navigator class="submit-x color-b" url="../search/variety">
 					<view class="icon">
