@@ -79,23 +79,24 @@ Page({
           }
         })
     }else{
+        if(wx.getStorageSync('mProduct')){
+            var setPinfo = wx.getStorageSync('mProduct')
+          }else{
+            var setPinfo = {}
+          }
+          setPinfo.id=pinfo.id
+          setPinfo.name=pinfo.name
+          setPinfo.sprice=pinfo.sprice
+          setPinfo.logoid=pinfo.logoid
+          setPinfo.num=pinfo.num
+          wx.setStorageSync('mProduct',setPinfo)
         wx.navigateTo({
           url: that.data.url,
           success: function(res){
-              var setPinfo = app.globalData.mProduct
-              setPinfo.id=pinfo.id
-              setPinfo.name=pinfo.name
-              setPinfo.sprice=pinfo.sprice
-              setPinfo.logoid=pinfo.logoid
-              setPinfo.num=pinfo.num
-              app.globalData.mProduct = setPinfo
-              console.debug(app.globalData.mProduct)
+              console.debug(res.data)
           },
           fail: function() {
             // fail
-          },
-          complete: function() {
-            // complete
           }
         })
     }
@@ -110,6 +111,7 @@ Page({
         method: 'GET',
         success: function (res) {
           var content = res.data.ok;
+          console.debug(content)
           if (content == true) {
             var arr = res.data.data
             that.setData({
@@ -119,6 +121,7 @@ Page({
             })
           } else {
             that.setData({
+              searchToggle: true,
               error: true
             })
           }

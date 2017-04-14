@@ -26,16 +26,21 @@ Page({
                       var content = res.data.ok;
                       if (content == true) {
                         var pinfo = res.data.data[0].plist[0]
+                        if(wx.getStorageSync('mProduct')){
+                            var setPinfo = wx.getStorageSync('mProduct')
+                          }else{
+                            var setPinfo = {}
+                          }
+                          setPinfo.id=pinfo.id
+                          setPinfo.name=pinfo.name
+                          setPinfo.sprice=pinfo.sprice
+                          setPinfo.logoid=pinfo.logoid
+                          setPinfo.num=pinfo.num
+                          wx.setStorageSync('mProduct', setPinfo)
                         wx.navigateTo({
                           url: './addProduct?rd=1',
                           success: function(res){
-                              var setPinfo = app.globalData.mProduct
-                              setPinfo.id=pinfo.id
-                              setPinfo.name=pinfo.name
-                              setPinfo.sprice=pinfo.sprice
-                              setPinfo.logoid=pinfo.logoid
-                              setPinfo.num=pinfo.num
-                              app.globalData.mProduct = setPinfo
+                             console.debug(res.data)
                           },
                           fail: function() {
                             // fail
