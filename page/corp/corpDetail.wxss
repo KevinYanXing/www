@@ -14,7 +14,7 @@
 .main-container {
   width:100%;
   position: absolute;
-  top:97rpx;
+  top:0;
   bottom:0;
 }
 .main-container swiper-item{
