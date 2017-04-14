@@ -14,126 +14,85 @@
     <view class="main-container">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
       
-            <view class="view0 width20 mt20">
+            <view class="view0 width20">
                 <scroll-view class="tableView">
-                    <view class="top-slider">
-                        <swiper class="slider-sec" indicator-dots="{{indicatorDots}}"
-autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-                            <block wx:for="{{list.imageList}}">
-                                <swiper-item>
-                                    <image src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
-                                </swiper-item>
-                            </block>
-                        </swiper>
-                    </view>
-
-                    <view class="noing">
-                        <view class="weuijz prl">
-                            <view class="weui">线索信息</view>
-                            <!--<view class="nav-right ">
-                                <image class="tb-width"  src="../../image/edit.png"></image>
-                                    2017-6-10
-                            </view>-->
+                    <view class="back">
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="title-content">
+                                    <view class="title">雀巢咖啡线索天河区某某市场</view>
+                                </view>
+                            </view>
                         </view>
-                    </view>
-                    <view class="myLists" scroll-y="{{true}}" wx:if="{{hasData}}">
-                            <view class="cell prl" wx:for="{{ myInfro }}" wx:for-item="info">
-                                <view class="cellblock">
-                                    <view class="cellTitle" data-source="{{ infor }}">{{ info.title }}</view>
-                                    <view class="cellContent">
-                                        <text class="celltext">{{ info.content }}</text>
-                                        <!--<view class="navigator-arrow"></view>-->
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="content border tuBiao">
+                                    <image src="../../image/x1.png"></image>
+                                    <view class="value">
+                                        <text class="value-text">陈某某</text>
                                     </view>
                                 </view>
                             </view>
-                            <view class="mb-1"></view>
-                    </view>
-                    
-
-                    <view class="weuijz prl">
-                        <view class="weui">联系信息</view>
-                        <view class="nav-right " bindtap="addAddr">
-                            <image class="tb-width"  src="../../image/jia.png"></image>
-                                添加联系人
-                                <!--<view class="navigator-arrow"></view>-->
                         </view>
-                    </view>
-                    <view class="myact mb20" wx:if="{{address.length > 0}}" wx:for="{{address}}" wx:for-item="item">
-                        <view class="sing">
-                            <view class="top-sec border-gray">
-                                <view class="user-info">
-                                    <view class="w50">
-                                        <view class="inline-block fl">
-                                            <image src="../../image/people.png" class="ico-lanXi" width="355" height="150"/>
-                                            姓名：
-                                        </view>
-                                        <view class="text-lianXi">{{item.ContactPerson}}</view>
-                                    </view>
-                                    <view class="w50">
-                                        <view class="inline-block fl">
-                                            <image src="../../image/phone.png" class="ico-lanXi" width="355" height="150"/>
-                                            手机：
-                                        </view>
-                                        <view class="text-lianXi">{{item.Mobile}}</view>
-                                    </view>
-                                </view>
-
-                                <view class="user-info">
-                                    <view class="w50">
-                                        <view class="inline-block fl">
-                                            <image src="../../image/people.png" class="ico-lanXi" width="355" height="150"/>
-                                            微信：
-                                        </view>
-                                        <view class="text-lianXi">{{item.WeChat}}</view>
-                                    </view>
-                                    <view class="w50">
-                                        <view class="inline-block fl">
-                                            <image src="../../image/phone.png" class="ico-lanXi" width="355" height="150"/>
-                                            Q  Q：
-                                        </view>
-                                        <view class="text-lianXi">{{item.QQ}}</view>
-                                    </view>
-                                </view>
-
-                                <view class="user-info">
-                                    <view class="w50">
-                                        <view class="inline-block fl">
-                                            <image src="../../image/people.png" class="ico-lanXi" width="355" height="150"/>
-                                            网址：
-                                        </view>
-                                        <view class="text-lianXi">w{{item.Web}}</view>
-                                    </view>
-                                    <view class="w50">
-                                        <view class="inline-block fl">
-                                            <image src="../../image/phone.png" class="ico-lanXi" width="355" height="150"/>
-                                            车牌：
-                                        </view>
-                                        <view class="text-lianXi">{{item.CarNo}}</view>
-                                    </view>
-                                </view>
-
-                                <view class="address-detail">
-                                    <view class="inline-block fl">
-                                        <image src="../../image/location.png" class="ico-lanXi" width="355" height="150"/>
-                                        地址：
-                                    </view>
-                                    <view class="act inline-block">{{item.Add}}</view>
-                                    </view>
-        
-                                </view>
-                                <view class="bottom-sec">
-                                    <view bindtap="editAddr inline-block" data-id="{{item.id}}" class="edit inline-block">
-                                            <image src="../../image/edit.png" class="arrow biao-arrow"/>
-                                    编辑
-                                    </view>
-                                    <view bindtap="delAddr inline-block" data-id="{{item.id}}" class="delete inline-block">
-                                                <image src="../../image/delete.png" class="arrow  biao-arrow"/>
-                                    删除
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="content border tuBiao">
+                                    <image src="../../image/x2.png"></image>
+                                    <view class="value">
+                                        <text class="value-text">13812345667</text>
                                     </view>
                                 </view>
                             </view>
+                        </view>
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="content tuBiao">
+                                    <image src="../../image/x3.png"></image>
+                                    <view class="value">
+                                        <text class="value-text">广州市珠江新城华东路360号</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
                     </view>
-                    
+                    <view class="back">
+                        <view class="top-slider">
+                            <swiper class="slider-sec" indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                                <block wx:for="{{list.imageList}}">
+                                    <swiper-item>
+                                        <image src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
+                                    </swiper-item>
+                                </block>
+                            </swiper>
+                        </view>
+                    </view>
+                    <view class="back">
+                        <view class="noing border">
+                            <view class="weuijz prl">
+                                <view class="weui">涉嫌产品</view>
+                            </view>
+                        </view>
+                        <view class="mychanPing">
+                            <view class="p20 border">
+                                <view class="inline-block">
+                                    <view class="image">
+                                        <image style="width: 100%; height:100%" mode="aspectFit" src="../../../image/test.jpg"></image>
+                                    </view>
+                                    <view class="cp-p">
+                                        <view class="inline-block">
+                                        脆脆鲨威化夹心饼干(巧克力味)分享装【袋装】
+                                        </view>
+                                        <view class="tiaoxingMa inline-block">条形码：6917878027951</view>
+                                        <view class="cp-shuLang cp-gy">购样数：
+                                            <text>365</text>
+                                            <text>金额：￥200</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
                 </scroll-view>
             </view>
 
@@ -148,19 +107,30 @@ autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
                                 <view class="cellblock">
                                     <view class="cellTitle">线索状态：</view>
                                     <view class="cellContent">
-                                        <text class="celltext">已完成</text>
+                                        <text class="celltext green">已完成</text>
                                     </view>
                                 </view>
                             </view>
                         </view>
-                        <view class="caseMingcheng">
+                        <view class="back">
                             <view class="classname">
                                 <view class="detail">
-                                    <view class="content-time">
-                                        <text>客服：</text>
-                                        <text>点击咖啡进口开发角度看打开九分裤空间发快递可点</text>
+                                    <view class="bdr">
+                                        <view class="content-time">
+                                            <view>客服：</view>
+                                            <text>点击咖啡进口开发角度看打开九分裤空间发快递可点</text>
+                                        </view>
+                                        <view class="time">2017-06-07 13:30</view>
                                     </view>
-                                    <view class="time">2017-06-07 13:30</view>
+                                </view>
+                                <view class="detail">
+                                    <view class="bdr b-no">
+                                        <view class="content-time">
+                                            <view>调查员：</view>
+                                            <text>点击咖啡进口开发角度看打开九分裤空间发快递可点</text>
+                                        </view>
+                                        <view class="time">2017-06-07 13:30</view>
+                                    </view>
                                 </view>
                             </view>
                         </view>

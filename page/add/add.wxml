@@ -14,7 +14,8 @@
                     <view class="input-title">店铺性质</view>
                     <view class="input-cell">
                         <picker mode="selector" bindchange="pType" placeholder="选择性质" value="{{ptype}}" range="{{tarray}}">
-                            <view class="input-text">{{tarray[ptype]}}</view>
+                            <view class="input-text" wx:if="{{tarray[ptype]}}">{{tarray[ptype]}}</view>
+                            <view class="input-text" wx:else>{{tarray[0]}}</view>
                             <view class="navigator-arrow"></view>
                         </picker>
                     </view>
@@ -52,7 +53,7 @@
                 <view class="input-w">
                     <view class="input-title">所在地址</view>
                     <view class="input-cell tr">
-                        <view class="text-overflow input-text w80">
+                        <view class="text-overflow input-text w80" wx:if="{{plocation}}">
                             {{plocation}}
                         </view>
                         <view class="navigator-arrow"></view>
@@ -72,7 +73,7 @@
                         <view class="weui-uploader__files">
                             <block wx:for="{{imageList}}" wx:key="*this">
                             <view class="weui-uploader__file">
-                                <image class="weui-uploader__img" src="{{item}}" data-src="{{item}}" bindtap="pPhotoshow"></image>
+                                <image class="weui-uploader__img" src="{{item}}" data-src="{{item}}" bindtap="pPhotoedit"></image>
                             </view>
                             </block>
                         </view>
@@ -90,7 +91,8 @@
                     <view class="input-title">售假情况</view>
                     <view class="input-cell">
                         <picker mode="selector" bindchange="pState" placeholder="选择情况" value="{{pstate}}" range="{{strike}}">
-                            <view class="input-text">{{strike[pstate]}}</view>
+                            <view class="input-text" wx:if="{{strike[pstate]}}">{{strike[pstate]}}</view>
+                            <view class="input-text" wx:else>{{strike[0]}}</view>
                             <view class="navigator-arrow"></view>
                         </picker>
                     </view>

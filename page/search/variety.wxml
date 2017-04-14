@@ -1,0 +1,17 @@
+
+<!--<include src="../template/commonSearch.wxml" />-->
+<view class="header_search">
+    <view class="mon">
+        <view class="variety">
+            <view class="name" wx:for="{{ name }}" wx:for-item="info">
+                <view class="name-img red-b">
+                    <image src="../../image/pz.png"></image>
+                </view>
+                 {{ info.title }}
+            </view>
+            <navigator  url="../add/clueAdd">
+            <view class="category" wx:for="{{ variety }}" wx:for-item="info">{{ info.title }}</view>
+            </navigator>
+        </view>
+    </view>
+</view>

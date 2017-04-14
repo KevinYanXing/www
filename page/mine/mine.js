@@ -1,4 +1,4 @@
-// page/corpDetail/corpDetail.js
+// page/mine/mine.js
 Page({
   data:{},
   onLoad:function(options){

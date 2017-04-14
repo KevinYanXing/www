@@ -38,7 +38,7 @@ scroll-view {
 .logo-cen image {
 	margin:0 auto;
 	width:248rpx;
-	height:248rpx;
+	height:247rpx;
 	vertical-align:top;
 	display:block;
 	border-radius:60rpx;
@@ -106,7 +106,7 @@ scroll-view {
 	height: 52rpx;
 	vertical-align:top;
 	display:block;
-	padding: 21rpx 80rpx;
+	padding: 22rpx 80rpx;
 }
 .submit-x .icon .r-text {
 	/*color:#0d0d0d;

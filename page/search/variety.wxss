@@ -1,0 +1,57 @@
+.green-b{
+    background-color: #09BB07;
+}
+.red-b{
+    background-color: #f53135;
+}
+.blue-b{
+    background-color: #2ea4ff;
+}
+.yellow-b{
+    background-color: #FFBE00;
+}
+.gray-b{
+    background-color: #C9C9C9;
+}
+page{
+    background: #ffffff;
+}
+.mon{
+}
+.variety{
+    display: inline-block;
+    margin-bottom: 22rpx;
+}
+.name{
+    margin: 20rpx 22rpx;
+    line-height:47rpx;
+    font-size: 15px;
+}
+.name-img{
+    float:left;
+    width:46rpx;
+    height:46rpx;
+    line-height:41rpx;
+    display:block;
+    margin-right:20rpx;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+}
+.name-img image{
+    width:32rpx;
+    height:32rpx;
+    vertical-align:middle;
+}
+.category{
+    width:150rpx;
+    padding:8rpx 0;
+    border-radius:100rpx;
+    text-align:center;
+    display:inline-block;
+    float:left;
+    color:#929292;
+    background:#f0f0f0;
+    font-size:13px;
+    margin:18rpx 19rpx;
+}

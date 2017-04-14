@@ -2,12 +2,18 @@
   "pages": [
     "page/index/index",
     "page/add/add",
+    "page/add/clueAdd",
     "page/add/product/product",
     "page/add/product/addProduct",
 
     "page/corp/corp",
     "page/corp/corpDetail",
+
+    "page/search/variety",
     "page/clue/clue",
+    "page/clue/clueDetail",
+
+    "page/mine/mine",
     "page/personal/personal",
     "page/detail/editAddr",
     
@@ -40,7 +46,7 @@
       "selectedIconPath": "image/hover2.png",
       "text": "线索列表"
     }, {
-      "pagePath": "page/personal/personal",
+      "pagePath": "page/mine/mine",
       "iconPath": "image/3.png",
       "selectedIconPath": "image/hover3.png",
       "text": "个人中心"

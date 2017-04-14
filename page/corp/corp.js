@@ -54,6 +54,20 @@ Page({
                   },
                 })
             }else if(e.tapIndex==1){
+              console.debug(that.data.list.minfo[idx])
+              wx.setStorageSync('mTarget', that.data.list.minfo[idx])
+              wx.navigateTo({
+                url: '../add/add',
+                success: function(res){
+                  // success
+                },
+                fail: function() {
+                  // fail
+                },
+                complete: function() {
+                  // complete
+                }
+              })
 
             }else if(e.tapIndex==2){
                 wx.showModal({

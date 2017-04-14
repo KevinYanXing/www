@@ -22,7 +22,7 @@
 					</view>
 				</navigator>
 
-				<navigator class="submit-x color-b" url="../add/corpAdd">
+				<navigator class="submit-x color-b" url="../search/variety">
 					<view class="icon">
 						<view class="vertical-centering">
 							<view class="l-img">
