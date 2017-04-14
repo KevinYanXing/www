@@ -60,7 +60,8 @@ Page({
   },
   bigImage:function(e){
     var that = this
-    var current = e.target.dataset.src
+    console.debug(e.currentTarget)
+    var current = e.currentTarget.dataset.src
     wx.previewImage({
       current: current,
       urls: that.data.imageName
