@@ -1,0 +1,15 @@
+@import "../../common/lib/weui.wxss";
+
+.addr-body{
+}
+.top-sec{
+}
+.page-section{
+    padding: initial;
+}
+.input-cell textarea {
+    width:initial;
+    display: flex;
+    padding-top: 6rpx;
+    min-height: 186rpx;
+}

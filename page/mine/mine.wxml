@@ -1,0 +1,31 @@
+<view class="mine">
+    <view class="jianBian">
+        <view class="userinfo" bindtap="jumpLogin" >
+            <image class="userinfo-avatar" src="../../image/logo.png" background-size="cover"></image>
+            <text>陈汉阳</text>
+        </view>
+    </view>
+
+    <view class="back mt20">
+        <view class="input-wrapper">
+            <view class="input-w">
+                <image src="../../image/s2.png"></image>
+                <view class="input-title">最新审核</view>
+                <view class="input-cell">
+                    <view class="navigator-arrow"></view>
+                </view>
+            </view>
+        </view>
+        <view class="input-wrapper">
+            <view class="input-w">
+                <image src="../../image/s1.png"></image>
+                <view class="input-title">最近消息</view>
+                <view class="input-cell">
+                    <view class="digital">4</view>
+                    <view class="navigator-arrow"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+

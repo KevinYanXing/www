@@ -1,0 +1,54 @@
+<view class="addr-body">
+    <form class = "form main-bottom">
+        <view class="top-sec">
+            <view class="chanPing">
+                 <view class="mychanPing" >
+                    <block wx:if="{{ productSelected.length > 0 }}">
+                        <view class="p20 mb20" wx:for="{{ productSelected }}" id="{{index}}" bindtap="editProduct">
+                            <view class="order-info">
+                                <view wx:if="{{ item.mfd }}">生产日期 {{ item.mfd }}</view>
+                                <view wx:if="{{ item.mfd }}">到期日期 {{ item.exp }}</view>
+                                <view wx:if="{{ item.bnum }}">
+                                    <text class="order-state">生产批次 {{ item.bnum }}</text>
+                                </view>
+                            </view>
+                            <view class="inline-block" style="width:100%;">
+                                <view class="image">
+                                    <image style="width: 100%; height:100%" mode="aspectFit" src="{{ item.logoid }}"></image>
+                                </view>
+                                <view class="cp-p">
+                                    <view class="">
+                                    {{ item.name }}
+                                    </view>
+                                    <view class="tiaoxingMa inline-block">条形码：{{ item.num }}</view>
+                                    <view class="cp-shuLang cp-gy"  wx:if="{{ item.nums }}">购样数：
+                                        <text>{{ item.nums }}</text>
+                                        <text wx:if="{{ item.price }}">金额：￥{{ item.price }}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="bottom-sec">
+                                <!--<navigator  url="./addProduct?idx={{ index }}"  class="edit inline-block">
+                                    <image src="../../../image/edit.png" class="arrow  biao-arrow"/>
+                                    编辑
+                                </navigator>
+                                <view bindtap="del" id="{{ index }}" class="delete inline-block">
+                                    <image src="../../../image/delete.png" class="arrow  biao-arrow"/>
+                                    删除
+                                </view>-->
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="error">
+                            请在下方添加产品
+                        </view>
+                    </block>
+                </view>
+            </view> 
+        </view>
+    </form>
+    <view class="add-address">
+        <button class = "address-btn" bindtap="actionSheetTap">添加产品</button>
+    </view>
+</view>

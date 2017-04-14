@@ -1,0 +1,104 @@
+<view class="addr-body">
+    <form class = "form main-bottom" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="top-sec">
+            <view class="input-wrapper mb20">
+                <navigator class="input-w" url="../search/variety">
+                    <view class="input-title">线索品种</view>
+                    <view class="input-cell tr">
+                        <view class="input-text">太太乐</view>
+                        <view class="navigator-arrow"></view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">目标名称</view>
+                    <view class="input-cell">
+                        <input bindinput = "setName" name="input" placeholder="请输目标名称" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">目标人员</view>
+                    <view class="input-cell">
+                        <input bindinput = "setName" name="input" placeholder="请输入目标老板或负责人" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">目标性质</view>
+                    <view class="input-cell">
+                        <picker mode="selector" bindchange="bindPickerChange" placeholder="选择性质" value="{{index}}" range="{{array}}">
+                            <view class="input-text">{{array[index]}}</view>
+                            <view class="navigator-arrow"></view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">目标城市</view>
+                    <view class="input-cell">
+                        <picker mode="selector" bindchange="bindPickerChange" placeholder="选择地区" value="{{index}}" range="{{strike}}">
+                            <view class="input-text">{{strike[index]}}</view>
+                            <view class="navigator-arrow"></view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+
+            <template is="head" data="{{title: 'choose/previewImage'}}"/>
+                <form>
+                <view class="page-section input-wrapper mb20">
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd">
+                        <view class="weui-uploader">
+                            <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">上传图片（目标门店、仓库、营业执照以及内部情况等照片）</view>
+                            <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                            </view>
+                            <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files">
+                                <block wx:for="{{imageList}}" wx:for-item="image">
+                                <view class="weui-uploader__file">
+                                    <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                                </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                            </view>
+                        </view>
+                        </view>
+                    </view>
+                </view>
+                </form>
+            <template is="foot" />
+            <view class="input-wrapper mb20">
+                <view class="input-w">
+                    <view class="input-title">情况描述</view>
+                    <view class="input-cell">
+                        <textarea bindblur="bindTextAreaBlur" placeholder="请描述目标基本情况" placeholder-style = "color: #888888; " auto-height />
+                    </view>
+                </view>
+            </view>
+            
+             <view class="input-wrapper mb20">
+                <navigator class="input-w" url="../add/product/product">
+                    <view class="input-title">涉及产品</view>
+                    <view class="input-cell tr">
+                        <view class="navigator-arrow"></view>
+                    </view>
+                </navigator>
+            </view>
+        
+        </view>
+
+    </form>
+    <view class="add-address">
+        <button class = "address-btn" formType="submit" bindtap = "saveAddr">保存</button>
+    </view>
+</view>

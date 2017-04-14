@@ -4,43 +4,27 @@ Page({
   data: {
     select: '0',
     firstShow: null,
+    about: null,
     searchToggle: false,
     error: false,
     state: null,
-    bol: [
-      {
-        flag: false,
-      },
-      {
-        flag: false,
-      },
-      {
-        flag: false,
-      },
-      {
-        flag: false,
-      },
-      {
-        flag: false,
-      },
-      {
-        flag: false,
-      },
-      {
-        flag: false,
-      },
-    ]
+    url:'../add/product/addProduct'
   },
-  onLoad: function () {
+  onLoad: function (options) {
     var self = this;
+    if(options.idx){
+        this.setData({    
+            idx: options.idx,
+            url:'../add/product/addProduct?idx='+options.index
+          })
+    }
     wx.showToast({
       title: '加载中...',
       icon: 'loading',
       duration: 10000
     })
-    var list = "Citylist";
     wx.request({
-      url: 'https://www.youyuwei.com/apiweb/city?list=' + list + '',
+      url: 'http://192.168.0.115:5000/plist/',
       method: 'GET',
       header: {
         'Accept': 'application/json'
@@ -48,77 +32,93 @@ Page({
       success: function (res) {
         wx.hideToast();
         self.setData({
-          firstShow: res.data.data.list[0].citylist,
-          state: res.data.data.list
+          firstShow: res.data.data[0].plist,
+          state: res.data.data
         })
       },
     })
-  },
-  showList: function (e) {
-    var id = e.currentTarget.id;
-    var mark = this.data.mark;
-    var list = this.data.state;
-    var bol = this.data.bol;
-    if (id != "全部") {
-      for (var i = 0; i < list.length; i++) {
-        if (list[i].statename == id) {
-          bol[i].flag = !bol[i].flag
-        } else {
-          bol[i].flag = false
-        }
-      }
-      this.setData({
-        bol: bol
-      })
-    } else {
-      //点击切换回默认样式
-      this.setData({
-        firstShow: list[0].citylist,
-        select: "0",
-        countryname: ""
-      })
-    }
   },
   //改变右侧城市列表
   changeContent: function (e) {
     var self = this;
     var name = e.currentTarget.dataset.name;
     var arr = this.data.state;
-    for (var i = 1; i < arr.length; i++) {
-      var countrylist = arr[i].countrylist
-      for (var j = 0; j < countrylist.length; j++) {
-        if (countrylist[j].countryname == name) {
-          var citylist = countrylist[j].citylist
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].bname == name) {
+          var plist = arr[i].plist
           self.setData({
-            firstShow: citylist,
+            firstShow: plist,
             countryname: name,
-            select: "10"
+            select: i+''
           })
         }
-      }
+    }
+  },
+  selectProduct: function (e) {
+    var that = this;
+    var aid = e.currentTarget.id
+    var pinfo=that.data.firstShow[aid]
+    if(that.data.idx){
+        var mTarget = wx.getStorageSync('mTarget')
+        mTarget.pproduct[that.data.idx].id=pinfo.id
+        mTarget.pproduct[that.data.idx].name=pinfo.name
+        mTarget.pproduct[that.data.idx].sprice=pinfo.sprice
+        mTarget.pproduct[that.data.idx].logoid=pinfo.logoid
+        mTarget.pproduct[that.data.idx].num=pinfo.num
+        wx.setStorageSync('mTarget', mTarget)
+        wx.navigateBack({
+          delta:1, // 回退前 delta(默认为1) 页面
+          success: function(res){
+            // success
+          },
+          fail: function() {
+            // fail
+          },
+          complete: function() {
+            // complete
+          }
+        })
+    }else{
+        wx.navigateTo({
+          url: that.data.url,
+          success: function(res){
+              var setPinfo = app.globalData.mProduct
+              setPinfo.id=pinfo.id
+              setPinfo.name=pinfo.name
+              setPinfo.sprice=pinfo.sprice
+              setPinfo.logoid=pinfo.logoid
+              setPinfo.num=pinfo.num
+              app.globalData.mProduct = setPinfo
+              console.debug(app.globalData.mProduct)
+          },
+          fail: function() {
+            // fail
+          },
+          complete: function() {
+            // complete
+          }
+        })
     }
   },
   oninput: function (e) {
     var that = this;
     var val = e.detail.value
+    console.debug(val)
     if (val != "") {
       wx.request({
-        url: 'https://www.youyuwei.com/apiweb/xcxsearch?keyword=' + val + '',
+        url: 'http://192.168.0.115:5000/plist/?keyword=' + val + '',
         method: 'GET',
         success: function (res) {
-          var content = res.data.data.content;
-          if (content == undefined) {
-            var arr = res.data.data.list
-            var name = arr[0].name;
+          var content = res.data.ok;
+          if (content == true) {
+            var arr = res.data.data
             that.setData({
               searchToggle: true,
               about: arr,
               error: false,
-              name: name
             })
           } else {
             that.setData({
-              not: content,
               error: true
             })
           }

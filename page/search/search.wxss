@@ -12,13 +12,13 @@ vertical-align:middle;
 }
 .header_search {
 padding:30rpx 20rpx;
-background:#ffffff;
+background:#535e6c;
 box-shadow:0 2rpx 2rpx #e5e5e5;
 
 }
 .search {
   padding:12rpx 0;
-background:#eaeaea;
+background:#ffffff;
 color:#909090;
 border-radius:67rpx;
 font-size:24rpx;
@@ -47,7 +47,7 @@ bottom:0;
 display:block;
 width:100%;
 height:1px;
-background:#c6c6c6;
+background:#e8e8e8;
 transform:scaleY(.5);
 }
 
@@ -62,7 +62,7 @@ transform:scaleY(.5);
 
 .stateList {
   width: 25%;
-  background: #e3e3e3;
+  background: #f8f8f8;
   overflow-y: scroll;
 }
 
@@ -72,7 +72,7 @@ transform:scaleY(.5);
   line-height: 100rpx;
   text-align: center;
   font-size: 30rpx;
-  color: #727171;
+  color: #727272;
   overflow: hidden;
 }
 
@@ -178,7 +178,7 @@ display:inline-block;
 
 .d-right text {
   display: block;
-  font-size: 36rpx;
+  font-size: 28rpx;
   color: #282828;
   /*overflow: hidden;
   text-overflow: ellipsis;
@@ -218,7 +218,7 @@ border:1rpx solid #0286EC;
 color:#ffffff;
 display:inline-block;
 border-radius:3px;
-line-height:14px;
+line-height:36rpx;
 height:36rpx;
 float:right;
 font-size:11px;

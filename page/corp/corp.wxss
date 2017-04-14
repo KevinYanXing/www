@@ -1,0 +1,164 @@
+.header {
+    width: 100%;
+    border-bottom: 1rpx solid #f2f2f2;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/*tab切换css*/
+.list-tab{
+    height: 94rpx;
+  line-height: 94rpx;
+  width: 100%;
+  background: white;
+}
+.header-wrapper{
+  height:100%;
+  width:100%;
+  display:flex;
+  text-align:center;
+  border-bottom:1rpx solid #e8e8e8;
+}
+.single {
+  display:inline-block;
+  height:100%;
+  width:100%;
+  text-align:center;
+}
+.single {
+  position:relative;
+  top:1rpx;
+}
+.text-detail {
+  height:100%;
+  color:#9097a2;
+  display:inline-block;
+}
+.single .active {
+  color:#2fa7e0;
+  border-bottom:3rpx solid #2fa7e0;
+  height:92rpx;
+}
+/*tab切换css end*/
+
+.chanPing{
+  margin: 25rpx 0 0;
+}
+.cp-box{
+      box-shadow: 0px 1px 1px rgba(0,0,0,0.12), 0px 3px 2px rgba(0,0,0,0.10);
+}
+.main-container {
+  position: absolute;
+  top:212rpx;
+  bottom:0;
+  width:100%;
+}
+.top-slider {
+  display: block;
+  width: 100%;
+  height: 40%;
+  background: white;
+  border: 2rpx solid #e5e5e5;
+}
+.slider-sec{
+  width: 100%;
+  height: 100%;
+}
+.slide-image{
+  width:100%;
+  height:100%;
+  padding: 22rpx;
+}
+.list-detail {
+  width: 100%;
+  background: white;
+  margin-bottom: 25rpx;
+}
+
+.list-detail .list-sec {
+  width: 100%;
+  box-sizing: border-box;
+  display:inline-block;
+  padding: 10rpx 22rpx 22rpx;
+
+}
+.background{
+  width:100%;
+  background:#f8f8f8;
+  padding:15rpx 0;
+}
+.image {
+  display:block;
+  width:150rpx;
+  height:150rpx;
+  border:1rpx solid #eaedf4;
+  margin:8rpx auto;
+  border-radius:0rpx;
+  text-align:center;
+  float:left;
+}
+
+.bottom-sec {
+  margin-left: 182rpx;
+}
+.now {
+  color: #333;
+	font-weight: bold;
+  font-size: 14px;
+}
+.top-title{
+}
+.top-title .inline-block, .price-wrapper .inline-block{
+    vertical-align: middle;
+}
+.top-title .title{
+  width: 22%;
+  color: #969696;
+  font-size:12px;
+}
+.top-title .description{
+  color: #969696;
+  /*color: #4a4a4a;*/
+  font-size: 12px;
+}
+.go-buy{
+  padding-bottom: 10rpx;
+  border-bottom:1rpx solid #e5e5e5;
+}
+.time-l{
+  display:inline-block;
+  color:#969696;
+  font-size:24rpx;
+}
+.go-r {
+    display:inline-block;
+    text-align:right;
+    color:#52bea6;
+    font-size:24rpx;
+    float:right;
+}
+.not{
+	color: #ff7475;
+}
+.w78{
+    width:78%;
+    display: inline-block;
+
+}
+/*回复*/
+.reply{
+  padding-top: 10rpx;
+  border-top:1rpx solid #e5e5e5;
+  color:#969696;
+  font-size:12px;
+}
+.w88{
+    width:88%;
+    display: inline-block;
+}
+.f-time{
+  padding-top: 0rpx;
+  color:#969696;
+  font-size:12px;
+}
+/*回复 end*/

@@ -1,0 +1,92 @@
+
+<view class="purchase">
+    <view class="header">
+        <!--<view class="list-sous">
+            <view class="non search" bindtap="tapSearch">
+                <image class="icon" src="/image/icon_search.png"/>
+                <text>搜索</text>
+            </view>
+        </view>-->
+        <!--搜索状态-->
+        <view class="list-sous  {{scrollDown?'scrolled':''}}">
+            <view class="search" bindtap="tapSearch">
+                <image class="icon" src="/image/icon_search.png"/>
+                <input type="text" value="" class="input" bindinput="oninput" placeholder="输入关键字搜索" />
+            </view>
+            <view class="cancel">
+            </view>
+        </view>
+        <view class="list-tab">
+            <view class="header-wrapper"  style = "width: {{length *300}}rpx">
+                <view class = "single" wx:for="{{product}}" wx:for-index="index" data-index = "{{index}}"  bindtap="switchTab">
+                    <text class = "text-detail {{curNav == index ? 'active' : ''}}">{{item.sta}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class = "main-container">
+        <view class="chanPing">
+            <block wx:if="{{list.minfo == null}}">
+                <view class = "wait-more">暂无数据</view>
+            </block>
+            <block wx:if="{{list.minfo != null}}">
+                <view class = "list-detail cp-box" wx:for="{{list.minfo}}" wx:for-item="item" data-value = "{{item}}">
+                    <view class="list-sec" bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
+                        <view class="go-buy">
+                            <view class="time-l">提交：{{ item.d }}</view>
+                            <view class="go-r">{{ item.sta_name }}</view>
+                        </view>
+                        <view class="inline-block background">
+                            <view class="image" wx:if="{{item.imageName[0]}}">
+                                <image style="width: 100%; height:100%" mode="aspectFit" src="{{item.imageName[0]}}" background-size="cover"></image>
+                            </view>
+                            <view class="image" wx:else>
+                                <image style="width: 100%; height:100%" mode="aspectFit" src="../../image/zw.png" background-size="cover"></image>
+                            </view>
+                            <view class = "bottom-sec">
+                                <view class="now">{{item.pname}}</view>
+                                <view class = "top-title">
+                                    <view class = "title inline-block">性质</view>
+                                    <view class = "text-overflow description inline-block">{{item.ptype_name}}</view>
+                                </view>
+                                <view class = "top-title">
+                                    <view class = "title inline-block">名称</view>
+                                    <view class = "description inline-block" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
+                                </view>
+                                <view class = "top-title">
+                                    <view class = "fl title">地址</view>
+                                    <view class = "w78 description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="reply">
+                            <view class = "fl title">
+                                审核内容：
+                            </view>
+                            <view class = "w80 description">
+                                <block wx:if="{{ item.verify }}">
+                                    {{item.verify}}
+                                </block>
+                                <block wx:else>
+                                     暂未审核
+                                </block>
+                            </view>
+                            <view class="fl title">
+                                审核时间：
+                            </view>
+                            <view class = "w80 description">
+                                <block wx:if="{{ item.verify }}">
+                                    {{item.vd}}
+                                </block>
+                                <block wx:else>
+                                    暂未审核
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+</view>

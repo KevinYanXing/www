@@ -1,0 +1,305 @@
+.sec-kill {
+  height: 100%;
+  position: relative;
+}
+.header {
+  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 999;
+
+}
+.main-container {
+  width:100%;
+  position: absolute;
+  top:97rpx;
+  bottom:0;
+}
+.main-container swiper-item{
+  display: inline-block;
+}
+/*tab切换css*/
+.list-tab{
+    height: 94rpx;
+  line-height: 94rpx;
+  width: 100%;
+  background: white;
+}
+.header-wrapper{
+  height: 100%;
+    width: 100%;
+    display: flex;
+  text-align:center;
+  border-bottom:1rpx solid #e8e8e8;
+
+}
+.single {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.text-detail {
+  height: 100%;
+  color:#9097a2;
+  display: inline-block;
+}
+.single .active {
+  color: #2fa7e0;
+  border-bottom: 4rpx solid #2fa7e0;
+  height:92rpx;
+}
+.flexItem {
+}
+
+.list_active0 .view0{
+display: block;
+
+}
+
+.list_active1 .view1{
+display: block;
+}
+
+.list_active2 .view2{
+display: block;
+transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -webkit-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+
+}
+.tab_con {
+
+}
+.width20 {
+  width:100%;
+  display: none;
+
+}
+.prl{
+  padding:0 35rpx;
+}
+/*tab切换css end*/
+/*换轮图*/
+.top-slider {
+  display: block;
+  width: 100%;
+  height:503rpx;
+  background: white;
+}
+  .slider-sec{
+    width: 100%;
+    height: 100%;
+  }
+  .slide-image{
+    width:100%;
+    height:100%;
+  }
+/*换轮图*/
+.swiper-box{
+    display: initial;
+    height:auto;
+}
+.arrow{
+  width:32rpx;
+  height:32rpx;
+  display:block;
+
+}
+/*基本*/
+.back{
+    position: relative;
+    background: #ffffff;
+    margin-bottom: 22rpx;
+}
+.back:after {
+    content:" ";
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    border-bottom: 1px solid #ffffff;
+}
+.clue{
+
+}
+/*内容*/
+.title-content{
+  padding:46rpx 0 30rpx;
+  line-height:52rpx;
+}
+.title{
+  font-size: 18px;
+  font-weight: 600;
+}
+.content{
+  padding:23rpx 0;
+  line-height:52rpx;
+}
+.border{ 
+  border-bottom:1px solid #f0f0f0;
+}
+.name{
+  color:#969696;
+  float:left;
+}
+.value{
+  color:#404040;
+  margin-left:112rpx;
+}
+.value .value-text{
+  display:block;
+  width:100%;
+}
+/*有图标的*/
+.tuBiao image{
+  width: 32rpx;
+  height: 32rpx;
+  float: left;
+  padding-top:10rpx;
+}
+.tuBiao .value{
+  margin-left:66rpx;
+}
+/*内容 end*/
+
+/*涉嫌产品*/
+.image{
+    overflow: hidden;
+    display: block;
+    width: 150rpx;
+    height: 150rpx;
+    border: 1rpx solid #eaedf4;
+    margin: 30rpx auto;
+    border-radius: 0rpx;
+    text-align: center;
+    float: left;
+}
+.image view image{
+    vertical-align: middle;
+    width: initial;
+    height: initial;
+}
+.cp-p{
+  text-align:left;
+  padding:23rpx 0 10rpx;
+  margin-left:175rpx;
+}
+.tiaoxingMa{
+  padding:10rpx 0 ;
+  font-size:12px;
+  color:#969696;
+}
+.cp-shuLang{
+  padding: 0 0 10rpx;
+  color:#969696;
+}
+.cp-gy text:nth-child(1){
+  color:#333;
+}
+.cp-gy text:nth-child(2){
+  float: right;
+  color:#f53135;
+}
+.order-info{
+	position: relative;
+	font-size: 24rpx;
+	color: #a9a9a9;
+  padding-bottom: 10rpx;
+  border-bottom:1rpx solid #e5e5e5;
+}
+.order-state{
+	font-size:28rpx;
+  position:absolute;
+  right:4rpx;
+  top:12rpx;
+}
+/*标题*/
+.weuijz{
+  color:#898989;
+}
+.weui{
+  margin-left:36rpx;
+}
+.weui:after {
+    content:" ";
+  position:absolute;
+  left:34rpx;
+  top:41rpx;
+  right:0;
+  width:22rpx;
+  height:10rpx;
+  border-radius:50rpx;
+  background:#2fa7e0;
+}
+/*涉嫌产品 end*/
+
+.tableView{
+  display: initial;
+}
+/*基本 end*/
+
+
+/*暂无数据*/
+.hon-cen {
+  top:20%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0 auto;
+  position:absolute;
+  color:#7d7d82;
+}
+/*暂无数据 end*/
+/*进展*/
+.caseMingcheng{
+
+}
+.classname{
+  background: #ffffff;
+  padding:43rpx 35rpx 0;
+}
+.detail {
+    border-left: 4rpx solid #eeeeee;
+    padding: 0 0 35rpx 40rpx;
+    margin-left: 15rpx;
+    position: relative;
+}
+.detail:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: -14rpx;
+    top: 0px;
+    width: 20rpx;
+    height: 20rpx;
+    -webkit-border-radius: 10px;
+    background: #4a8de2;
+    border: 2rpx solid #ffffff;
+}
+.bdr{
+  padding-bottom:35rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+.b-no{
+  border-bottom: 0;
+}
+.content-time{
+  font-size: 14px;
+  position:relative;
+  top:-11rpx;
+}
+.content-time view{
+  font-size: 16px;
+  padding-bottom: 12rpx;
+}
+.content-time text:nth-child(2){
+  color: #6B6B6B;
+}
+.detail .time{
+  font-size:13px;
+  color:#CECECE;
+}
+/*进展 end*/

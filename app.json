@@ -1,14 +1,22 @@
 {
   "pages": [
     "page/index/index",
-    "page/list/corpList",
-    "page/list/caseList",
-    "page/add/corpAdd",
-    "page/add/caseAdd",
-    "page/contact/contact",
-    
-    "page/detail/detail",
+    "page/add/add",
+    "page/add/clueAdd",
+    "page/add/product/product",
+    "page/add/product/addProduct",
+
+    "page/corp/corp",
+    "page/corp/corpDetail",
+
+    "page/search/variety",
+    "page/clue/clue",
+    "page/clue/clueDetail",
+
+    "page/mine/mine",
+    "page/personal/personal",
     "page/detail/editAddr",
+    
     "page/search/search"
     ],
   "window": {
@@ -20,25 +28,25 @@
   "tabBar": {
     "color": "#7f8389",
     "selectedColor": "#2fa7e0",
-    "borderStyle": "white",
+    "borderStyle": "#D7D7DA",
     "backgroundColor": "#ffffff",
     "list": [{
       "pagePath": "page/index/index",
       "iconPath": "image/4.png",
       "selectedIconPath": "image/hover4.png",
       "text": "录入数据"
-    }, {
-      "pagePath": "page/list/corpList",
+    },{
+      "pagePath": "page/corp/corp",
       "iconPath": "image/1.png",
       "selectedIconPath": "image/hover1.png",
-      "text": "企业列表"
+      "text": "普查列表"
     },{
-      "pagePath": "page/list/caseList",
+      "pagePath": "page/clue/clue",
       "iconPath": "image/2.png",
       "selectedIconPath": "image/hover2.png",
-      "text": "案件列表"
+      "text": "线索列表"
     }, {
-      "pagePath": "page/personal/personal",
+      "pagePath": "page/mine/mine",
       "iconPath": "image/3.png",
       "selectedIconPath": "image/hover3.png",
       "text": "个人中心"
