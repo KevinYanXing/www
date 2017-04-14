@@ -1,5 +1,5 @@
 <view class="addr-body">
-    <form class = "form main-bottom" bindsubmit="formSubmit" bindreset="formReset">
+    <form class = "form" bindsubmit="formSubmit" bindreset="formReset">
         <view class="top-sec">
             <view class="input-wrapper">
                 <view class="input-w">
@@ -73,7 +73,7 @@
                         <view class="weui-uploader__files">
                             <block wx:for="{{imageList}}" wx:key="*this">
                             <view class="weui-uploader__file">
-                                <image class="weui-uploader__img" src="{{item}}" data-src="{{item}}" bindtap="pPhotoedit"></image>
+                                <image mode="aspectFill" class="weui-uploader__img" src="{{item}}" data-src="{{item}}" bindtap="pPhotoedit"></image>
                             </view>
                             </block>
                         </view>

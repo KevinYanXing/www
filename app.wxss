@@ -4,7 +4,7 @@ page {
   /*background-color: #ecf0f3;*/
     height:100%;
  /*font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Wenquanyi Micro Hei,Arial,sans-serif;*/
-    font: 400 13px/1.5 Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
+    font: 400 26rpx/1.5 Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
 }
 .sec-detail, .sec-kill, .payed-wrapper, .purchase{
     width: 100%;
@@ -320,12 +320,13 @@ right:38rpx;
 .form{
     width: 100%;
     box-sizing: border-box;
-    overflow-x:hidden;
+    
 }
 .main-bottom {
     position:absolute;
     bottom:138rpx;
     top:0;
+    overflow-x:hidden;
 }
 /*搜索*/
 .non{
@@ -400,17 +401,25 @@ input {
 }
 /*搜索 end*/
 /*提示暂无数据*/
-.wait-more {
+.wait-more{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  color: #7d7d7d;
+  font-size: 15px;
+}
+.error {
+    font-size: 15px;
+  text-align: center;
+  padding-top: 200rpx;
+  color: #7d7d7d;
 }
 /*提示暂无数据 end*/
 /*按钮*/
 .add-address{
-  position:fixed;
+  position:absolute;
   bottom:0;
   left:0;
   right:0;
@@ -516,7 +525,6 @@ input {
 }
 .input-w{
     padding:32rpx 0;
-    line-height:52rpx;
 
 }
 .input-wrapper .input-title{
@@ -554,3 +562,13 @@ picker {
 .inline-block{
     display: inline-block;
 }
+/*add 上传图片*/
+.page-section .weui-cell{
+    padding:20rpx 0;
+}
+.weui-uploader .weui-uploader__hd{
+    -webkit-box-align:initial;
+    -webkit-align-items:initial;
+    align-items:initial;
+}
+/*add 上传图片 end*/

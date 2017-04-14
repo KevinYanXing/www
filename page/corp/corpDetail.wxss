@@ -147,7 +147,7 @@ transition:all 0.4s ease-in-out;
   float:left;
 }
 .value{
-  color:#404040;
+  color:#7e7e7e;
   margin-left:112rpx;
 }
 .value .value-text{

@@ -10,8 +10,16 @@
     box-sizing: border-box;
     overflow-x:hidden;
 }
-.w80{
-    width: 91%;
+.add-address{
+    position:initial;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:0;
+    background-color:initial;
+}
+.input-cell .w80{
+    width: 90%;
     float:left;
-
+    margin-right:16px;
 }

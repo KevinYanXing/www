@@ -1,0 +1,32 @@
+<view class="addr-body">
+    <form class = "form main-bottom" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="top-sec">
+            <view class="noing">
+                <view class="weuijz prl">
+                    <view class="weui">企业信息</view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">市场名称</view>
+                    <view class="input-cell">
+                        <input bindinput = "setName" name="input" placeholder="请输入市场名称" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">负责人</view>
+                    <view class="input-cell">
+                        <input bindinput = "setName" name="input" placeholder="请输负责人姓名" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+          
+        
+        </view>
+    </form>
+    <view class="add-address">
+        <button class = "address-btn" formType="submit" bindtap = "saveAddr">保存</button>
+    </view>
+</view>

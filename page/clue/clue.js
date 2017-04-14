@@ -9,9 +9,9 @@ var detail = {
         {
           goodsImg: "../../image/test4.jpg",
           sellPrice: "科技厅木克土卡科扎克地铁批发市场",
-          goodsName: "发现品牌：",
+          goodsName: "发现品牌:",
           tagline: "太太乐 雀巢咖啡",
-          addr: "线索地址：",
+          addr: "线索地址:",
           address: "高科技贴囧减肥开服几点几分"
         },
        
@@ -23,16 +23,16 @@ var detail = {
         {
            goodsImg: "../../image/test4.jpg",
           sellPrice: "科技厅木克土卡科扎克地铁批发市场",
-          goodsName: "发现品牌：",
+          goodsName: "发现品牌:",
           tagline: "太太乐 雀巢咖啡",
           addr: "线索地址：",
           address: "高科技贴囧减肥开服几点几分"
         },{
           goodsImg: "../../image/test4.jpg",
           sellPrice: "科技厅木克土卡科扎克地铁批发市场",
-          goodsName: "发现品牌：",
+          goodsName: "发现品牌:",
           tagline: "太太乐 雀巢咖啡",
-          addr: "线索地址：",
+          addr: "线索地址:",
           address: "高科技贴囧减肥开服几点几分"
         },
       ]

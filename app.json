@@ -1,26 +1,22 @@
 {
   "pages": [
     "page/index/index",
-    "page/add/add",
-    "page/add/clueAdd",
-    "page/add/product/product",
-    "page/add/product/addProduct",
-
     "page/corp/corp",
     "page/corp/corpDetail",
-
-    "page/search/variety",
     "page/clue/clue",
     "page/clue/clueDetail",
-
-    "page/mine/mine",
-    "page/personal/personal",
-    "page/detail/editAddr",
+    "page/add/add",
+    "page/add/corpAdd",
+    "page/add/clueAdd",
+    "page/add/product/addProduct",
+    "page/add/product/product",
+    "page/search/search",
+    "page/search/variety",
+    "page/mine/mine"
     
-    "page/search/search"
-    ],
+  ],
   "window": {
-    "navigationBarTextStyle": "#fff",
+    "navigationBarTextStyle": "#ffffff",
     "navigationBarTitleText": "执法系统",
     "navigationBarBackgroundColor": "#0091ff",
     "backgroundColor": "#ffffff"
@@ -34,8 +30,8 @@
       "pagePath": "page/index/index",
       "iconPath": "image/4.png",
       "selectedIconPath": "image/hover4.png",
-      "text": "录入数据"
-    },{
+      "text": "添加录入"
+    }, {
       "pagePath": "page/corp/corp",
       "iconPath": "image/1.png",
       "selectedIconPath": "image/hover1.png",

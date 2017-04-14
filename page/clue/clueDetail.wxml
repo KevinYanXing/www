@@ -46,10 +46,20 @@
                         </view>
                         <view class="clue">
                             <view class="p35">
-                                <view class="content tuBiao">
+                                <view class="content border tuBiao">
                                     <image src="../../image/x3.png"></image>
                                     <view class="value">
                                         <text class="value-text">广州市珠江新城华东路360号</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="content tuBiao">
+                                    <image src="../../image/x4.png"></image>
+                                    <view class="value">
+                                        <text class="value-text">1快递费机电科打开房间的空间空间打开房间看见独守空房就</text>
                                     </view>
                                 </view>
                             </view>
@@ -61,7 +71,7 @@
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
                                 <block wx:for="{{list.imageList}}">
                                     <swiper-item>
-                                        <image src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
+                                        <image mode="aspectFill" src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
                                     </swiper-item>
                                 </block>
                             </swiper>

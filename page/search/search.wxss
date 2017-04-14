@@ -201,13 +201,6 @@ display:inline-block;
   background-size: 24rpx;
 }
 
-.error {
-  text-align: center;
-  padding-top: 200rpx;
-  color: #928178;
-  /*background: #f5f5f5;*/
-}
-
 .city-b{
   background-color: #ffffff;
 }

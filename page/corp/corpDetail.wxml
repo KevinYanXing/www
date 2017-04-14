@@ -51,7 +51,7 @@
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
                                 <block wx:for="{{list.imageList}}">
                                     <swiper-item>
-                                        <image src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
+                                        <image mode="aspectFill" src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
                                     </swiper-item>
                                 </block>
                             </swiper>

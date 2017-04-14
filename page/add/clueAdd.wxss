@@ -4,12 +4,15 @@
 }
 .top-sec{
 }
-.page-section{
-    padding: initial;
-}
 .input-cell textarea {
     width:initial;
-    display: flex;
-    padding-top: 6rpx;
     min-height: 186rpx;
+}
+.add-address{
+    position:initial;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:0;
+    background-color:initial;
 }

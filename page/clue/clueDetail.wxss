@@ -42,6 +42,7 @@
   text-align: center;
 }
 .text-detail {
+  font-size: 32rpx;
   height: 100%;
   color:#9097a2;
   display: inline-block;
@@ -64,8 +65,8 @@ display: block;
 }
 
 .list_active2 .view2{
-display: block;
-transition:all 0.4s ease-in-out;
+  display: block;
+  transition:all 0.4s ease-in-out;
     -moz-transition:all 0.4s ease-in-out;
     -webkit-transition:all 0.4s ease-in-out;
     -o-transition:all 0.4s ease-in-out;
@@ -147,7 +148,7 @@ transition:all 0.4s ease-in-out;
   float:left;
 }
 .value{
-  color:#404040;
+  color:#7e7e7e;
   margin-left:112rpx;
 }
 .value .value-text{
