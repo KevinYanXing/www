@@ -6,10 +6,10 @@
                     <block wx:if="{{ productSelected.length > 0 }}">
                         <view class="p20 mb20" wx:for="{{ productSelected }}" id="{{index}}" bindtap="editProduct">
                             <view class="order-info">
-                                <view wx:if="{{ item.mfd }}">生产日期 {{ item.mfd }}</view>
-                                <view wx:if="{{ item.mfd }}">到期日期 {{ item.exp }}</view>
+                                <view wx:if="{{ item.mfd }}">MFD:{{ item.mfd }}</view>
+                                <view wx:if="{{ item.mfd }}">EXP:{{ item.exp }}</view>
                                 <view wx:if="{{ item.bnum }}">
-                                    <text class="order-state">生产批次 {{ item.bnum }}</text>
+                                    <text class="order-state">{{ item.bnum }}</text>
                                 </view>
                             </view>
                             <view class="inline-block" style="width:100%;">
