@@ -85,6 +85,7 @@ Page({
     dTarget:{}
 
   },
+  
   onShow:function(){
     //初始化数据
     var mTarget = wx.getStorageSync('mTarget')
