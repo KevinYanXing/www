@@ -2,7 +2,7 @@
 <view class="purchase">
     <view class="header">
         <view class="list-sous {{showView?'':'none'}}" bindtap="onChangeShowState">
-            <view class="non search" bindtap="tapSearch">
+            <view class="non search">
                 <icon class="icon" type="search" size="14"></icon>
                 <text>搜索</text>
             </view>
@@ -10,7 +10,7 @@
         <!--搜索状态-->
         <view class="list-sous none {{showView?'':'Block'}}">
             <view class="cancel" bindtap="onChangeShowState">取消</view>
-            <view class="search" bindtap="tapSearch">
+            <view class="search" bindtap="oninput">
                 <icon class="icon" type="search" size="14"></icon>
                 <input type="text" value="" class="input" bindinput="oninput" placeholder="输入关键字搜索" />
             </view>
@@ -25,10 +25,10 @@
     </view>
     <form class = "main-container">
         <view class="chanPing">
-            <block wx:if="{{list.minfo == null}}">
+            <block wx:if="{{list.minfo == null || error}}">
                 <view class = "wait-more">暂无数据</view>
             </block>
-            <block wx:if="{{list.minfo != null}}">
+            <block wx:else>
                 <view class = "list-detail cp-box" wx:for="{{list.minfo}}" wx:for-item="item" data-value = "{{item}}">
                     <view class="list-sec" bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
                         <view class="go-buy p35">
@@ -69,7 +69,7 @@
                                     {{item.verify}}
                                 </block>
                                 <block wx:else>
-                                     暂未审核
+                                    暂未审核
                                 </block>
                             </view>
                             <view class="fl title f-time">

@@ -6,6 +6,8 @@ Page({
     //点击展开事件
     showView:true,
     //点击展开事件 end
+
+    searchToggle: false,
   },
   onShow:function(){
 
@@ -23,7 +25,7 @@ Page({
   onShow: function() {
     var that  = this,
         index = that.data.curNav
-    wx.request({
+    wx.request({  
       url: 'http://192.168.0.115:5000/mlist/',
       data: {},
       method: 'GET', 
@@ -124,6 +126,36 @@ Page({
             }
           }
         })
+  },
+  oninput: function (e) {
+    var that = this;
+    var val = e.detail.value
+    if (val && val != "") {
+      wx.request({
+        url: 'http://192.168.0.115:5000/mlist/?keyword=' + val + '',
+        method: 'GET',
+        success: function (res) {
+          var content = res.data.ok;
+          console.debug(content,111)
+          if (content == true) {
+            var arr = res.data.data
+            that.setData({
+              product: res.data.data,
+              list: res.data.data[that.data.curNav],
+              error: false,
+            })
+          } else {
+            that.setData({
+              error:true
+            })
+          }
+        },
+      })
+    }else{
+      that.setData({
+        error:false
+      })
+    }
   },
 
 })
