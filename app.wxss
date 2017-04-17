@@ -347,7 +347,6 @@ right:38rpx;
 .input {
     vertical-align:middle;
     margin-left:58rpx;
-    margin-top: -6rpx;
 }
 .list-sous{
     background: #eee;

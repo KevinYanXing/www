@@ -10,9 +10,10 @@ Page({
     state: null,
     url:'../add/product/addProduct',
 
-    //点击展开事件
+    //搜索展开事件
     showView:true,
-    //点击展开事件 end
+    searchValue:'',
+    //搜索展开事件 end
   },
   onLoad: function (options) {
     var self = this;
@@ -42,15 +43,16 @@ Page({
       },
     })
   },
-  //点击展开事件
+  //搜索展开事件
   onChangeShowState:function(){
       var that=this;
       that.setData({
         showView:(!that.data.showView),
-        searchToggle:false
+        searchToggle:false,
+        searchValue:''
       })
   },
-  //点击展开事件 end
+  //搜索展开事件 end
   //改变右侧城市列表
   changeContent: function (e) {
     var self = this;

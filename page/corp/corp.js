@@ -3,9 +3,10 @@ Page({
   data: {
     curNav: "0",
     product:[{'sta':'全部'},{'sta':'待审核'},{'sta':'已通过'},{'sta':'已拒绝'}],
-    //点击展开事件
+    //搜索展开事件
     showView:true,
-    //点击展开事件 end
+    searchValue:'',
+    //搜索展开事件 end
   },
   onShow:function(){
 
@@ -38,14 +39,15 @@ Page({
       },
     })
   },
-  //点击展开事件
+  //搜索展开事件
   onChangeShowState:function(){
       var that=this;
       that.setData({
-        showView:(!that.data.showView)
+        showView:(!that.data.showView),
+        searchValue:'',
       })
   },
-  //点击展开事件 end
+  //搜索展开事件 end
   selected: function(e) {
       var that = this
       var id = e.currentTarget.id
