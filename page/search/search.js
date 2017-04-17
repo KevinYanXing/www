@@ -8,7 +8,11 @@ Page({
     searchToggle: false,
     error: false,
     state: null,
-    url:'../add/product/addProduct'
+    url:'../add/product/addProduct',
+
+    //点击展开事件
+    showView:true,
+    //点击展开事件 end
   },
   onLoad: function (options) {
     var self = this;
@@ -38,6 +42,15 @@ Page({
       },
     })
   },
+  //点击展开事件
+  onChangeShowState:function(){
+      var that=this;
+      that.setData({
+        showView:(!that.data.showView),
+        searchToggle:false
+      })
+  },
+  //点击展开事件 end
   //改变右侧城市列表
   changeContent: function (e) {
     var self = this;
@@ -132,5 +145,7 @@ Page({
         searchToggle: false,
       })
     }
-  }
+  },
+
+  
 })

@@ -1,10 +1,9 @@
 /*@import "/wxParse/wxParse.wxss";*/
 page {
-  background-color: #eff2f4;
-  /*background-color: #ecf0f3;*/
+  background-color: #eee;
     height:100%;
- /*font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Wenquanyi Micro Hei,Arial,sans-serif;*/
-    font: 400 26rpx/1.5 Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
+    font-family:-apple-system-font,Microsoft YaHei,Helvetica Neue,Helvetica,sans-serif;
+    font-size:24rpx;
 }
 .sec-detail, .sec-kill, .payed-wrapper, .purchase{
     width: 100%;
@@ -224,7 +223,7 @@ checkbox, radio{
     display: none;
     margin-top: 20rpx;
     font-size: 26rpx;
-    color: #BBBBBB;
+    color: #666;
 }
 
 .section{
@@ -318,36 +317,40 @@ right:38rpx;
     text-align: right;
 }
 /*搜索*/
-.non{
+.list-sous .non{
   text-align:center;
+  line-height: 40rpx;
 }
 .list-sous .non .icon{
-  top:2rpx;
-  left:-5rpx;
+  top:7rpx;
+  left:-12rpx;
+  float:initial;
 }
 .none{
   display: none !important;
 }
 /*搜索状态*/
-.input {
-    display:inline-block;
-    width:85%;
-    vertical-align:middle;
-    font-size:26rpx;
-    margin-left:10rpx;
-    text-align:left;
-    line-height:26rpx;
+.Block{
+    display: block !important;
 }
-input {
-    display:block;
-    height:1.4rem;
-    text-overflow:clip;
-    overflow:hidden;
-    white-space:nowrap;
-    font-family:UICTFontTextStyleBody;
-    min-height:1.4rem;
+.list-sous .search {
+    width:85%;
+    height:40rpx;
+	-webkit-flex: 1;
+	color: #888;
+	padding: 10rpx;
+	border-radius: 38rpx;
+	background: #fff;
+	border:1rpx solid #e5e5e5;
+
+}
+.input {
+    vertical-align:middle;
+    margin-left:58rpx;
+    margin-top: -6rpx;
 }
 .list-sous{
+    background: #eee;
 	display: -webkit-flex;
 	width: 100%;
 	padding: 20rpx;
@@ -359,11 +362,11 @@ input {
 	background: #feb70f;
 }
 .list-sous .icon {
-	width: 40rpx;
-	height: 40rpx;
-	vertical-align: top;
-  position:relative;
-  top:5rpx;
+	vertical-align:top;
+    position:relative;
+    top:7rpx;
+    left:16rpx;
+    float:left;
 }
 .list-sous .location {
 	color: #fff;
@@ -377,16 +380,13 @@ input {
 	margin-right: 20rpx;
 	vertical-align: middle;
 }
-.list-sous .search {
-	-webkit-flex: 1;
-	color: #888;
-	font-size: 30rpx;
-	line-height: 40rpx;
-	padding: 10rpx;
-	border-radius: 38rpx;
-	background: #fff;
-	border:1rpx solid #e5e5e5;
-
+.cancel{
+    color:#0091ff;
+    display:inline-block;
+    float:right;
+    position:relative;
+    top:17rpx;
+    right:0;
 }
 /*搜索 end*/
 /*提示暂无数据*/
@@ -510,7 +510,7 @@ input {
    border-bottom:1px solid #f0f0f0;
 }
 .cellTitle {
-  color: #969696;
+  color: #666;
   float:left;
 }
 .cellContent {

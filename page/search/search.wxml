@@ -1,10 +1,18 @@
 
 <!--<include src="../template/commonSearch.wxml" />-->
-<view class="header_search header-top">
-  <view class="search">
-    <image class="search_icon" src="../../image/icon_search.png"></image>
-    <input type="text" value="" class="input" bindinput="oninput" placeholder="请输入产品名称/条形码/关键字检索" />
-  </view>
+<view class="list-sous header-top {{showView?'':'none'}}" bindtap="onChangeShowState">
+    <view class="non search" bindtap="tapSearch">
+        <icon class="icon" type="search" size="14"></icon>
+        <text>搜索</text>
+    </view>
+</view>
+<!--搜索状态-->
+<view class="list-sous header-top none {{showView?'':'Block'}}">
+    <view class="cancel" bindtap="onChangeShowState">取消</view>
+    <view class="search" bindtap="tapSearch">
+        <icon class="icon" type="search" size="14"></icon>
+        <input type="text" value="{{ searchValue }}" class="input" bindinput="oninput" placeholder="请输入产品名称/条形码/关键字检索" />
+    </view>
 </view>
 <form class="form main-top">
   <view class="content {{searchToggle==true ? 'c-close': 'c-show'}}">
