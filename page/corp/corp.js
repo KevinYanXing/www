@@ -4,6 +4,7 @@ Page({
     curNav: 0,
     product:[{'sta':'全部'},{'sta':'待审核'},{'sta':'已通过'},{'sta':'已拒绝'}],
     //搜索展开事件
+    focus:false,
     showView:true,
     searchValue:'',
     //搜索展开事件 end
@@ -43,9 +44,12 @@ Page({
   onChangeShowState:function(){
       var that=this;
       that.setData({
+        focus:(!that.data.focus),
         showView:(!that.data.showView),
-        searchValue:'',
+        searchToggle:false,
+        searchValue:''
       })
+      console.debug(that.data.focus)
   },
   //搜索展开事件 end
   selected: function(e) {

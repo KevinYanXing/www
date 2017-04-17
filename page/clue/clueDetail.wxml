@@ -78,13 +78,13 @@
                             </view>
                         </view>
                     </view>
-                    <view class="back">
+                    <view class="">
                         <view class="noing border">
                             <view class="weuijz prl">
                                 <view class="weui">涉嫌产品</view>
                             </view>
                         </view>
-                        <view class="mychanPing">
+                        <view class="mychanPing mb20">
                             <view class="p20 border">
                                 <view class="inline-block">
                                     <view class="image">

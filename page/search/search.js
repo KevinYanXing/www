@@ -7,10 +7,12 @@ Page({
     about: null,
     searchToggle: false,
     error: false,
+
     state: null,
     url:'../add/product/addProduct',
 
     //搜索展开事件
+    focus:false,
     showView:true,
     searchValue:'',
     //搜索展开事件 end
@@ -47,10 +49,12 @@ Page({
   onChangeShowState:function(){
       var that=this;
       that.setData({
+        focus:(!that.data.focus),
         showView:(!that.data.showView),
         searchToggle:false,
         searchValue:''
       })
+      console.debug(that.data.focus)
   },
   //搜索展开事件 end
   //改变右侧城市列表

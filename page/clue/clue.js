@@ -4,6 +4,7 @@ Page({
     curNav: "0",
     product:[{'sta':'发现的线索'},{'sta':'指派的线索'}],
     //搜索展开事件
+    focus:false,
     showView:true,
     searchValue:''
     //搜索展开事件 end
@@ -45,9 +46,12 @@ Page({
   onChangeShowState:function(){
       var that=this;
       that.setData({
+        focus:(!that.data.focus),
         showView:(!that.data.showView),
+        searchToggle:false,
         searchValue:''
       })
+      console.debug(that.data.focus)
   },
   //搜索展开事件 end
   selected: function(e) {

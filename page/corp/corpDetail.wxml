@@ -54,13 +54,13 @@
                             </view>
                         </view>
                     </view>
-                    <view class="back">
+                    <view class="">
                         <view class="noing border">
                             <view class="weuijz prl">
                                 <view class="weui">产品</view>
                             </view>
                         </view>
-                        <view class="mychanPing" wx:for="{{ mdetail.pproduct }}">
+                        <view class="mychanPing mb20" wx:for="{{ mdetail.pproduct }}">
                             <view class="p20 border">
                                 <view class="order-info">
                                     <view wx:if="{{ item.mfd }}">MFD:{{ item.mfd }}</view>
