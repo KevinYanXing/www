@@ -7,7 +7,8 @@
 }
 .main-top {
   position:absolute;
-  top:134rpx;
+  /*top:134rpx;*/
+  top:109rpx;
   overflow-x:initial;
 }
 .cityList{
@@ -18,28 +19,16 @@
   color: #0091ff !important;
   background: #fff;
 }
-.search_icon {
-width:40rpx;
-height:40rpx;
-vertical-align:middle;
-
+.header-top {
+  background-color:#fff;
+  border-bottom:1px solid #e8e8e8;
 }
+
 .header_search {
 padding:30rpx 20rpx;
 background:#535e6c;
 box-shadow:0 2rpx 2rpx #e5e5e5;
-
 }
-.search {
-  padding:12rpx 0;
-background:#ffffff;
-color:#909090;
-border-radius:67rpx;
-font-size:24rpx;
-text-align:center;
-outline:none;
-}
-
 .arrowRight {
   width:20rpx;
 height:20rpx;
@@ -55,28 +44,28 @@ transform:rotate(-90deg);
 
 }
 .border::after {
-content:"";
-position:absolute;
-bottom:0;
-display:block;
-width:100%;
-height:1px;
-background:#e8e8e8;
-transform:scaleY(.5);
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  border-bottom:1rpx solid #ccc;
 }
-
+.active .border::after{
+  border-bottom:1rpx solid #fff;
+}
 .content {
   display: flex;
   height: 100%;
   flex-direction: row;
   flex: 1;
   background: #ffffff;
-  border-top:1px solid #e8e8e8;
 }
 
 .stateList {
   width: 25%;
-  background: #f8f8f8;
+  /*background: #f8f8f8;*/
+  background: #eee;
   overflow-y: scroll;
 }
 
@@ -123,16 +112,6 @@ transform:scaleY(.5);
   transition: 0.3s;
   transform: rotate(90deg);
 }
-.input {
-  display:inline-block;
-  width:85%;
-  vertical-align:middle;
-  font-size:26rpx;
-  margin-left:10rpx;
-  text-align:left;
-  line-height:26rpx;
-}
-
 .c-show {
   display: flex;
 }
@@ -159,7 +138,7 @@ transform:scaleY(.5);
 
 .search-show .title {
   font-size: 32rpx;
-  color: #282828;
+  color: #666;
   padding:18rpx 0rpx;
 }
 .search-show .city-detail {
@@ -180,7 +159,7 @@ margin-top:11rpx;
 
 .city-detail {
   padding: 18rpx 0;
-  border-bottom:1px solid #e8e8e8;
+  border-bottom:1rpx solid #eee;
   background-color: #ffffff;
 }
 
@@ -201,7 +180,7 @@ display:inline-block;
 
 .d-right text:nth-child(2), text:nth-child(3) {
   font-size: 12px;
-  color: #868686;
+  color: #969696;
 }
 
 .location:before {

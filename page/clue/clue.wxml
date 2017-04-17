@@ -1,16 +1,24 @@
 
 <view class="purchase">
     <view class="header">
-        <view class="list-sous {{scrollDown?'scrolled':''}}">
+        <view class="list-sous {{showView?'':'none'}}" bindtap="onChangeShowState">
+            <view class="non search" bindtap="tapSearch">
+                <icon class="icon" type="search" size="14"></icon>
+                <text>搜索</text>
+            </view>
+        </view>
+        <!--搜索状态-->
+        <view class="list-sous none {{showView?'':'Block'}}">
+            <view class="cancel" bindtap="onChangeShowState">取消</view>
             <view class="search" bindtap="tapSearch">
-                <image class="icon" src="/image/icon_search.png"/>
+                <icon class="icon" type="search" size="14"></icon>
                 <input type="text" value="" class="input" bindinput="oninput" placeholder="输入关键字搜索" />
             </view>
         </view>
         <view class="list-tab">
             <view class="header-wrapper"  style = "width: {{length *300}}rpx">
                 <view class = "single" wx:for="{{product}}" wx:for-index="index" data-index = "{{index}}"  bindtap="switchTab">
-                    <text class = "text-detail {{curNav == index ? 'active' : ''}}">{{item.title}}</text>
+                    <text class = "text-detail {{curNav == index ? 'active' : ''}}">{{item.sta}}</text>
                 </view>
             </view>
         </view>
@@ -18,11 +26,11 @@
     <view class = "main-container">
         <view class="chanPing">
             <block wx:if="{{list.goodsList == null}}">
-                <view class = "wait-more">暂无数据</view>
+                <view class="wait-more">暂无数据</view>
             </block>
-            <block wx:if="{{list.goodsList != null}}">
-                <view class = "list-detail cp-box" wx:for="{{list.goodsList}}" wx:for-item="item" data-value = "{{item}}">
-                    <navigator class="list-sec" url="../clue/clueDetail">
+            <block wx:if="{{list.minfo != null}}" >
+                <view class = "list-detail cp-box" wx:for="{{list.minfo}}" wx:for-item="item" data-value = "{{item}}">
+                    <view class="list-sec"  bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
                         <view class="go-buy p35">
                             <view class="time-l">提交：2017-0-26</view>
                             <view class="go-r">完成</view>
@@ -69,7 +77,7 @@
                                 </block>
                             </view>
                         </view>
-                    </navigator>
+                    </view>
                 </view>
             </block>
         </view>

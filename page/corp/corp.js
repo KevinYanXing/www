@@ -2,11 +2,15 @@ var app    = getApp();
 Page({
   data: {
     curNav: "0",
-    product:[{'sta':'全部'},{'sta':'待审核'},{'sta':'已通过'},{'sta':'已拒绝'}]
+    product:[{'sta':'全部'},{'sta':'待审核'},{'sta':'已通过'},{'sta':'已拒绝'}],
+    //点击展开事件
+    showView:true,
+    //点击展开事件 end
   },
   onShow:function(){
 
   },
+  
   switchTab: function(e) {
     var that  = this,
         index = e.currentTarget.dataset.index,
@@ -15,9 +19,6 @@ Page({
         list: info,
         curNav: index,
       });
-  },
-  onLoad: function() {
-    
   },
   onShow: function() {
     var that  = this,
@@ -37,6 +38,14 @@ Page({
       },
     })
   },
+  //点击展开事件
+  onChangeShowState:function(){
+      var that=this;
+      that.setData({
+        showView:(!that.data.showView)
+      })
+  },
+  //点击展开事件 end
   selected: function(e) {
       var that = this
       var id = e.currentTarget.id
@@ -104,8 +113,6 @@ Page({
             }
           }
         })
-  }
-
-
+  },
 
 })
