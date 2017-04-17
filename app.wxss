@@ -259,6 +259,9 @@ checkbox, radio{
   display:block;
 }
 /*标题*/
+.noing{
+    background: #fff;
+}
 .wx-text {
 font-size:28rpx;
 margin-left:40rpx;
@@ -347,7 +350,6 @@ right:38rpx;
 .input {
     vertical-align:middle;
     margin-left:58rpx;
-    margin-top: -6rpx;
 }
 .list-sous{
     background: #eee;

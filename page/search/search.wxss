@@ -140,10 +140,11 @@ transform:rotate(-90deg);
 }
 .city-detail .img {
   width:116rpx;
-height:116rpx;
-margin-right:26rpx;
-vertical-align:top;
-margin-top:11rpx;
+  height:116rpx;
+  margin-right:26rpx;
+  vertical-align:top;
+  margin-top:11rpx;
+  border:1rpx solid #eaedf4;
 
 }
 

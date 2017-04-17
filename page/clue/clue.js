@@ -3,9 +3,11 @@ Page({
   data: {
     curNav: "0",
     product:[{'sta':'发现的线索'},{'sta':'指派的线索'}],
-    //点击展开事件
+    //搜索展开事件
+    focus:false,
     showView:true,
-    //点击展开事件 end
+    searchValue:''
+    //搜索展开事件 end
   },
   onShow:function(){
 
@@ -40,14 +42,18 @@ Page({
       },
     })
   },
-  //点击展开事件
+  //搜索展开事件
   onChangeShowState:function(){
       var that=this;
       that.setData({
-        showView:(!that.data.showView)
+        focus:(!that.data.focus),
+        showView:(!that.data.showView),
+        searchToggle:false,
+        searchValue:''
       })
+      console.debug(that.data.focus)
   },
-  //点击展开事件 end
+  //搜索展开事件 end
   selected: function(e) {
       var that = this
       var id = e.currentTarget.id

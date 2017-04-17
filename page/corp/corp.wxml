@@ -12,7 +12,7 @@
             <view class="cancel" bindtap="onChangeShowState">取消</view>
             <view class="search" bindtap="oninput">
                 <icon class="icon" type="search" size="14"></icon>
-                <input type="text" value="" class="input" bindinput="oninput" placeholder="输入关键字搜索" />
+                <input type="text" value="{{ searchValue }}" class="input" focus="{{ focus }}" confirm-type="search"  bindinput="oninput" placeholder="输入关键字搜索" />
             </view>
         </view>
         <view class="list-tab">
