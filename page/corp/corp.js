@@ -1,7 +1,7 @@
 var app    = getApp();
 Page({
   data: {
-    curNav: "0",
+    curNav: 0,
     product:[{'sta':'全部'},{'sta':'待审核'},{'sta':'已通过'},{'sta':'已拒绝'}],
     //搜索展开事件
     showView:true,
@@ -23,7 +23,7 @@ Page({
   },
   onShow: function() {
     var that  = this,
-        index = 0
+        index = that.data.curNav
     wx.request({
       url: 'http://192.168.0.115:5000/mlist/',
       data: {},
@@ -91,9 +91,20 @@ Page({
                             data: {},
                             method: 'GET',
                             success: function(res){ 
-                                that.data.list.minfo.splice(idx,1)
-                                that.setData({
-                                  list:that.data.list
+                                var index = that.data.curNav
+                                wx.request({
+                                  url: 'http://192.168.0.115:5000/mlist/',
+                                  data: {},
+                                  method: 'GET', 
+                                  success: function(res){
+                                    that.setData({
+                                      product: res.data.data,
+                                      list: res.data.data[index],
+                                    })
+                                  },
+                                  fail: function(res) {
+                                    console.debug(res)
+                                  },
                                 })
                                 wx.showToast({
                                   title: '删除成功!',
