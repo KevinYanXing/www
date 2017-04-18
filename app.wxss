@@ -602,3 +602,12 @@ picker {
 .inline-block{
     display: inline-block;
 }
+
+
+.c-close {
+  display: none;
+}
+
+.s-show {
+  display: block;
+}

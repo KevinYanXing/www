@@ -58,3 +58,10 @@ page{
 .min-h{
     min-height: 80rpx;
 }
+.add-address{
+    background: #fff;
+}
+.light{
+    background: #2ea4ff;
+    color:#fff;
+}

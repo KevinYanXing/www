@@ -112,17 +112,7 @@ transform:rotate(-90deg);
   transition: 0.3s;
   transform: rotate(90deg);
 }
-.c-show {
-  display: flex;
-}
 
-.c-close {
-  display: none;
-}
-
-.s-show {
-  display: block;
-}
 
 /*输入框点击部分*/
 
@@ -211,4 +201,13 @@ float:right;
 font-size:11px;
 position:relative;
 top:54rpx;
+}
+.c-show {
+  display: flex;
+}
+.c-close {
+  display: none;
+}
+.s-show {
+  display: block;
 }
