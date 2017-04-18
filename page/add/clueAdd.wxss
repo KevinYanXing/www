@@ -16,3 +16,9 @@
     z-index:0;
     background-color:initial;
 }
+
+/**没有黄框且不能拖拽**/
+textarea{
+    outline:none;
+    resize:none;
+}

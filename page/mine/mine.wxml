@@ -7,6 +7,25 @@
     </view>
 
     <view class="back mt20">
+        <view class="tongJi">
+            <view class="t1">
+                <view class="S-text blue">10</view>
+                <view class="T-txet">普查清扫</view>
+            </view>
+            <view class="geliTiao" ></view>
+            <view class="t2">
+                <view class="S-text blue">10</view>
+                <view class="T-txet">发现线索</view>
+            </view>
+            <view class="geliTiao" ></view>
+            <view class="t3">
+                <view class="S-text blue">10</view>
+                <view class="T-txet">指派线索</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="back mt20">
         <view class="input-wrapper">
             <view class="input-w">
                 <image src="../../image/s2.png"></image>

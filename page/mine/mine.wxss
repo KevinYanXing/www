@@ -35,6 +35,34 @@
   font-size: 16px;
 }
 /*头像 end*/
+
+/*统计*/
+.tongJi{
+    width:100%;
+    display:flex;
+}
+.tongJi .t1,.tongJi .t2,.tongJi .t3{
+    width:100%;
+    display:inline-block;
+    text-align:center;
+    padding: 30rpx 22rpx;
+}
+.tongJi .geliTiao{
+    width:1rpx;
+    height:76rpx;
+    display:inline-block;
+    background:#D9D9D9;
+    margin-top:38rpx;
+}
+.tongJi .t1 .S-text,.tongJi .t2 .S-text,.tongJi .t3 .S-text{
+    font-size: 36rpx;
+    padding-bottom: 10rpx;
+}
+.tongJi .t1 .T-txet,.tongJi .t2 .T-txet,.tongJi .t3 .T-txet{
+    color: #666;
+}
+/*统计 end*/
+
 /*设置*/
 .back{
     position: relative;

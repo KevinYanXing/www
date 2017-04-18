@@ -322,10 +322,14 @@ right:38rpx;
 /*搜索*/
 .list-sous .non{
   text-align:center;
-  line-height: 40rpx;
+  line-height:1.4rem;
+    height:1.4rem;
+}
+.list-sous .non.search{
+    width: 100%;
 }
 .list-sous .non .icon{
-  top:7rpx;
+  top:12rpx;
   left:-12rpx;
   float:initial;
 }
@@ -336,29 +340,21 @@ right:38rpx;
 .Block{
     display: block !important;
 }
+.list-sous{
+    background:#eee;
+    display:-webkit-flex;
+    width:100%;
+    padding:20rpx;
+    box-sizing:border-box;
+}
 .list-sous .search {
     width:85%;
-    height:40rpx;
-	-webkit-flex: 1;
-	color: #888;
-	padding: 10rpx;
-	border-radius: 38rpx;
-	background: #fff;
-	border:1rpx solid #e5e5e5;
-
-}
-.input {
-    vertical-align:middle;
-    margin-left:58rpx;
-}
-.list-sous{
-    background: #eee;
-	display: -webkit-flex;
-	width: 100%;
-	padding: 20rpx;
-	box-sizing: border-box;
-	z-index: 1;
-	-webkit-transition: background 0.5s ease-in-out;
+    color:#888;
+    font-size: 26rpx;
+    padding:10rpx;
+    border-radius:38rpx;
+    background:#fff;
+    border:1rpx solid #e5e5e5;
 }
 .list-sous.scrolled {
 	background: #feb70f;
@@ -366,7 +362,7 @@ right:38rpx;
 .list-sous .icon {
 	vertical-align:top;
     position:relative;
-    top:7rpx;
+    top:12rpx;
     left:16rpx;
     float:left;
 }
@@ -382,13 +378,21 @@ right:38rpx;
 	margin-right: 20rpx;
 	vertical-align: middle;
 }
+.input {
+    vertical-align:middle;
+    margin-left:58rpx;
+}
 .cancel{
     color:#0091ff;
     display:inline-block;
     float:right;
     position:relative;
-    top:17rpx;
+    top:0rpx;
     right:0;
+    width:60rpx;
+    height:74rpx;
+    line-height:74rpx;
+    text-align:center;
 }
 /*搜索 end*/
 /*提示暂无数据*/

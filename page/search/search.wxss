@@ -8,7 +8,7 @@
 .main-top {
   position:absolute;
   /*top:134rpx;*/
-  top:109rpx;
+  top:116rpx;
   overflow-x:initial;
 }
 .cityList{
