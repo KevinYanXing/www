@@ -25,7 +25,7 @@
     </view>
     <form class = "main-container">
         <view class="chanPing">
-            <block wx:if="{{list.minfo == null || error}}">
+            <block wx:if="{{list.minfo.length == 0 || error}}">
                 <view class = "wait-more">暂无数据</view>
             </block>
             <block wx:else>

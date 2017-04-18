@@ -54,7 +54,6 @@ Page({
         searchToggle:false,
         searchValue:''
       })
-      console.debug(that.data.focus)
   },
   //搜索展开事件 end
   //改变右侧城市列表
@@ -123,14 +122,12 @@ Page({
   oninput: function (e) {
     var that = this;
     var val = e.detail.value
-    console.debug(val)
-    if (val != "") {
+    if (val && val != "") {
       wx.request({
         url: 'http://192.168.0.115:5000/plist/?keyword=' + val + '',
         method: 'GET',
         success: function (res) {
           var content = res.data.ok;
-          console.debug(content)
           if (content == true) {
             var arr = res.data.data
             that.setData({

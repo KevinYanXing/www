@@ -27,20 +27,21 @@ Page({
   onShow: function() {
     var that  = this,
         index = that.data.curNav
-    wx.request({  
-      url: 'http://192.168.0.115:5000/mlist/',
-      data: {},
-      method: 'GET', 
-      success: function(res){
-        that.setData({
-          product: res.data.data,
-          list: res.data.data[index],
+        wx.request({  
+          url: 'http://192.168.0.115:5000/mlist/',
+          data: {},
+          method: 'GET', 
+          success: function(res){
+            that.setData({
+              showData:res.data.data,
+              product: res.data.data,
+              list: res.data.data[index],
+            })
+          },
+          fail: function(res) {
+            console.debug(res)
+          },
         })
-      },
-      fail: function(res) {
-        console.debug(res)
-      },
-    })
   },
   //搜索展开事件
   onChangeShowState:function(){
@@ -51,7 +52,12 @@ Page({
         searchToggle:false,
         searchValue:''
       })
-      console.debug(that.data.focus)
+      // if(that.data.showView==true){
+      //     that.setData({
+      //       product:that.data.showData,
+      //       list: that.data.showData[that.data.curNav],
+      //     })
+      // }
   },
   //搜索展开事件 end
   selected: function(e) {
@@ -159,6 +165,8 @@ Page({
       })
     }else{
       that.setData({
+        product:that.data.showData,
+        list: that.data.showData[that.data.curNav],
         error:false
       })
     }

@@ -100,9 +100,7 @@
             </view>
             <view class="input-wrapper mb20">
                 <view class="input-w" bindtap="pProduct">
-                    <view class="input-title">
-                        产品信息 
-                    </view>
+                    <view class="input-title">产品信息</view>
                     <view class="input-cell tr">
                         <view class="text-overflow input-text w80">
                             <block wx:if="{{dTarget.pproduct}}">

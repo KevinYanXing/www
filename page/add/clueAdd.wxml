@@ -2,19 +2,41 @@
     <form class = "form" bindsubmit="formSubmit" bindreset="formReset">
         <view class="top-sec">
             <view class="input-wrapper mb20">
-                <navigator class="input-w" url="../search/variety">
+                <view class="input-w" url="../search/variety" bindtap="bSelect">
                     <view class="input-title">线索品种</view>
                     <view class="input-cell tr">
-                        <view class="input-text">太太乐</view>
+                        <view class="input-text">
+                            <block wx:if="{{bSelected}}">
+                                <block wx:for="{{bSelected}}">
+                                    <block wx:if="{{ index+1<bSelected.length }}">
+                                        {{ item.name }}、
+                                    </block>
+                                    <block wx:else>
+                                        {{ item.name }}
+                                    </block>
+                                </block>
+                            </block>
+                        </view>
                         <view class="navigator-arrow"></view>
                     </view>
-                </navigator>
+                </view>
             </view>
             <view class="input-wrapper">
                 <view class="input-w">
                     <view class="input-title">目标名称</view>
                     <view class="input-cell">
-                        <input bindinput = "setName" name="input" placeholder="请输目标名称" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                        <input bindinput = "cName" name="input" placeholder="请输入目标名称" value = "{{cname}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-tlitle">目标性质</view>
+                    <view class="input-cell">
+                        <picker mode="selector" bindchange="cType" placeholder="选择性质" value="{{ctype}}" range="{{carray}}">
+                            <view class="input-text">{{carray[ctype]}}</view>
+                            <view class="navigator-arrow"></view>
+                        </picker>
                     </view>
                 </view>
             </view>
@@ -22,33 +44,30 @@
                 <view class="input-w">
                     <view class="input-title">目标人员</view>
                     <view class="input-cell">
-                        <input bindinput = "setName" name="input" placeholder="请输入目标老板或负责人" value = "{{address.recipient}}" placeholder-style = "color: #888888; "/>
+                        <input bindinput = "cPerson" name="input" placeholder="请输入目标老板或负责人" value = "{{cperson}}" placeholder-style = "color: #888888; "/>
                     </view>
                 </view>
             </view>
             <view class="input-wrapper">
                 <view class="input-w">
-                    <view class="input-title">目标性质</view>
+                    <view class="input-title">目标联系</view>
                     <view class="input-cell">
-                        <picker mode="selector" bindchange="bindPickerChange" placeholder="选择性质" value="{{index}}" range="{{array}}">
-                            <view class="input-text">{{array[index]}}</view>
-                            <view class="navigator-arrow"></view>
-                        </picker>
+                        <input bindinput = "cContact" name="input" placeholder="请输入目标联系方式" value = "{{ccontact}}" placeholder-style = "color: #888888; "/>
                     </view>
                 </view>
             </view>
             <view class="input-wrapper">
                 <view class="input-w">
                     <view class="input-title">目标城市</view>
-                    <view class="input-cell">
-                        <picker mode="selector" bindchange="bindPickerChange" placeholder="选择地区" value="{{index}}" range="{{strike}}">
-                            <view class="input-text">{{strike[index]}}</view>
-                            <view class="navigator-arrow"></view>
-                        </picker>
+                    <view class="input-cell tr">
+                        <view class="input-text">
+                            <view wx:if = "{{!ccity.area}}" class = "not-set" bindtap = "cArea">选择城市</view>
+                            <view wx:if = "{{ccity.area}}" class = "set" bindtap = "cArea"> {{ccity.province}} {{ccity.city}} {{ccity.area}}</view>
+                        </view>
+                        <view class="navigator-arrow"></view>
                     </view>
                 </view>
             </view>
-
             <template is="head" data="{{title: 'choose/previewImage'}}"/>
                 <form>
                 <view class="page-section input-wrapper mb20">
@@ -57,7 +76,7 @@
                         <view class="weui-uploader">
                             <view class="weui-uploader__hd">
                             <view class="weui-uploader__title">上传图片（目标门店、仓库、营业执照以及内部情况等照片）</view>
-                            <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                            <view class="weui-uploader__info">{{imageList.length}}/9</view>
                             </view>
                             <view class="weui-uploader__bd">
                             <view class="weui-uploader__files">
@@ -83,14 +102,14 @@
                     <view class="input-cell">
                         <view class="textarea-wrp">
                             <template is="head" />
-                                <textarea bindblur="bindTextAreaBlur" placeholder="请描述目标基本情况" placeholder-style = "color: #888888; " auto-height />
+                                <textarea bindblur="cDescripe" placeholder="请描述目标基本情况" placeholder-style = "color: #888888; " auto-height />
                             <template is="foot" />
                         </view>
                     </view>
                 </view>
             </view>
             
-             <view class="input-wrapper mb20">
+            <view class="input-wrapper mb20">
                 <navigator class="input-w" url="../add/product/product">
                     <view class="input-title">涉及产品</view>
                     <view class="input-cell tr">
@@ -98,11 +117,30 @@
                     </view>
                 </navigator>
             </view>
-        
         </view>
-
+    
     </form>
     <view class="add-address">
-        <button class = "address-btn" formType="submit" bindtap = "saveAddr">保存</button>
+        <button class = "address-btn" formType="submit" bindtap = "cConfirm">保存</button>
+    </view>
+    <view wx:if = "{{isShow}}" class = "set-area-wrapper">
+        <view class="area-mask" catchtap = "hideMask"></view>
+        <view class = "white-bg">
+            <view class = "top-option">
+                <view class="cancel" catchtap = "hideMask">取消</view>
+                <view class="ok" catchtap = "confirm">确定</view>
+            </view>
+            <picker-view indicator-style="height: 40px;" style="width: 100%; height: 300px;background: white;opacity: 1" bindchange="bindChange">
+                <picker-view-column>
+                    <view wx:for="{{province}}" style="line-height: 40px; text-align: center">{{item}}</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{city}}" style="line-height: 40px; text-align: center">{{item}}</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{area}}" style="line-height: 40px; text-align: center">{{item}}</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
     </view>
 </view>

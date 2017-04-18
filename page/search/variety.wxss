@@ -55,3 +55,10 @@ page{
     font-size:13px;
     margin:18rpx 19rpx;
 }
+.add-address{
+    background: #fff
+}
+.light{
+    background: #2ea4ff;
+    color:#fff;
+}

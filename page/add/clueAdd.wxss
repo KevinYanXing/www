@@ -16,3 +16,58 @@
     z-index:0;
     background-color:initial;
 }
+.set-area-wrapper{
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.area-mask{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.6);
+}
+.white-bg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: white;
+    opacity: 1;
+    color: black;
+    z-index: 1000;
+}
+.white-bg .top-option{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 100%;
+    font-size: 32rpx;
+    color: #2fa7e0;
+    z-index: 10000;
+    opacity: 1;
+    background: #eee;
+}
+.ok, .cancel{
+    position:absolute;
+    top:0;
+    height:40px;
+    line-height:40px;
+    width:50%;
+    font-size:12px;
+    color:blue;
+
+}
+.cancel{
+    left: 24rpx;
+    text-align: left;
+}
+.ok{
+    right: 24rpx;
+    text-align: right;
+}
