@@ -51,7 +51,7 @@ textarea{
     position: absolute;
     top: 0;
     right: 0;
-    height: 40px;
+    height: 80rpx;
     width: 100%;
     font-size: 32rpx;
     color: #2fa7e0;
@@ -62,10 +62,10 @@ textarea{
 .ok, .cancel{
     position:absolute;
     top:0;
-    height:40px;
-    line-height:40px;
+    height:80rpx;
+    line-height:80rpx;
     width:50%;
-    font-size:12px;
+    font-size:24rpx;
     color:blue;
 
 }

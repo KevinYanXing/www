@@ -54,7 +54,7 @@
 }
 .main-container {
   position:absolute;
-  top:213rpx;
+  top:210rpx;
   bottom:0;
   width:100%;
 }

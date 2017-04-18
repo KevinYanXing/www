@@ -94,7 +94,7 @@
     transform: translateY(-50%);
     width: 22rpx;
     height: 22rpx;
-    border: 1px solid #888888;
+    border: 1rpx solid #888888;
     border-radius: 50%;
     background: white;
     z-index: 1;
@@ -111,7 +111,7 @@
     top: 50%;
     transform: translateY(-50%);
     background: #2fa7e0;
-    border: 1px solid white;
+    border: 1rpx solid white;
     border-radius: 50%;
     z-index: 2;
 }

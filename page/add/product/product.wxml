@@ -6,8 +6,8 @@
                     <block wx:if="{{ productSelected.length > 0 }}">
                         <view class="p20 mb20" wx:for="{{ productSelected }}" id="{{index}}" bindtap="editProduct">
                             <view class="order-info">
-                                <view wx:if="{{ item.mfd }}">MFD:{{ item.mfd }}</view>
-                                <view wx:if="{{ item.mfd }}">EXP:{{ item.exp }}</view>
+                                <view wx:if="{{ item.mfd }}"><text class="cp-time">MFD:</text>{{ item.mfd }}</view>
+                                <view wx:if="{{ item.mfd }}"><text class="cp-time">EXP:</text>{{ item.exp }}</view>
                                 <view wx:if="{{ item.bnum }}">
                                     <text class="order-state">{{ item.bnum }}</text>
                                 </view>
@@ -17,18 +17,18 @@
                                     <image style="width: 100%; height:100%" mode="aspectFit" src="{{ item.logoid }}"></image>
                                 </view>
                                 <view class="cp-p">
-                                    <view class="">
+                                    <view class="mingChen">
                                     {{ item.name }}
                                     </view>
                                     <view class="tiaoxingMa inline-block">条形码：{{ item.num }}</view>
                                     <view class="cp-shuLang cp-gy"  wx:if="{{ item.nums }}">购样数：
                                         <text>{{ item.nums }}</text>
-                                        <text wx:if="{{ item.price }}">金额：￥{{ item.price }}</text>
+                                        <text wx:if="{{ item.price }}">金额：<text class="rmb red">￥{{ item.price }}元</text></text>
                                     </view>
                                 </view>
                             </view>
-                            <view class="bottom-sec">
-                            </view>
+                            <!--<view class="bottom-sec">
+                            </view>-->
                         </view>
                     </block>
                     <block wx:else>

@@ -15,5 +15,5 @@
 .input-cell .w80{
     width: 88%;
     float:left;
-    margin-right:16px;
+    margin-right:32rpx;
 }
