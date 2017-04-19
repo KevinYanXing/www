@@ -54,7 +54,7 @@
 }
 .main-container {
   position: absolute;
-  margin-top:210rpx;
+  top:105px;
   width:100%;
 }
 .top-slider {

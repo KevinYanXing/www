@@ -24,7 +24,6 @@
 .newsText {
     font-size: 32rpx;
   color: #666;
-  display:inline-block;
   margin-right:190rpx;
 }
 .news-tr {
