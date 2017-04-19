@@ -2,7 +2,7 @@ var app    = getApp();
 Page({
   data: {
     curNav: "0",
-    product:[{'sta':'发现的线索'},{'sta':'指派的线索'}],
+    product:[{'sta':'全部'},{'sta':'我提交的'},{'sta':'指派给我'}],
     //搜索展开事件
     focus:false,
     showView:true,
@@ -51,7 +51,13 @@ Page({
         searchToggle:false,
         searchValue:''
       })
-      console.debug(that.data.focus)
+      if(that.data.showView==true){
+          that.setData({
+            product:that.data.showData,
+            list: that.data.showData[that.data.curNav],
+            error:false
+          })
+      }
   },
   //搜索展开事件 end
   selected: function(e) {
@@ -133,5 +139,36 @@ Page({
           }
         })
   },
-
+  oninput: function (e) {
+    var that = this;
+    var val = e.detail.value
+    console.debug(val)
+    if (val && val != "") {
+      wx.request({
+        url: 'http://192.168.0.115:5000/clist/?keyword=' + val + '',
+        method: 'GET',
+        success: function (res) {
+          var content = res.data.ok;
+          if (content == true) {
+            var arr = res.data.data
+            that.setData({
+              product: res.data.data,
+              list: res.data.data[that.data.curNav],
+              error: false,
+            })
+          } else {
+            that.setData({
+              error:true
+            })
+          }
+        },
+      })
+    }else{
+      that.setData({
+        product:that.data.showData,
+        list: that.data.showData[that.data.curNav],
+        error:false
+      })
+    }
+  },
 })

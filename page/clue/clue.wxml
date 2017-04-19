@@ -25,7 +25,10 @@
     </view>
     <view class = "main-container">
         <view class="chanPing">
-            <block wx:if="{{ list.cinfo.length != 0 }}" >
+            <block wx:if="{{list.minfo.length == 0 || error}}">
+                <view class = "wait-more">暂无数据</view>
+            </block>
+            <block wx:else>
                 <view class = "list-detail cp-box" wx:for="{{list.cinfo}}" wx:for-item="item" data-value = "{{item}}">
                     <view class="list-sec"  bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
                         <view class="go-buy p35">

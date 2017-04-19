@@ -52,12 +52,13 @@ Page({
         searchToggle:false,
         searchValue:''
       })
-      // if(that.data.showView==true){
-      //     that.setData({
-      //       product:that.data.showData,
-      //       list: that.data.showData[that.data.curNav],
-      //     })
-      // }
+      if(that.data.showView==true){
+          that.setData({
+            product:that.data.showData,
+            list: that.data.showData[that.data.curNav],
+            error:false
+          })
+      }
   },
   //搜索展开事件 end
   selected: function(e) {
