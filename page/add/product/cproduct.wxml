@@ -1,0 +1,19 @@
+<!--page/add/product/cproduct.wxml-->
+<view class="addr-body">
+    <form class = "form main-bottom" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="top-sec">
+                <view class="input-wrapper">
+                    <view class="input-w">
+                        <view class="input-title">产品名称</view>
+                        <view class="input-cell">
+                            <input bindinput = "cProduct"  name="input" placeholder="请输入产品的详细名称" placeholder-style = "color: #888888; "/>
+                        </view>
+                    </view>
+                </view>
+        </view>
+    </form>
+    <view class="add-address">
+        <button class = "address-btn" bindtap = "saveProduct">保存</button>
+    </view>
+</view>
+

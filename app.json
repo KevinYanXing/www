@@ -10,6 +10,7 @@
     
     "page/add/product/addProduct",
     "page/add/product/product",
+    "page/add/product/cproduct",
     "page/search/search",
     "page/search/variety",
     "page/mine/mine"

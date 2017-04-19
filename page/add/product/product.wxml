@@ -14,7 +14,7 @@
                             </view>
                             <view class="inline-block" style="width:100%;">
                                 <view class="image">
-                                    <image style="width: 100%; height:100%" mode="aspectFit" src="{{ item.logoid }}"></image>
+                                    <image style="width: 100%; height:100%" mode="aspectFit" src="../{{ item.logoid }}"></image>
                                 </view>
                                 <view class="cp-p">
                                     <view class="">

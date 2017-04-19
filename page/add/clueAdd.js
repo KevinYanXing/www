@@ -20,10 +20,10 @@ function sendPhotos(arr){
             }else{
               cTarget.imageName = [rData.filename]
             }
-            if(cTarget.prelationship){
-                cTarget.prelationship.push([arr[0],rData.filename])
+            if(cTarget.crelationship){
+                cTarget.crelationship.push([arr[0],rData.filename])
             }else{
-                cTarget.prelationship = [[arr[0],rData.filename]]
+                cTarget.crelationship = [[arr[0],rData.filename]]
             }
             
             wx.setStorageSync('cTarget', cTarget)
@@ -32,7 +32,6 @@ function sendPhotos(arr){
           }else{
             console.debug(111111)
           }
-          
         },
         fail:function(res){
           console.debug(res)
@@ -65,8 +64,10 @@ Page({
     cname:'',
     cperson:'',
     ccontact:'',
+    cdescripe:'',
     imageList:[],
 
+    cproduct:[],
     bSelected:[]
   },
 
@@ -75,7 +76,7 @@ Page({
   maybeInfo: {},
   addrInfo: {},
 
-  onLoad:function(){
+  onShow:function(){
     var that = this
     //初始化数据
     var cTarget = wx.getStorageSync('cTarget')
@@ -86,7 +87,9 @@ Page({
         cperson:cTarget.cperson,
         clocation:cTarget.clocation,
         ccontact:cTarget.ccontact,
-        ccity:cTarget.ccity
+        ccity:cTarget.ccity,
+        cdescripe:cTarget.cdescripe,
+        cproduct:cTarget.cproduct
       })
       if(cTarget.id){
         that.setData({
@@ -139,7 +142,7 @@ Page({
     }
   },
   //地区确定
-  confirm: function() {
+  aConfirm: function() {
     var that    = this;
     var address = this.data.ccity;
     if(common.objLength(that.maybeInfo)) {
@@ -221,27 +224,232 @@ Page({
     cTarget.ctype = e.detail.value
     wx.setStorageSync('cTarget', cTarget)
   },
-  chooseImage: function () {
+  //添加图片
+  cPhoto: function(e) {
     var that = this
     wx.chooseImage({
-      sourceType: sourceType[this.data.sourceTypeIndex],
-      sizeType: sizeType[this.data.sizeTypeIndex],
-      count: this.data.count[this.data.countIndex],
       success: function (res) {
-        console.log(res)
+        var imageNew = res.tempFilePaths
+        if(that.data.imageList && that.data.imageList.length!=0){
+            imageNew = imageNew.concat(that.data.imageList)
+        }
         that.setData({
-          imageList: res.tempFilePaths
+          imageList:imageNew
         })
+        var cTarget = wx.getStorageSync('cTarget')
+        cTarget.imageList = imageNew
+        wx.setStorageSync('cTarget', cTarget)
+        }
+    })
+    
+  },
+  //图片预览/删除
+  cPhotoedit: function(e) {
+    var that = this
+    var current = e.target.dataset.src
+    wx.showActionSheet({
+      itemList: ['预览','删除'],
+      success: function (e) {
+        if(e.tapIndex==0){
+            wx.previewImage({
+              current: current,
+              urls: that.data.imageList
+            })
+        }else if(e.tapIndex==1){
+          var newList = []
+          for(var i=0;i<that.data.imageList.length;i++){
+            if(that.data.imageList[i]!=current){
+              newList.push(that.data.imageList[i])
+            }
+          }
+          that.setData({
+            imageList:newList
+          })
+          
+          var cTarget = wx.getStorageSync('cTarget')
+          cTarget.imageList = that.data.imageList
+          if(cTarget.id){
+              cTarget.imageList = that.data.imageList
+              var pre = cTarget.crelationship
+              for(var i=0;i<pre.length;i++){
+                  if(pre[i][0]==current || pre[i][1]==current){
+                    var newName = []
+                    for(var j=0;j<cTarget.imageName.length;j++){
+                      if(cTarget.imageName[j]!=pre[i][0] && cTarget.imageName[j]!=pre[i][1]){
+                        newName.push(cTarget.imageName[j])
+                      }
+                    }
+                    cTarget.imageName = newName
+                  }
+              }
+          }
+          wx.setStorageSync('cTarget', cTarget)
+        }
+        }
+      })
+  },
+  cDescripe:function(e){
+    this.setData({
+      cdescripe: e.detail.value
+    })
+    var cTarget = wx.getStorageSync('cTarget')
+    cTarget.cdescripe = e.detail.value
+    console.debug(cTarget.cdescripe)
+    wx.setStorageSync('cTarget', cTarget)
+  },
+  cProduct:function(){
+    wx.navigateTo({
+      url: './product/cproduct',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
       }
     })
   },
-  previewImage: function (e) {
-    var current = e.target.dataset.src
-    wx.previewImage({
-      current: current,
-      urls: this.data.imageList
+  delProduct:function(e){
+    var that = this
+    var id = e.currentTarget.id
+    console.debug(id)
+    wx.showActionSheet({
+      itemList: ['删除'],
+      success: function (e) {
+        if(e.tapIndex==0){
+          
+            var cTarget = wx.getStorageSync('cTarget')
+            cTarget.cproduct.splice(id,1)
+            console.debug(cTarget.cproduct)
+            that.setData({
+              cproduct:cTarget.cproduct
+            })
+            wx.setStorageSync('cTarget', cTarget)
+        }
+      }
     })
-  }
+    
+  },
+  cConfirm:function(){
+    var that = this
+    var cTarget = wx.getStorageSync('cTarget')
+    //确认填写名称
+    if(!that.data.cname){
+      wx.showModal({
+          title: '提示',
+          content: '请填写目标名称！',
+          success: function(res) {
+              that.setData({
+                focus:true
+              })
+          }
+      })
+    }else{
+        //上传图片
+        var tempImage = that.data.imageList
+        if(tempImage.length!=0){
+             wx.showToast({
+                title: '正在上传',
+                icon: 'loading',
+                duration: 100000
+            })
+            
+            if(cTarget.id){
+              var checkImageList = []
+              var checkImageName = []
+              for(var j=0;j<cTarget.crelationship.length;j++){
+                    checkImageList.push(cTarget.crelationship[j][0])
+                    checkImageName.push(cTarget.crelationship[j][1])
+              }
+              var uploadImage = []
+                for(var i=0;i<tempImage.length;i++){
+                    if(contains(checkImageList,tempImage[i]) || contains(checkImageName,tempImage[i])){
 
+                    }else{
+                      uploadImage.push(tempImage[i])
+                    }
+                } 
+              tempImage = uploadImage
+            }
+
+            //异步上传图片
+            sendPhotos(tempImage)
+            //定时器（检查是否上传完成）
+            var timer = setInterval(function checkUpload(){
+              if(done==true){
+                  cTarget = wx.getStorageSync('cTarget')
+                  if(cTarget.imageName.length=0){
+                      wx.showModal({
+                        title: '提示',
+                        content: '图片上传失败，请重新上传！',
+                        success: function(res) {
+                            
+                        }
+                      })
+                  }else{
+                      var submitData = wx.getStorageSync('cTarget')
+                      if(submitData){
+                          // var url = 'http://192.168.0.115:5000/msave/'
+                          // if(submitData.id){
+                          //   url = 'http://192.168.0.115:5000/msave/?id='+submitData.id
+                          // }
+                          // console.debug(url)
+                          // wx.request({
+                          //   url: url,
+                          //   data: {data:wx.getStorageSync('cTarget')},
+                          //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                          //   // header: {}, // 设置请求的 header
+                          //   success: function(res){
+                          //     //清除缓存
+                          //     wx.removeStorageSync('cTarget')
+                          //     //跳转页面
+                          //     wx.switchTab({
+                          //       url: '../corp/corp',
+                          //       success: function(res){
+                          //         wx.showToast({
+                          //             title: '保存成功!',
+                          //             icon: 'success',
+                          //             duration: 2000
+                          //         })
+                          //       },
+                          //       fail: function(res) {
+                          //         console.debug(res)// fail
+                          //       }
+                          //     })
+                          //   },
+                          //   fail: function(res) {
+                          //     console.debug(res)// fail
+                          //   }
+                          // })
+                          console.debug(submitData)
+                      }else{
+                          wx.showModal({
+                            title: '提示',
+                            content: '请填写完整信息！',
+                            success: function(res) {
+                                that.setData({
+                                  focus:true
+                                })
+                            }
+                        })
+                    }
+                  }
+              }
+              clearInterval(timer)
+              },1000)
+        }else{
+            wx.showModal({
+              title: '提示',
+              content: '请先上传图片！',
+              success: function(res) {
+            
+              }
+            })
+          }
+        
+      }
+  }
 
 })

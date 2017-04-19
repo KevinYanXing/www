@@ -4,7 +4,7 @@
             <view class="city-detail mt20" bindtap="reselect">
                 <view class="pb20 inline-block">
                     <view class="image">
-                        <image style="width: 100%; height:100%" mode="aspectFit" src="{{pinfo.logoid}}"></image>
+                        <image style="width: 100%; height:100%" mode="aspectFit" src="../{{pinfo.logoid}}"></image>
                     </view>
                     <view class="d-right">
                         <text>{{ pinfo.name }}</text>
