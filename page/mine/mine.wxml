@@ -45,6 +45,15 @@
                 </view>
             </view>
         </view>
+        <view class="input-wrapper">
+            <view class="input-w">
+                <image src="../../image/s1.png"></image>
+                <view class="input-title">联系客服</view>
+                <view class="input-cell">
+                    <view class="navigator-arrow"></view>
+                </view>
+            </view>
+        </view>
     </view>
 </view>
 
