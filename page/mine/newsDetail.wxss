@@ -1,0 +1,38 @@
+.back{
+    position: relative;
+    background: #ffffff;
+    margin-bottom: 22rpx;
+}
+.back:after {
+    content:" ";
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    border-bottom: 1px solid #ffffff;
+}
+.mynews {
+}
+.news-li {
+    padding:23rpx 0;
+  background-color:white;
+  border-bottom:1px solid #f0f0f0;
+}
+.newsBlock{
+   line-height:52rpx;
+}
+.newsText {
+    font-size: 32rpx;
+  color: #666;
+  margin-right:190rpx;
+}
+.news-tr {
+    float:right;
+    font-size: 28rpx;
+}
+.newsStatus{
+
+}
+.newsTime {
+    color:#d9d9d9;
+}

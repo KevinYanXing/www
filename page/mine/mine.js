@@ -49,5 +49,8 @@ Page({
   },
   cTarget:function(e){
     wx.switchTab({url: '../clue/clue'})
+  },
+  news:function(){
+    wx.navigateTo({url: './newsDetail'})
   }
 })

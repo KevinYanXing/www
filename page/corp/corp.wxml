@@ -54,12 +54,16 @@
                                 <view class = "bottom-sec">
                                     <view class="now">{{item.pname}}</view>
                                     <view class = "top-title">
+                                        <view class = "title inline-block">涉及品牌:</view>
+                                        <view class = "w70  text-overflow description inline-block blue">{{item.ptype_name}}</view>
+                                    </view>
+                                    <view class = "top-title">
                                         <view class = "title inline-block">店铺性质:</view>
-                                        <view class = "text-overflow description inline-block">{{item.ptype_name}}</view>
+                                        <view class = "w70 description">{{item.ptype_name}}</view>
                                     </view>
                                     <view class = "top-title">
                                         <view class = "title inline-block">市场名称:</view>
-                                        <view class = "description inline-block" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
+                                        <view class = "w70 description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
                                     </view>
                                     <view class = "top-title">
                                         <view class = "fl title">店铺地址:</view>

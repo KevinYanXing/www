@@ -54,8 +54,7 @@
 }
 .main-container {
   position: absolute;
-  top:206rpx;
-  bottom:0;
+  top:105px;
   width:100%;
 }
 .top-slider {
@@ -89,7 +88,7 @@
 }
 .background{
   width:100%;
-  background:#f8f8f8;
+  background:#f5f5f5;
   padding:15rpx 0;
 }
 .image {
@@ -114,18 +113,18 @@
 .now {
   color: #333;
 	font-weight: bold;
-  font-size: 26rpx;
+  font-size: 32rpx;
   padding-bottom:10rpx;
 }
 .top-title{
-  padding-bottom:6rpx;
+  padding-bottom:4rpx;
 }
 .top-title .inline-block, .price-wrapper .inline-block{
     vertical-align: middle;
 }
 .top-title .title{
   width: 28%;
-  color: #666;
+  color: #9097a2;
   font-size:26rpx;
 }
 .top-title .description{

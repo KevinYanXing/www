@@ -25,9 +25,9 @@
         </view>
     </view>
     <view class="back mt20">
-        <view class="input-wrapper">
+        <view class="input-wrapper" bindtap="news">
             <view class="input-w">
-                <view class="input-title">最近消息</view>
+                <view class="input-title">最新消息</view>
                 <view class="input-cell">
                     <view class="digital">4</view>
                     <view class="navigator-arrow"></view>
