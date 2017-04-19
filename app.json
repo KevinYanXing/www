@@ -13,7 +13,8 @@
     "page/add/product/cproduct",
     "page/search/search",
     "page/search/variety",
-    "page/mine/mine"
+    "page/mine/mine",
+    "page/mine/newsDetail"
     
   ],
   "window": {

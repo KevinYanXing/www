@@ -1,0 +1,14 @@
+<!--<view class="error">暂无数据</view>-->
+<view class="back">
+    <view class="mynews p35">
+        <view class="news-li">
+            <view class="newsBlock">
+                <view class="news-tr">
+                    <text class="newsStatus green">完成审核</text>
+                </view>
+                <view class="newsText">的看法的肌肤打开附件地方</view>
+            </view>
+            <view class="newsTime">2017-10-5</view>
+        </view>
+    </view>
+</view>

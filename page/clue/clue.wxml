@@ -43,15 +43,19 @@
                                 <view class = "bottom-sec">
                                     <view class="now">{{item.cname}}</view>
                                     <view class = "top-title">
-                                        <view class = "title inline-block">目标名称</view>
-                                        <view class = "text-overflow description inline-block blue">{{item.cperson}}</view>
+                                        <view class = "title inline-block">涉及品牌:</view>
+                                        <view class = "w70 text-overflow description inline-block blue">{{item.cperson}}</view>
                                     </view>
                                     <view class = "top-title">
-                                        <view class = "fl title">目标联系</view>
+                                        <view class = "fl title">目标名称:</view>
+                                        <view class = "w70 description">{{item.cperson}}</view>
+                                    </view>
+                                    <view class = "top-title">
+                                        <view class = "fl title">目标联系:</view>
                                         <view class = "w70 description">{{item.ccontact}}</view>
                                     </view>
                                     <view class = "top-title">
-                                        <view class = "fl title">目标城市</view>
+                                        <view class = "fl title">目标城市:</view>
                                         <view class = "w70 description">{{item.ccity['province']}} {{item.ccity['city']}} {{item.ccity['area']}}</view>
                                     </view>
                                 </view>
