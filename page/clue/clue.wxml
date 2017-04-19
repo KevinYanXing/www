@@ -25,30 +25,34 @@
     </view>
     <view class = "main-container">
         <view class="chanPing">
-            <block wx:if="{{list.goodsList == null}}">
-                <view class="wait-more">暂无数据</view>
+            <block wx:if="{{list.minfo.length == 0 || error}}">
+                <view class = "wait-more">暂无数据</view>
             </block>
-            <block wx:if="{{list.minfo != null}}" >
-                <view class = "list-detail cp-box" wx:for="{{list.minfo}}" wx:for-item="item" data-value = "{{item}}">
+            <block wx:else>
+                <view class = "list-detail cp-box" wx:for="{{list.cinfo}}" wx:for-item="item" data-value = "{{item}}">
                     <view class="list-sec"  bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
                         <view class="go-buy p35">
-                            <view class="time-l">提交：2017-0-26</view>
-                            <view class="go-r">完成</view>
+                            <view class="time-l">提交：{{ item.d }}</view>
+                            <view class="go-r">{{ item.sta_name }}</view>
                         </view>
                         <view class="inline-block background">
                              <view class="p35">
                                 <view class="image">
-                                    <image mode="aspectFill" src="{{item.goodsImg}}" background-size="cover"></image>
+                                    <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>
                                 </view>
                                 <view class = "bottom-sec">
-                                    <view class="now">{{item.sellPrice}}</view>
+                                    <view class="now">{{item.cname}}</view>
                                     <view class = "top-title">
-                                        <view class = "title inline-block">{{item.goodsName}}</view>
-                                        <view class = "text-overflow description inline-block blue">{{item.tagline}}</view>
+                                        <view class = "title inline-block">目标名称</view>
+                                        <view class = "text-overflow description inline-block blue">{{item.cperson}}</view>
                                     </view>
                                     <view class = "top-title">
-                                        <view class = "fl title">{{item.addr}}</view>
-                                        <view class = "w70 description">{{item.address}}</view>
+                                        <view class = "fl title">目标联系</view>
+                                        <view class = "w70 description">{{item.ccontact}}</view>
+                                    </view>
+                                    <view class = "top-title">
+                                        <view class = "fl title">目标城市</view>
+                                        <view class = "w70 description">{{item.ccity['province']}} {{item.ccity['city']}} {{item.ccity['area']}}</view>
                                     </view>
                                 </view>
                             </view>

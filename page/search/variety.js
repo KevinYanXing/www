@@ -35,10 +35,10 @@ Page({
           },
           fail: function() {
             wx.showToast({
-                title: '请求失败!',
-                icon: 'loading',
-                duration: 2000
-            })
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
           
           },
         })
@@ -73,17 +73,6 @@ Page({
     })
   },
   nextStep:function(){
-    wx.navigateTo({
-      url: '../add/clueAdd',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
+    wx.navigateTo({url: '../add/clueAdd'})
   }
 })

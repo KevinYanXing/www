@@ -1,8 +1,3 @@
-var common = require('../../util/util.js');
-
-
-
-//index.js  
 //获取应用实例  
 var app = getApp() 
 
@@ -31,8 +26,6 @@ Page({
     })
     
   },
-  onHide: function() {
-  },
   onShow: function() {
     var that = this
     var id = this.data.id
@@ -47,14 +40,18 @@ Page({
             })
         }else{
           wx.showToast({
-            title: '请求失败!',
-            icon: 'loading',
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
             duration: 2000
-          })
+        })
         }
       },
       fail: function() {
-        // fail
+        wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
       }
     })
   },

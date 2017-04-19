@@ -117,3 +117,9 @@
     margin-right: 20rpx;
 }
 /*设置 end*/
+.input-cell contact-button{
+    padding: 8rpx;
+    border-radius: 50%;
+    background: #0091ff;
+    display: inline-block;
+}

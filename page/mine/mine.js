@@ -1,35 +1,53 @@
-// page/mine/mine.js
 Page({
   data:{
-  },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-  },
-  onReady:function(){
-    // 页面渲染完成
+    dataSum:{
+      m:0,
+      c1:0,
+      c2:0
+    }
   },
   onShow:function(){
     var that = this
     wx.getUserInfo({
       success: function(res){
-        console.debug(res.userInfo)
           that.setData({
             userInfo : res.userInfo
           })
       },
       fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
+        wx.showToast({
+            title: '获取用户信息失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
       }
     })
-    // 页面显示
+    wx.request({
+      url: 'http://192.168.0.115:5000/datasum/',
+      data: {},
+      method: 'GET',
+      success: function(res){
+        var content = res.data.ok
+        console.debug(res.data)
+        if(content==true){
+          that.setData({
+            dataSum : res.data.data
+          })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+      }
+    })
   },
-  onHide:function(){
-    // 页面隐藏
+  mTarget:function(e){
+    wx.switchTab({url: '../corp/corp'})
   },
-  onUnload:function(){
-    // 页面关闭
+  cTarget:function(e){
+    wx.switchTab({url: '../clue/clue'})
   }
 })

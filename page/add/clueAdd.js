@@ -1,6 +1,16 @@
 var app = getApp();
 var common  = require('../../util/util.js');
-//图片上传
+//判断是否在数组
+function contains(arr, obj) {  
+    var i = arr.length;  
+    while (i--) {  
+        if (arr[i] === obj) {  
+            return true;  
+        }  
+    }  
+    return false;  
+}
+//图片上传  
 var done = false
 function sendPhotos(arr){
   if(arr.length != 0){
@@ -34,11 +44,12 @@ function sendPhotos(arr){
           }
         },
         fail:function(res){
-          console.debug(res)
+          wx.showToast({
+              title: '上传失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
         },
-        complete:function(res){
-          console.debug(res)
-        }
     })
   }else{
      done = true
@@ -113,7 +124,11 @@ Page({
           that.address = res.data.data;
         },
         fail: function(res) {
-          console.debug(res)
+          wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
         },
       })
     }
@@ -339,7 +354,7 @@ Page({
     if(!that.data.cname){
       wx.showModal({
           title: '提示',
-          content: '请填写目标名称！',
+          content: '请填写目标名称',
           success: function(res) {
               that.setData({
                 focus:true
@@ -383,51 +398,47 @@ Page({
                   if(cTarget.imageName.length=0){
                       wx.showModal({
                         title: '提示',
-                        content: '图片上传失败，请重新上传！',
-                        success: function(res) {
-                            
-                        }
+                        content: '图片上传失败，请重新上传'
                       })
                   }else{
                       var submitData = wx.getStorageSync('cTarget')
                       if(submitData){
-                          // var url = 'http://192.168.0.115:5000/msave/'
-                          // if(submitData.id){
-                          //   url = 'http://192.168.0.115:5000/msave/?id='+submitData.id
-                          // }
-                          // console.debug(url)
-                          // wx.request({
-                          //   url: url,
-                          //   data: {data:wx.getStorageSync('cTarget')},
-                          //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                          //   // header: {}, // 设置请求的 header
-                          //   success: function(res){
-                          //     //清除缓存
-                          //     wx.removeStorageSync('cTarget')
-                          //     //跳转页面
-                          //     wx.switchTab({
-                          //       url: '../corp/corp',
-                          //       success: function(res){
-                          //         wx.showToast({
-                          //             title: '保存成功!',
-                          //             icon: 'success',
-                          //             duration: 2000
-                          //         })
-                          //       },
-                          //       fail: function(res) {
-                          //         console.debug(res)// fail
-                          //       }
-                          //     })
-                          //   },
-                          //   fail: function(res) {
-                          //     console.debug(res)// fail
-                          //   }
-                          // })
-                          console.debug(submitData)
+                          var url = 'http://192.168.0.115:5000/csave/'
+                          if(submitData.id){
+                            url = 'http://192.168.0.115:5000/csave/?id='+submitData.id
+                          }
+                          wx.request({
+                            url: url,
+                            data: {data:wx.getStorageSync('cTarget')},
+                            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                            // header: {}, // 设置请求的 header
+                            success: function(res){
+                              //清除缓存
+                              wx.removeStorageSync('cTarget')
+                              //跳转页面
+                              wx.switchTab({
+                                url: '../clue/clue',
+                                success: function(res){
+                                  wx.showToast({
+                                      title: '保存成功',
+                                      image:'../../image/cg-ico.png',
+                                      duration: 2000
+                                  })
+                                }
+                              })
+                            },
+                            fail: function(res) {
+                              wx.showToast({
+                                  title: '请求失败',
+                                  image:'../../image/cw-ico.png',
+                                  duration: 2000
+                              })
+                            }
+                          })
                       }else{
                           wx.showModal({
                             title: '提示',
-                            content: '请填写完整信息！',
+                            content: '请填写完整信息',
                             success: function(res) {
                                 that.setData({
                                   focus:true
@@ -442,10 +453,7 @@ Page({
         }else{
             wx.showModal({
               title: '提示',
-              content: '请先上传图片！',
-              success: function(res) {
-            
-              }
+              content: '请先上传图片'
             })
           }
         

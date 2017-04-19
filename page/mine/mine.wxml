@@ -8,18 +8,18 @@
 
     <view class="back mt20">
         <view class="tongJi">
-            <view class="t1">
-                <view class="S-text blue">10</view>
+            <view class="t1" bindtap="mTarget">
+                <view class="S-text blue">{{ dataSum.m }}</view>
                 <view class="T-txet">普查清扫</view>
             </view>
             <view class="geliTiao" ></view>
-            <view class="t2">
-                <view class="S-text blue">10</view>
+            <view class="t2" bindtap="cTarget">
+                <view class="S-text blue">{{ dataSum.c1 }}</view>
                 <view class="T-txet">发现线索</view>
             </view>
             <view class="geliTiao" ></view>
-            <view class="t3">
-                <view class="S-text blue">10</view>
+            <view class="t3" bindtap="cTarget">
+                <view class="S-text blue">{{ dataSum.c2 }}</view>
                 <view class="T-txet">指派线索</view>
             </view>
         </view>
@@ -28,7 +28,6 @@
     <view class="back mt20">
         <view class="input-wrapper">
             <view class="input-w">
-                <image src="../../image/s2.png"></image>
                 <view class="input-title">最新审核</view>
                 <view class="input-cell">
                     <view class="navigator-arrow"></view>
@@ -37,7 +36,6 @@
         </view>
         <view class="input-wrapper">
             <view class="input-w">
-                <image src="../../image/s1.png"></image>
                 <view class="input-title">最近消息</view>
                 <view class="input-cell">
                     <view class="digital">4</view>
@@ -47,10 +45,9 @@
         </view>
         <view class="input-wrapper">
             <view class="input-w">
-                <image src="../../image/s1.png"></image>
                 <view class="input-title">联系客服</view>
                 <view class="input-cell">
-                    <view class="navigator-arrow"></view>
+                    <contact-button type="default-light" size="18"></contact-button>
                 </view>
             </view>
         </view>

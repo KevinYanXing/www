@@ -43,6 +43,13 @@ Page({
           state: res.data.data
         })
       },
+      fail:function(){
+        wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+      }
     })
   },
   //搜索展开事件
@@ -84,18 +91,7 @@ Page({
         mTarget.pproduct[that.data.idx].logoid=pinfo.logoid
         mTarget.pproduct[that.data.idx].num=pinfo.num
         wx.setStorageSync('mTarget', mTarget)
-        wx.navigateBack({
-          delta:1, // 回退前 delta(默认为1) 页面
-          success: function(res){
-            // success
-          },
-          fail: function() {
-            // fail
-          },
-          complete: function() {
-            // complete
-          }
-        })
+        wx.navigateBack({delta:1})
     }else{
         if(wx.getStorageSync('mProduct')){
             var setPinfo = wx.getStorageSync('mProduct')
@@ -108,15 +104,7 @@ Page({
           setPinfo.logoid=pinfo.logoid
           setPinfo.num=pinfo.num
           wx.setStorageSync('mProduct',setPinfo)
-        wx.navigateTo({
-          url: that.data.url,
-          success: function(res){
-              console.debug(res.data)
-          },
-          fail: function() {
-            // fail
-          }
-        })
+          wx.navigateTo({url: that.data.url})
     }
   },
   oninput: function (e) {
@@ -142,6 +130,13 @@ Page({
             })
           }
         },
+        fail:function(){
+          wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+        }
       })
     } else {
       that.setData({

@@ -1,8 +1,8 @@
 var app    = getApp();
 Page({
   data: {
-    curNav: "0",
-    product:[{'sta':'发现的线索'},{'sta':'指派的线索'}],
+    curNav: 0,
+    product:[{'sta':'全部'},{'sta':'我提交的'},{'sta':'指派给我'}],
     //搜索展开事件
     focus:false,
     showView:true,
@@ -22,13 +22,12 @@ Page({
       });
   },
   onLoad: function() {
-    
   },
   onShow: function() {
-    var that  = this,
-        index = 0
+    var that  = this
+    var index = that.data.curNav
     wx.request({
-      url: 'http://192.168.0.115:5000/mlist/',
+      url: 'http://192.168.0.115:5000/clist/',
       data: {},
       method: 'GET', 
       success: function(res){
@@ -38,7 +37,11 @@ Page({
         })
       },
       fail: function(res) {
-        console.debug(res)
+        wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
       },
     })
   },
@@ -51,7 +54,13 @@ Page({
         searchToggle:false,
         searchValue:''
       })
-      console.debug(that.data.focus)
+      if(that.data.showView==true){
+          that.setData({
+            product:that.data.showData,
+            list: that.data.showData[that.data.curNav],
+            error:false
+          })
+      }
   },
   //搜索展开事件 end
   selected: function(e) {
@@ -72,7 +81,7 @@ Page({
                   },
                 })
             }else if(e.tapIndex==1){
-              wx.setStorageSync('mTarget', that.data.list.minfo[idx])
+              wx.setStorageSync('cTarget', that.data.list.cinfo[idx])
               wx.navigateTo({
                 url: '../add/clueAdd',
                 success: function(res){
@@ -93,24 +102,39 @@ Page({
                     success: function(res) {
                       if (res.confirm) {
                           wx.request({
-                            url: 'http://192.168.0.115:5000/mdel/'+ id +'/',
+                            url: 'http://192.168.0.115:5000/cdel/'+ id +'/',
                             data: {},
                             method: 'GET',
                             success: function(res){ 
-                                that.data.list.minfo.splice(idx,1)
-                                that.setData({
-                                  list:that.data.list
+                                var index = that.data.curNav
+                                wx.request({
+                                  url: 'http://192.168.0.115:5000/clist/',
+                                  data: {},
+                                  method: 'GET', 
+                                  success: function(res){
+                                    that.setData({
+                                      product: res.data.data,
+                                      list: res.data.data[index],
+                                    })
+                                  },
+                                  fail: function(res) {
+                                    wx.showToast({
+                                        title: '请求失败',
+                                        image:'../../image/cw-ico.png',
+                                        duration: 2000
+                                    })
+                                  },
                                 })
                                 wx.showToast({
-                                  title: '删除成功!',
-                                  icon: 'success',
+                                  title: '删除成功',
+                                  image:'../../image/cg-ico.png',
                                   duration: 2000
                               })
                             },
                             fail: function(res) {
                                wx.showToast({
-                                  title: '请求失败!',
-                                  icon: 'loading',
+                                  title: '请求失败',
+                                  image:'../../image/cw-ico.png',
                                   duration: 2000
                               })
                             }
@@ -122,5 +146,43 @@ Page({
           }
         })
   },
-
+  oninput: function (e) {
+    var that = this;
+    var val = e.detail.value
+    console.debug(val)
+    if (val && val != "") {
+      wx.request({
+        url: 'http://192.168.0.115:5000/clist/?keyword=' + val + '',
+        method: 'GET',
+        success: function (res) {
+          var content = res.data.ok;
+          if (content == true) {
+            var arr = res.data.data
+            that.setData({
+              product: res.data.data,
+              list: res.data.data[that.data.curNav],
+              error: false,
+            })
+          } else {
+            that.setData({
+              error:true
+            })
+          }
+        },
+        fail:function(){
+          wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
+        }
+      })
+    }else{
+      that.setData({
+        product:that.data.showData,
+        list: that.data.showData[that.data.curNav],
+        error:false
+      })
+    }
+  },
 })

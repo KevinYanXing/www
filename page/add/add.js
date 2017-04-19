@@ -39,16 +39,21 @@ function sendPhotos(arr){
             arr.splice(0,1)
             sendPhotos(arr)
           }else{
-            console.debug(111111)
+            wx.showToast({
+              title: '上传失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
           }
           
         },
         fail:function(res){
-          console.debug(res)
+          wx.showToast({
+              title: '上传失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
         },
-        complete:function(res){
-          console.debug(res)
-        }
     })
   }else{
      done = true
@@ -265,14 +270,18 @@ Page({
                             }
                           },
                           fail: function() {
-                            // fail
+                            wx.showToast({
+                                title: '请求失败',
+                                image:'../../image/cw-ico.png',
+                                duration: 2000
+                            })
                           }
                       })
                     },
                     fail: function() {
                       wx.showModal({
                             title: '提示',
-                            content: '扫描失败，请重试！'
+                            content: '扫描失败，请重试'
                         })
                     }
                   })
@@ -327,7 +336,7 @@ Page({
     if(!that.data.pname){
       wx.showModal({
           title: '提示',
-          content: '请填写店铺名称！',
+          content: '请填写店铺名称',
           success: function(res) {
               that.setData({
                 focus:true
@@ -371,7 +380,7 @@ Page({
                   if(mTarget.imageName.length=0){
                       wx.showModal({
                         title: '提示',
-                        content: '图片上传失败，请重新上传！',
+                        content: '图片上传失败，请重新上传',
                         success: function(res) {
                             
                         }
@@ -397,24 +406,25 @@ Page({
                                 url: '../corp/corp',
                                 success: function(res){
                                   wx.showToast({
-                                      title: '保存成功!',
-                                      icon: 'success',
+                                      title: '保存成功',
+                                      image:'../../image/cg-ico.png',
                                       duration: 2000
                                   })
                                 },
-                                fail: function(res) {
-                                  console.debug(res)// fail
-                                }
                               })
                             },
                             fail: function(res) {
-                              console.debug(res)// fail
+                              wx.showToast({
+                                  title: '请求失败',
+                                  image:'../../image/cw-ico.png',
+                                  duration: 2000
+                              })
                             }
                           })
                       }else{
                           wx.showModal({
                             title: '提示',
-                            content: '请填写完整信息！',
+                            content: '请填写完整信息',
                             success: function(res) {
                                 that.setData({
                                   focus:true
@@ -429,10 +439,7 @@ Page({
         }else{
             wx.showModal({
               title: '提示',
-              content: '请先上传图片！',
-              success: function(res) {
-            
-              }
+              content: '请先上传图片',
             })
           }
         

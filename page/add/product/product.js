@@ -54,14 +54,18 @@ Page({
                       }
                     },
                     fail: function() {
-                      // fail
+                      wx.showToast({
+                        title: '请求失败',
+                        image:'../../image/cw-ico.png',
+                        duration: 2000
+                    })
                     }
                 })
               },
               fail: function() {
                 wx.showModal({
                       title: '提示',
-                      content: '扫描失败，请重试！'
+                      content: '扫描失败，请重试'
                   })
               }
             })
@@ -78,18 +82,7 @@ Page({
         itemList: ['编辑', '删除'],
         success: function (e) {
           if(e.tapIndex==0){
-              wx.navigateTo({
-                url: './addProduct?idx='+editIndex,
-                success: function(res){
-                  // success
-                },
-                fail: function() {
-                  // fail
-                },
-                complete: function() {
-                  // complete
-                }
-              })
+              wx.navigateTo({url: './addProduct?idx='+editIndex})
           }else if(e.tapIndex==1){
             var mTarget = wx.getStorageSync('mTarget')
             mTarget.pproduct.splice(editIndex, 1)
