@@ -8,18 +8,18 @@
 
     <view class="back mt20">
         <view class="tongJi">
-            <view class="t1">
-                <view class="S-text blue">10</view>
+            <view class="t1" bindtap="mTarget">
+                <view class="S-text blue">{{ dataSum.m }}</view>
                 <view class="T-txet">普查清扫</view>
             </view>
             <view class="geliTiao" ></view>
-            <view class="t2">
-                <view class="S-text blue">10</view>
+            <view class="t2" bindtap="cTarget">
+                <view class="S-text blue">{{ dataSum.c1 }}</view>
                 <view class="T-txet">发现线索</view>
             </view>
             <view class="geliTiao" ></view>
-            <view class="t3">
-                <view class="S-text blue">10</view>
+            <view class="t3" bindtap="cTarget">
+                <view class="S-text blue">{{ dataSum.c2 }}</view>
                 <view class="T-txet">指派线索</view>
             </view>
         </view>
@@ -44,6 +44,11 @@
                     <view class="navigator-arrow"></view>
                 </view>
             </view>
+        </view>
+        <view class="input-wrapper">
+        <view class="input-w">
+            <contact-button>联系客服</contact-button>
+        </view>
         </view>
     </view>
 </view>

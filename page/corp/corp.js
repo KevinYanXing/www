@@ -39,7 +39,11 @@ Page({
             })
           },
           fail: function(res) {
-            console.debug(res)
+            wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
           },
         })
   },
@@ -69,30 +73,10 @@ Page({
           itemList: ['查看','编辑','删除'],
           success: function (e) {
             if(e.tapIndex==0){
-                wx.navigateTo({
-                  url: './corpDetail?id='+id,
-                  success: function(res){
-                    console.debug(res)
-                  },
-                  fail: function(res) {
-                    console.debug(res)
-                  },
-                })
+                wx.navigateTo({url: './corpDetail?id='+id})
             }else if(e.tapIndex==1){
-              wx.setStorageSync('mTarget', that.data.list.minfo[idx])
-              wx.navigateTo({
-                url: '../add/add',
-                success: function(res){
-                  // success
-                },
-                fail: function() {
-                  // fail
-                },
-                complete: function() {
-                  // complete
-                }
-              })
-
+                wx.setStorageSync('mTarget', that.data.list.minfo[idx])
+                wx.navigateTo({url: '../add/add',})
             }else if(e.tapIndex==2){
                 wx.showModal({
                     title: '警告',
@@ -120,15 +104,15 @@ Page({
                                   },
                                 })
                                 wx.showToast({
-                                  title: '删除成功!',
-                                  icon: 'success',
+                                  title: '删除成功',
+                                  image:'../../image/cg-ico.png',
                                   duration: 2000
                               })
                             },
                             fail: function(res) {
                                wx.showToast({
-                                  title: '请求失败!',
-                                  icon: 'loading',
+                                  title: '请求失败',
+                                  image:'../../image/cw-ico.png',
                                   duration: 2000
                               })
                             }
@@ -163,6 +147,13 @@ Page({
             })
           }
         },
+        fail:function(){
+          wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
+        }
       })
     }else{
       that.setData({

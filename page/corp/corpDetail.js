@@ -40,14 +40,18 @@ Page({
             })
         }else{
           wx.showToast({
-            title: '请求失败!',
-            icon: 'loading',
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
             duration: 2000
-          })
+        })
         }
       },
       fail: function() {
-        // fail
+        wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
       }
     })
   },

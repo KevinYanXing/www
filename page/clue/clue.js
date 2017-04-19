@@ -1,7 +1,7 @@
 var app    = getApp();
 Page({
   data: {
-    curNav: "0",
+    curNav: 0,
     product:[{'sta':'全部'},{'sta':'我提交的'},{'sta':'指派给我'}],
     //搜索展开事件
     focus:false,
@@ -22,11 +22,10 @@ Page({
       });
   },
   onLoad: function() {
-    
   },
   onShow: function() {
-    var that  = this,
-        index = 0
+    var that  = this
+    var index = that.data.curNav
     wx.request({
       url: 'http://192.168.0.115:5000/clist/',
       data: {},
@@ -38,7 +37,11 @@ Page({
         })
       },
       fail: function(res) {
-        console.debug(res)
+        wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
       },
     })
   },
@@ -115,19 +118,23 @@ Page({
                                     })
                                   },
                                   fail: function(res) {
-                                    console.debug(res)
+                                    wx.showToast({
+                                        title: '请求失败',
+                                        image:'../../image/cw-ico.png',
+                                        duration: 2000
+                                    })
                                   },
                                 })
                                 wx.showToast({
-                                  title: '删除成功!',
-                                  icon: 'success',
+                                  title: '删除成功',
+                                  image:'../../image/cg-ico.png',
                                   duration: 2000
                               })
                             },
                             fail: function(res) {
                                wx.showToast({
-                                  title: '请求失败!',
-                                  icon: 'loading',
+                                  title: '请求失败',
+                                  image:'../../image/cw-ico.png',
                                   duration: 2000
                               })
                             }
@@ -162,6 +169,13 @@ Page({
             })
           }
         },
+        fail:function(){
+          wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
+        }
       })
     }else{
       that.setData({

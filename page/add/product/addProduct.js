@@ -107,45 +107,27 @@ Page({
                         }
                       },
                       fail: function() {
-                        // fail
+                        wx.showToast({
+                          title: '请求失败',
+                          image:'../../image/cw-ico.png',
+                          duration: 2000
+                      })
                       }
                   })
                 },
                 fail: function() {
                   wx.showModal({
                         title: '提示',
-                        content: '扫描失败，请重试！'
+                        content: '扫描失败，请重试'
                     })
                 }
               })
         }else if(e.tapIndex==1){
-          // wx.navigateTo({url: '../search/search'});
           if(that.data.idx){
-            wx.navigateTo({
-              url: '../../search/search?idx='+that.data.idx,
-              success: function(res){
-                // success
-              },
-              fail: function() {
-                // fail
-              },
-              complete: function() {
-                // complete
-              }
+            wx.navigateTo({url: '../../search/search?idx='+that.data.idx
             })
           }else{
-            wx.navigateBack({
-              delta: 1, // 回退前 delta(默认为1) 页面
-              success: function(res){
-                // success
-              },
-              fail: function() {
-                // fail
-              },
-              complete: function() {
-                // complete
-              }
-            })
+            wx.navigateBack({delta: 1})
           }
         }
       }
@@ -167,25 +149,8 @@ Page({
       key: 'mTarget',
       data: mTarget,
       success: function(res){
-        wx.navigateBack({
-          delta: that.data.pageIndex, // 回退前 delta(默认为1) 页面
-          success: function(res){
-            // success
-          },
-          fail: function() {
-            // fail
-          },
-          complete: function() {
-            // complete
-          }
-        })
+        wx.navigateBack({delta: that.data.pageIndex})
       },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   }
 })
