@@ -26,14 +26,6 @@
     </view>
 
     <view class="back mt20">
-        <view class="input-wrapper">
-            <view class="input-w">
-                <view class="input-title">最新审核</view>
-                <view class="input-cell">
-                    <view class="navigator-arrow"></view>
-                </view>
-            </view>
-        </view>
         <view class="input-wrapper" bindtap="news">
             <view class="input-w">
                 <view class="input-title">最新消息</view>
