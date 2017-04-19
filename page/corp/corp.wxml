@@ -55,7 +55,11 @@
                                     <view class="now">{{item.pname}}</view>
                                     <view class = "top-title">
                                         <view class = "title inline-block">涉及品牌:</view>
-                                        <view class = "w70  text-overflow description inline-block blue">{{item.ptype_name}}</view>
+                                        <view class = "w70  text-overflow description inline-block blue" wx:if="{{item.pbrand.length>0}}">  
+                                        <block wx:for="{{item.pbrand}}" wx:for-item="brand">
+                                        {{ brand.name }} 
+                                        </block>
+                                        </view>
                                     </view>
                                     <view class = "top-title">
                                         <view class = "title inline-block">店铺性质:</view>

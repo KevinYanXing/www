@@ -29,7 +29,7 @@
                 <view class = "wait-more">暂无数据</view>
             </block>
             <block wx:else>
-                <view class = "list-detail cp-box" wx:for="{{list.cinfo}}" wx:for-item="item" data-value = "{{item}}">
+                <view class = "list-detail cp-box" wx:for="{{list.cinfo}}" wx:for-item="item" data-value = "{{ item }}">
                     <view class="list-sec"  bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
                         <view class="go-buy p35">
                             <view class="time-l">提交：{{ item.d }}</view>
@@ -52,7 +52,11 @@
                                     <view class="now">{{item.cname}}</view>
                                     <view class = "top-title">
                                         <view class = "title inline-block">涉及品牌:</view>
-                                        <view class = "w70 text-overflow description inline-block blue">{{item.cperson}}</view>
+                                        <view class = "w70 text-overflow description inline-block blue" wx:if="{{ item.cbrand.length>0 }}">
+                                            <block wx:for="{{item.cbrand}}" wx:for-item="brand">
+                                                {{ brand.name }} 
+                                            </block>
+                                        </view>
                                     </view>
                                     <view class = "top-title">
                                         <view class = "fl title">目标名称:</view>
