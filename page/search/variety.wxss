@@ -25,7 +25,7 @@ page{
 .name{
     margin: 20rpx 22rpx;
     line-height:47rpx;
-    font-size: 15px;
+    font-size: 33rpx;
 }
 .name-img{
     float:left;
@@ -52,11 +52,14 @@ page{
     float:left;
     color:#929292;
     background:#f0f0f0;
-    font-size:13px;
+    font-size:26rpx;
     margin:18rpx 19rpx;
 }
+.min-h{
+    min-height: 80rpx;
+}
 .add-address{
-    background: #fff
+    background: #fff;
 }
 .light{
     background: #2ea4ff;

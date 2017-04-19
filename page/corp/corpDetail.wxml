@@ -63,8 +63,8 @@
                         <view class="mychanPing mb20" wx:for="{{ mdetail.pproduct }}">
                             <view class="p20 border">
                                 <view class="order-info">
-                                    <view wx:if="{{ item.mfd }}">MFD:{{ item.mfd }}</view>
-                                    <view wx:if="{{ item.mfd }}">EXP:{{ item.exp }}</view>
+                                    <view wx:if="{{ item.mfd }}"><text class="cp-time">MFD:</text>{{ item.mfd }}</view>
+                                    <view wx:if="{{ item.mfd }}"><text class="cp-time">EXP:</text>{{ item.exp }}</view>
                                     <view wx:if="{{ item.bnum }}">
                                         <text class="order-state">{{ item.bnum }}</text>
                                     </view>

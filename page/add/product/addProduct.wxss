@@ -24,7 +24,7 @@
     height: initial;
 }
 .d-right {
-    margin-left:90px;
+    margin-left:180rpx;
 }
 
 .d-right text {
@@ -34,7 +34,7 @@
 }
 
 .d-right text:nth-child(2), text:nth-child(3) {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #868686;
 }
 .pb20{

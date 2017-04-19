@@ -42,7 +42,7 @@ scroll-view {
 	vertical-align:top;
 	display:block;
 	border-radius:60rpx;
-	box-shadow:2px 5px 8px rgba(0,0,0,0.15), 2px 3px 3px rgba(0,0,0,0.13);
+	box-shadow:4rpx 10rpx 16rpx rgba(0,0,0,0.15), 4rpx 6rpx 6rpx rgba(0,0,0,0.13);
 }
 .logo-cen text:nth-child(2){
 	color:#4a4a4a;
@@ -52,7 +52,7 @@ scroll-view {
 	margin-top:70rpx;
 }
 .logo-cen text:nth-child(3){
-  font-size: 12px;
+  font-size: 24rpx;
   color: #868686;
   margin-top:10rpx;
 	margin-bottom:21rpx;
