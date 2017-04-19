@@ -28,7 +28,7 @@ Page({
     var that  = this,
         index = 0
     wx.request({
-      url: 'http://192.168.0.115:5000/mlist/',
+      url: 'http://192.168.0.115:5000/clist/',
       data: {},
       method: 'GET', 
       success: function(res){
@@ -72,7 +72,7 @@ Page({
                   },
                 })
             }else if(e.tapIndex==1){
-              wx.setStorageSync('mTarget', that.data.list.minfo[idx])
+              wx.setStorageSync('cTarget', that.data.list.cinfo[idx])
               wx.navigateTo({
                 url: '../add/clueAdd',
                 success: function(res){
@@ -93,13 +93,24 @@ Page({
                     success: function(res) {
                       if (res.confirm) {
                           wx.request({
-                            url: 'http://192.168.0.115:5000/mdel/'+ id +'/',
+                            url: 'http://192.168.0.115:5000/cdel/'+ id +'/',
                             data: {},
                             method: 'GET',
                             success: function(res){ 
-                                that.data.list.minfo.splice(idx,1)
-                                that.setData({
-                                  list:that.data.list
+                                var index = that.data.curNav
+                                wx.request({
+                                  url: 'http://192.168.0.115:5000/clist/',
+                                  data: {},
+                                  method: 'GET', 
+                                  success: function(res){
+                                    that.setData({
+                                      product: res.data.data,
+                                      list: res.data.data[index],
+                                    })
+                                  },
+                                  fail: function(res) {
+                                    console.debug(res)
+                                  },
                                 })
                                 wx.showToast({
                                   title: '删除成功!',

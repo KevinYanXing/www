@@ -17,6 +17,21 @@ Page({
         // fail
       }
     })
+  },
+  addClue:function(){
+    var cTarget = wx.getStorageSync('cTarget')
+    if(cTarget.id){
+      wx.removeStorageSync('cTarget')
+    }
+    wx.navigateTo({
+      url: '../add/clueAdd',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      }
+    })
   }
 });
 

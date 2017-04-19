@@ -22,7 +22,7 @@
 					</view>
 				</view>
 
-				<navigator class="submit-x color-b" url="../search/variety">
+				<view class="submit-x color-b" bindtap="addClue">
 					<view class="icon">
 						<view class="vertical-centering">
 							<view class="l-img">
@@ -33,7 +33,7 @@
 							</view>
 						</view>
 					</view>
-				</navigator>
+				</view>
 <!--
 				<swiper class="submit-x mfr" bindtap="actionSheetTap4">
 					<view class="icon">

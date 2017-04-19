@@ -1,8 +1,3 @@
-var common = require('../../util/util.js');
-
-
-
-//index.js  
 //获取应用实例  
 var app = getApp() 
 
@@ -30,8 +25,6 @@ Page({
       id:options.id
     })
     
-  },
-  onHide: function() {
   },
   onShow: function() {
     var that = this

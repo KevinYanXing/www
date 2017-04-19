@@ -1,6 +1,15 @@
 var app = getApp();
 var common  = require('../../util/util.js');
 //图片上传
+function contains(arr, obj) {  
+    var i = arr.length;  
+    while (i--) {  
+        if (arr[i] === obj) {  
+            return true;  
+        }  
+    }  
+    return false;  
+}  
 var done = false
 function sendPhotos(arr){
   if(arr.length != 0){
@@ -391,39 +400,37 @@ Page({
                   }else{
                       var submitData = wx.getStorageSync('cTarget')
                       if(submitData){
-                          // var url = 'http://192.168.0.115:5000/msave/'
-                          // if(submitData.id){
-                          //   url = 'http://192.168.0.115:5000/msave/?id='+submitData.id
-                          // }
-                          // console.debug(url)
-                          // wx.request({
-                          //   url: url,
-                          //   data: {data:wx.getStorageSync('cTarget')},
-                          //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                          //   // header: {}, // 设置请求的 header
-                          //   success: function(res){
-                          //     //清除缓存
-                          //     wx.removeStorageSync('cTarget')
-                          //     //跳转页面
-                          //     wx.switchTab({
-                          //       url: '../corp/corp',
-                          //       success: function(res){
-                          //         wx.showToast({
-                          //             title: '保存成功!',
-                          //             icon: 'success',
-                          //             duration: 2000
-                          //         })
-                          //       },
-                          //       fail: function(res) {
-                          //         console.debug(res)// fail
-                          //       }
-                          //     })
-                          //   },
-                          //   fail: function(res) {
-                          //     console.debug(res)// fail
-                          //   }
-                          // })
-                          console.debug(submitData)
+                          var url = 'http://192.168.0.115:5000/csave/'
+                          if(submitData.id){
+                            url = 'http://192.168.0.115:5000/csave/?id='+submitData.id
+                          }
+                          wx.request({
+                            url: url,
+                            data: {data:wx.getStorageSync('cTarget')},
+                            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                            // header: {}, // 设置请求的 header
+                            success: function(res){
+                              //清除缓存
+                              wx.removeStorageSync('cTarget')
+                              //跳转页面
+                              wx.switchTab({
+                                url: '../clue/clue',
+                                success: function(res){
+                                  wx.showToast({
+                                      title: '保存成功!',
+                                      icon: 'success',
+                                      duration: 2000
+                                  })
+                                },
+                                fail: function(res) {
+                                  console.debug(res)// fail
+                                }
+                              })
+                            },
+                            fail: function(res) {
+                              console.debug(res)// fail
+                            }
+                          })
                       }else{
                           wx.showModal({
                             title: '提示',

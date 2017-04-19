@@ -1,6 +1,4 @@
 <!--index.wxml-->
-<import src="../../../mosaic/contact.wxml" />
-<template is="contact"/>
 <view class="sec-kill">
     <view class="header list-tab">
         <view class="header-wrapper">
@@ -20,7 +18,7 @@
                         <view class="clue">
                             <view class="p35">
                                 <view class="title-content">
-                                    <view class="title">雀巢咖啡线索天河区某某市场</view>
+                                    <view class="title">{{ mdetail.cname }}</view>
                                 </view>
                             </view>
                         </view>
@@ -29,7 +27,7 @@
                                 <view class="content border tuBiao">
                                     <image src="../../image/x1.png"></image>
                                     <view class="value">
-                                        <text class="value-text">陈某某</text>
+                                        <text class="value-text">{{ mdetail.cperson }}</text>
                                     </view>
                                 </view>
                             </view>
@@ -39,7 +37,7 @@
                                 <view class="content border tuBiao">
                                     <image src="../../image/x2.png"></image>
                                     <view class="value">
-                                        <text class="value-text">13812345667</text>
+                                        <text class="value-text">{{ mdetail.ccontact }}</text>
                                     </view>
                                 </view>
                             </view>
@@ -49,7 +47,7 @@
                                 <view class="content border tuBiao">
                                     <image src="../../image/x3.png"></image>
                                     <view class="value">
-                                        <text class="value-text">广州市珠江新城华东路360号</text>
+                                        <text class="value-text">{{ mdetail.ccity.province }} {{ mdetail.ccity.city }} {{ mdetail.ccity.area }}</text>
                                     </view>
                                 </view>
                             </view>
@@ -59,7 +57,7 @@
                                 <view class="content tuBiao">
                                     <image src="../../image/x4.png"></image>
                                     <view class="value">
-                                        <text class="value-text">1快递费机电科打开房间的空间空间打开房间看见独守空房就</text>
+                                        <text class="value-text">{{ mdetail.cdescripe }}</text>
                                     </view>
                                 </view>
                             </view>
@@ -69,7 +67,7 @@
                             <view class="top-slider">
                                 <swiper class="slider-sec" indicator-dots="{{indicatorDots}}"
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-                                    <block wx:for="{{list.imageList}}">
+                                    <block wx:for="{{imageName}}">
                                         <swiper-item>
                                             <image mode="aspectFill" src="{{item}}" class="slide-image" width="355" height="150"bindtap="goBanner"/>
                                         </swiper-item>
@@ -81,28 +79,25 @@
                     <view class="">
                         <view class="noing border">
                             <view class="weuijz prl">
-                                <view class="weui">涉嫌产品</view>
+                                <view class="weui">涉及产品</view>
                             </view>
                         </view>
-                        <view class="mychanPing mb20">
-                            <view class="p20 border">
-                                <view class="inline-block">
-                                    <view class="image">
-                                        <image style="width: 100%; height:100%" mode="aspectFit" src="../../../image/test.jpg"></image>
+                        <block wx:if="{{ mdetail.cproduct.length!=0 }}">
+                        <view class="input-wrapper" wx:for="{{ mdetail.cproduct }}" wx:if="{{ item!=null }}">
+                            <view class="input-w">
+                                <view class="input-title">产品{{ index + 1 }}</view>
+                                <view class="input-cell tr">
+                                    <view class="input-text">
+                                        {{ item }}
                                     </view>
-                                    <view class="cp-p">
-                                        <view class="inline-block">
-                                        脆脆鲨威化夹心饼干(巧克力味)分享装【袋装】
-                                        </view>
-                                        <view class="tiaoxingMa inline-block">条形码：6917878027951</view>
-                                        <view class="cp-shuLang cp-gy">购样数：
-                                            <text>365</text>
-                                            <text>金额：￥200</text>
-                                        </view>
-                                    </view>
+                                    <!--<view class="navigator-arrow"></view>-->
                                 </view>
                             </view>
                         </view>
+                        </block>
+                        <block wx:else>
+                            <view class="">暂无数据</view>
+                        </block>
                     </view>
                 </scroll-view>
             </view>
