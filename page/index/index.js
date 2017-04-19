@@ -14,7 +14,8 @@ Page({
     var cTarget = wx.getStorageSync('cTarget')
     if(cTarget.id){
       wx.removeStorageSync('cTarget')
+      wx.removeStorageSync('bSelect')
     }
-    wx.navigateTo({url: '../add/clueAdd'})
+    wx.navigateTo({url: '../search/variety'})
   }
 });

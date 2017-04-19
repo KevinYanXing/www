@@ -159,7 +159,12 @@ Page({
   //地区确定
   aConfirm: function() {
     var that    = this;
-    var address = this.data.ccity;
+    if(this.data.ccity){
+      var address = this.data.ccity;
+    }else{
+      var address = {}
+    }
+    
     if(common.objLength(that.maybeInfo)) {
       that.addrInfo = that.maybeInfo;
     } else {
@@ -170,8 +175,8 @@ Page({
       }
     }
     address.province = that.addrInfo.province;
-    address.city     = that.addrInfo.city;
-    address.area     = that.addrInfo.area;
+    address.city = that.addrInfo.city;
+    address.area = that.addrInfo.area;
     that.setData({
       isShow: 0,
       ccity: address
