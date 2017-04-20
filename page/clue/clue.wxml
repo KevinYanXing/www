@@ -43,19 +43,19 @@
                                 <view class = "bottom-sec">
                                     <view class="now">{{item.cname}}</view>
                                     <view class = "top-title">
-                                        <view class = "title inline-block">涉及品牌:</view>
+                                        <view class = "title inline-block">品牌:</view>
                                         <view class = "w70 text-overflow description inline-block blue">{{item.cperson}}</view>
                                     </view>
                                     <view class = "top-title">
-                                        <view class = "fl title">目标名称:</view>
+                                        <view class = "fl title">目标:</view>
                                         <view class = "w70 description">{{item.cperson}}</view>
                                     </view>
                                     <view class = "top-title">
-                                        <view class = "fl title">目标联系:</view>
+                                        <view class = "fl title">联系:</view>
                                         <view class = "w70 description">{{item.ccontact}}</view>
                                     </view>
                                     <view class = "top-title">
-                                        <view class = "fl title">目标城市:</view>
+                                        <view class = "fl title">城市:</view>
                                         <view class = "w70 description">{{item.ccity['province']}} {{item.ccity['city']}} {{item.ccity['area']}}</view>
                                     </view>
                                 </view>
@@ -63,7 +63,7 @@
                         </view>
                         <view class="reply p35">
                             <view class = "fl title">
-                                审核内容：
+                                内容：
                             </view>
                             <view class="w80">
                                 <block wx:if="{{ item.verify }}">
@@ -74,7 +74,7 @@
                                 </block>
                             </view>
                             <view class="fl title f-time">
-                                审核时间：
+                                时间：
                             </view>
                             <view class="w80 f-time">
                                 <block wx:if="{{ item.verify }}">
