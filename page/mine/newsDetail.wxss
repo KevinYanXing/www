@@ -22,9 +22,14 @@
    line-height:52rpx;
 }
 .newsText {
-    font-size: 32rpx;
-  color: #666;
+  font-size: 32rpx;
   margin-right:190rpx;
+}
+.new{
+    color: #666;
+}
+.nonew{
+    color: #d9d9d9;
 }
 .news-tr {
     float:right;
@@ -35,4 +40,53 @@
 }
 .newsTime {
     color:#d9d9d9;
+}
+.header {
+    width: 100%;
+    border-bottom: 1rpx solid #f2f2f2;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+/*tab切换css*/
+.list-tab{
+    height: 94rpx;
+  line-height: 94rpx;
+  width: 100%;
+  background: white;
+}
+.header-wrapper{
+  height:100%;
+  width:100%;
+  display:flex;
+  text-align:center;
+  border-bottom:1rpx solid #e8e8e8;
+}
+.single {
+  display:inline-block;
+  height:100%;
+  width:100%;
+  text-align:center;
+}
+.single {
+  position:relative;
+  top:1rpx;
+}
+.text-detail {
+  font-size: 32rpx;
+  height:100%;
+  color:#9097a2;
+  display:inline-block;
+}
+.single .active {
+  font-weight: 700;
+  color:#2fa7e0;
+  border-bottom:3rpx solid #2fa7e0;
+  height:92rpx;
+}
+/*tab切换css end*/
+.main-container {
+  position: absolute;
+  top:96rpx;
+  width:100%;
 }

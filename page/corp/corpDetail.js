@@ -12,6 +12,11 @@ Page({
     curNav: "0",
     circular: true,
 
+    // 切换卡
+    hasData: true,
+    navTab: ["基本信息", "线索进展"],
+    currentNavtab:0,
+
     //内容
     mdetail:{},
     hasData:true,
@@ -63,6 +68,11 @@ Page({
       current: current,
       urls: that.data.imageName
     })
-  }
+  },
+  switchTab: function(e){
+    this.setData({
+      currentNavtab: e.currentTarget.dataset.idx
+    });
+  },
   
 })

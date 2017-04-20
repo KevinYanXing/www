@@ -103,8 +103,6 @@
             </view>
 
             <view class="view1 width20 mt20"  bindtouchstart="catchtouchstart" bindtouchend="catchtouchend">
-                
-
                 <scroll-view class="tableView">
                     <!--<view class="hon-cen">暂无数据</view>-->
                     <view class="mycase">
@@ -113,29 +111,28 @@
                                 <view class="cellblock">
                                     <view class="cellTitle">线索状态：</view>
                                     <view class="cellContent">
-                                        <text class="celltext green">已完成</text>
+                                    <block wx:if="{{ mdetail.sta == 1 }}">
+                                        <text class="celltext gray">{{ mdetail.sta_name }}</text>
+                                    </block>
+                                    <block wx:elif="{{ mdetail.sta == 2 }}">
+                                        <text class="celltext green">{{ mdetail.sta_name }}</text>
+                                    </block>
+                                    <block wx:else>
+                                        <text class="celltext red">{{ mdetail.sta_name }}</text>
+                                    </block>
                                     </view>
                                 </view>
                             </view>
                         </view>
                         <view class="back">
                             <view class="classname">
-                                <view class="detail">
+                                <view class="detail" wx:for="{{ mdetail.verify }}">
                                     <view class="bdr">
                                         <view class="content-time">
                                             <view>客服：</view>
-                                            <text>点击咖啡进口开发角度看打开九分裤空间发快递可点</text>
+                                            <text>{{ item.descs }}</text>
                                         </view>
-                                        <view class="time">2017-06-07 13:30</view>
-                                    </view>
-                                </view>
-                                <view class="detail">
-                                    <view class="bdr b-no">
-                                        <view class="content-time">
-                                            <view>调查员：</view>
-                                            <text>点击咖啡进口开发角度看打开九分裤空间发快递可点</text>
-                                        </view>
-                                        <view class="time">2017-06-07 13:30</view>
+                                        <view class="time">{{ item.d }}</view>
                                     </view>
                                 </view>
                             </view>

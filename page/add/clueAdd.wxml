@@ -62,7 +62,7 @@
                     <view class="input-cell tr">
                         <view class="input-text">
                             <view wx:if = "{{!ccity.area}}" class = "not-set" bindtap = "cArea">选择城市</view>
-                            <view wx:if = "{{ccity.area}}" class = "set" bindtap = "cArea"> {{ccity.province}} {{ccity.city}} {{ccity.area}}</view>
+                            <view wx:if = "{{ccity.area}}" class = "set" bindtap = "cArea"> {{ccity.province}}/{{ccity.city}}/{{ccity.area}}</view>
                         </view>
                         <view class="navigator-arrow"></view>
                     </view>
