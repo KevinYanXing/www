@@ -33,7 +33,7 @@
                 <view class="input-w">
                     <view class="input-title">联系方式</view>
                     <view class="input-cell">
-                        <input bindinput = "pContact" name="input" placeholder="请输入手机/电话号码" value = "{{pcontact}}" placeholder-style = "color: #888888; "/>
+                        <input bindinput="pContact" name="input" type="digit" placeholder="请输入手机/电话号码" value = "{{pcontact}}" placeholder-style = "color: #888888; "/>
                     </view>
                 </view>
             </view>

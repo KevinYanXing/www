@@ -78,12 +78,10 @@
   background: white;
   margin-bottom: 25rpx;
 }
-
 .list-detail .list-sec {
   width: 100%;
-  box-sizing: border-box;
   display:inline-block;
-  padding: 15rpx 0 15rpx;
+  padding: 18rpx 0 18rpx;
 
 }
 .background{
@@ -96,11 +94,11 @@
   width:150rpx;
   height:150rpx;
   border:1rpx solid #eaedf4;
-  background: #ffffff;
   margin:8rpx auto;
   border-radius:0rpx;
   text-align:center;
   float:left;
+  background: #ffffff;
 }
 .image image{
   display:block;
@@ -111,10 +109,9 @@
   margin-left: 182rpx;
 }
 .now {
-  color: #333;
-	font-weight: bold;
-  font-size: 32rpx;
-  padding-bottom:10rpx;
+  color: #666;
+  font-size: 26rpx;
+  padding-bottom:6rpx;
 }
 .top-title{
   padding-bottom:4rpx;
@@ -123,17 +120,16 @@
     vertical-align: middle;
 }
 .top-title .title{
-  width: 28%;
-  color: #9097a2;
+  width: 14%;
+  color: #BBBBBB;
   font-size:26rpx;
 }
 .top-title .description{
-  color: #666;
-  /*color: #4a4a4a;*/
+  color: #BBBBBB;
   font-size: 26rpx;
 }
 .go-buy{
-  padding-bottom: 15rpx;
+  padding-bottom: 18rpx;
   border-bottom:1rpx solid #e5e5e5;
 }
 .time-l{
@@ -152,7 +148,7 @@
 	color: #ff7475;
 }
 .w70{
-    width:70%;
+    width:85%;
     display: inline-block;
 
 }
@@ -160,7 +156,7 @@
 .reply{
   padding-top: 15rpx;
   border-top:1rpx solid #e5e5e5;
-  color:#969696;
+  color:#666;
   font-size:26rpx;
 }
 .w80{

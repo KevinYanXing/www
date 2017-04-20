@@ -40,7 +40,7 @@
                     <view class="input-w">
                         <view class="input-title">购样价格</view>
                         <view class="input-cell">
-                            <input bindinput = "price" type="number" placeholder="输入购样价格" value = "{{pinfo.price}}" placeholder-style = "color: #888888; "/>
+                            <input bindinput = "price" type="digit" placeholder="输入购样价格" value = "{{pinfo.price}}" placeholder-style = "color: #888888; "/>
                         </view>
                         <view class="input-cell tr RMB">元</view>
                     </view>
