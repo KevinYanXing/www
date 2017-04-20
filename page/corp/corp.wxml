@@ -33,7 +33,15 @@
                     <view class="list-sec" bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
                         <view class="go-buy p35">
                             <view class="time-l">提交：{{ item.d }}</view>
-                            <view class="go-r">{{ item.sta_name }}</view>
+                            <block wx:if="{{ item.sta == 1 }}">
+                                <view class="go-r gray">{{ item.sta_name }}</view>
+                            </block>
+                            <block wx:elif="{{ item.sta == 2 }}">
+                                <view class="go-r green">{{ item.sta_name }}</view>
+                            </block>
+                            <block wx:else>
+                                <view class="go-r red">{{ item.sta_name }}</view>
+                            </block>
                         </view>
                         <view class="inline-block background">
                             <view class="p35">
@@ -47,7 +55,11 @@
                                     <view class="now">{{item.pname}}</view>
                                     <view class = "top-title">
                                         <view class = "title inline-block">品牌:</view>
-                                        <view class = "w70  text-overflow description inline-block blue">{{item.ptype_name}}</view>
+                                        <view class = "w70  text-overflow description inline-block blue" wx:if="{{item.pbrand.length>0}}">  
+                                            <block wx:for="{{item.pbrand}}" wx:for-item="brand">
+                                            {{ brand.name }} 
+                                            </block>
+                                        </view>
                                     </view>
                                     <view class = "top-title">
                                         <view class = "title inline-block">性质:</view>

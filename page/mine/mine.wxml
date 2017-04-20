@@ -24,7 +24,6 @@
             </view>
         </view>
     </view>
-
     <view class="back mt20">
         <view class="input-wrapper" bindtap="news">
             <view class="input-w">
