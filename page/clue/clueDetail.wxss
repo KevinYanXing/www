@@ -143,6 +143,7 @@ display: block;
 .content{
   padding:23rpx 0;
   line-height:52rpx;
+  min-height:52rpx;
 }
 .border{ 
   border-bottom:1rpx solid #f0f0f0;
