@@ -342,10 +342,8 @@ right:38rpx;
 }
 .list-sous{
     background:#eee;
-    display:-webkit-flex;
-    width:100%;
+    display:flex;
     padding:20rpx;
-    box-sizing:border-box;
 }
 .list-sous .search {
     width:85%;
@@ -406,7 +404,7 @@ right:38rpx;
   font-size: 33rpx;
 }
 .error {
-    font-size: 33rpx;
+    font-size: 30rpx;
   text-align: center;
   padding-top: 200rpx;
   color: #7d7d7d;

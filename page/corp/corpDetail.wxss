@@ -137,8 +137,20 @@ display: block;
   line-height:52rpx;
 }
 .title{
-  font-size: 18px;
+  font-size: 40rpx;
   font-weight: 600;
+}
+.value-nare{
+  font-size:30rpx;
+  color:#333;
+  padding-top:20rpx;
+  padding-left:4rpx;
+}
+.value-nare text:nth-child(1){
+  padding-right:22rpx;
+}
+.value-nare text:nth-child(2){
+  padding-left:22rpx;
 }
 .content{
   padding:23rpx 0;

@@ -34,7 +34,7 @@
                         <view class="go-buy p35">
                             <view class="time-l">提交：{{ item.d }}</view>
                             <block wx:if="{{ item.sta == 1 }}">
-                                <view class="go-r gray">{{ item.sta_name }}</view>
+                                <view class="go-r yellow">{{ item.sta_name }}</view>
                             </block>
                             <block wx:elif="{{ item.sta == 2 }}">
                                 <view class="go-r green">{{ item.sta_name }}</view>
