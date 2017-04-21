@@ -81,8 +81,8 @@
                                 内容：
                             </view>
                             <view clas ="w80">
-                                <block wx:if="{{ item.verify }}">
-                                    {{item.verify}}
+                                <block wx:if="{{ item.verify.length>0 }}">
+                                    {{item.verify[item.verify.length-1].descs}}
                                 </block>
                                 <block wx:else>
                                     暂未审核
@@ -92,8 +92,8 @@
                                 时间：
                             </view>
                             <view class="w80 f-time">
-                                <block wx:if="{{ item.verify }}">
-                                    {{item.vd}}
+                                <block wx:if="{{ item.verify.length>0 }}">
+                                    {{item.verify[item.verify.length-1].d}}
                                 </block>
                                 <block wx:else>
                                     暂未审核

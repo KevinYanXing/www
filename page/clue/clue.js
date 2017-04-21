@@ -71,29 +71,10 @@ Page({
           itemList: ['查看','编辑','删除'],
           success: function (e) {
             if(e.tapIndex==0){
-                wx.navigateTo({
-                  url: './clueDetail?id='+id,
-                  success: function(res){
-                    console.debug(res)
-                  },
-                  fail: function(res) {
-                    console.debug(res)
-                  },
-                })
+                wx.navigateTo({url: './clueDetail?id='+id})
             }else if(e.tapIndex==1){
               wx.setStorageSync('cTarget', that.data.list.cinfo[idx])
-              wx.navigateTo({
-                url: '../add/clueAdd',
-                success: function(res){
-                  // success
-                },
-                fail: function() {
-                  // fail
-                },
-                complete: function() {
-                  // complete
-                }
-              })
+              wx.navigateTo({url: '../add/clueAdd'})
 
             }else if(e.tapIndex==2){
                 wx.showModal({

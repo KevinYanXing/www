@@ -29,7 +29,7 @@
             <view class="input-w">
                 <view class="input-title">最新消息</view>
                 <view class="input-cell">
-                    <view class="digital">4</view>
+                    <view class="digital" wx:if="{{ dataSum.news }}">{{ dataSum.news }}</view>
                     <view class="navigator-arrow"></view>
                 </view>
             </view>
