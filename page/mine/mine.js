@@ -11,6 +11,7 @@ Page({
     var that = this
     wx.getUserInfo({
       success: function(res){
+        console.debug(res)
           that.setData({
             userInfo : res.userInfo
           })
