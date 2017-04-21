@@ -111,7 +111,7 @@
                         涉及产品 
                     </view>
                     <view class="nav-right " bindtap="cProduct">
-                        <image class="tb-width"  src="../../image/edit.png"></image>
+                        <image class="tb-width"  src="../../image/jia.png"></image>
                         添加
                     </view>
                 </view>
