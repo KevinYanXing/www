@@ -15,7 +15,7 @@ var done = false
 function sendPhotos(arr){
   if(arr.length != 0){
       wx.uploadFile({
-        url: 'http://192.168.0.115:5000/img/',
+        url: app.globalData.url+'/img/',
         filePath: arr[0],
         name: 'file',
         success: function(res){
@@ -117,7 +117,7 @@ Page({
       that.address = areaList
     }else{
       wx.request({
-        url: 'http://192.168.0.115:5000/arealist/',
+        url: app.globalData.url+'/arealist/',
         data: {},
         method: 'GET', 
         success: function(res){
@@ -408,9 +408,9 @@ Page({
                   }else{
                       var submitData = wx.getStorageSync('cTarget')
                       if(submitData){
-                          var url = 'http://192.168.0.115:5000/csave/'
+                          var url = app.globalData.url+'/csave/'
                           if(submitData.id){
-                            url = 'http://192.168.0.115:5000/csave/?id='+submitData.id
+                            url = app.globalData.url+'/csave/?id='+submitData.id
                           }
                           wx.request({
                             url: url,

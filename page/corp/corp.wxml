@@ -61,18 +61,24 @@
                                             </block>
                                         </view>
                                     </view>
-                                    <view class = "top-title">
-                                        <view class = "title inline-block">性质:</view>
-                                        <view class = "w70 description">{{item.ptype_name}}</view>
-                                    </view>
-                                    <view class = "top-title">
-                                        <view class = "title inline-block">市场:</view>
-                                        <view class = "w70 description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
-                                    </view>
-                                    <view class = "top-title">
-                                        <view class = "fl title">地址:</view>
-                                        <view class = "w70 description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
-                                    </view>
+                                    <block wx:if="{{ item.ptype }}">
+                                        <view class = "top-title">
+                                            <view class = "title inline-block">性质:</view>
+                                            <view class = "w70 description">{{item.ptype_name}}</view>
+                                        </view>
+                                    </block>
+                                    <block wx:if="{{ item.pmarket }}">
+                                        <view class = "top-title">
+                                            <view class = "title inline-block">市场:</view>
+                                            <view class = "w70 description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
+                                        </view>
+                                    </block>
+                                    <block wx:if="{{ item.plocation }}">
+                                        <view class = "top-title">
+                                            <view class = "fl title">地址:</view>
+                                            <view class = "w70 description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
+                                        </view>
+                                    </block>
                                 </view>
                             </view>
                         </view>

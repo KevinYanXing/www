@@ -19,7 +19,7 @@ Page({
           })
       }else{
         wx.request({
-          url: 'http://192.168.0.115:5000/blist/',
+          url: app.globalData.url+'/blist/',
           data: {},
           method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
           // header: {}, // 设置请求的 header

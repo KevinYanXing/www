@@ -15,6 +15,8 @@ App({
   },
   onHide: function() {
   },
-  globalData: {}
+  globalData: {
+    url:'http://192.168.0.115:5000'
+  }
 })
 

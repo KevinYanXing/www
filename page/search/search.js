@@ -31,7 +31,7 @@ Page({
       duration: 10000
     })
     wx.request({
-      url: 'http://192.168.0.115:5000/plist/',
+      url: app.globalData.url+'/plist/',
       method: 'GET',
       header: {
         'Accept': 'application/json'
@@ -112,7 +112,7 @@ Page({
     var val = e.detail.value
     if (val && val != "") {
       wx.request({
-        url: 'http://192.168.0.115:5000/plist/?keyword=' + val + '',
+        url: app.globalData.url+'/plist/?keyword=' + val + '',
         method: 'GET',
         success: function (res) {
           var content = res.data.ok;

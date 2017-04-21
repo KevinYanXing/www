@@ -11,13 +11,33 @@
     </view>
     <view class="main-container">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
-            <view class="view0 width20">
+            <view class="view0 width20 mt20">
                 <scroll-view class="tableView">
                     <view class="back">
                         <view class="clue">
                             <view class="p35">
                                 <view class="title-content">
                                     <view class="title">{{ mdetail.pname }}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="content border tuBiao">
+                                    <image src="../../image/x1.png"></image>
+                                    <view class="value">
+                                        <text class="value-text">{{ mdetail.ptype_name }}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="content border tuBiao">
+                                    <image src="../../image/x1.png"></image>
+                                    <view class="value">
+                                        <text class="value-text">{{ mdetail.pstate_name }}</text>
+                                    </view>
                                 </view>
                             </view>
                         </view>
@@ -37,6 +57,16 @@
                                     <image src="../../image/x2.png"></image>
                                     <view class="value">
                                         <text class="value-text">{{ mdetail.pcontact }}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="clue">
+                            <view class="p35">
+                                <view class="content border tuBiao">
+                                    <image src="../../image/x3.png"></image>
+                                    <view class="value">
+                                        <text class="value-text">{{ mdetail.pmarket }}</text>
                                     </view>
                                 </view>
                             </view>
@@ -65,7 +95,7 @@
                         </view>
                     </view>
                     
-                    <view class="">
+                    <view class="mb20">
                         <view class="noing border">
                             <view class="weuijz prl">
                                 <view class="weui">产品</view>
@@ -76,14 +106,14 @@
                             <view class="p20 border">
                                 <view class="order-info">
                                     <view wx:if="{{ item.mfd }}"><text class="cp-time">MFD:</text>{{ item.mfd }}</view>
-                                    <view wx:if="{{ item.mfd }}"><text class="cp-time">EXP:</text>{{ item.exp }}</view>
+                                    <view wx:if="{{ item.exp }}"><text class="cp-time">EXP:</text>{{ item.exp }}</view>
                                     <view wx:if="{{ item.bnum }}">
                                         <text class="order-state">{{ item.bnum }}</text>
                                     </view>
                                 </view>
                                 <view class="inline-block" style="width:100%;">
                                     <view class="image">
-                                        <image style="width: 100%; height:100%" mode="aspectFit" src="../../image/zw.png"></image>
+                                        <image style="width: 100%; height:100%" mode="aspectFit" src="{{ item.logoid }}"></image>
                                     </view>
                                     <view class="cp-p">
                                         <view class="mingChen">
@@ -107,7 +137,6 @@
             </view>
             <view class="view1 width20 mt20"  bindtouchstart="catchtouchstart" bindtouchend="catchtouchend">
                 <scroll-view class="tableView">
-                    <!--<view class="hon-cen">暂无数据</view>-->
                     <view class="mycase">
                         <view class="logis-info">
                              <view class="cell prl">
@@ -127,19 +156,25 @@
                                 </view>
                             </view>
                         </view>
-                        <view class="back">
-                            <view class="classname">
-                                <view class="detail" wx:for="{{ mdetail.verify }}">
-                                    <view class="bdr">
-                                        <view class="content-time">
-                                            <view>客服：</view>
-                                            <text>{{ item.descs }}</text>
+                        <block wx:if="{{ mdetail.verify.length>0 }}">
+                            <view class="back">
+                                <view class="classname">
+                                
+                                    <view class="detail" wx:for="{{ mdetail.verify }}">
+                                        <view class="bdr">
+                                            <view class="content-time">
+                                                <view>客服：</view>
+                                                <text>{{ item.descs }}</text>
+                                            </view>
+                                            <view class="time">{{ item.d }}</view>
                                         </view>
-                                        <view class="time">{{ item.d }}</view>
-                                    </view>
+                                    </view>    
                                 </view>
                             </view>
-                        </view>
+                        </block>
+                        <block wx:else>
+                            <view class="error">暂无数据</view>
+                        </block>
                     </view>
                     
                     
