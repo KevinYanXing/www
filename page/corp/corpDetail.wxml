@@ -115,7 +115,7 @@
                                     <view class="cellTitle">普查状态：</view>
                                     <view class="cellContent">
                                     <block wx:if="{{ mdetail.sta == 1 }}">
-                                        <text class="celltext gray">{{ mdetail.sta_name }}</text>
+                                        <text class="celltext yellow">{{ mdetail.sta_name }}</text>
                                     </block>
                                     <block wx:elif="{{ mdetail.sta == 2 }}">
                                         <text class="celltext green">{{ mdetail.sta_name }}</text>
