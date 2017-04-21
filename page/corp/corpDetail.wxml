@@ -69,12 +69,12 @@
                                         <text class="order-state">{{ item.bnum }}</text>
                                     </view>
                                 </view>
-                                <view class="inline-block">
+                                <view class="inline-block" style="width:100%;">
                                     <view class="image">
                                         <image style="width: 100%; height:100%" mode="aspectFit" src="../../image/zw.png"></image>
                                     </view>
                                     <view class="cp-p">
-                                        <view class="inline-block">
+                                        <view class="mingChen">
                                         {{ item.name }}
                                         </view>
                                         <view class="tiaoxingMa inline-block">条形码：{{ item.num }}</view>

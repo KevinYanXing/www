@@ -79,6 +79,7 @@
 .content{
   padding:23rpx 0;
   line-height:52rpx;
+  min-height:52rpx;
 }
 .border{ 
   border-bottom:1px solid #f0f0f0;
@@ -108,16 +109,17 @@
 /*内容 end*/
 
 /*涉嫌产品*/
+.p20 {
+ padding:20rpx 35rpx 0;
+}
 .image{
-    overflow: hidden;
-    display: block;
-    width: 150rpx;
-    height: 150rpx;
-    border: 1rpx solid #eaedf4;
-    margin: 30rpx auto;
-    border-radius: 0rpx;
-    text-align: center;
-    float: left;
+    width:130rpx;
+    height:130rpx;
+    border:1rpx solid #eaedf4;
+    margin:25rpx auto;
+    border-radius:0rpx;
+    text-align:center;
+    float:left;
 }
 .image view image{
     vertical-align: middle;
@@ -128,6 +130,7 @@
   text-align:left;
   padding:23rpx 0 10rpx;
   margin-left:175rpx;
+  font-size:30rpx;
 }
 .cp-time{
   width:60rpx;
@@ -137,12 +140,13 @@
 }
 .tiaoxingMa{
   padding:10rpx 0 ;
-  font-size:12px;
+  font-size:24rpx;
   color:#666;
 }
 .cp-shuLang{
   padding: 0 0 10rpx;
   color:#666;
+  font-size: 24rpx;
 }
 .cp-gy text:nth-child(1){
   color:#333;
