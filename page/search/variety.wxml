@@ -5,8 +5,8 @@
         <block wx:if="{{ brandInfo.length > 0 }}">
         <view class="variety" wx:for="{{ brandInfo }}" wx:for-item="info">
             <view class="name">
-                <view class="name-img red-b">
-                    <image src="../../image/pz.png"></image>
+                <view class="name-img">
+                    <image mode="scaleToFill" src="{{ info.photo }}"></image>
                 </view>
                  {{ info.title }}
             </view>

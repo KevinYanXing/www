@@ -12,12 +12,12 @@ Page({
   onLoad: function () {
     var that = this
     //品种
-      var bSelect = wx.getStorageSync('bSelect')
-      if(bSelect){
-        that.setData({
-            brandInfo:bSelect
-          })
-      }else{
+      // var bSelect = wx.getStorageSync('bSelect')
+      // if(bSelect){
+      //   that.setData({
+      //       brandInfo:bSelect
+      //     })
+      // }else{
         wx.request({
           url: app.globalData.url+'/blist/',
           data: {},
@@ -42,7 +42,7 @@ Page({
           
           },
         })
-      }
+      // }
       
   }, 
   selectBrand:function(e){

@@ -1,17 +1,17 @@
 .green-b{
-    background-color: #09BB07;
+    border: 3rpx solid #09BB07;
 }
 .red-b{
-    background-color: #f53135;
+    border: 3rpx solid #f53135;
 }
 .blue-b{
-    background-color: #2ea4ff;
+    border: 3rpx solid #2ea4ff;
 }
 .yellow-b{
-    background-color: #FFBE00;
+    border: 3rpx solid #FFBE00;
 }
 .gray-b{
-    background-color: #C9C9C9;
+    border: 3rpx solid #C9C9C9;
 }
 page{
     background: #ffffff;
@@ -39,9 +39,10 @@ page{
     align-items: center;
 }
 .name-img image{
-    width:32rpx;
-    height:32rpx;
     vertical-align:middle;
+    width:46rpx;
+    height:46rpx;
+    border-radius:50%;
 }
 .category{
     width:150rpx;
