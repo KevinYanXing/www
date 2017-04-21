@@ -18,29 +18,13 @@
                             <view class="p35">
                                 <view class="title-content">
                                     <view class="title">{{ mdetail.pname }}</view>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="clue">
-                            <view class="p35">
-                                <view class="content border tuBiao">
-                                    <image src="../../image/x1.png"></image>
-                                    <view class="value">
-                                        <text class="value-text">{{ mdetail.ptype_name }}</text>
+                                    <view class="value-nare">
+                                        <text>{{ mdetail.ptype_name }}</text>|<text>{{ mdetail.pstate_name }}</text>
                                     </view>
                                 </view>
                             </view>
                         </view>
-                        <view class="clue">
-                            <view class="p35">
-                                <view class="content border tuBiao">
-                                    <image src="../../image/x1.png"></image>
-                                    <view class="value">
-                                        <text class="value-text">{{ mdetail.pstate_name }}</text>
-                                    </view>
-                                </view>
-                            </view>
-                        </view>
+                       
                         <view class="clue">
                             <view class="p35">
                                 <view class="content border tuBiao">
@@ -64,7 +48,7 @@
                         <view class="clue">
                             <view class="p35">
                                 <view class="content border tuBiao">
-                                    <image src="../../image/x3.png"></image>
+                                    <image src="../../image/x5.png"></image>
                                     <view class="value">
                                         <text class="value-text">{{ mdetail.pmarket }}</text>
                                     </view>
@@ -144,7 +128,7 @@
                                     <view class="cellTitle">普查状态：</view>
                                     <view class="cellContent">
                                     <block wx:if="{{ mdetail.sta == 1 }}">
-                                        <text class="celltext gray">{{ mdetail.sta_name }}</text>
+                                        <text class="celltext yellow">{{ mdetail.sta_name }}</text>
                                     </block>
                                     <block wx:elif="{{ mdetail.sta == 2 }}">
                                         <text class="celltext green">{{ mdetail.sta_name }}</text>

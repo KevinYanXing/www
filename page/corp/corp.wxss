@@ -29,8 +29,8 @@
   text-align:center;
 }
 .single {
-  position:relative;
-  top:1rpx;
+  /*position:relative;
+  top:1rpx;*/
 }
 .text-detail {
   font-size: 32rpx;
@@ -42,7 +42,7 @@
   font-weight: 700;
   color:#2fa7e0;
   border-bottom:3rpx solid #2fa7e0;
-  height:92rpx;
+  /*height:92rpx;*/
 }
 /*tab切换css end*/
 
@@ -54,7 +54,7 @@
 }
 .main-container {
   position: absolute;
-  top:105px;
+  top:210rpx;
   width:100%;
 }
 .top-slider {

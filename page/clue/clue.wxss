@@ -148,7 +148,7 @@
 	color: #ff7475;
 }
 .w70{
-    width:85%;
+    width:84%;
     display: inline-block;
 
 }
