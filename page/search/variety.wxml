@@ -8,7 +8,7 @@
                 <view class="name-img">
                     <image mode="scaleToFill" src="{{ info.photo }}"></image>
                 </view>
-                 {{ info.title }}
+                {{ info.title }}
             </view>
             <view class="inline-block min-h" wx:for="{{ info.brand }}">
                 <view class="category text-overflow {{ item.show==true?'light':'' }}" id="{{ item.id }}" bindtap="selectBrand">{{ item.name }}</view>

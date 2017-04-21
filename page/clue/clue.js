@@ -26,8 +26,9 @@ Page({
   onShow: function() {
     var that  = this
     var index = that.data.curNav
+    var uid = wx.getStorageSync('uid')
     wx.request({
-      url: app.globalData.url+'/clist/',
+      url: app.globalData.url+'/clist/?uid='+uid,
       data: {},
       method: 'GET', 
       success: function(res){
@@ -67,6 +68,7 @@ Page({
       var that = this
       var id = e.currentTarget.id
       var idx = e.currentTarget.dataset.value
+      var uid = wx.getStorageSync('uid')
       wx.showActionSheet({
           itemList: ['查看','编辑','删除'],
           success: function (e) {
@@ -89,7 +91,7 @@ Page({
                             success: function(res){ 
                                 var index = that.data.curNav
                                 wx.request({
-                                  url: app.globalData.url+'/clist/',
+                                  url: app.globalData.url+'/clist/?uid='+uid,
                                   data: {},
                                   method: 'GET', 
                                   success: function(res){
@@ -130,10 +132,11 @@ Page({
   oninput: function (e) {
     var that = this;
     var val = e.detail.value
+    var uid = wx.getStorageSync('uid')
     console.debug(val)
     if (val && val != "") {
       wx.request({
-        url: app.globalData.url+'/clist/?keyword=' + val + '',
+        url: app.globalData.url+'/clist/?keyword=' + val + '&uid='+uid,
         method: 'GET',
         success: function (res) {
           var content = res.data.ok;

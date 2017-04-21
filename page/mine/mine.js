@@ -9,6 +9,7 @@ Page({
   },
   onShow:function(){
     var that = this
+    var uid = wx.getStorageSync('uid')
     wx.getUserInfo({
       success: function(res){
         console.debug(res)
@@ -25,7 +26,7 @@ Page({
       }
     })
     wx.request({
-      url: app.globalData.url+'/datasum/',
+      url: app.globalData.url+'/datasum/?uid='+uid,
       data: {},
       method: 'GET',
       success: function(res){

@@ -387,10 +387,11 @@ Page({
                       })
                   }else{
                       var submitData = wx.getStorageSync('mTarget')
+                      var uid = wx.getStorageSync('uid')
                       if(submitData){
-                          var url = app.globalData.url+'/msave/'
+                          var url = app.globalData.url+'/msave/?uid='+uid
                           if(submitData.id){
-                            url = app.globalData.url+'/msave/?id='+submitData.id
+                            url = app.globalData.url+'/msave/?id='+submitData.id+'&uid='+uid
                           }
                           console.debug(url)
                           wx.request({

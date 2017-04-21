@@ -2,13 +2,14 @@ App({
   onShow: function() {
     wx.login({
       success: function(res){
-        console.debug(res.code)
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxe9a59ba511ea5d41&secret=7ebec7c75f4b788209bf80ce60a45881&js_code='+ res.code+'&grant_type=authorization_code',
           data: {},
           method: 'GET', 
           success: function(res){
-            console.debug(res)
+            if(res.data.openid){
+              wx.setStorageSync('uid', res.data.openid)
+            }
           },
           fail: function() {
             wx.showToast({
@@ -31,7 +32,8 @@ App({
   onHide: function() {
   },
   globalData: {
-    url:'http://192.168.0.115:5000'
+    url:'http://192.168.0.115:5000',
+    uid:''
   }
 })
 

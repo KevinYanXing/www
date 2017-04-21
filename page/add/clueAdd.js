@@ -407,10 +407,11 @@ Page({
                       })
                   }else{
                       var submitData = wx.getStorageSync('cTarget')
+                      var uid = wx.getStorageSync('uid')
                       if(submitData){
-                          var url = app.globalData.url+'/csave/'
+                          var url = app.globalData.url+'/csave/?uid='+uid
                           if(submitData.id){
-                            url = app.globalData.url+'/csave/?id='+submitData.id
+                            url = app.globalData.url+'/csave/?id='+submitData.id+'&uid='+uid
                           }
                           wx.request({
                             url: url,

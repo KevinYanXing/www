@@ -7,8 +7,9 @@ Page({
   },
   onShow:function(){
     var that = this
+    var uid = wx.getStorageSync('uid')
     wx.request({  
-        url: app.globalData.url+'/mclist/',
+        url: app.globalData.url+'/mclist/?uid='+uid,
         data: {},
         method: 'GET', 
         success: function(res){
@@ -48,6 +49,7 @@ Page({
   },
   setRead:function(){
       var that = this
+      var uid = wx.getStorageSync('uid')
       if(that.data.curNav==0){
         var url = app.globalData.url+'/setread/?typ=m'
       }else{
@@ -63,7 +65,7 @@ Page({
             duration: 2000
         })
         wx.request({  
-            url: app.globalData.url+'/mclist/',
+            url: app.globalData.url+'/mclist/?uid='+uid,
             method: 'GET', 
             success: function(res){
               that.setData({
