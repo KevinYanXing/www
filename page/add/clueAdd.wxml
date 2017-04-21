@@ -130,7 +130,7 @@
             </view>
             </block>
             <block wx:else>
-                <view class="">暂无数据</view>
+                <view class="error">暂无数据</view>
             </block>
         </view>
     

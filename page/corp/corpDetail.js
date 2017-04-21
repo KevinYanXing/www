@@ -14,7 +14,7 @@ Page({
 
     // 切换卡
     hasData: true,
-    navTab: ["基本信息", "线索进展"],
+    navTab: ["基本信息", "普查进展"],
     currentNavtab:0,
 
     //内容
@@ -35,7 +35,7 @@ Page({
     var that = this
     var id = this.data.id
     wx.request({
-      url: 'http://192.168.0.115:5000/mdetail/'+id+'/',
+      url: app.globalData.url+'/mdetail/'+id+'/',
       method: 'GET', 
       success: function(res){
         if(res.data.ok==true){

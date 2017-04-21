@@ -33,7 +33,7 @@ Page({
     var that = this
     var id = this.data.id
     wx.request({
-      url: 'http://192.168.0.115:5000/cdetail/'+id+'/',
+      url: app.globalData.url+'/cdetail/'+id+'/',
       method: 'GET', 
       success: function(res){
         if(res.data.ok==true){

@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
   data:{
     dataSum:{
@@ -23,7 +24,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://192.168.0.115:5000/datasum/',
+      url: app.globalData.url+'/datasum/',
       data: {},
       method: 'GET',
       success: function(res){

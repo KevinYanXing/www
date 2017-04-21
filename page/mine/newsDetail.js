@@ -1,4 +1,5 @@
 // page/mine/newsDetail.js
+var app = getApp()
 Page({
   data:{
     newsType:['普查消息','线索消息'],
@@ -7,7 +8,7 @@ Page({
   onShow:function(){
     var that = this
     wx.request({  
-        url: 'http://192.168.0.115:5000/mclist/',
+        url: app.globalData.url+'/mclist/',
         data: {},
         method: 'GET', 
         success: function(res){
@@ -48,9 +49,9 @@ Page({
   setRead:function(){
       var that = this
       if(that.data.curNav==0){
-        var url = 'http://192.168.0.115:5000/setread/?typ=m'
+        var url = app.globalData.url+'/setread/?typ=m'
       }else{
-        var url = 'http://192.168.0.115:5000/setread/?typ=c'
+        var url = app.globalData.url+'/setread/?typ=c'
       }
       wx.request({
         url: url,
@@ -62,7 +63,7 @@ Page({
             duration: 2000
         })
         wx.request({  
-            url: 'http://192.168.0.115:5000/mclist/',
+            url: app.globalData.url+'/mclist/',
             method: 'GET', 
             success: function(res){
               that.setData({

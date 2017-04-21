@@ -14,7 +14,7 @@ var done = false
 function sendPhotos(arr){
   if(arr.length != 0){
       wx.uploadFile({
-        url: 'http://192.168.0.115:5000/img/',
+        url: app.globalData.url+'/img/',
         filePath: arr[0],
         name: 'file',
         success: function(res){
@@ -236,7 +236,7 @@ Page({
                     success: function(res){
                       var code = res.result
                       wx.request({
-                          url: 'http://192.168.0.115:5000/plist/?keyword='+code,
+                          url: app.globalData.url+'/plist/?keyword='+code,
                           method: 'GET', 
                           success: function(res){
                             var content = res.data.ok;
@@ -388,9 +388,9 @@ Page({
                   }else{
                       var submitData = wx.getStorageSync('mTarget')
                       if(submitData){
-                          var url = 'http://192.168.0.115:5000/msave/'
+                          var url = app.globalData.url+'/msave/'
                           if(submitData.id){
-                            url = 'http://192.168.0.115:5000/msave/?id='+submitData.id
+                            url = app.globalData.url+'/msave/?id='+submitData.id
                           }
                           console.debug(url)
                           wx.request({

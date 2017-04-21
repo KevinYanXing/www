@@ -12,7 +12,7 @@
     <form class="main-container">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
       
-            <view class="view0 width20">
+            <view class="view0 width20 mt20">
                 <scroll-view class="tableView">
                     <view class="back">
                         <view class="clue">
@@ -22,47 +22,65 @@
                                 </view>
                             </view>
                         </view>
-                        <view class="clue">
-                            <view class="p35">
-                                <view class="content border tuBiao">
-                                    <image src="../../image/x1.png"></image>
-                                    <view class="value">
-                                        <text class="value-text">{{ mdetail.cperson }}</text>
+                        <block wx:if="{{ mdetail.cperson }}">
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x1.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">{{ mdetail.cperson }}</text>
+                                        </view>
                                     </view>
                                 </view>
                             </view>
-                        </view>
-                        <view class="clue">
-                            <view class="p35">
-                                <view class="content border tuBiao">
-                                    <image src="../../image/x2.png"></image>
-                                    <view class="value">
-                                        <text class="value-text">{{ mdetail.ccontact }}</text>
+                        </block>
+                        <block wx:if="{{ mdetail.ccontact }}">
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x2.png"></image>
+                                        <view class="value">
+                                            <block wx:if="{{ mdetail.ccontact }}">
+                                                <text class="value-text">{{ mdetail.ccontact }}</text>
+                                            </block>
+                                            <block wx:else>
+                                                <text class="value-text">暂无</text>
+                                            </block>
+                                        </view>
                                     </view>
                                 </view>
                             </view>
-                        </view>
-                        <view class="clue">
-                            <view class="p35">
-                                <view class="content border tuBiao">
-                                    <image src="../../image/x3.png"></image>
-                                    <view class="value">
-                                        <text class="value-text">{{ mdetail.ccity.province }} {{ mdetail.ccity.city }} {{ mdetail.ccity.area }}</text>
+                        </block>
+                        <block wx:if="{{ mdetail.ccity }}">
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x3.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">{{ mdetail.ccity.province }}/{{ mdetail.ccity.city }}/{{ mdetail.ccity.area }}</text>
+                                        </view>
                                     </view>
                                 </view>
                             </view>
-                        </view>
-                        <view class="clue">
-                            <view class="p35">
-                                <view class="content tuBiao">
-                                    <image src="../../image/x4.png"></image>
-                                    <view class="value">
-                                        <text class="value-text">{{ mdetail.cdescripe }}</text>
+                        </block>
+                        <block wx:if="{{ mdetail.cdescripe }}">      
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content tuBiao">
+                                        <image src="../../image/x4.png"></image>
+                                        <view class="value">
+                                            <block wx:if="{{ mdetail.cdescripe }}">
+                                                <text class="value-text">{{ mdetail.cdescripe }}</text>
+                                            </block>
+                                            <block wx:else>
+                                                <text class="value-text">暂无</text>
+                                            </block>
+                                            
+                                        </view>
                                     </view>
                                 </view>
                             </view>
-                        </view>
-                    
+                        </block>
                         <view class="p35">
                             <view class="top-slider">
                                 <swiper class="slider-sec" indicator-dots="{{indicatorDots}}"
@@ -76,7 +94,7 @@
                             </view>
                         </view>
                     </view>
-                    <view class="">
+                    <view class="mb20">
                         <view class="noing border">
                             <view class="weuijz prl">
                                 <view class="weui">涉及产品</view>

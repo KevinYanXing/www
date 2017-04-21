@@ -79,7 +79,7 @@ Page({
                 success: function(res){
                   var code = res.result
                   wx.request({
-                      url: 'http://192.168.0.115:5000/plist/?keyword='+code,
+                      url: app.globalData.url+'/plist/?keyword='+code,
                       method: 'GET', 
                       success: function(res){
                         var content = res.data.ok;

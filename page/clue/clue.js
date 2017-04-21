@@ -27,7 +27,7 @@ Page({
     var that  = this
     var index = that.data.curNav
     wx.request({
-      url: 'http://192.168.0.115:5000/clist/',
+      url: app.globalData.url+'/clist/',
       data: {},
       method: 'GET', 
       success: function(res){
@@ -83,13 +83,13 @@ Page({
                     success: function(res) {
                       if (res.confirm) {
                           wx.request({
-                            url: 'http://192.168.0.115:5000/cdel/'+ id +'/',
+                            url: app.globalData.url+'/cdel/'+ id +'/',
                             data: {},
                             method: 'GET',
                             success: function(res){ 
                                 var index = that.data.curNav
                                 wx.request({
-                                  url: 'http://192.168.0.115:5000/clist/',
+                                  url: app.globalData.url+'/clist/',
                                   data: {},
                                   method: 'GET', 
                                   success: function(res){
@@ -133,7 +133,7 @@ Page({
     console.debug(val)
     if (val && val != "") {
       wx.request({
-        url: 'http://192.168.0.115:5000/clist/?keyword=' + val + '',
+        url: app.globalData.url+'/clist/?keyword=' + val + '',
         method: 'GET',
         success: function (res) {
           var content = res.data.ok;
