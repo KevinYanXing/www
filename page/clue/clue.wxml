@@ -49,33 +49,35 @@
                                     <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>
                                 </view>
                                 <view class = "bottom-sec">
-                                    <view class="now">{{item.cname}}</view>
-                                    <view class = "top-title">
-                                        <view class = "title inline-block">品牌:</view>
-                                        <view class = "w70 text-overflow description inline-block blue" wx:if="{{ item.cbrand.length>0 }}">
-                                            <block wx:for="{{item.cbrand}}" wx:for-item="brand">
-                                                {{ brand.name }} 
-                                            </block>
+                                    <view class="classname">
+                                        <view class="now">{{item.cname}}</view>
+                                        <view class = "top-title">
+                                            <view class = "title inline-block">品牌:</view>
+                                            <view class = "w70 text-overflow description inline-block blue" wx:if="{{ item.cbrand.length>0 }}">
+                                                <block wx:for="{{item.cbrand}}" wx:for-item="brand">
+                                                    {{ brand.name }} 
+                                                </block>
+                                            </view>
                                         </view>
+                                        <block wx:if="{{ item.cperson }}">
+                                        <view class = "top-title">
+                                            <view class = "fl title">目标:</view>
+                                            <view class = "w70 description">{{item.cperson}}</view>
+                                        </view>
+                                        </block>
+                                        <block wx:if="{{ item.ccontact }}">
+                                        <view class = "top-title">
+                                            <view class = "fl title">联系:</view>
+                                            <view class = "w70 description">{{item.ccontact}}</view>
+                                        </view>
+                                        </block>
+                                        <block wx:if="{{ item.ccity }}">
+                                        <view class="top-title">
+                                            <view class = "fl title">城市:</view>
+                                            <view class = "w70 description">{{item.ccity['province']}}/{{item.ccity['city']}}/{{item.ccity['area']}}</view>
+                                        </view>
+                                        </block>
                                     </view>
-                                    <block wx:if="{{ item.cperson }}">
-                                    <view class = "top-title">
-                                        <view class = "fl title">目标:</view>
-                                        <view class = "w70 description">{{item.cperson}}</view>
-                                    </view>
-                                    </block>
-                                    <block wx:if="{{ item.ccontact }}">
-                                    <view class = "top-title">
-                                        <view class = "fl title">联系:</view>
-                                        <view class = "w70 description">{{item.ccontact}}</view>
-                                    </view>
-                                    </block>
-                                    <block wx:if="{{ item.ccity }}">
-                                    <view class = "top-title">
-                                        <view class = "fl title">城市:</view>
-                                        <view class = "w70 description">{{item.ccity['province']}}/{{item.ccity['city']}}/{{item.ccity['area']}}</view>
-                                    </view>
-                                    </block>
                                 </view>
                             </view>
                         </view>

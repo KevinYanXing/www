@@ -1,10 +1,6 @@
-.sec-kill {
-  height: 100%;
-  position: relative;
-}
 .header {
   width: 100%;
-  position: absoulte;
+  position:absolute;
   top:0;
   left:0;
   right:0;
@@ -54,7 +50,9 @@
 }
 .flexItem {
 }
-
+.list_active0 .view0, .list_active1 .view1{
+  overflow-x: hidden;
+}
 .list_active0 .view0{
 display: block;
 
@@ -273,18 +271,10 @@ display: block;
 }
 /*基本 end*/
 
-
-/*暂无数据*/
-.hon-cen {
-  top:20%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  margin:0 auto;
-  position:absolute;
-  color:#7d7d82;
-}
-/*暂无数据 end*/
 /*进展*/
+.mycase{
+  padding-bottom:83rpx;
+}
 .caseMingcheng{
 
 }
