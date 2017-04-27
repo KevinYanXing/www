@@ -23,12 +23,14 @@ Page({
     noHid:"noHid",
 
   },  
-  onShow: function(options) {
+  onLoad: function(options) {
     this.setData({
       id:options.id
     })
+  },
+  onShow: function(options) {
     var that = this
-    var id = this.data.id
+    var id = that.data.id
     wx.request({
       url: app.globalData.url+'/cdetail/'+id+'/',
       method: 'GET', 
