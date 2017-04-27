@@ -9,7 +9,7 @@
             </view>
          </view>
     </view>
-    <view class="main-container {{currentNavtab==0 ? 'main-bottom' : ''}}">
+    <view class="main-container">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
             <view class="view0 width20 mt20">
                 <scroll-view class="tableView">
@@ -119,7 +119,7 @@
                     </view>
                 </scroll-view>
             </view>
-            <view class="view1 width20 mt20"  bindtouchstart="catchtouchstart" bindtouchend="catchtouchend">
+            <view class="view1 width20 mt20 {{currentNavtab==0 ? 'main-bottom' : ''}}"  bindtouchstart="catchtouchstart" bindtouchend="catchtouchend">
                 <scroll-view class="tableView">
                     <view class="mycase">
                         <view class="logis-info">

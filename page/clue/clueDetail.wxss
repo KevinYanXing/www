@@ -247,18 +247,6 @@ display: block;
   display: initial;
 }
 /*基本 end*/
-
-
-/*暂无数据*/
-.hon-cen {
-  top:20%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  margin:0 auto;
-  position:absolute;
-  color:#7d7d82;
-}
-/*暂无数据 end*/
 /*进展*/
 .caseMingcheng{
 
