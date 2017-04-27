@@ -1,4 +1,7 @@
-
+<block wx:if="{{netError==true}}">
+    <import src="../internet/internet.wxml" />
+    <template is="netError"/>
+</block>
 <view class="purchase">
     <view class="header">
         <view class="list-sous {{showView?'':'none'}}" bindtap="onChangeShowState">
@@ -44,7 +47,7 @@
                             </block>
                         </view>
                         <view class="inline-block background">
-                             <view class="p35">
+                            <view class="p35">
                                 <view class="image">
                                     <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>
                                 </view>
@@ -90,7 +93,7 @@
                                     {{item.verify[item.verify.length-1].descs}}
                                 </block>
                                 <block wx:else>
-                                     暂未审核
+                                    暂未审核
                                 </block>
                             </view>
                             <view class="fl title f-time">

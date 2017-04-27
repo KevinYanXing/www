@@ -33,6 +33,10 @@ Page({
         })
       },
       fail: function(res) {
+        that.setData({
+          netError:true
+        })
+        console.debug(that.data.netError)
         wx.showToast({
               title: '请求失败',
               image:'../../image/cw-ico.png',

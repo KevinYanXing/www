@@ -343,6 +343,7 @@ right:38rpx;
 .list-sous{
     background:#eee;
     display:flex;
+    height:75rpx;
     padding:20rpx;
 }
 .list-sous .search {
@@ -608,3 +609,12 @@ picker {
 .s-show {
   display: block;
 }
+/*网络请求失败*/
+.page-net{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    background:#eee; 
+}
+/*网络请求失败 end*/

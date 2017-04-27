@@ -1,5 +1,5 @@
 <view class="addr-body">
-    <form class="form" bindsubmit="formSubmit" bindreset="formReset">
+    <form class="form mt20" bindsubmit="formSubmit" bindreset="formReset">
         <view class="top-sec">
             <view class="input-wrapper">
                 <view class="input-w">
@@ -18,8 +18,8 @@
                 </view>
             </view>
         </view>
+        <view class="add-address mt20">
+            <button class = "address-btn" formType="submit" bindtap = "login">登录</button>
+        </view>
     </form>
-    <view class="add-address">
-        <button class = "address-btn" formType="submit" bindtap = "login">登录</button>
-    </view>
 </view>

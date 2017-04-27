@@ -1,0 +1,9 @@
+<template name="netError">
+  <view class="page-net">
+    <view class="wait-more">
+      <view class="page-net-title">网络失败</view>
+      <view class="page-net-line">请重新加载数据</view>
+      <button bindtap="onPullDownRefresh">重新加载</button>
+    </view>
+  </view>
+</template>
