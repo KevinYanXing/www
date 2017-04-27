@@ -1,11 +1,10 @@
-// page/mine/newsDetail.js
 var app = getApp()
 Page({
   data:{
     newsType:['普查消息','线索消息'],
     curNav:0
   },
-  onShow:function(){
+  onLoad:function(){
     var that = this
     var uid = wx.getStorageSync('uid')
     wx.request({  
@@ -13,6 +12,7 @@ Page({
         data: {},
         method: 'GET', 
         success: function(res){
+          console.debug(res)
           that.setData({
             mclist: res.data.data,
             list:res.data.data[that.data.curNav]
@@ -35,7 +35,6 @@ Page({
         list: info,
         curNav: index,
       });
-      console.debug(that.data.list)
   },
   checkInfo:function(e){
     var id = e.currentTarget.id
@@ -90,5 +89,29 @@ Page({
         })
         }
       })
+    },
+    onPullDownRefresh: function(){
+      var that = this
+      var uid = wx.getStorageSync('uid')
+      wx.request({  
+          url: app.globalData.url+'/mclist/?uid='+uid,
+          data: {},
+          method: 'GET', 
+          success: function(res){
+            console.debug(res)
+            that.setData({
+              mclist: res.data.data,
+              list:res.data.data[that.data.curNav]
+            })
+          },
+          fail: function(res) {
+            wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+          },
+        })
+        wx.stopPullDownRefresh()
     }
 })

@@ -24,14 +24,72 @@ Page({
     hide:"hide",
     noHid:"noHid",
 
-  },  
+  }, 
   onLoad: function(options) {
     this.setData({
       id:options.id
     })
+  },
+  onShow: function(options) {
+    var that = this
+    var id = that.data.id
+    wx.request({
+      url: app.globalData.url+'/mdetail/'+id+'/',
+      method: 'GET', 
+      success: function(res){
+        if(res.data.ok==true){
+            that.setData({
+                imageName:res.data.mdetail.imageName,
+                mdetail:res.data.mdetail
+            })
+        }else{
+          wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+      }
+    })
     
   },
-  onShow: function() {
+  bigImage:function(e){
+    var that = this
+    console.debug(e.currentTarget)
+    var current = e.currentTarget.dataset.src
+    wx.previewImage({
+      current: current,
+      urls: that.data.imageName
+    })
+  },
+  switchTab: function(e){
+    this.setData({
+      currentNavtab: e.currentTarget.dataset.idx
+    });
+  },
+  reply:function(e){
+    var id = e.currentTarget.id
+    wx.navigateTo({
+      url: '../add/reply?id='+id,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+    },
+  onPullDownRefresh: function(){
     var that = this
     var id = this.data.id
     wx.request({
@@ -59,20 +117,7 @@ Page({
         })
       }
     })
-  },
-  bigImage:function(e){
-    var that = this
-    console.debug(e.currentTarget)
-    var current = e.currentTarget.dataset.src
-    wx.previewImage({
-      current: current,
-      urls: that.data.imageName
-    })
-  },
-  switchTab: function(e){
-    this.setData({
-      currentNavtab: e.currentTarget.dataset.idx
-    });
-  },
+    wx.stopPullDownRefresh()
+  }
   
 })

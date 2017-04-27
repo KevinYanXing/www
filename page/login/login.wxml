@@ -1,0 +1,25 @@
+<view class="addr-body">
+    <form class="form" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="top-sec">
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">账号：</view>
+                    <view class="input-cell">
+                        <input bindinput = "account" name="input" placeholder="请输入账号" value = "{{account}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">密码: </view>
+                    <view class="input-cell">
+                        <input bindinput = "pwd" type="password" placeholder="请输入密码" value = "{{pwd}}" placeholder-style = "color: #888888; "/>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </form>
+    <view class="add-address">
+        <button class = "address-btn" formType="submit" bindtap = "login">登录</button>
+    </view>
+</view>

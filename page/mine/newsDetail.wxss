@@ -1,3 +1,20 @@
+.purchase {
+    overflow-x:initial;
+}
+.header {
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 999;
+
+}
+.main-container {
+  position: absolute;
+  top:96rpx;
+  width:100%;
+}
 .back{
     position: relative;
     background: #ffffff;
@@ -41,13 +58,6 @@
 .newsTime {
     color:#d9d9d9;
 }
-.header {
-    width: 100%;
-    border-bottom: 1rpx solid #f2f2f2;
-  position: fixed;
-  left: 0;
-  top: 0;
-}
 /*tab切换css*/
 .list-tab{
     height: 94rpx;
@@ -85,8 +95,3 @@
   height:92rpx;
 }
 /*tab切换css end*/
-.main-container {
-  position: absolute;
-  top:96rpx;
-  width:100%;
-}

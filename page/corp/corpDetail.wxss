@@ -4,7 +4,7 @@
 }
 .header {
   width: 100%;
-  position: fixed;
+  position: absoulte;
   top:0;
   left:0;
   right:0;
@@ -61,7 +61,11 @@ display: block;
 }
 
 .list_active1 .view1{
-display: block;
+  display: block;
+}
+
+.list_active1 .view1 .none{
+  display: block !important;
 }
 
 .list_active2 .view2{

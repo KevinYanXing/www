@@ -1,4 +1,3 @@
-
 <view class="purchase">
     <view class="header">
         <view class="list-sous {{showView?'':'none'}}" bindtap="onChangeShowState">

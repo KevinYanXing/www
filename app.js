@@ -1,17 +1,25 @@
 App({
-  onShow: function() {
+  onLaunch: function() {
+    var url = 'http://192.168.0.115:5000'
     wx.login({
       success: function(res){
         wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxe9a59ba511ea5d41&secret=7ebec7c75f4b788209bf80ce60a45881&js_code='+ res.code+'&grant_type=authorization_code',
-          data: {},
+          url: url+ '/wxlogin/?code=' + res.code,
           method: 'GET', 
           success: function(res){
-            if(res.data.openid){
-              wx.setStorageSync('uid', res.data.openid)
+            var content = res.data.ok
+            if(content==true){
+              if(res.data.is_in==true){
+                wx.setStorageSync('uid', res.data.uid)
+              }else{
+                wx.navigateTo({
+                  url: '../login/login?uid='+res.data.uid,
+                })
+              }
             }
           },
-          fail: function() {
+          fail: function(e) {
+            console.debug(e)
             wx.showToast({
               title: '请求失败',
               image:'../../image/cw-ico.png',
@@ -28,8 +36,6 @@ App({
           })
       }
     })
-  },
-  onHide: function() {
   },
   globalData: {
     url:'http://192.168.0.115:5000',

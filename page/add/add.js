@@ -34,7 +34,6 @@ function sendPhotos(arr){
             }else{
                 mTarget.prelationship = [[arr[0],rData.filename]]
             }
-            
             wx.setStorageSync('mTarget', mTarget)
             arr.splice(0,1)
             sendPhotos(arr)
@@ -45,7 +44,6 @@ function sendPhotos(arr){
               duration: 2000
           })
           }
-          
         },
         fail:function(res){
           wx.showToast({

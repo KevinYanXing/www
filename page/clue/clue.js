@@ -9,9 +9,6 @@ Page({
     searchValue:''
     //搜索展开事件 end
   },
-  onShow:function(){
-
-  },
   switchTab: function(e) {
     var that  = this,
         index = e.currentTarget.dataset.index,
@@ -22,8 +19,6 @@ Page({
       });
   },
   onLoad: function() {
-  },
-  onShow: function() {
     var that  = this
     var index = that.data.curNav
     var uid = wx.getStorageSync('uid')
@@ -169,4 +164,28 @@ Page({
       })
     }
   },
+  onPullDownRefresh: function(){
+    var that  = this
+    var index = that.data.curNav
+    var uid = wx.getStorageSync('uid')
+    wx.request({
+      url: app.globalData.url+'/clist/?uid='+uid,
+      data: {},
+      method: 'GET', 
+      success: function(res){
+        that.setData({
+          product: res.data.data,
+          list: res.data.data[index],
+        })
+      },
+      fail: function(res) {
+        wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
+      },
+    })
+    wx.stopPullDownRefresh()
+  }
 })

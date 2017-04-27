@@ -1,12 +1,16 @@
 {
   "pages": [
+    
     "page/index/index",
+    "page/login/login",
     "page/corp/corp",
     "page/corp/corpDetail",
     "page/clue/clue",
     "page/clue/clueDetail",
     "page/add/add",
     "page/add/clueAdd",
+    "page/add/reply",
+    "page/add/clueReply",
     
     "page/add/product/addProduct",
     "page/add/product/product",
@@ -21,7 +25,8 @@
     "navigationBarTextStyle": "#ffffff",
     "navigationBarTitleText": "维权系统",
     "navigationBarBackgroundColor": "#0091ff",
-    "backgroundColor": "#ffffff"
+    "backgroundColor": "#ffffff",
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "color": "#7f8389",

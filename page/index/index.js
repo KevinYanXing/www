@@ -17,5 +17,8 @@ Page({
       wx.removeStorageSync('bSelect')
     }
     wx.navigateTo({url: '../search/variety'})
+  },
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
   }
 });

@@ -11,38 +11,36 @@ Page({
 // 加载
   onLoad: function () {
     var that = this
-    //品种
-      // var bSelect = wx.getStorageSync('bSelect')
-      // if(bSelect){
-      //   that.setData({
-      //       brandInfo:bSelect
-      //     })
-      // }else{
-        wx.request({
-          url: app.globalData.url+'/blist/',
-          data: {},
-          method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-          // header: {}, // 设置请求的 header
-          success: function(res){
-            var content = res.data.ok
-            if(content==true){
-              that.setData({
-                brandInfo:res.data.data
-              })
-            }else{
-                brandInfo:[]
-            }
-          },
-          fail: function() {
-            wx.showToast({
-            title: '请求失败',
-            image:'../../image/cw-ico.png',
-            duration: 2000
+    var bSelect = wx.getStorageSync('bSelect')
+    if(bSelect){
+      that.setData({
+          brandInfo:bSelect
         })
-          
-          },
-        })
-      // }
+    }else{
+      wx.request({
+        url: app.globalData.url+'/blist/',
+        data: {},
+        method: 'GET', 
+        success: function(res){
+          var content = res.data.ok
+          if(content==true){
+            that.setData({
+              brandInfo:res.data.data
+            })
+          }else{
+              brandInfo:[]
+          }
+        },
+        fail: function() {
+          wx.showToast({
+          title: '请求失败',
+          image:'../../image/cw-ico.png',
+          duration: 2000
+      })
+        
+        },
+      })
+    }
       
   }, 
   selectBrand:function(e){
@@ -73,6 +71,48 @@ Page({
     })
   },
   nextStep:function(){
-    wx.navigateTo({url: '../add/clueAdd'})
+    var cTarget = wx.getStorageSync('cTarget')
+    if(cTarget && cTarget.bSelected.length>0){
+      wx.navigateTo({url: '../add/clueAdd'})
+    }else{
+      wx.showModal({
+            title: '提示',
+            content: '请先选择品种'
+        })
+    }
+  },
+  onPullDownRefresh: function(){
+    var that = this
+    var bSelect = wx.getStorageSync('bSelect')
+    if(bSelect){
+      that.setData({
+          brandInfo:bSelect
+        })
+    }else{
+      wx.request({
+        url: app.globalData.url+'/blist/',
+        data: {},
+        method: 'GET', 
+        success: function(res){
+          var content = res.data.ok
+          if(content==true){
+            that.setData({
+              brandInfo:res.data.data
+            })
+          }else{
+              brandInfo:[]
+          }
+        },
+        fail: function() {
+          wx.showToast({
+          title: '请求失败',
+          image:'../../image/cw-ico.png',
+          duration: 2000
+      })
+        
+        },
+      })
+    }
+    wx.stopPullDownRefresh()
   }
 })

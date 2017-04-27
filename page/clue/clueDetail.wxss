@@ -7,7 +7,7 @@
 }
 .header {
   width: 100%;
-  position: fixed;
+  position: absoulte;
   top:0;
   left:0;
   right:0;

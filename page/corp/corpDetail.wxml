@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="sec-kill">
+<view class="purchase">
     <view class="header list-tab">
         <view class="header-wrapper">
             <view class="single" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
@@ -9,7 +9,7 @@
             </view>
          </view>
     </view>
-    <view class="main-container">
+    <view class="main-container {{currentNavtab==0 ? 'main-bottom' : ''}}">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
             <view class="view0 width20 mt20">
                 <scroll-view class="tableView">
@@ -147,7 +147,7 @@
                                     <view class="detail" wx:for="{{ mdetail.verify }}">
                                         <view class="bdr">
                                             <view class="content-time">
-                                                <view>客服：</view>
+                                                <view>{{ item.typ==2?'我':'客服' }}：</view>
                                                 <text>{{ item.descs }}</text>
                                             </view>
                                             <view class="time">{{ item.d }}</view>
@@ -160,13 +160,15 @@
                             <view class="error">暂无数据</view>
                         </block>
                     </view>
-                    
-                    
+                
                 </scroll-view>
+                
             </view>
     
-        
         </view>
+    </view>
+     <view class="add-address {{currentNavtab==0 ? 'none' : ''}}">
+        <button class = "address-btn" formType="submit" bindtap = "reply" id="{{ mdetail.id }}">回复</button>
     </view>
 </view>  
 

@@ -23,13 +23,10 @@ Page({
     noHid:"noHid",
 
   },  
-  onLoad: function(options) {
+  onShow: function(options) {
     this.setData({
       id:options.id
     })
-    
-  },  
-  onShow: function() {
     var that = this
     var id = this.data.id
     wx.request({
@@ -57,7 +54,7 @@ Page({
         })
       }
     })
-  },
+  }, 
   bigImage:function(e){
     var that = this
     console.debug(e.currentTarget)
@@ -72,4 +69,34 @@ Page({
       currentNavtab: e.currentTarget.dataset.idx
     });
   },
+  onPullDownRefresh: function(){
+    var that = this
+    var id = this.data.id
+    wx.request({
+      url: app.globalData.url+'/cdetail/'+id+'/',
+      method: 'GET', 
+      success: function(res){
+        if(res.data.ok==true){
+            that.setData({
+                imageName:res.data.mdetail.imageName,
+                mdetail:res.data.mdetail
+            })
+        }else{
+          wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+            title: '请求失败',
+            image:'../../image/cw-ico.png',
+            duration: 2000
+        })
+      }
+    })
+    wx.stopPullDownRefresh()
+  }
 })

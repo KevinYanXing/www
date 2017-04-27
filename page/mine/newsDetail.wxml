@@ -1,4 +1,4 @@
-
+<view class="purchase">
 <view class="header">
     <view class="list-tab">
         <view class="header-wrapper"  style = "width: {{length *300}}rpx">
@@ -65,4 +65,5 @@
 </view>
 <view class="add-address">
     <button class = "address-btn" formType="submit" bindtap = "setRead" data-type="curNav">全部标记已读</button>
+</view>
 </view>

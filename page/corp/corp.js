@@ -10,22 +10,11 @@ Page({
     searchToggle: false,
     searchValue:'',
     //搜索展开事件 end
-  },
-  onShow:function(){
 
+    hidden:true
   },
-  
-  switchTab: function(e) {
-    var that  = this,
-        index = e.currentTarget.dataset.index,
-        info = that.data.product[index];
-      that.setData({
-        list: info,
-        curNav: index,
-      });
-  },
-  onShow: function() {
-    var that  = this,
+  onLoad:function(){
+      var that  = this,
         index = that.data.curNav,
         uid = wx.getStorageSync('uid')
         wx.request({  
@@ -47,6 +36,15 @@ Page({
         })
           },
         })
+  },
+  switchTab: function(e) {
+    var that  = this,
+        index = e.currentTarget.dataset.index,
+        info = that.data.product[index];
+      that.setData({
+        list: info,
+        curNav: index,
+      });
   },
   //搜索展开事件
   onChangeShowState:function(){
@@ -166,5 +164,30 @@ Page({
       })
     }
   },
+  onPullDownRefresh: function(){
+      var that  = this,
+        index = that.data.curNav,
+        uid = wx.getStorageSync('uid')
+      wx.request({  
+        url: app.globalData.url+'/mlist/?uid='+uid,
+        data: {},
+        method: 'GET', 
+        success: function(res){
+          that.setData({
+            showData:res.data.data,
+            product: res.data.data,
+            list: res.data.data[index],
+          })
+        },
+        fail: function(res) {
+          wx.showToast({
+          title: '请求失败',
+          image:'../../image/cw-ico.png',
+          duration: 2000
+      })
+        },
+      })
+      wx.stopPullDownRefresh()
+  }
 
 })

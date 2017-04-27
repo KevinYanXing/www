@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="sec-kill">
+<view class="purchase">
     <view class="header list-tab">
         <view class="header-wrapper">
             <view class="single" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
