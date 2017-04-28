@@ -22,7 +22,7 @@
             </view>
         </view>
     </view>
-    <form class = "main-container">
+    <view class="main-container">
         <view class="chanPing">
             <block wx:if="{{list.minfo.length == 0 || error}}">
                 <view class = "wait-more">暂无数据</view>
@@ -109,6 +109,6 @@
                 </view>
             </block>
         </view>
-    </form>
+    </view>
 
 </view>

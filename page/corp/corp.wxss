@@ -42,7 +42,6 @@
   font-weight: 700;
   color:#2fa7e0;
   border-bottom:3rpx solid #2fa7e0;
-  /*height:92rpx;*/
 }
 /*tab切换css end*/
 
