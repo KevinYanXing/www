@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "普查列表"
+  "navigationBarTitleText": "普查列表",
+  "enablePullDownRefresh":true
 }

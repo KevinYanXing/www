@@ -34,21 +34,6 @@
 						</view>
 					</view>
 				</view>
-<!--
-				<swiper class="submit-x mfr" bindtap="actionSheetTap4">
-					<view class="icon">
-						<view class="vertical-centering">
-							<view class="l-img">
-								<image src="/image/icon_4.png"/>
-							</view>
-							<view class="r-text">
-								<view>刑事案件</view>
-								<view class="w-small">个案信息录入</view>
-							</view>
-						</view>
-					</view>
-				</swiper>-->
-
 			</view>
 		</view>
 	</view>

@@ -80,39 +80,5 @@ Page({
             content: '请先选择品种'
         })
     }
-  },
-  onPullDownRefresh: function(){
-    var that = this
-    var bSelect = wx.getStorageSync('bSelect')
-    if(bSelect){
-      that.setData({
-          brandInfo:bSelect
-        })
-    }else{
-      wx.request({
-        url: app.globalData.url+'/blist/',
-        data: {},
-        method: 'GET', 
-        success: function(res){
-          var content = res.data.ok
-          if(content==true){
-            that.setData({
-              brandInfo:res.data.data
-            })
-          }else{
-              brandInfo:[]
-          }
-        },
-        fail: function() {
-          wx.showToast({
-          title: '请求失败',
-          image:'../../image/cw-ico.png',
-          duration: 2000
-      })
-        
-        },
-      })
-    }
-    wx.stopPullDownRefresh()
   }
 })

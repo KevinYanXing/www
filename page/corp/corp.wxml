@@ -29,7 +29,7 @@
             </block>
             <block wx:else>
                 <view class = "list-detail cp-box" wx:for="{{list.minfo}}" wx:for-item="item" data-value = "{{item}}">
-                    <view class="list-sec" bindtap="selected" id="{{ item.id }}" data-value="{{ index }}">
+                    <view class="list-sec" bindtap="onPullDownRefresh" id="{{ item.id }}" data-value="{{ index }}">
                         <view class="go-buy p35">
                             <view class="time-l">提交：{{ item.d }}</view>
                             <block wx:if="{{ item.sta == 1 }}">

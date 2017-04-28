@@ -143,41 +143,6 @@ Page({
         searchToggle: false,
       })
     }
-  },
-  onPullDownRefresh: function(){
-    var self = this;
-    if(options.idx){
-        this.setData({    
-            idx: options.idx,
-            url:'../add/product/addProduct?idx='+options.index
-          })
-    }
-    wx.showToast({
-      title: '加载中...',
-      icon: 'loading',
-      duration: 10000
-    })
-    wx.request({
-      url: app.globalData.url+'/plist/',
-      method: 'GET',
-      header: {
-        'Accept': 'application/json'
-      },
-      success: function (res) {
-        wx.hideToast();
-        self.setData({
-          firstShow: res.data.data[0].plist,
-          state: res.data.data
-        })
-      },
-      fail:function(){
-        wx.showToast({
-            title: '请求失败',
-            image:'../../image/cw-ico.png',
-            duration: 2000
-        })
-      }
-    })
   }
   
 })

@@ -13,7 +13,11 @@ Page({
 
     hidden:true
   },
-  onLoad:function(){
+  onLoad:function(options){
+    console.debug(options.id)
+      this.setData({
+        id:options.id
+      })
       var that  = this,
         index = that.data.curNav,
         uid = wx.getStorageSync('uid')
@@ -36,6 +40,34 @@ Page({
         })
           },
         })
+  },
+  onShow:function(){
+      if(app.globalData.corpFresh == true){
+          var that  = this,
+          index = that.data.curNav,
+          uid = wx.getStorageSync('uid')
+          wx.request({  
+            url: app.globalData.url+'/mlist/?uid='+uid,
+            data: {},
+            method: 'GET', 
+            success: function(res){
+              app.globalData.corpFresh == false
+              that.setData({
+                showData:res.data.data,
+                product: res.data.data,
+                list: res.data.data[index],
+              })
+            },
+            fail: function(res) {
+              wx.showToast({
+              title: '请求失败',
+              image:'../../image/cw-ico.png',
+              duration: 2000
+          })
+            },
+          })
+          
+      }
   },
   switchTab: function(e) {
     var that  = this,

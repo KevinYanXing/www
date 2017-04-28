@@ -422,6 +422,7 @@ Page({
                               //清除缓存
                               wx.removeStorageSync('cTarget')
                               //跳转页面
+                              app.globalData.clueFresh = true
                               wx.switchTab({
                                 url: '../clue/clue',
                                 success: function(res){

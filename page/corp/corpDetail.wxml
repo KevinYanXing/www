@@ -120,7 +120,7 @@
                 </scroll-view>
             </view>
             <view class="view1 width20 mt20 {{currentNavtab==0 ? 'main-bottom' : ''}}"  bindtouchstart="catchtouchstart" bindtouchend="catchtouchend">
-                <scroll-view class="tableView">
+                <scroll-view class="tableView" wx:if="{{ mdetail }}">
                     <view class="mycase">
                         <view class="logis-info">
                              <view class="cell prl">
@@ -161,6 +161,9 @@
                         </block>
                     </view>
                 
+                </scroll-view>
+                <scroll-view wx:else>
+                    <view class="error">暂无数据</view>
                 </scroll-view>
                 
             </view>

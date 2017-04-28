@@ -391,7 +391,6 @@ Page({
                           if(submitData.id){
                             url = app.globalData.url+'/msave/?id='+submitData.id+'&uid='+uid
                           }
-                          console.debug(url)
                           wx.request({
                             url: url,
                             data: {data:wx.getStorageSync('mTarget')},
@@ -401,6 +400,7 @@ Page({
                               //清除缓存
                               wx.removeStorageSync('mTarget')
                               //跳转页面
+                              app.globalData.corpFresh = true
                               wx.switchTab({
                                 url: '../corp/corp',
                                 success: function(res){

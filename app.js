@@ -19,7 +19,6 @@ App({
             }
           },
           fail: function(e) {
-            console.debug(e)
             wx.showToast({
               title: '请求失败',
               image:'../../image/cw-ico.png',
