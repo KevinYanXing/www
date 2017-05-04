@@ -25,7 +25,6 @@ Page({
       })
   }
   // 周期函数--监听页面加载
-  // showView:(options.showView=="true"?true:false)
   },
   onShow:function(){
     var mProduct = wx.getStorageSync('mProduct')

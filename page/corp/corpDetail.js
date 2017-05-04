@@ -61,7 +61,6 @@ Page({
       method: 'GET', 
       success: function(res){
         if(res.data.ok==true){
-          console.debug(res.data.mdetail)
             that.setData({
                 netError:false,
                 imageName:res.data.mdetail.imageName,

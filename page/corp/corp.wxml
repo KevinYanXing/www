@@ -62,7 +62,9 @@
                                             <block wx:for="{{item.pbrand}}" wx:for-item="brand">
                                             {{ brand.name }} 
                                             </block>
+                                            
                                         </view>
+                                        {{ item.psweep==2?'清':'普' }}
                                     </view>
                                     <block wx:if="{{ item.ptype }}">
                                         <view class = "top-title">

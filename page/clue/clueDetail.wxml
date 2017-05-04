@@ -43,12 +43,7 @@
                                     <view class="content border tuBiao">
                                         <image src="../../image/x2.png"></image>
                                         <view class="value">
-                                            <block wx:if="{{ cdetail.ccontact }}">
-                                                <text class="value-text">{{ cdetail.ccontact }}</text>
-                                            </block>
-                                            <block wx:else>
-                                                <text class="value-text">暂无</text>
-                                            </block>
+                                            <text class="value-text">{{ cdetail.ccontact }}</text>
                                         </view>
                                     </view>
                                 </view>
@@ -72,13 +67,7 @@
                                     <view class="content tuBiao">
                                         <image src="../../image/x4.png"></image>
                                         <view class="value">
-                                            <block wx:if="{{ cdetail.cdescripe }}">
-                                                <text class="value-text">{{ cdetail.cdescripe }}</text>
-                                            </block>
-                                            <block wx:else>
-                                                <text class="value-text">暂无</text>
-                                            </block>
-                                            
+                                            <text class="value-text">{{ cdetail.cdescripe }}</text>
                                         </view>
                                     </view>
                                 </view>
@@ -111,13 +100,14 @@
                                     <view class="input-text">
                                         {{ item }}
                                     </view>
-                                    <!--<view class="navigator-arrow"></view>-->
                                 </view>
                             </view>
                         </view>
                         </block>
                         <block wx:else>
-                            <view class="">暂无数据</view>
+                            <view class="back">
+                                <view class="error">暂无数据</view>
+                            </view>
                         </block>
                     </view>
                 </scroll-view>
@@ -125,7 +115,6 @@
 
             <view class="view1 width20 mt20"  bindtouchstart="catchtouchstart" bindtouchend="catchtouchend">
                 <scroll-view class="tableView">
-                    <!--<view class="hon-cen">暂无数据</view>-->
                     <view class="mycase">
                         <view class="logis-info">
                              <view class="cell prl">
@@ -159,11 +148,8 @@
                             </view>
                         </view>
                     </view>
-                    
-                    
                 </scroll-view>
             </view>
-        
         </view>
     </view>
     <view class="add-address {{currentNavtab==0 ? 'none' : ''}}">

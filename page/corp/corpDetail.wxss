@@ -324,3 +324,7 @@ display: block;
   color:#CECECE;
 }
 /*进展 end*/
+
+.mb20 .error{
+    padding: 22rpx;
+}
