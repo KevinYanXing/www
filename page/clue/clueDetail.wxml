@@ -145,19 +145,24 @@
                                 </view>
                             </view>
                         </view>
-                        <view class="back">
-                            <view class="classname">
-                                <view class="detail" wx:for="{{ cdetail.verify }}">
-                                    <view class="bdr">
-                                        <view class="content-time">
-                                            <view>客服：</view>
-                                            <text>{{ item.descs }}</text>
+                        <block wx:if="{{ cdetail.verify.length>0 }}">
+                            <view class="back">
+                                <view class="classname">
+                                    <view class="detail" wx:for="{{ cdetail.verify }}">
+                                        <view class="bdr">
+                                            <view class="content-time">
+                                                <view>客服：</view>
+                                                <text>{{ item.descs }}</text>
+                                            </view>
+                                            <view class="time">{{ item.d }}</view>
                                         </view>
-                                        <view class="time">{{ item.d }}</view>
                                     </view>
                                 </view>
                             </view>
-                        </view>
+                        </block>
+                        <block wx:else>
+                            <view class="error">暂无数据</view>
+                        </block>
                     </view>
                     
                     

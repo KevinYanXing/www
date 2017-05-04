@@ -617,4 +617,24 @@ picker {
     z-index: 1000;
     background:#eee; 
 }
+.page-net-title{
+
+}
+.wait-more button{
+    font-size:24rpx;
+    margin-top: 20rpx;
+    display: inline-block;
+    padding-left:30rpx;
+    padding-right:30rpx;
+}
 /*网络请求失败 end*/
+/*多行输入*/
+.page-section-title {
+    font-size:28rpx;
+    color: #999;
+    padding: 22rpx 35rpx;
+}
+.textarea-wrp textarea {
+    width: 100%;
+}
+/*多行输入 end*/
