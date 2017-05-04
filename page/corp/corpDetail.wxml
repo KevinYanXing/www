@@ -19,9 +19,11 @@
                     <view class="back">
                         <view class="clue">
                             <view class="p35">
-                                <view class="title-content">
-                                    <view class="title">{{ mdetail.pname }}</view>
-                                    <view>{{ mdetail.psweep==2?'清':'普' }}</view>
+                                <view class="title-content pos">
+                                    <view class="title mf60">{{ mdetail.pname }}</view>
+                                    <view class="biaoti">
+                                        <view class="heading_left">{{ mdetail.psweep==2?'清扫':'普查' }}</view>
+                                    </view>
                                     <view class="value-nare">
                                         <text>{{ mdetail.ptype_name }}</text>|<text>{{ mdetail.pstate_name }}</text>
                                     </view>
@@ -117,13 +119,12 @@
                                         <view class="tiaoxingMa inline-block">条形码：{{ item.num }}</view>
                                         <view class="cp-shuLang cp-gy" wx:if="{{ item.nums }}">购样数：
                                             <text>{{ item.nums }}</text>
-                                            <text></text>
                                             <text wx:if="{{ item.price }}">金额：￥{{ item.price }}</text>
                                         </view>
                                         <block wx:if="{{ mdetail.psweep==2 }}">
+                                        <view class="tiaoxingMa inline-block">查扣类型：{{ item.stype_name }}</view>
                                         <view class="cp-shuLang cp-gy" wx:if="{{ item.nums }}">
-                                            查扣量：<text>{{ item.snums }}</text>
-                                            查扣类型:<text>{{ item.stype_name }}</text>
+                                            查扣数量：<text>{{ item.snums }}</text>
                                             <text wx:if="{{ item.sprice }}">金额：￥{{ item.ssprice }}</text>
                                         </view>
                                         </block>
@@ -133,9 +134,7 @@
                         </view>
                         </block>
                         <block wx:else>
-                            <view class="back">
-                                <view class="error">暂无数据</view>
-                            </view>
+                            <view class="error">暂无数据</view>
                         </block>
                     </view>
                     <view class="mb20" wx:if="{{ mdetail.psweep==2 }}">
@@ -230,9 +229,9 @@
                             </view>
                             </block>
                         </view>
-                        <view class="back" wx:else>
+                        <block wx:else>
                             <view class="error">暂无数据</view>
-                        </view>
+                        </block>
                     </view>
                 </scroll-view>
             </view>

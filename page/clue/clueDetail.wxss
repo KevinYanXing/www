@@ -148,6 +148,9 @@ display: block;
 .border{ 
   border-bottom:1rpx solid #f0f0f0;
 }
+.noing.border{
+  margin-bottom: -1rpx;
+}
 .name{
   color:#666;
   float:left;
