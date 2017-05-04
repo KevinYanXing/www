@@ -1,15 +1,7 @@
 var app = getApp();
-var common  = require('../../util/util.js');
-//判断是否在数组
-function contains(arr, obj) {  
-    var i = arr.length;  
-    while (i--) {  
-        if (arr[i] === obj) {  
-            return true;  
-        }  
-    }  
-    return false;  
-}
+var util = require('../../util/util.js')
+var checkExpire = util.checkExpire
+var contains = util.contains
 //图片上传  
 var done = false
 function sendPhotos(arr){
@@ -20,28 +12,24 @@ function sendPhotos(arr){
         name: 'file',
         success: function(res){
           var rData = JSON.parse(res.data)
-          if(rData.ok == true){
-            var cTarget = wx.getStorageSync('cTarget')
-            if(!cTarget){
-              cTarget = {}
-            }
-            if(cTarget.imageName){
-              cTarget.imageName.push(rData.filename)
-            }else{
-              cTarget.imageName = [rData.filename]
-            }
-            if(cTarget.crelationship){
-                cTarget.crelationship.push([arr[0],rData.filename])
-            }else{
-                cTarget.crelationship = [[arr[0],rData.filename]]
-            }
-            
-            wx.setStorageSync('cTarget', cTarget)
-            arr.splice(0,1)
-            sendPhotos(arr)
-          }else{
-            console.debug(111111)
+          var cTarget = wx.getStorageSync('cTarget')
+          if(!cTarget){
+            cTarget = {}
           }
+          if(cTarget.imageName){
+            cTarget.imageName.push(rData.filename)
+          }else{
+            cTarget.imageName = [rData.filename]
+          }
+          if(cTarget.crelationship){
+              cTarget.crelationship.push([arr[0],rData.filename])
+          }else{
+              cTarget.crelationship = [[arr[0],rData.filename]]
+          }
+          
+          wx.setStorageSync('cTarget', cTarget)
+          arr.splice(0,1)
+          sendPhotos(arr)
         },
         fail:function(res){
           wx.showToast({
@@ -87,6 +75,7 @@ Page({
   maybeInfo: {},
   addrInfo: {},
 
+  
   onShow:function(){
     var that = this
     //初始化数据
@@ -106,7 +95,7 @@ Page({
         that.setData({
         imageList:cTarget.imageName,
       })
-      }else{
+      }else if(cTarget.imageList){
         that.setData({
         imageList:cTarget.imageList
       })
@@ -132,80 +121,104 @@ Page({
         },
       })
     }
-
   },
-
   //地区选择
-  bindChange: function(e) {
-    var that = this,
-        val  = e.detail.value,
-        obj  = new common.getAddress(that.address),
-        pid  = val[0],
-        cid  = val[1],
-        aid  = val[2];
-    obj.initObj();
-    var addr = obj.setCity(pid, cid);
-    this.setData({
-      province: addr.province,
-      city: addr.city,
-      area: addr.area
-    });
-    that.maybeInfo = {
-      province: addr.province[pid],
-      city: addr.city[cid],
-      area: addr.area[aid]
-    }
-  },
+  // bindChange: function(e) {
+  //   var that = this,
+  //       val  = e.detail.value,
+  //       obj  = new common.getAddress(that.address),
+  //       pid  = val[0],
+  //       cid  = val[1],
+  //       aid  = val[2];
+  //   obj.initObj();
+  //   var addr = obj.setCity(pid, cid);
+  //   this.setData({
+  //     province: addr.province,
+  //     city: addr.city,
+  //     area: addr.area
+  //   });
+  //   that.maybeInfo = {
+  //     province: addr.province[pid],
+  //     city: addr.city[cid],
+  //     area: addr.area[aid]
+  //   }
+  // },
   //地区确定
-  aConfirm: function() {
-    var that    = this;
-    if(this.data.ccity){
-      var address = this.data.ccity;
-    }else{
-      var address = {}
-    }
+  // aConfirm: function() {
+  //   var that    = this;
+  //   if(this.data.ccity){
+  //     var address = this.data.ccity;
+  //   }else{
+  //     var address = {}
+  //   }
     
-    if(common.objLength(that.maybeInfo)) {
-      that.addrInfo = that.maybeInfo;
-    } else {
-      that.addrInfo = {
-        province: that.address[0].name,
-        city: that.address[0].childrenList[0].name,
-        area: that.address[0].childrenList[0].childrenList[0].name,
-      }
-    }
-    address.province = that.addrInfo.province;
-    address.city = that.addrInfo.city;
-    address.area = that.addrInfo.area;
-    that.setData({
-      isShow: 0,
-      ccity: address
-    });
-    that.maybeInfo = {};
-    var cTarget = wx.getStorageSync('cTarget')
-    cTarget.ccity = that.data.ccity
-    wx.setStorageSync('cTarget', cTarget)
-  },
+  //   if(common.objLength(that.maybeInfo)) {
+  //     that.addrInfo = that.maybeInfo;
+  //   } else {
+  //     that.addrInfo = {
+  //       province: that.address[0].name,
+  //       city: that.address[0].childrenList[0].name,
+  //       area: that.address[0].childrenList[0].childrenList[0].name,
+  //     }
+  //   }
+  //   address.province = that.addrInfo.province;
+  //   address.city = that.addrInfo.city;
+  //   address.area = that.addrInfo.area;
+  //   that.setData({
+  //     isShow: 0,
+  //     ccity: address
+  //   });
+  //   that.maybeInfo = {};
+  //   var cTarget = wx.getStorageSync('cTarget')
+  //   cTarget.ccity = that.data.ccity
+  //   wx.setStorageSync('cTarget', cTarget)
+  // },
   //选择地区的遮罩
-  hideMask: function() {
-    var that = this;
-    that.setData({
-      isShow: 0
+  // hideMask: function() {
+  //   var that = this;
+  //   that.setData({
+  //     isShow: 0
+  //   })
+  // },
+  //设置地区
+  cArea: function(){
+    var that = this
+    wx.chooseLocation({
+      success: function (res) {
+        wx.request({ 
+          url: 'https://api.map.baidu.com/geocoder/v2/?ak=dFzXvFYNosKSGxAV9G6nsCHk1OSf5U9V&location='+res.latitude+','+res.longitude+'&output=json', 
+          data: {}, 
+          header:{ 
+            'Content-Type':'application/json'
+          }, 
+          success: function(res){
+            var province=res.data.result.addressComponent.province;
+            var city=res.data.result.addressComponent.city;
+            var district=res.data.result.addressComponent.district;
+            that.setData({
+              ccity:{
+                province: province,
+                city: city,
+                area: district
+              }
+            })
+            }
+        })
+      }
     })
   },
-  //设置地区
-  cArea: function() {
-    var that   = this;
-    var a = new common.getAddress(that.address);
-    var detail = a.initObj();
-    console.debug(detail)
-    that.setData({
-      province: detail.province,
-      city: detail.city,
-      area: detail.area,
-      isShow: 1
-    });
-  },
+  // cArea: function() {
+  //   var that   = this;
+  //   var a = new common.getAddress(that.address);
+  //   var detail = a.initObj();
+  //   console.debug(detail)
+  //   that.setData({
+  //     province: detail.province,
+  //     city: detail.city,
+  //     area: detail.area,
+  //     isShow: 1
+  //   });
+  // },
   //品种选择
   bSelect:function(e){
       wx.navigateBack({
@@ -407,39 +420,69 @@ Page({
                       })
                   }else{
                       var submitData = wx.getStorageSync('cTarget')
-                      var uid = wx.getStorageSync('uid')
                       if(submitData){
-                          var url = app.globalData.url+'/csave/?uid='+uid
-                          if(submitData.id){
-                            url = app.globalData.url+'/csave/?id='+submitData.id+'&uid='+uid
-                          }
+                          wx.showLoading({
+                            title:'正在上传'
+                          })
+                          var uid = wx.getStorageSync('uid')
                           wx.request({
-                            url: url,
-                            data: {data:wx.getStorageSync('cTarget')},
-                            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                            // header: {}, // 设置请求的 header
+                            url: app.globalData.url+'/check_expire/'+uid+'/',
+                            method: 'GET',
                             success: function(res){
-                              //清除缓存
-                              wx.removeStorageSync('cTarget')
-                              //跳转页面
-                              app.globalData.clueFresh = true
-                              wx.switchTab({
-                                url: '../clue/clue',
-                                success: function(res){
-                                  wx.showToast({
-                                      title: '保存成功',
-                                      image:'../../image/cg-ico.png',
-                                      duration: 2000
-                                  })
-                                }
-                              })
+                              if(res.data.ok==true){
+                                  var url = app.globalData.url+'/csave/?uid='+uid
+                                    if(submitData.id){
+                                      url = app.globalData.url+'/csave/?id='+submitData.id+'&uid='+uid
+                                    }
+                                    wx.request({
+                                      url: url,
+                                      data: {data:wx.getStorageSync('cTarget')},
+                                      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                                      // header: {}, // 设置请求的 header
+                                      success: function(res){
+                                        //清除缓存
+                                        wx.removeStorageSync('cTarget')
+                                        //跳转页面
+                                        app.globalData.clueFresh = true
+                                        wx.switchTab({
+                                          url: '../clue/clue',
+                                          success: function(res){
+                                            wx.showToast({
+                                                title: '保存成功',
+                                                image:'../../image/cg-ico.png',
+                                                duration: 2000
+                                            })
+                                          }
+                                        })
+                                      },
+                                      fail: function(res) {
+                                        wx.showToast({
+                                            title: '上传失败',
+                                            image:'../../image/cw-ico.png',
+                                            duration: 2000
+                                        })
+                                      }
+                                    })
+                              }
+                              else{
+                                wx.showModal({
+                                    title: '提示',
+                                    content: '身份验证已过期，请重新载入',
+                                    complete: function(res) {
+                                        app.globalData.indexFresh == true
+                                        wx.switchTab({
+                                          url: '../index/index',
+                                        })
+                                    }
+                                })
+                              }
                             },
-                            fail: function(res) {
-                              wx.showToast({
-                                  title: '请求失败',
-                                  image:'../../image/cw-ico.png',
-                                  duration: 2000
-                              })
+                            fail:function(){
+                                wx.showToast({
+                                    title: '上传失败',
+                                    image:'../../image/cw-ico.png',
+                                    duration: 2000
+                                })
                             }
                           })
                       }else{

@@ -31,38 +31,11 @@ Page({
     })
   },
   onShow: function(options) {
-    var that = this
-    var id = that.data.id
-    wx.request({
-      url: app.globalData.url+'/mdetail/'+id+'/',
-      method: 'GET', 
-      success: function(res){
-        if(res.data.ok==true){
-            that.setData({
-                imageName:res.data.mdetail.imageName,
-                mdetail:res.data.mdetail
-            })
-        }else{
-          wx.showToast({
-            title: '请求失败',
-            image:'../../image/cw-ico.png',
-            duration: 2000
-        })
-        }
-      },
-      fail: function() {
-        wx.showToast({
-            title: '请求失败',
-            image:'../../image/cw-ico.png',
-            duration: 2000
-        })
-      }
-    })
+    this.onPullDownRefresh()
     
   },
   bigImage:function(e){
     var that = this
-    console.debug(e.currentTarget)
     var current = e.currentTarget.dataset.src
     wx.previewImage({
       current: current,
@@ -77,18 +50,9 @@ Page({
   reply:function(e){
     var id = e.currentTarget.id
     wx.navigateTo({
-      url: '../add/reply?id='+id,
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
+      url: '../add/reply?id='+id
     })
-    },
+  },
   onPullDownRefresh: function(){
     var that = this
     var id = this.data.id
@@ -97,23 +61,21 @@ Page({
       method: 'GET', 
       success: function(res){
         if(res.data.ok==true){
+          console.debug(res.data.mdetail)
             that.setData({
+                netError:false,
                 imageName:res.data.mdetail.imageName,
                 mdetail:res.data.mdetail
             })
         }else{
-          wx.showToast({
-            title: '请求失败',
-            image:'../../image/cw-ico.png',
-            duration: 2000
+          that.setData({
+          netError:true
         })
         }
       },
       fail: function() {
-        wx.showToast({
-            title: '请求失败',
-            image:'../../image/cw-ico.png',
-            duration: 2000
+       that.setData({
+          netError:true
         })
       }
     })

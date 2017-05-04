@@ -17,3 +17,48 @@
     float:left;
     margin-right:32rpx;
 }
+.weui-cells:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top:0;
+  color: #D9D9D9;
+}
+.weui-cells:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 0;
+  color: #D9D9D9;
+}
+.weui-cells {
+    height: 106rpx;
+    line-height:106rpx;
+    font-size:30rpx;
+}
+.weui-cell {
+    padding:0 34rpx;
+}
+
+.bright-No{
+ display: none;
+}
+.bright-Block{
+ display: block;
+}
+.n-b{
+    border-width:0 2rpx 2rpx 0;
+}
+.Back{
+    background: #f7f7f7;
+}
+.Back .input-title{
+    color: #9a9a9a;
+}
+

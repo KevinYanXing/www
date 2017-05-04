@@ -1,14 +1,8 @@
 var app = getApp();
-//判断是否在数组
-function contains(arr, obj) {  
-    var i = arr.length;  
-    while (i--) {  
-        if (arr[i] === obj) {  
-            return true;  
-        }  
-    }  
-    return false;  
-}  
+var util = require('../../util/util.js')
+var checkExpire = util.checkExpire
+var contains = util.contains
+var loadAddress = util.loadAddress
 //图片上传
 var done = false
 function sendPhotos(arr){
@@ -19,31 +13,23 @@ function sendPhotos(arr){
         name: 'file',
         success: function(res){
           var rData = JSON.parse(res.data)
-          if(rData.ok == true){
-            var mTarget = wx.getStorageSync('mTarget')
-            if(!mTarget){
-              mTarget = {}
-            }
-            if(mTarget.imageName){
-              mTarget.imageName.push(rData.filename)
-            }else{
-              mTarget.imageName = [rData.filename]
-            }
-            if(mTarget.prelationship){
-                mTarget.prelationship.push([arr[0],rData.filename])
-            }else{
-                mTarget.prelationship = [[arr[0],rData.filename]]
-            }
-            wx.setStorageSync('mTarget', mTarget)
-            arr.splice(0,1)
-            sendPhotos(arr)
-          }else{
-            wx.showToast({
-              title: '上传失败',
-              image:'../../image/cw-ico.png',
-              duration: 2000
-          })
+          var mTarget = wx.getStorageSync('mTarget')
+          if(!mTarget){
+            mTarget = {}
           }
+          if(mTarget.imageName){
+            mTarget.imageName.push(rData.filename)
+          }else{
+            mTarget.imageName = [rData.filename]
+          }
+          if(mTarget.prelationship){
+              mTarget.prelationship.push([arr[0],rData.filename])
+          }else{
+              mTarget.prelationship = [[arr[0],rData.filename]]
+          }
+          wx.setStorageSync('mTarget', mTarget)
+          arr.splice(0,1)
+          sendPhotos(arr)
         },
         fail:function(res){
           wx.showToast({
@@ -68,7 +54,7 @@ Page({
     ptype: 0,
 
     //售假情况
-    strike: ['选择情况', '无售假', '售假'],
+    strike: ['选择情况', '售假', '无售假'],
     pstate: 0,
 
     //添加图片
@@ -85,15 +71,26 @@ Page({
     //所在地址
     plocation:'',
 
-    dTarget:{}
+    dTarget:{},
+
+    showView:true,
+    psweep:1,
 
   },
-  
   onShow:function(){
     //初始化数据
+    var that = this
     var mTarget = wx.getStorageSync('mTarget')
+    console.debug(mTarget)
     if(mTarget){
-      this.setData({
+      if(mTarget.pzinfo){
+        that.setData({
+          pzinfo:mTarget.pzinfo
+        })  
+      }else{
+        wx.setStorageSync('zInfo', {})
+      }
+      that.setData({
         dTarget:mTarget,
         pname:mTarget.pname,
         ptype:mTarget.ptype,
@@ -101,21 +98,34 @@ Page({
         pperson:mTarget.pperson,
         pmarket:mTarget.pmarket,
         plocation:mTarget.plocation,
-        pcontact:mTarget.pcontact
+        pcontact:mTarget.pcontact,
+        psweep:mTarget.psweep,
       })
       if(mTarget.id){
-        this.setData({
+        that.setData({
         imageList:mTarget.imageName,
       })
-      }else{
-        this.setData({
+      }else if(mTarget.imageList){
+        that.setData({
         imageList:mTarget.imageList
       })
       }
     }else{
-      wx.setStorageSync('mTarget', {})
+      if(wx.getStorageSync('zInfo')){
+        that.setData({
+          pzinfo:mTarget.pzinfo
+        })
+      }else{
+        wx.setStorageSync('zInfo', {})  
+      }
+      wx.setStorageSync('mTarget', {'psweep':1})
     }
-    
+  },
+  onChangeShowState:function(){
+      var that=this;
+      that.setData({
+        showView:(!that.data.showView)
+      })
   },
   //店铺名称
   pName:function(e){
@@ -152,7 +162,7 @@ Page({
         var imageNew = res.tempFilePaths
         if(that.data.imageList && that.data.imageList.length!=0){
             imageNew = imageNew.concat(that.data.imageList)
-        }
+        } 
         that.setData({
           imageList:imageNew
         })
@@ -161,7 +171,6 @@ Page({
         wx.setStorageSync('mTarget', mTarget)
         }
     })
-    
   },
   //图片预览/删除
   pPhotoedit: function(e) {
@@ -185,7 +194,6 @@ Page({
           that.setData({
             imageList:newList
           })
-          
           var mTarget = wx.getStorageSync('mTarget')
           mTarget.imageList = that.data.imageList
           if(mTarget.id){
@@ -208,103 +216,35 @@ Page({
         }
       })
   },
-  //扫码
-  pProduct: function() {
-    var mTarget = wx.getStorageSync('mTarget')
-    if(mTarget.pproduct){
-        wx.navigateTo({
-          url: 'product/product',
-          success: function(res){
-            // success
-          },
-          fail: function() {
-            // fail
-          },
-          complete: function() {
-            // complete
-          }
-        })
-    }else{ 
-        //添加产品
-        wx.showActionSheet({
-          itemList: ['扫描产品', '选择产品'],
-          success: function (e) {
-            if(e.tapIndex==0){
-                  wx.scanCode({
-                    success: function(res){
-                      var code = res.result
-                      wx.request({
-                          url: app.globalData.url+'/plist/?keyword='+code,
-                          method: 'GET', 
-                          success: function(res){
-                            var content = res.data.ok;
-                            if (content == true) {
-                              var pinfo = res.data.data[0].plist[0]
-                              if(wx.getStorageSync('mProduct')){
-                                  var setPinfo = wx.getStorageSync('mProduct')
-                                }else{
-                                  var setPinfo = {}
-                                }
-                                setPinfo.id=pinfo.id
-                                setPinfo.name=pinfo.name
-                                setPinfo.sprice=pinfo.sprice
-                                setPinfo.logoid=pinfo.logoid
-                                setPinfo.num=pinfo.num
-                                wx.setStorageSync('mProduct',setPinfo)
-                              wx.navigateTo({
-                                url: './product/addProduct?rd=1',
-                                success: function(res){
-                                    console.debug(res.data)
-                                },
-                                fail: function() {
-                                  // fail
-                                },
-                              })
-                            } else {
-                              wx.showModal({
-                                  title: '提示',
-                                  content: '找不到该条形码的产品，请手动选择'
-                              })
-                            }
-                          },
-                          fail: function() {
-                            wx.showToast({
-                                title: '请求失败',
-                                image:'../../image/cw-ico.png',
-                                duration: 2000
-                            })
-                          }
-                      })
-                    },
-                    fail: function() {
-                      wx.showModal({
-                            title: '提示',
-                            content: '扫描失败，请重试'
-                        })
-                    }
-                  })
-            }else if(e.tapIndex==1){
-              wx.navigateTo({url: '../search/search'});
-            }
-          }
-        })
-    }
-  },
   //市场名称、所在地区
   pMarket:function(){
     var that = this
     wx.chooseLocation({
       success: function (res) {
+        wx.request({ 
+          url: 'https://api.map.baidu.com/geocoder/v2/?ak=dFzXvFYNosKSGxAV9G6nsCHk1OSf5U9V&location='+res.latitude+','+res.longitude+'&output=json', 
+          data: {}, 
+          header:{ 
+            'Content-Type':'application/json'
+          }, 
+          success: function(res){
+            var province=res.data.result.addressComponent.province;
+            var city=res.data.result.addressComponent.city;
+            var district=res.data.result.addressComponent.district;
+            that.setData({
+              plocation:province+'/'+city+'/'+district
+            })
+            var mTarget = wx.getStorageSync('mTarget')
+            mTarget.plocation = province+'/'+city+'/'+district
+            wx.setStorageSync('mTarget', mTarget)
+          }
+        })
         that.setData({
-          plocation: res.address,
-          pmarket:res.name
+          pmarket:res.name,
         })
         var mTarget = wx.getStorageSync('mTarget')
-        mTarget.plocation = res.address
         mTarget.pmarket = res.name
         wx.setStorageSync('mTarget', mTarget)
-      },fail:function(res){
-        console.debug(res)
       }
     })
   },
@@ -326,10 +266,220 @@ Page({
     mTarget.pcontact = e.detail.value
     wx.setStorageSync('mTarget', mTarget)
   },
+  //是否清扫
+  pSweep:function(e){
+    var that = this
+    that.setData({
+      psweep:that.data.psweep==1?2:1
+    })
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.psweep = that.data.psweep
+    wx.setStorageSync('mTarget', mTarget)
+  },
+  //执法时间
+  zTime:function(e){
+    var zInfo = wx.getStorageSync('zInfo')
+    zInfo.ztime = e.detail.value
+    wx.setStorageSync('zInfo', zInfo)
+
+    this.setData({
+      pzinfo:zInfo
+    })
+
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.pzinfo = zInfo
+    wx.setStorageSync('mTarget', mTarget)
+  },
+  //执法部门
+  zDepart:function(e){
+    var zInfo = wx.getStorageSync('zInfo')
+    zInfo.zdepart = e.detail.value
+    wx.setStorageSync('zInfo', zInfo)
+
+    this.setData({
+      pzinfo:zInfo
+    })
+
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.pzinfo = zInfo
+    wx.setStorageSync('mTarget', mTarget)
+  },
+  //执法负责人
+  zPerson:function(e){
+    var zInfo = wx.getStorageSync('zInfo')
+    zInfo.zperson = e.detail.value
+    wx.setStorageSync('zInfo', zInfo)
+
+    this.setData({
+      pzinfo:zInfo
+    })
+
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.pzinfo = zInfo
+    wx.setStorageSync('mTarget', mTarget)
+  },
+  //执法负责人职务
+  zPosition:function(e){
+    var zInfo = wx.getStorageSync('zInfo')
+    zInfo.zposition = e.detail.value
+    wx.setStorageSync('zInfo', zInfo)
+
+    this.setData({
+      pzinfo:zInfo
+    })
+
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.pzinfo = zInfo
+    wx.setStorageSync('mTarget', mTarget)
+  },
+  //执法负责人手机
+  zPhone:function(e){
+    
+    var zInfo = wx.getStorageSync('zInfo')
+    zInfo.zphone = e.detail.value
+    wx.setStorageSync('zInfo', zInfo)
+
+    this.setData({
+      pzinfo:zInfo
+    })
+
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.pzinfo = zInfo
+    wx.setStorageSync('mTarget', mTarget)
+  },
+  //执法地址
+  zLocs:function(){
+    var that = this
+    wx.chooseLocation({
+      success: function (res) {
+        wx.request({ 
+          url: 'https://api.map.baidu.com/geocoder/v2/?ak=dFzXvFYNosKSGxAV9G6nsCHk1OSf5U9V&location='+res.latitude+','+res.longitude+'&output=json', 
+          data: {}, 
+          header:{ 
+            'Content-Type':'application/json'
+          }, 
+          success: function(res){
+            var province=res.data.result.addressComponent.province;
+            var city=res.data.result.addressComponent.city;
+            var district=res.data.result.addressComponent.district;
+
+            var zInfo = wx.getStorageSync('zInfo')
+            zInfo.zloc = province+'/'+city+'/'+district
+            wx.setStorageSync('zInfo', zInfo)
+
+            that.setData({
+              pzinfo:zInfo
+            })
+            var mTarget = wx.getStorageSync('mTarget')
+            mTarget.pzinfo = zInfo
+            wx.setStorageSync('mTarget', mTarget)
+            
+          }
+        })
+        var zInfo = wx.getStorageSync('zInfo')
+        zInfo.zlocs = res.address
+        wx.setStorageSync('zInfo', zInfo)
+
+        that.setData({
+          pzinfo:zInfo
+        })
+        var mTarget = wx.getStorageSync('mTarget')
+        mTarget.pzinfo = zInfo
+        wx.setStorageSync('mTarget', mTarget)
+      }
+    })
+  },
+  //执法描述
+  zDesc:function(e){
+    var zInfo = wx.getStorageSync('zInfo')
+    zInfo.zdesc = e.detail.value
+    wx.setStorageSync('zInfo', zInfo)
+
+    this.setData({
+      pzinfo:zInfo
+    })
+
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.pzinfo = zInfo
+    wx.setStorageSync('mTarget', mTarget)
+  },
+  //扫码
+  pProduct: function() {
+    var mTarget = wx.getStorageSync('mTarget')
+    if(mTarget.pproduct){
+        wx.navigateTo({
+          url: 'product/product'
+        })
+    }else{ 
+        //添加产品
+        wx.showActionSheet({
+          itemList: ['扫描产品', '选择产品'],
+          success: function (e) {
+            if(e.tapIndex==0){
+                  wx.scanCode({
+                    success: function(res){
+                      var code = res.result
+                      wx.showLoading({
+                        title:'加载中'
+                      })
+                      wx.request({
+                          url: app.globalData.url+'/plist/?keyword='+code,
+                          method: 'GET', 
+                          success: function(res){
+                            var content = res.data.ok;
+                            if (content == true) {
+                              wx.hideLoading()
+                              var pinfo = res.data.data[0].plist[0]
+                              if(wx.getStorageSync('mProduct')){
+                                  var setPinfo = wx.getStorageSync('mProduct')
+                                }else{
+                                  var setPinfo = {}
+                                }
+                                setPinfo.id=pinfo.id
+                                setPinfo.name=pinfo.name
+                                setPinfo.sprice=pinfo.sprice
+                                setPinfo.logoid=pinfo.logoid
+                                setPinfo.num=pinfo.num
+                                wx.setStorageSync('mProduct',setPinfo)
+                                wx.navigateTo({
+                                  url: './product/addProduct?rd=1'
+                                })
+                            } else {
+                              wx.showModal({
+                                  title: '提示',
+                                  content: '找不到该条形码的产品，请手动选择'
+                              })
+                            }
+                          },
+                          fail: function() {
+                            wx.showToast({
+                                title: '扫描失败',
+                                image:'../../image/cw-ico.png',
+                                duration: 2000
+                            })
+                          }
+                      })
+                    },
+                    fail: function() {
+                        wx.showToast({
+                              title: '扫描失败',
+                              image:'../../image/cw-ico.png',
+                              duration: 2000
+                          })
+                    }
+                  })
+            }else if(e.tapIndex==1){
+              wx.navigateTo({url: '../search/search'});
+            }
+          }
+        })
+    }
+  },
   //提交数据
   pConfirm: function(e) {
     var that = this
     var mTarget = wx.getStorageSync('mTarget')
+    console.debug(mTarget)
     //确认填写名称
     if(!that.data.pname){
       wx.showModal({
@@ -350,7 +500,6 @@ Page({
                 icon: 'loading',
                 duration: 100000
             })
-            
             if(mTarget.id){
               var checkImageList = []
               var checkImageName = []
@@ -378,46 +527,73 @@ Page({
                   if(mTarget.imageName.length=0){
                       wx.showModal({
                         title: '提示',
-                        content: '图片上传失败，请重新上传',
-                        success: function(res) {
-                            
-                        }
+                        content: '图片上传失败，请重新上传'
                       })
                   }else{
+                      
                       var submitData = wx.getStorageSync('mTarget')
-                      var uid = wx.getStorageSync('uid')
                       if(submitData){
-                          var url = app.globalData.url+'/msave/?uid='+uid
-                          if(submitData.id){
-                            url = app.globalData.url+'/msave/?id='+submitData.id+'&uid='+uid
-                          }
+                          wx.showLoading({
+                            title:'正在上传'
+                          })
+                          var uid = wx.getStorageSync('uid')
                           wx.request({
-                            url: url,
-                            data: {data:wx.getStorageSync('mTarget')},
-                            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                            // header: {}, // 设置请求的 header
+                            url: app.globalData.url+'/check_expire/'+uid+'/',
+                            method: 'GET',
                             success: function(res){
-                              //清除缓存
-                              wx.removeStorageSync('mTarget')
-                              //跳转页面
-                              app.globalData.corpFresh = true
-                              wx.switchTab({
-                                url: '../corp/corp',
-                                success: function(res){
-                                  wx.showToast({
-                                      title: '保存成功',
-                                      image:'../../image/cg-ico.png',
-                                      duration: 2000
+                              if(res.data.ok==true){
+                                  var url = app.globalData.url+'/msave/?uid='+uid
+                                  if(submitData.id){
+                                    url = app.globalData.url+'/msave/?id='+submitData.id+'&uid='+uid
+                                  }
+                                  wx.request({
+                                    url: url,
+                                    data: {data:wx.getStorageSync('mTarget')},
+                                    method: 'GET', 
+                                    success: function(res){
+                                      //清除缓存
+                                      wx.removeStorageSync('mTarget')
+                                      //跳转页面
+                                      app.globalData.corpFresh = true
+                                      wx.switchTab({
+                                        url: '../corp/corp',
+                                        success: function(res){
+                                          wx.showToast({
+                                              title: '保存成功',
+                                              image:'../../image/cg-ico.png',
+                                              duration: 2000
+                                          })
+                                        },
+                                      })
+                                    },
+                                    fail: function(res) {
+                                      wx.showToast({
+                                          title: '上传失败',
+                                          image:'../../image/cw-ico.png',
+                                          duration: 2000
+                                      })
+                                    }
                                   })
-                                },
-                              })
+                              }
+                              else{
+                                wx.showModal({
+                                    title: '提示',
+                                    content: '身份验证已过期，请重新载入',
+                                    complete: function(res) {
+                                        app.globalData.indexFresh == true
+                                        wx.switchTab({
+                                          url: '../index/index',
+                                        })
+                                    }
+                                })
+                              }
                             },
-                            fail: function(res) {
-                              wx.showToast({
-                                  title: '请求失败',
-                                  image:'../../image/cw-ico.png',
-                                  duration: 2000
-                              })
+                            fail:function(){
+                                wx.showToast({
+                                    title: '上传失败',
+                                    image:'../../image/cw-ico.png',
+                                    duration: 2000
+                                })
                             }
                           })
                       }else{

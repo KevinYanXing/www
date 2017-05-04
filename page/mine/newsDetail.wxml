@@ -1,3 +1,7 @@
+<block wx:if="{{netError==true}}">
+    <import src="../internet/internet.wxml" />
+    <template is="netError"/>
+</block>
 <view class="purchase">
 <view class="header">
     <view class="list-tab">
@@ -11,8 +15,8 @@
 <view class="main-container">
     <block wx:if="{{ list.length>0 }}">
         <block wx:if="{{ list[0].pname }}">
-            <view class="back" wx:for="{{ list }}">
-                <view class="mynews p35" bindtap="checkInfo" id="{{ item.id }}">
+            <view class="back">
+                <view class="mynews p35" wx:for="{{ list }}" bindtap="checkInfo" id="{{ item.id }}">
                     <view class="news-li">
                         <view class="newsBlock">
                             <view class="news-tr">

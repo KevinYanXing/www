@@ -1,41 +1,47 @@
 var app = getApp();
+var util = require('../../util/util.js')
+var checkExpire = util.checkExpire
 Page({
   data:{},
   onLoad:function(options){
-    console.debug(options)
     this.setData({
-      uid : options.uid
+      openid : options.openid
     })
   },
-  onReady:function(){
-    // 页面渲染完成
-  },
-  onShow:function(){
-    // 页面显示
-  },
-  onHide:function(){
-    // 页面隐藏
-  },
   onUnload:function(){
-    // 页面关闭
+    var that = this
+    var uid = wx.getStorageSync('uid')
+    if(!uid){
+      wx.showModal({
+          title: '提示',
+          content: '请填写账号和密码',
+          complete:function(){
+            wx.navigateTo({
+              url: '../login/login?openid='+that.data.openid
+            })
+          }
+      })  
+    }
   },
   account:function(e){
       this.setData({
       account: e.detail.value
     })
   },
+  
   pwd:function(e){
-    console.debug(e.detail.value)
     this.setData({
       pwd: e.detail.value
     })
   },
   login:function(e){
     var that = this
-    console.debug(that.data.account , that.data.pwd , that.data.uid)
-    if(that.data.account && that.data.pwd && that.data.uid){
+    if(that.data.account && that.data.pwd && that.data.openid){
+      wx.showLoading({
+        title:'加载中'
+      })
       wx.request({
-        url: app.globalData.url+'/login/?account='+ that.data.account + '&pwd='+ that.data.pwd + '&uid=' + that.data.uid,
+        url: app.globalData.url+'/login/?account='+ that.data.account + '&pwd='+ that.data.pwd + '&openid=' + that.data.openid,
         method: 'GET',
         success: function(res){
         var content = res.data.ok

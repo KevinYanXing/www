@@ -1,5 +1,7 @@
-
-<!--<include src="../template/commonSearch.wxml" />-->
+<block wx:if="{{netError==true}}">
+    <import src="../internet/internet.wxml" />
+    <template is="netError"/>
+</block>
 <view class="header_search">
     <view class="mon main-bottom">
         <block wx:if="{{ brandInfo.length > 0 }}">

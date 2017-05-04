@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "线索详情"
+  "navigationBarTitleText": "线索详情",
+  "enablePullDownRefresh":true
 }

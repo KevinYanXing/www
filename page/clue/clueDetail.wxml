@@ -1,4 +1,7 @@
-<!--index.wxml-->
+<block wx:if="{{netError==true}}">
+    <import src="../internet/internet.wxml" />
+    <template is="netError"/>
+</block>
 <view class="purchase">
     <view class="header list-tab">
         <view class="header-wrapper">
@@ -9,7 +12,7 @@
             </view>
          </view>
     </view>
-    <form class="main-container">
+    <view class="main-container">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
       
             <view class="view0 width20 mt20">
@@ -18,30 +21,30 @@
                         <view class="clue">
                             <view class="p35">
                                 <view class="title-content">
-                                    <view class="title">{{ mdetail.cname }}</view>
+                                    <view class="title">{{ cdetail.cname }}</view>
                                 </view>
                             </view>
                         </view>
-                        <block wx:if="{{ mdetail.cperson }}">
+                        <block wx:if="{{ cdetail.cperson }}">
                             <view class="clue">
                                 <view class="p35">
                                     <view class="content border tuBiao">
                                         <image src="../../image/x1.png"></image>
                                         <view class="value">
-                                            <text class="value-text">{{ mdetail.cperson }}</text>
+                                            <text class="value-text">{{ cdetail.cperson }}</text>
                                         </view>
                                     </view>
                                 </view>
                             </view>
                         </block>
-                        <block wx:if="{{ mdetail.ccontact }}">
+                        <block wx:if="{{ cdetail.ccontact }}">
                             <view class="clue">
                                 <view class="p35">
                                     <view class="content border tuBiao">
                                         <image src="../../image/x2.png"></image>
                                         <view class="value">
-                                            <block wx:if="{{ mdetail.ccontact }}">
-                                                <text class="value-text">{{ mdetail.ccontact }}</text>
+                                            <block wx:if="{{ cdetail.ccontact }}">
+                                                <text class="value-text">{{ cdetail.ccontact }}</text>
                                             </block>
                                             <block wx:else>
                                                 <text class="value-text">暂无</text>
@@ -51,26 +54,26 @@
                                 </view>
                             </view>
                         </block>
-                        <block wx:if="{{ mdetail.ccity }}">
+                        <block wx:if="{{ cdetail.ccity }}">
                             <view class="clue">
                                 <view class="p35">
                                     <view class="content border tuBiao">
                                         <image src="../../image/x3.png"></image>
                                         <view class="value">
-                                            <text class="value-text">{{ mdetail.ccity.province }}/{{ mdetail.ccity.city }}/{{ mdetail.ccity.area }}</text>
+                                            <text class="value-text">{{ cdetail.ccity.province }}/{{ cdetail.ccity.city }}/{{ cdetail.ccity.area }}</text>
                                         </view>
                                     </view>
                                 </view>
                             </view>
                         </block>
-                        <block wx:if="{{ mdetail.cdescripe }}">      
+                        <block wx:if="{{ cdetail.cdescripe }}">      
                             <view class="clue">
                                 <view class="p35">
                                     <view class="content tuBiao">
                                         <image src="../../image/x4.png"></image>
                                         <view class="value">
-                                            <block wx:if="{{ mdetail.cdescripe }}">
-                                                <text class="value-text">{{ mdetail.cdescripe }}</text>
+                                            <block wx:if="{{ cdetail.cdescripe }}">
+                                                <text class="value-text">{{ cdetail.cdescripe }}</text>
                                             </block>
                                             <block wx:else>
                                                 <text class="value-text">暂无</text>
@@ -100,8 +103,8 @@
                                 <view class="weui">涉及产品</view>
                             </view>
                         </view>
-                        <block wx:if="{{ mdetail.cproduct.length!=0 }}">
-                        <view class="input-wrapper" wx:for="{{ mdetail.cproduct }}" wx:if="{{ item!=null }}">
+                        <block wx:if="{{ cdetail.cproduct.length!=0 }}">
+                        <view class="input-wrapper" wx:for="{{ cdetail.cproduct }}" wx:if="{{ item!=null }}">
                             <view class="input-w">
                                 <view class="input-title">产品{{ index + 1 }}</view>
                                 <view class="input-cell tr">
@@ -129,14 +132,14 @@
                                 <view class="cellblock">
                                     <view class="cellTitle">线索状态：</view>
                                     <view class="cellContent">
-                                    <block wx:if="{{ mdetail.sta == 1 }}">
-                                        <text class="celltext yellow">{{ mdetail.sta_name }}</text>
+                                    <block wx:if="{{ cdetail.sta == 1 }}">
+                                        <text class="celltext yellow">{{ cdetail.sta_name }}</text>
                                     </block>
-                                    <block wx:elif="{{ mdetail.sta == 2 }}">
-                                        <text class="celltext green">{{ mdetail.sta_name }}</text>
+                                    <block wx:elif="{{ cdetail.sta == 2 }}">
+                                        <text class="celltext green">{{ cdetail.sta_name }}</text>
                                     </block>
                                     <block wx:else>
-                                        <text class="celltext red">{{ mdetail.sta_name }}</text>
+                                        <text class="celltext red">{{ cdetail.sta_name }}</text>
                                     </block>
                                     </view>
                                 </view>
@@ -144,7 +147,7 @@
                         </view>
                         <view class="back">
                             <view class="classname">
-                                <view class="detail" wx:for="{{ mdetail.verify }}">
+                                <view class="detail" wx:for="{{ cdetail.verify }}">
                                     <view class="bdr">
                                         <view class="content-time">
                                             <view>客服：</view>
@@ -162,6 +165,9 @@
             </view>
         
         </view>
-    </form>
+    </view>
+    <view class="add-address {{currentNavtab==0 ? 'none' : ''}}">
+        <button class = "address-btn" formType="submit" bindtap = "reply" id="{{ cdetail.id }}">回复</button>
+    </view>
 </view>  
 

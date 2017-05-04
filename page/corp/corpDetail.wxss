@@ -226,10 +226,10 @@ display: block;
   color:#666;
   font-size: 24rpx;
 }
-.cp-gy text:nth-child(1){
+.cp-gy text:nth-child(1),.cp-gy text:nth-child(2){
   color:#333;
 }
-.cp-gy text:nth-child(2){
+.cp-gy text:nth-child(3){
   float: right;
   color:#f53135;
 }
