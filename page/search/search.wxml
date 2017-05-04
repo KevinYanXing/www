@@ -1,5 +1,7 @@
-
-<!--<include src="../template/commonSearch.wxml" />-->
+<block wx:if="{{netError==true}}">
+    <import src="../internet/internet.wxml" />
+    <template is="netError"/>
+</block>
 <view class="list-sous header-top {{showView?'':'none'}}" bindtap="onChangeShowState">
     <view class="non search" bindtap="tapSearch">
         <icon class="icon" type="search" size="14"></icon>

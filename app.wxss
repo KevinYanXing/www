@@ -614,7 +614,7 @@ picker {
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 999;
+    z-index: 1000;
     background:#eee; 
 }
 /*网络请求失败 end*/

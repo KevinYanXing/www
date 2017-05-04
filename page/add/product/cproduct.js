@@ -14,7 +14,6 @@ Page({
       cTarget.cproduct = [that.data.cproduct]
     }
     wx.setStorageSync('cTarget', cTarget)
-    console.debug(that.data.cproduct)
     wx.navigateBack({delta: 1})
   }
 })

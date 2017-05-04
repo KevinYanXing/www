@@ -1,2 +1,19 @@
-<!--page/add/clueReply.wxml-->
-<text>page/add/clueReply.wxml</text>
+<view class="addr-body">
+    <form class="form" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="top-sec">
+            <view class="input-wrapper">
+                <view class="input-w">
+                    <view class="input-title">回复内容：</view>
+                    <view class="input-cell">
+                        <view class="textarea-wrp">
+                            <textarea bindblur="cReply" value = "{{creply}}" placeholder="请输入回复的内容" placeholder-style = "color: #888888; " auto-height />
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </form>
+    <view class="add-address">
+        <button class = "address-btn" formType="submit" bindtap = "confirm">提交</button>
+    </view>
+</view>

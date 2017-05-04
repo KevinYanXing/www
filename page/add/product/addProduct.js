@@ -2,10 +2,15 @@ var app = getApp()
 Page({
   data:{
     pinfo:{},
+
+    strike: ['选择查扣类型','本体', '包装', '瓶盖', '防伪标', '商标贴', '瓶身', '原材料', '纸箱', '其他配件'],
+
     showView:true,
+    seizedShow:true,
     mfd:'',
     exp:'',
     pageIndex:2,
+    psweep:1,
     idx:null
   },
   onLoad:function(options){
@@ -15,18 +20,18 @@ Page({
       })
     }
     if(options.rd){
-      console.debug(options.rd)
       this.setData({  
         pageIndex: 1,
       })
   }
   // 周期函数--监听页面加载
-  showView:(options.showView=="true"?true:false)
+  // showView:(options.showView=="true"?true:false)
   },
   onShow:function(){
     var mProduct = wx.getStorageSync('mProduct')
     this.setData({
-      pinfo:mProduct
+      pinfo:mProduct,
+      psweep:wx.getStorageSync('mTarget').psweep
     })
     if(this.data.idx){
       this.setData({  
@@ -41,6 +46,12 @@ Page({
       var that=this;
       that.setData({
         showView:(!that.data.showView)
+      })
+  },
+  onChangeShowState1:function(){
+      var that=this;
+      that.setData({
+        seizedShow:(!that.data.seizedShow)
       })
   },
   // 购样数量
@@ -69,6 +80,17 @@ Page({
     })
     this.data.pinfo.exp = e.detail.value
   },
+  //查扣类型
+  stype: function(e) {
+    this.data.pinfo.stype = e.detail.value
+  },
+  //查扣数量
+  snums:function(e){
+    this.data.pinfo.snums = e.detail.value
+  },
+  ssprice:function(e){
+    this.data.pinfo.ssprice = e.detail.value
+  },
   reselect:function(){
     var that = this
     wx.showActionSheet({
@@ -78,12 +100,16 @@ Page({
               wx.scanCode({
                 success: function(res){
                   var code = res.result
+                  wx.showLoading({
+                    title:'加载中'
+                  })
                   wx.request({
                       url: app.globalData.url+'/plist/?keyword='+code,
                       method: 'GET', 
                       success: function(res){
                         var content = res.data.ok;
                         if (content == true) {
+                          wx.hideLoading()
                           var pinfo = res.data.data[0].plist[0]
                               if(wx.getStorageSync('mProduct')){
                                 var setPinfo = wx.getStorageSync('mProduct')
@@ -108,7 +134,7 @@ Page({
                       },
                       fail: function() {
                         wx.showToast({
-                          title: '请求失败',
+                          title: '扫描失败',
                           image:'../../image/cw-ico.png',
                           duration: 2000
                       })

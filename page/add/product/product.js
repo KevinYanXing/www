@@ -19,12 +19,16 @@ Page({
             wx.scanCode({
               success: function(res){
                 var code = res.result
+                wx.showLoading({
+                  title:'加载中'
+                })
                 wx.request({
                     url: app.globalData.url+'/plist/?keyword='+code,
                     method: 'GET', 
                     success: function(res){
                       var content = res.data.ok;
                       if (content == true) {
+                        wx.hideLoading()
                         var pinfo = res.data.data[0].plist[0]
                         if(wx.getStorageSync('mProduct')){
                             var setPinfo = wx.getStorageSync('mProduct')
@@ -38,13 +42,7 @@ Page({
                           setPinfo.num=pinfo.num
                           wx.setStorageSync('mProduct', setPinfo)
                         wx.navigateTo({
-                          url: './addProduct?rd=1',
-                          success: function(res){
-                             console.debug(res.data)
-                          },
-                          fail: function() {
-                            // fail
-                          },
+                          url: './addProduct?rd=1'
                         })
                       } else {
                         wx.showModal({
@@ -55,7 +53,7 @@ Page({
                     },
                     fail: function() {
                       wx.showToast({
-                        title: '请求失败',
+                        title: '扫描失败',
                         image:'../../image/cw-ico.png',
                         duration: 2000
                     })

@@ -1,4 +1,7 @@
-<!--index.wxml-->
+<block wx:if="{{netError==true}}">
+    <import src="../internet/internet.wxml" />
+    <template is="netError"/>
+</block>
 <view class="purchase">
     <view class="header list-tab">
         <view class="header-wrapper">
@@ -106,7 +109,13 @@
                                         <view class="tiaoxingMa inline-block">条形码：{{ item.num }}</view>
                                         <view class="cp-shuLang cp-gy" wx:if="{{ item.nums }}">购样数：
                                             <text>{{ item.nums }}</text>
+                                            <text></text>
                                             <text wx:if="{{ item.price }}">金额：￥{{ item.price }}</text>
+                                        </view>
+                                        <view class="cp-shuLang cp-gy" wx:if="{{ item.nums }}">
+                                            查扣量：<text>{{ item.snums }}</text>
+                                            查扣类型:<text>{{ item.stype_name }}</text>
+                                            <text wx:if="{{ item.sprice }}">金额：￥{{ item.ssprice }}</text>
                                         </view>
                                     </view>
                                 </view>
@@ -117,6 +126,85 @@
                             <view class="">暂无数据</view>
                         </block>
                     </view>
+                    <view class="mb20" wx:if="{{ mdetail.psweep==2 }}">
+                        <view class="noing border">
+                            <view class="weuijz prl">
+                                <view class="weui">执法信息</view>
+                            </view>
+                        </view>
+                        <view class="back">
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x1.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">时间：{{ mdetail.pzinfo.ztime }}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x5.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">部门：{{ mdetail.pzinfo.zdepart }}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x1.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">负责人：{{ mdetail.pzinfo.zperson }}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x1.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">职务：{{ mdetail.pzinfo.zposition }}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x2.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">手机：{{ mdetail.pzinfo.zphone }}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content border tuBiao">
+                                        <image src="../../image/x3.png"></image>
+                                        <view class="value">
+                                            <text class="value-text">地址：{{ mdetail.pzinfo.zlocs }}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="clue">
+                                <view class="p35">
+                                    <view class="content tuBiao">
+                                        <image src="../../image/x4.png"></image>
+                                        <view class="value">
+                                                <text class="value-text">描述：{{ mdetail.pzinfo.zdesc }}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
                 </scroll-view>
             </view>
             <view class="view1 width20 mt20 {{currentNavtab==0 ? 'main-bottom' : ''}}"  bindtouchstart="catchtouchstart" bindtouchend="catchtouchend">
@@ -125,7 +213,7 @@
                         <view class="logis-info">
                              <view class="cell prl">
                                 <view class="cellblock">
-                                    <view class="cellTitle">普查状态：</view>
+                                    <view class="cellTitle">普|清状态：</view>
                                     <view class="cellContent">
                                     <block wx:if="{{ mdetail.sta == 1 }}">
                                         <text class="celltext yellow">{{ mdetail.sta_name }}</text>
@@ -170,7 +258,7 @@
     
         </view>
     </view>
-     <view class="add-address {{currentNavtab==0 ? 'none' : ''}}">
+    <view class="add-address {{currentNavtab==0 ? 'none' : ''}}">
         <button class = "address-btn" formType="submit" bindtap = "reply" id="{{ mdetail.id }}">回复</button>
     </view>
 </view>  

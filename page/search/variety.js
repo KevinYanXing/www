@@ -1,14 +1,12 @@
- var app = getApp() 
+var app = getApp()
+var util = require('../../util/util.js')
+var checkExpire = util.checkExpire
+var contains = util.contains 
 
 Page({  
   data: {  
     lightList:[]
   },  
-  onLoad: function() {  
-    var that = this;  
-  },  
-
-// 加载
   onLoad: function () {
     var that = this
     var bSelect = wx.getStorageSync('bSelect')
@@ -17,27 +15,45 @@ Page({
           brandInfo:bSelect
         })
     }else{
+      wx.showLoading({
+        title:'加载中'
+      })
       wx.request({
         url: app.globalData.url+'/blist/',
         data: {},
         method: 'GET', 
         success: function(res){
+          that.setData({
+            netError:false
+          })
+          wx.hideLoading()
+          console.debug(res)
           var content = res.data.ok
+          var cData = res.data.data
           if(content==true){
+            var cTarget = wx.getStorageSync('cTarget')
+            if(cTarget.id){
+              for(var i=0;i<cData.length;i++){
+                for(var j=0;j<cData[i].brand.length;j++){
+                  for(var k=0;k<cTarget.bSelected.length;k++){
+                    if(cTarget.bSelected[k].id==cData[i].brand[j].id){
+                      cData[i].brand[j].show = true
+                    }
+                  }
+                }
+              }
+            }
             that.setData({
-              brandInfo:res.data.data
+              brandInfo:cData
             })
           }else{
               brandInfo:[]
           }
         },
         fail: function() {
-          wx.showToast({
-          title: '请求失败',
-          image:'../../image/cw-ico.png',
-          duration: 2000
-      })
-        
+          tht.setData({
+            netError:true
+          })
         },
       })
     }
@@ -80,5 +96,35 @@ Page({
             content: '请先选择品种'
         })
     }
+  },
+  onPullDownRefresh: function(){
+    wx.showLoading({
+        title:'加载中'
+      })
+      wx.request({
+        url: app.globalData.url+'/blist/',
+        data: {},
+        method: 'GET', 
+        success: function(res){
+          tht.setData({
+            netError:false
+          })
+          wx.hiedLoading()
+          var content = res.data.ok
+          if(content==true){
+            that.setData({
+              brandInfo:res.data.data
+            })
+          }else{
+              brandInfo:[]
+          }
+        },
+        fail: function() {
+          tht.setData({
+            netError:true
+          })
+        },
+      })
+    wx.stopPullDownRefresh()
   }
 })

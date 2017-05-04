@@ -1,3 +1,7 @@
+<block wx:if="{{netError==true}}">
+    <import src="../internet/internet.wxml" />
+    <template is="netError"/>
+</block>
 <view class="mine">
     <view class="jianBian">
         <view class="userinfo" bindtap="jumpLogin" >
