@@ -83,5 +83,4 @@ textarea{
 }
 .error{
     padding: 22rpx;
-    
 }
