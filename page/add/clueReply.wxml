@@ -1,14 +1,13 @@
-<view class="container">
-    <view class="addr-body">
-        <view class="page-section">
-            <view class="page-section-title">回复内容</view>
+<view class="addr-body">
+    <view class="page-section">
+        <view class="page-section-title">回复内容</view>
+        <view class="input-wrapper mb20">
             <view class="textarea-wrp">
-                <textarea bindinput="cReply" placeholder="请输入回复的内容" value = "{{cReply}}" placeholder-style="color: #888888;" auto-height />
+                <textarea bindblur="cReply" value = "{{cReply}}" placeholder="请输入回复内容" placeholder-style = "color: #888888; " style="height:3em"></textarea>
             </view>
         </view>
-
-        <view class="add-address">
-            <button class = "address-btn" formType="submit" bindtap = "confirm">提交</button>
-        </view>
-     </view>
+    </view>
+    <view class="add-address">
+        <button class = "address-btn" formType="submit" bindtap = "confirm">提交</button>
+    </view>
 </view>

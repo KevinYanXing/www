@@ -630,10 +630,16 @@ picker {
 /*网络请求失败 end*/
 
 /*多行输入*/
+.page-section {
+ width:100%;
+}
 .page-section-title {
     font-size:28rpx;
     color: #999;
     padding: 22rpx 35rpx;
+}
+.page-section .textarea-wrp{
+    padding-top: 22rpx;
 }
 .textarea-wrp textarea {
     width: 100%;

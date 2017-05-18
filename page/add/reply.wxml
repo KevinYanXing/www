@@ -1,18 +1,12 @@
 <view class="addr-body">
-    <form class="form" bindsubmit="formSubmit" bindreset="formReset">
-        <view class="top-sec">
-            <view class="input-wrapper">
-                <view class="input-w">
-                    <view class="input-title">回复内容：</view>
-                    <view class="input-cell">
-                        <view class="textarea-wrp">
-                            <textarea bindblur="pReply" value = "{{preply}}" placeholder="请输入回复的内容" placeholder-style = "color: #888888; " auto-height />
-                        </view>
-                    </view>
-                </view>
+    <view class="page-section">
+        <view class="page-section-title">回复内容</view>
+        <view class="input-wrapper mb20">
+            <view class="textarea-wrp">
+                <textarea bindblur="pReply" value = "{{preply}}" placeholder="请输入回复内容" placeholder-style = "color: #888888; " style="height:3em"></textarea>
             </view>
         </view>
-    </form>
+    </view>
     <view class="add-address">
         <button class = "address-btn" formType="submit" bindtap = "confirm">提交</button>
     </view>

@@ -1,6 +1,4 @@
-.page-section {
-width:100%;
-}
+
 .textarea-wrp {
     /*padding-top:12rpx;
     background-color:#fff;*/
