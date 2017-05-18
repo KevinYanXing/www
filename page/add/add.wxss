@@ -59,6 +59,7 @@
     background: #f7f7f7;
 }
 .Back .input-title{
-    color: #9a9a9a;
+    color: #999;
 }
+
 

@@ -4,8 +4,12 @@
 }
 .top-sec{
 }
+.textarea-wrp{
+    width: 100%;
+    display:inline-block;
+}
 .input-cell textarea {
-    width:initial;
+    width:100%;
     min-height: 186rpx;
     position:initial;
 }

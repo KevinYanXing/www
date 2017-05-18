@@ -54,8 +54,12 @@
                                 <view class="image" wx:else>
                                     <image mode="aspectFill" src="../../image/zw.png" background-size="cover"></image>
                                 </view>
-                                <view class = "bottom-sec">
-                                    <view class="now">{{item.pname}}</view>
+                                <view class = "bottom-sec pos">
+                                    <view class="now mf60">{{item.pname}}</view>
+                                    <view class="biaoqian">
+                                        <view class="jb-txet">{{ item.psweep==2?'清':'普' }}</view>
+                                        <view class="jioabiao"></view>
+                                    </view>
                                     <view class = "top-title">
                                         <view class = "title inline-block">品牌:</view>
                                         <view class = "w70  text-overflow description inline-block blue" wx:if="{{item.pbrand.length>0}}">  
@@ -64,7 +68,6 @@
                                             </block>
                                             
                                         </view>
-                                        {{ item.psweep==2?'清':'普' }}
                                     </view>
                                     <block wx:if="{{ item.ptype }}">
                                         <view class = "top-title">

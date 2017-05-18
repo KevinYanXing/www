@@ -69,7 +69,7 @@
                 </view>
             </view>
             <form>
-            <view class="page-section input-wrapper mb20">
+            <view class="page-section input-wrapper">
                 <view class="weui-cell">
                     <view class="weui-cell__bd">
                     <view class="weui-uploader">
@@ -94,13 +94,11 @@
                 </view>
             </view>
             </form>
-            <view class="input-wrapper mb20">
-                <view class="input-w">
-                    <view class="input-title">情况描述</view>
-                    <view class="input-cell">
-                        <view class="textarea-wrp">
-                            <textarea bindblur="cDescripe" value = "{{cdescripe}}" placeholder="请描述目标基本情况" placeholder-style = "color: #888888; " auto-height />
-                        </view>
+            <view class="mb20">
+                <view class="page-section">
+                    <view class="page-section-title">执法描述</view>
+                    <view class="textarea-wrp">
+                        <textarea bindinput="cDescripe" placeholder="请描述执法过程" value = "{{cDescripe}}" placeholder-style="color: #888888;" auto-height />
                     </view>
                 </view>
             </view>
