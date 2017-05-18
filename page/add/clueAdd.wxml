@@ -95,14 +95,10 @@
             </view>
             </form>
             <view class="mb20">
-                <view class="page-section-title">执法描述</view>
-                <view class="input-wrapper">
-                    <view class="input-w">
-                        <view class="page-section">
-                            <view class="textarea-wrp">
-                                <textarea bindblur="cDescripe" placeholder="请描述执法过程" value = "{{cDescripe}}" placeholder-style="color: #888888;" auto-height />
-                            </view>
-                        </view>
+                <view class="page-section">
+                    <view class="page-section-title">执法描述</view>
+                    <view class="textarea-wrp">
+                        <textarea bindinput="cDescripe" placeholder="请描述执法过程" value = "{{cDescripe}}" placeholder-style="color: #888888;" auto-height />
                     </view>
                 </view>
             </view>

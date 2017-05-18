@@ -176,18 +176,12 @@
                 
             </view>
 
-<view class="container">
-    <view class="page-section-title">执法描述</view>
-    <view class="input-wrapper">
-        <view class="input-w">
-            <view class="page-section">
+            <view class="page-section mt20">
+                <view class="page-section-title">执法描述</view>
                 <view class="textarea-wrp">
                     <textarea bindinput="zDesc" placeholder="请描述执法过程" value = "{{pzinfo.zdesc}}" placeholder-style="color: #888888;" auto-height />
                 </view>
             </view>
-        </view>
-    </view>
-</view>
 
             </view>
             <view class="input-wrapper mb20">

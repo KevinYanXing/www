@@ -1,13 +1,9 @@
 <view class="container">
     <view class="addr-body">
-        <view class="page-section-title">回复内容：</view>
-        <view class="input-wrapper">
-            <view class="input-w">
-                <view class="page-section">
-                    <view class="textarea-wrp">
-                        <textarea bindinput="cReply" placeholder="请输入回复的内容" value = "{{cReply}}" placeholder-style="color: #888888;" auto-height />
-                    </view>
-                </view>
+        <view class="page-section">
+            <view class="page-section-title">回复内容</view>
+            <view class="textarea-wrp">
+                <textarea bindinput="cReply" placeholder="请输入回复的内容" value = "{{cReply}}" placeholder-style="color: #888888;" auto-height />
             </view>
         </view>
 
