@@ -270,7 +270,8 @@ Page({
   pSweep:function(e){
     var that = this
     that.setData({
-      psweep:that.data.psweep==1?2:1
+      psweep:that.data.psweep==1?2:1,
+      showView:(!that.data.showView)
     })
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.psweep = that.data.psweep

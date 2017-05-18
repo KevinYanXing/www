@@ -144,7 +144,7 @@
                                 <view class="weui">执法信息</view>
                             </view>
                         </view>
-                        <view class="back" wx:if="{{mdetail.zinfo}}">
+                        <view class="back" wx:if="{{mdetail.pzinfo}}">
                             <block wx:if="{{ mdetail.pzinfo.ztime }}">
                             <view class="clue">
                                 <view class="p35">

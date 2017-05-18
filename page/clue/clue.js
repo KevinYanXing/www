@@ -52,101 +52,178 @@ Page({
       var that = this
       var id = e.currentTarget.id
       var idx = e.currentTarget.dataset.value
-      wx.showActionSheet({
-          itemList: ['查看','编辑','删除'],
-          success: function (e) {
-            if(e.tapIndex==0){
-                wx.navigateTo({url: './clueDetail?id='+id})
-            }else if(e.tapIndex==1){
-              wx.setStorageSync('cTarget', that.data.list.cinfo[idx])
-              wx.removeStorageSync('bSelect')
-              wx.navigateTo({url: '../search/variety'})
-            }else if(e.tapIndex==2){
-                wx.showModal({
-                    title: '警告',
-                    content: '您确定要删除这条记录吗？删除后无法恢复！',
-                    success: function(res) {
-                      if (res.confirm) {
-                          wx.showLoading({
-                            title:'加载中'
-                          })
-                          wx.request({
-                            url: app.globalData.url+'/cdel/'+ id +'/',
-                            data: {},
-                            method: 'GET',
-                            success: function(res){
-                                wx.hideLoading()
-                                wx.showToast({
-                                  title: '删除成功',
-                                  image:'../../image/cg-ico.png',
-                                  duration: 2000
-                                })
-                                var index = that.data.curNav
-                                wx.showLoading({
-                                  title:'加载中'
-                                })
-                                var uid = wx.getStorageSync('uid')
-                                wx.request({
-                                  url: app.globalData.url+'/check_expire/'+uid+'/',
-                                  method: 'GET',
-                                  success: function(res){
-                                    if(res.data.ok==true){
-                                        wx.request({
-                                          url: app.globalData.url+'/clist/?uid='+uid,
-                                          data: {},
-                                          method: 'GET', 
-                                          success: function(res){
-                                            wx.hideLoading()
-                                            that.setData({
-                                              netError:false,
-                                              product: res.data.data,
-                                              list: res.data.data[index],
-                                            })
-                                          },
-                                          fail: function(res) {
+      if(that.data.list.cinfo[idx].csta==1){
+        wx.showActionSheet({
+            itemList: ['查看','编辑','删除'],
+            success: function (e) {
+              if(e.tapIndex==0){
+                  wx.navigateTo({url: './clueDetail?id='+id})
+              }else if(e.tapIndex==1){
+                wx.setStorageSync('cTarget', that.data.list.cinfo[idx])
+                wx.removeStorageSync('bSelect')
+                wx.navigateTo({url: '../search/variety'})
+              }else if(e.tapIndex==2){
+                  wx.showModal({
+                      title: '警告',
+                      content: '您确定要删除这条记录吗？删除后无法恢复！',
+                      success: function(res) {
+                        if (res.confirm) {
+                            wx.showLoading({
+                              title:'加载中'
+                            })
+                            wx.request({
+                              url: app.globalData.url+'/cdel/'+ id +'/',
+                              data: {},
+                              method: 'GET',
+                              success: function(res){
+                                  wx.hideLoading()
+                                  wx.showToast({
+                                    title: '删除成功',
+                                    image:'../../image/cg-ico.png',
+                                    duration: 2000
+                                  })
+                                  var index = that.data.curNav
+                                  wx.showLoading({
+                                    title:'加载中'
+                                  })
+                                  var uid = wx.getStorageSync('uid')
+                                  wx.request({
+                                    url: app.globalData.url+'/check_expire/'+uid+'/',
+                                    method: 'GET',
+                                    success: function(res){
+                                      if(res.data.ok==true){
+                                          wx.request({
+                                            url: app.globalData.url+'/clist/?uid='+uid,
+                                            data: {},
+                                            method: 'GET', 
+                                            success: function(res){
                                               wx.hideLoading()
                                               that.setData({
-                                              netError:true
-                                            })
-                                          },
-                                        })
-                                    }
-                                    else{
-                                      wx.showModal({
-                                          title: '提示',
-                                          content: '身份验证已过期，请重新载入',
-                                          complete: function(res) {
-                                              app.globalData.indexFresh == true
-                                              wx.switchTab({
-                                                url: '../index/index',
+                                                netError:false,
+                                                product: res.data.data,
+                                                list: res.data.data[index],
                                               })
-                                          }
-                                      })
+                                            },
+                                            fail: function(res) {
+                                                wx.hideLoading()
+                                                that.setData({
+                                                netError:true
+                                              })
+                                            },
+                                          })
+                                      }
+                                      else{
+                                        wx.showModal({
+                                            title: '提示',
+                                            content: '身份验证已过期，请重新载入',
+                                            complete: function(res) {
+                                                app.globalData.indexFresh == true
+                                                wx.switchTab({
+                                                  url: '../index/index',
+                                                })
+                                            }
+                                        })
+                                      }
+                                    },
+                                    fail:function(){
+                                        that.setData({
+                                          netError:true
+                                        })
+                                        wx.hideLoading()
                                     }
-                                  },
-                                  fail:function(){
-                                      that.setData({
-                                        netError:true
-                                      })
-                                      wx.hideLoading()
-                                  }
-                                })
-                                
-                            },
-                            fail: function(res) {
-                                wx.showToast({
-                                    title: '请求失败',
-                                    image:'../../image/cw-ico.png',
-                                    duration: 2000
-                                })
-                            }
-                          })
+                                  })
+                                  
+                              },
+                              fail: function(res) {
+                                  wx.showToast({
+                                      title: '请求失败',
+                                      image:'../../image/cw-ico.png',
+                                      duration: 2000
+                                  })
+                              }
+                            })
+                        }
                       }
-                    }
-                })
+                  })
+              }
             }
-          }
-        })
+          })
+      }else{
+        wx.showActionSheet({
+            itemList: ['查看','接受','拒绝'],
+            success: function (e) {
+              if(e.tapIndex==0){
+                  wx.navigateTo({url: './clueDetail?id='+id})
+              }else if(e.tapIndex==1){
+                wx.showModal({
+                      title: '提示',
+                      content: '您确定要接受这条线索吗？',
+                      success: function(res) {
+                        if (res.confirm) {
+                            wx.showLoading({
+                              title:'加载中'
+                            })
+                            wx.request({
+                              url: app.globalData.url+'/caccepted/'+ id +'/',
+                              data: {},
+                              method: 'GET',
+                              success: function(res){
+                                  wx.hideLoading()
+                                  wx.showToast({
+                                    title: '接受成功',
+                                    image:'../../image/cg-ico.png',
+                                    duration: 2000
+                                  })
+                                  that.onPullDownRefresh()
+                              },
+                              fail: function(res) {
+                                  wx.showToast({
+                                      title: '请求失败',
+                                      image:'../../image/cw-ico.png',
+                                      duration: 2000
+                                  })
+                              }
+                            })
+                        }
+                      }
+                  })
+              }else if(e.tapIndex==2){
+                  wx.showModal({
+                      title: '提示',
+                      content: '您确定要拒绝这条线索吗？',
+                      success: function(res) {
+                        if (res.confirm) {
+                            wx.showLoading({
+                              title:'加载中'
+                            })
+                            wx.request({
+                              url: app.globalData.url+'/cdeny/'+ id +'/',
+                              data: {},
+                              method: 'GET',
+                              success: function(res){
+                                  wx.hideLoading()
+                                  wx.showToast({
+                                    title: '拒绝成功',
+                                    image:'../../image/cg-ico.png',
+                                    duration: 2000
+                                  })
+                                  that.onPullDownRefresh()
+                              },
+                              fail: function(res) {
+                                  wx.showToast({
+                                      title: '请求失败',
+                                      image:'../../image/cw-ico.png',
+                                      duration: 2000
+                                  })
+                              }
+                            })
+                        }
+                      }
+                  })
+              }
+            }
+          })
+      }
   },
   oninput: function (e) {
     var that = this;

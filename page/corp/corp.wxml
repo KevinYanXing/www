@@ -96,7 +96,7 @@
                                     {{item.verify[item.verify.length-1].descs}}
                                 </block>
                                 <block wx:else>
-                                    暂未审核
+                                        暂未审核
                                 </block>
                             </view>
                             <view class="fl title f-time">

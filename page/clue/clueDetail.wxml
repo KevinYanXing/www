@@ -139,7 +139,7 @@
                                 <view class="detail" wx:for="{{ cdetail.verify }}">
                                     <view class="bdr">
                                         <view class="content-time">
-                                            <view>客服：</view>
+                                            <view>{{ item.typ==2?'我':'客服' }}：</view>
                                             <text>{{ item.descs }}</text>
                                         </view>
                                         <view class="time">{{ item.d }}</view>

@@ -202,6 +202,9 @@ Page({
                 area: district
               }
             })
+            var cTarget = wx.getStorageSync('cTarget')
+            cTarget.ccity = that.data.ccity
+            wx.setStorageSync('cTarget', cTarget)
             }
         })
       }

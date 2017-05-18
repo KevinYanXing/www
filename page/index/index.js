@@ -48,8 +48,8 @@ Page({
                 netError:false
               })
               if(res.data.is_in==true){
-                // wx.setStorageSync('uid', res.data.uid)
-                wx.setStorageSync('uid', 'test')
+                console.debug(res.data.uid,111111)
+                wx.setStorageSync('uid', res.data.uid)
               }else{
                 wx.navigateTo({
                   url: '../login/login?openid='+res.data.openid,

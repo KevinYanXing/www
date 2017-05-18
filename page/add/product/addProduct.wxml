@@ -100,6 +100,7 @@
                             <view class="input-cell">
                                 <input bindinput = "ssprice" type="number" placeholder="输入产品价格" value = "{{pinfo.ssprice?pinfo.ssprice:pinfo.sprice}}" placeholder-style = "color: #888888; "/>
                             </view>
+                            <view class="input-cell tr RMB">元</view>
                         </view>
                     </view>
                     <view class="input-wrapper">

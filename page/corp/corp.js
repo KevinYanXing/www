@@ -73,79 +73,26 @@ Page({
                           wx.showLoading({
                             title:'加载中'
                           })
-                          var uid = wx.getStorageSync('uid')
                           wx.request({
-                            url: app.globalData.url+'/check_expire/'+uid+'/',
+                            url: app.globalData.url+'/mdel/'+ id +'/',
+                            data: {},
                             method: 'GET',
-                            success: function(res){
-                              if(res.data.ok==true){
-                                  wx.request({
-                                    url: app.globalData.url+'/mdel/'+ id +'/',
-                                    data: {},
-                                    method: 'GET',
-                                    success: function(res){ 
-                                        wx.hideLoading()
-                                        wx.showToast({
-                                          title: '删除成功',
-                                          image:'../../image/cg-ico.png',
-                                          duration: 2000
-                                        })
-                                        var index = that.data.curNav
-                                        wx.showLoading({
-                                          title:'加载中'
-                                        })  
-                                        wx.request({
-                                          url: app.globalData.url+'/mlist/?uid='+uid,
-                                          data: {},
-                                          method: 'GET', 
-                                          success: function(res){
-                                            wx.hideLoading()
-                                            that.setData({
-                                              netError:false,
-                                              product: res.data.data,
-                                              list: res.data.data[index],
-                                            })
-                                          },
-                                          fail: function(res) {
-                                            that.setData({
-                                                netError:true
-                                            })
-                                            wx.hideLoading()
-                                          },
-                                        })
-                                        
-                                    },
-                                    fail: function(res) {
-                                        that.setData({
-                                            netError:true
-                                          })
-                                          wx.hideLoading()
-                                    }
-                                  })
-                              }
-                              else{
+                            success: function(res){ 
                                 wx.hideLoading()
-                                wx.showModal({
-                                    title: '提示',
-                                    content: '身份验证已过期，请重新载入',
-                                    complete: function(res) {
-                                        app.globalData.indexFresh == true
-                                        wx.switchTab({
-                                          url: '../index/index',
-                                        })
-                                    }
-                                })
-                              }
-                            },
-                            fail:function(){
                                 wx.showToast({
-                                  title: '请求失败',
-                                  image:'../../image/cw-ico.png',
+                                  title: '删除成功',
+                                  image:'../../image/cg-ico.png',
                                   duration: 2000
                                 })
+                                that.onPullDownRefresh()
+                            },
+                            fail: function(res) {
+                                that.setData({
+                                    netError:true
+                                  })
+                                  wx.hideLoading()
                             }
                           })
-                          
                       }
                     }
                 })
@@ -161,6 +108,7 @@ Page({
         title:'加载中'
       })
       var uid = wx.getStorageSync('uid')
+      console.debug(uid,2222222)
       wx.request({
         url: app.globalData.url+'/check_expire/'+uid+'/',
         method: 'GET',
