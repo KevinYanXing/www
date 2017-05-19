@@ -173,6 +173,7 @@ display: block;
 .value .value-text{
   display:block;
   width:100%;
+  color: #282828;
 }
 /*有图标的*/
 .tuBiao image{
