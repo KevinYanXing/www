@@ -123,9 +123,10 @@
                                         </view>
                                         <block wx:if="{{ mdetail.psweep==2 }}">
                                         <view class="tiaoxingMa inline-block">查扣类型：{{ item.stype_name }}</view>
-                                        <view class="cp-shuLang cp-gy" wx:if="{{ item.nums }}">
-                                            查扣数量：<text>{{ item.snums }}</text>
-                                            <text wx:if="{{ item.sprice }}">金额：￥{{ item.ssprice }}</text>
+                                        <view class="cp-shuLang cp-gy" wx:if="{{ item.nums }}">查扣数量：
+                                            <text>{{ item.snums }}</text>
+                                            <text wx:if="{{ item.ssprice }}">金额：￥{{ item.ssprice }}</text>
+                                            <text wx:else>金额：￥{{ item.sprice }}</text>
                                         </view>
                                         </block>
                                     </view>

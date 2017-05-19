@@ -81,12 +81,12 @@ Page({
     //初始化数据
     var that = this
     var mTarget = wx.getStorageSync('mTarget')
-    console.debug(mTarget)
     if(mTarget){
       if(mTarget.pzinfo){
         that.setData({
           pzinfo:mTarget.pzinfo
-        })  
+        })
+        wx.setStorageSync('zInfo', mTarget.pzinfo)  
       }else{
         wx.setStorageSync('zInfo', {})
       }

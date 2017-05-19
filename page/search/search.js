@@ -91,6 +91,7 @@ Page({
         wx.setStorageSync('mTarget', mTarget)
         wx.navigateBack({delta:1})
     }else{
+        var pinfo=that.data.about[aid]
         if(wx.getStorageSync('mProduct')){
             var setPinfo = wx.getStorageSync('mProduct')
           }else{
