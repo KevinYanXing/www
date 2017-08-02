@@ -108,84 +108,83 @@
                 </view>
             </view>
             <view class="mb20 bright-No {{psweep==2?'bright-Block':''}}">
-                <view class="input-wrapper {{showView?'':'Back'}}" bindtap="onChangeShowState">
+            <view class="input-wrapper {{showView?'':'Back'}}" bindtap="onChangeShowState">
+                <view class="input-w">
+                    <view class="input-title"> {{showView?'添加执法信息':'收起执法信息'}}
+                   </view>
+                    <view class="input-cell tr">
+                        <view class="navigator-arrow {{showView?'':'n-b'}}"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="bright-No {{showView?'':'bright-Block'}}">
+                <view class="input-wrapper">
                     <view class="input-w">
-                        <view class="input-title"> {{showView?'添加执法信息':'收起执法信息'}}
-                    </view>
-                        <view class="input-cell tr">
-                            <view class="navigator-arrow {{showView?'':'n-b'}}"></view>
-                        </view>
-                    </view>
-                </view>
-                <view class="bright-No {{showView?'':'bright-Block'}}">
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">执法时间</view>
-                            <view class="input-cell">
-                                <picker  mode="date" value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
-                                    <view class="input-text">{{pzinfo.ztime}}</view>
-                                    <view class="navigator-arrow"></view>
-                                </picker>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">执法机构</view>
-                            <view class="input-cell">
-                                <input bindinput="zDepart" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">负责人</view>
-                            <view class="input-cell">
-                                <input bindinput="zPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">职务</view>
-                            <view class="input-cell">
-                                <input bindinput="zPosition" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">手机</view>
-                            <view class="input-cell">
-                                <input bindinput="zPhone" name="input" placeholder="请输入执法负责人手机" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w" bindtap="zLocs">
-                            <view class="input-title">执法地址</view>
-                            <view class="input-cell tr">
-                                <view class="text-overflow input-text w80">
-                                    <block wx:if="{{pzinfo.zlocs}}">{{pzinfo.zlocs}}</block>
-                                    <block wx:else>在地图上选择地址</block>
-                                </view>
+                        <view class="input-title">执法时间</view>
+                        <view class="input-cell">
+                            <picker  mode="date" value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
+                                <view class="input-text">{{pzinfo.ztime}}</view>
                                 <view class="navigator-arrow"></view>
-                            </view>
+                            </picker>
                         </view>
                     </view>
-                    <view class="mb20">
-                        <view class="page-section">
-                            <view class="page-section-title">执法描述</view>
-                            <view class="input-wrapper mb20">
-                                <view class="textarea-wrp">
-                                    <textarea bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="请输入回复内容" placeholder-style = "color: #888888; " style="height: 6em" auto-height />
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-            
                 </view>
-           
+                <view class="input-wrapper">
+                    <view class="input-w">
+                        <view class="input-title">执法机构</view>
+                        <view class="input-cell">
+                            <input bindinput="zDepart" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
+                        </view>
+                    </view>
+                </view>
+                <view class="input-wrapper">
+                    <view class="input-w">
+                        <view class="input-title">负责人</view>
+                        <view class="input-cell">
+                            <input bindinput="zPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
+                        </view>
+                    </view>
+                </view>
+                <view class="input-wrapper">
+                    <view class="input-w">
+                        <view class="input-title">职务</view>
+                        <view class="input-cell">
+                            <input bindinput="zPosition" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
+                        </view>
+                    </view>
+                </view>
+                <view class="input-wrapper">
+                    <view class="input-w">
+                        <view class="input-title">手机</view>
+                        <view class="input-cell">
+                            <input bindinput="zPhone" name="input" placeholder="请输入执法负责人手机" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
+                        </view>
+                    </view>
+                </view>
+                <view class="input-wrapper">
+                    <view class="input-w" bindtap="zLocs">
+                        <view class="input-title">执法地址</view>
+                        <view class="input-cell tr">
+                            <view class="text-overflow input-text w80">
+                                <block wx:if="{{pzinfo.zlocs}}">{{pzinfo.zlocs}}</block>
+                                <block wx:else>在地图上选择地址</block>
+                            </view>
+                            <view class="navigator-arrow"></view>
+                        </view>
+                    </view>
+                </view>
+                
+            </view>
+
+            <view class="page-section">
+                <view class="page-section-title">执法描述</view>
+                <view class="input-wrapper mb20">
+                    <view class="textarea-wrp">
+                        <textarea bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="请描述执法过程" placeholder-style = "color: #888888; " style="height:6em"></textarea>
+                    </view>
+                </view>
+            </view>
+            
             </view>
             <view class="input-wrapper mb20">
                 <view class="input-w" bindtap="pProduct">

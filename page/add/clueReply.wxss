@@ -1,5 +1,4 @@
+.textarea-wrp wx-textarea {
+padding-bottom:22rpx;
 
-.textarea-wrp {
-    /*padding-top:12rpx;
-    background-color:#fff;*/
 }
