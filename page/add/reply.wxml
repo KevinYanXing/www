@@ -4,6 +4,8 @@
         <view class="input-wrapper mb20">
             <view class="textarea-wrp">
                 <textarea bindblur="pReply" value = "{{preply}}" placeholder="请输入回复内容" placeholder-style = "color: #888888; " style="height: 3em" auto-height />
+                
+                ++++
             </view>
         </view>
     </view>

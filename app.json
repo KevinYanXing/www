@@ -42,7 +42,7 @@
       "pagePath": "page/corp/corp",
       "iconPath": "image/1.png",
       "selectedIconPath": "image/hover1.png",
-      "text": "普|清列表"
+      "text": "目标列表"
     },{
       "pagePath": "page/clue/clue",
       "iconPath": "image/2.png",

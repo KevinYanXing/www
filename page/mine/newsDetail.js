@@ -3,7 +3,7 @@ var util = require('../../util/util.js')
 var checkExpire = util.checkExpire
 Page({
   data:{
-    newsType:['普|清消息','线索消息'],
+    newsType:['目标消息','线索消息'],
     curNav:0,
     mclist:[]
   },

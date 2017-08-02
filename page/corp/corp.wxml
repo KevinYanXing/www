@@ -56,8 +56,8 @@
                                 </view>
                                 <view class = "bottom-sec pos">
                                     <view class="now mf60">{{item.pname}}</view>
-                                    <view class="biaoqian">
-                                        <view class="jb-txet">{{ item.psweep==2?'清':'普' }}</view>
+                                    <view class="biaoqian" wx:if="{{ item.psweep==2 }}">
+                                        <view class="jb-txet">执</view>
                                         <view class="jioabiao"></view>
                                     </view>
                                     <view class = "top-title">

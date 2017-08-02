@@ -15,7 +15,7 @@ Page({
           this.onPullDownRefresh()
       }
   },
-  //添加普|清
+  //添加目标
   addTarget:function(){
     var mTarget = wx.getStorageSync('mTarget')
     if(mTarget.id){

@@ -44,7 +44,7 @@
       <view class="destination" wx:for="{{about}}" wx:if="{{item.plist.length > 0}}">
         <view class="title">{{item.bname}}</view>
         <view >
-          <view class="city-detail" bindtap="selectProduct"  wx:for="{{item.plist}}" id="{{index}}" hover-class="none" wx:for-item="itemplist">
+          <view class="city-detail" bindtap="selectProduct"  wx:for="{{item.plist}}" id="{{index}}" hover-class="none" wx:for-item="itemplist" data-arr="{{itemplist}}">
             <image class="img" src="{{itemplist.logoid}}"></image>
             <view class="d-right">
               <text>{{itemplist.name}}</text>

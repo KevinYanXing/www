@@ -14,7 +14,7 @@
         <view class="tongJi">
             <view class="t1" bindtap="mTarget">
                 <view class="S-text blue">{{ dataSum.m }}</view>
-                <view class="T-txet">普查清扫</view>
+                <view class="T-txet">发现目标</view>
             </view>
             <view class="geliTiao" ></view>
             <view class="t2" bindtap="cTarget">

@@ -21,12 +21,6 @@ function sendPhotos(arr){
           }else{
             cTarget.imageName = [rData.filename]
           }
-          if(cTarget.crelationship){
-              cTarget.crelationship.push([arr[0],rData.filename])
-          }else{
-              cTarget.crelationship = [[arr[0],rData.filename]]
-          }
-          
           wx.setStorageSync('cTarget', cTarget)
           arr.splice(0,1)
           sendPhotos(arr)
@@ -303,21 +297,17 @@ Page({
           })
           
           var cTarget = wx.getStorageSync('cTarget')
-          cTarget.imageList = that.data.imageList
+          var cTarget = wx.getStorageSync('cTarget')
           if(cTarget.id){
-              cTarget.imageList = that.data.imageList
-              var pre = cTarget.crelationship
-              for(var i=0;i<pre.length;i++){
-                  if(pre[i][0]==current || pre[i][1]==current){
-                    var newName = []
-                    for(var j=0;j<cTarget.imageName.length;j++){
-                      if(cTarget.imageName[j]!=pre[i][0] && cTarget.imageName[j]!=pre[i][1]){
-                        newName.push(cTarget.imageName[j])
-                      }
-                    }
-                    cTarget.imageName = newName
-                  }
+            var newName = []
+            for(var i=0;i<cTarget.imageName.length;i++){
+              if(cTarget.imageName[i]!=current){
+                newName.push(cTarget.imageName[i])
+              }else{
+                console.debug(current)
               }
+            }
+            cTarget.imageName = newName
           }
           wx.setStorageSync('cTarget', cTarget)
         }
@@ -355,7 +345,6 @@ Page({
       itemList: ['删除'],
       success: function (e) {
         if(e.tapIndex==0){
-          
             var cTarget = wx.getStorageSync('cTarget')
             cTarget.cproduct.splice(id,1)
             console.debug(cTarget.cproduct)
@@ -382,7 +371,18 @@ Page({
               })
           }
       })
-    }else{
+    }else if(!that.data.cproduct || that.data.cproduct.length==0){
+      wx.showModal({
+          title: '提示',
+          content: '请填写添加产品',
+          success: function(res) {
+              that.setData({
+                focus:true
+              })
+          }
+      })
+    }
+    else{
         //上传图片
         var tempImage = that.data.imageList
         if(tempImage.length!=0){
@@ -393,15 +393,10 @@ Page({
             })
             
             if(cTarget.id){
-              var checkImageList = []
-              var checkImageName = []
-              for(var j=0;j<cTarget.crelationship.length;j++){
-                    checkImageList.push(cTarget.crelationship[j][0])
-                    checkImageName.push(cTarget.crelationship[j][1])
-              }
+           
               var uploadImage = []
                 for(var i=0;i<tempImage.length;i++){
-                    if(contains(checkImageList,tempImage[i]) || contains(checkImageName,tempImage[i])){
+                    if(contains(cTarget.imageName,tempImage[i])){
 
                     }else{
                       uploadImage.push(tempImage[i])

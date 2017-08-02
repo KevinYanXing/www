@@ -80,7 +80,9 @@ Page({
   selectProduct: function (e) {
     var that = this;
     var aid = e.currentTarget.id
+    // console.debug(aid)
     var pinfo=that.data.firstShow[aid]
+    // console.debug(pinfo)
     if(that.data.idx){
         var mTarget = wx.getStorageSync('mTarget')
         mTarget.pproduct[that.data.idx].id=pinfo.id
@@ -91,7 +93,9 @@ Page({
         wx.setStorageSync('mTarget', mTarget)
         wx.navigateBack({delta:1})
     }else{
-        var pinfo=that.data.about[aid]
+        if(e.currentTarget.dataset.arr){
+          var pinfo=e.currentTarget.dataset.arr
+        }
         if(wx.getStorageSync('mProduct')){
             var setPinfo = wx.getStorageSync('mProduct')
           }else{

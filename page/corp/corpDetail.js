@@ -14,7 +14,7 @@ Page({
 
     // 切换卡
     hasData: true,
-    navTab: ["基本信息", "普查进展"],
+    navTab: ["基本信息", "目标进展"],
     currentNavtab:0,
 
     //内容

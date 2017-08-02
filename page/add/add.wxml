@@ -3,15 +3,15 @@
         <view class="top-sec">
             <view class="input-wrapper">
                 <view class="input-w">
-                    <view class="input-title">店铺名称</view>
+                    <view class="input-title">目标名称</view>
                     <view class="input-cell">
-                        <input bindinput = "pName" name="input" placeholder="请输入店铺名称" value = "{{pname}}" focus="{{ focus }}" placeholder-style = "color: #888888; "/>
+                        <input bindinput = "pName" name="input" placeholder="请输入目标名称" value = "{{pname}}" focus="{{ focus }}" placeholder-style = "color: #888888; "/>
                     </view>
                 </view>
             </view>
             <view class="input-wrapper">
                 <view class="input-w">
-                    <view class="input-title">店铺性质</view>
+                    <view class="input-title">目标性质</view>
                     <view class="input-cell">
                         <picker mode="selector" bindchange="pType" placeholder="选择性质" value="{{ptype}}" range="{{tarray}}">
                             <view class="input-text" wx:if="{{tarray[ptype]}}">{{tarray[ptype]}}</view>
@@ -39,11 +39,11 @@
             </view>
             <view class="input-wrapper">
                 <view class="input-w" bindtap="pMarket">
-                    <view class="input-title">市场名称</view>
+                    <view class="input-title">目标地址</view>
                     <view class="input-cell tr">
                         <view class="text-overflow input-text w80">
                             <block wx:if="{{pmarket}}">{{pmarket}}</block>
-                            <block wx:else>在地图上选择市场</block>
+                            <block wx:else>在地图上选择地址</block>
                         </view>
                         <view class="navigator-arrow"></view>
                     </view>
@@ -66,7 +66,7 @@
                     <view class="weui-cell__bd">
                     <view class="weui-uploader">
                         <view class="weui-uploader__hd">
-                        <view class="weui-uploader__title">添加门店招牌、营业执照、店内情况照片</view>
+                        <view class="weui-uploader__title">添加门店招牌、营业执照、店内情况等照片</view>
                         <view class="weui-uploader__info">{{imageList.length}}/{{count}}</view>
                         </view>
                         <view class="weui-uploader__bd">
@@ -100,7 +100,7 @@
             </view>
             <view class="weui-cells weui-cells_after-title mb20">
                 <view class="weui-cell weui-cell_switch">
-                    <view class="weui-cell__bd">是否清扫</view>
+                    <view class="weui-cell__bd">是否有执法信息</view>
                     <view class="weui-cell__ft">
                         <switch bindchange="pSweep"  wx:if="{{psweep==2}}" checked/>
                         <switch bindchange="pSweep"  wx:else/>

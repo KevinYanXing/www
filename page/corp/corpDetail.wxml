@@ -22,7 +22,7 @@
                                 <view class="title-content pos">
                                     <view class="title mf60">{{ mdetail.pname }}</view>
                                     <view class="biaoti">
-                                        <view class="heading_left">{{ mdetail.psweep==2?'清扫':'普查' }}</view>
+                                        <view class="heading_left">{{ mdetail.psweep==2?'目标':'目标' }}</view>
                                     </view>
                                     <view class="value-nare">
                                         <text>{{ mdetail.ptype_name }}</text>|<text>{{ mdetail.pstate_name }}</text>
@@ -242,7 +242,7 @@
                         <view class="logis-info">
                              <view class="cell prl">
                                 <view class="cellblock">
-                                    <view class="cellTitle">普|清状态：</view>
+                                    <view class="cellTitle">目标状态：</view>
                                     <view class="cellContent">
                                     <block wx:if="{{ mdetail.sta == 1 }}">
                                         <text class="celltext yellow">{{ mdetail.sta_name }}</text>

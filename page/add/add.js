@@ -22,11 +22,6 @@ function sendPhotos(arr){
           }else{
             mTarget.imageName = [rData.filename]
           }
-          if(mTarget.prelationship){
-              mTarget.prelationship.push([arr[0],rData.filename])
-          }else{
-              mTarget.prelationship = [[arr[0],rData.filename]]
-          }
           wx.setStorageSync('mTarget', mTarget)
           arr.splice(0,1)
           sendPhotos(arr)
@@ -189,27 +184,24 @@ Page({
           for(var i=0;i<that.data.imageList.length;i++){
             if(that.data.imageList[i]!=current){
               newList.push(that.data.imageList[i])
+            }else{
+              console.debug(current)
             }
           }
           that.setData({
             imageList:newList
           })
           var mTarget = wx.getStorageSync('mTarget')
-          mTarget.imageList = that.data.imageList
           if(mTarget.id){
-              mTarget.imageList = that.data.imageList
-              var pre = mTarget.prelationship
-              for(var i=0;i<pre.length;i++){
-                  if(pre[i][0]==current || pre[i][1]==current){
-                    var newName = []
-                    for(var j=0;j<mTarget.imageName.length;j++){
-                      if(mTarget.imageName[j]!=pre[i][0] && mTarget.imageName[j]!=pre[i][1]){
-                        newName.push(mTarget.imageName[j])
-                      }
-                    }
-                    mTarget.imageName = newName
-                  }
+            var newName = []
+            for(var i=0;i<mTarget.imageName.length;i++){
+              if(mTarget.imageName[i]!=current){
+                newName.push(mTarget.imageName[i])
+              }else{
+                console.debug(current)
               }
+            }
+            mTarget.imageName = newName
           }
           wx.setStorageSync('mTarget', mTarget)
         }
@@ -266,7 +258,7 @@ Page({
     mTarget.pcontact = e.detail.value
     wx.setStorageSync('mTarget', mTarget)
   },
-  //是否清扫
+  //是否有执法信息
   pSweep:function(e){
     var that = this
     that.setData({
@@ -480,16 +472,25 @@ Page({
   pConfirm: function(e) {
     var that = this
     var mTarget = wx.getStorageSync('mTarget')
+    var mProduct = wx.getStorageSync('mProduct')
+    console.debug(mProduct)
     console.debug(mTarget)
     //确认填写名称
     if(!that.data.pname){
       wx.showModal({
           title: '提示',
-          content: '请填写店铺名称',
+          content: '请填写目标名称',
           success: function(res) {
               that.setData({
                 focus:true
               })
+          }
+      })
+    }else if(!mTarget.pproduct || mTarget.pproduct.length==0){
+      wx.showModal({
+          title: '提示',
+          content: '请选择产品',
+          success: function(res) {
           }
       })
     }else{
@@ -502,15 +503,10 @@ Page({
                 duration: 100000
             })
             if(mTarget.id){
-              var checkImageList = []
-              var checkImageName = []
-              for(var j=0;j<mTarget.prelationship.length;j++){
-                    checkImageList.push(mTarget.prelationship[j][0])
-                    checkImageName.push(mTarget.prelationship[j][1])
-              }
+    
               var uploadImage = []
                 for(var i=0;i<tempImage.length;i++){
-                    if(contains(checkImageList,tempImage[i]) || contains(checkImageName,tempImage[i])){
+                    if(contains(mTarget.imageName,tempImage[i])){
 
                     }else{
                       uploadImage.push(tempImage[i])
