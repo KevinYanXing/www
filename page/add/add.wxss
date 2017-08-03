@@ -1,65 +1,13 @@
 @import "../../common/lib/weui.wxss";
-.addr-body{
+page{
+  background: #F1F2F6;
 }
-.input-long{
-    width: 79%;
+.weui-uploader__info {
+  color:#424242;
 }
-.add-address{
-    position:initial;
-    bottom:0;
-    left:0;
-    right:0;
-    z-index:0;
-    background-color:initial;
-}
-.input-cell .w80{
-    width: 88%;
-    float:left;
-    margin-right:32rpx;
-}
-.weui-cells:before {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 1px;
-  border-top:0;
-  color: #D9D9D9;
-}
-.weui-cells:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 1px;
-  border-bottom: 0;
-  color: #D9D9D9;
-}
-.weui-cells {
-    height: 106rpx;
-    line-height:106rpx;
-    font-size:30rpx;
-}
-.weui-cell {
-    padding:0 34rpx;
-}
-
 .bright-No{
- display: none;
+  display: none;
 }
 .bright-Block{
- display: block;
+  display: block;
 }
-.n-b{
-    border-width:0 2rpx 2rpx 0;
-}
-.Back{
-    background: #f7f7f7;
-}
-.Back .input-title{
-    color: #999;
-}
-
-
