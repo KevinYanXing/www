@@ -46,8 +46,8 @@
       "text": "目标列表"
     },{
       "pagePath": "page/clue/clue",
-      "iconPath": "image/2.png",
-      "selectedIconPath": "image/hover2.png",
+      "iconPath": "image/1.png",
+      "selectedIconPath": "image/hover1.png",
       "text": "线索列表"
     }, {
       "pagePath": "page/mine/mine",

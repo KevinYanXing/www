@@ -22,10 +22,10 @@
                 <view class="T-txet">发现线索</view>
             </view>
             <view class="geliTiao" ></view>
-            <view class="t3" bindtap="cTarget">
+            <!--<view class="t3" bindtap="cTarget">
                 <view class="S-text blue">{{ dataSum.c2 }}</view>
                 <view class="T-txet">指派线索</view>
-            </view>
+            </view>-->
         </view>
     </view>
     <view class="back mt20">
