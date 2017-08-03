@@ -18,7 +18,7 @@
                 <input type="text" value="{{ searchValue }}" class="input" focus="{{ focus }}" confirm-type="search"  bindinput="oninput" placeholder="输入关键字搜索" />
             </view>
         </view>
-        <view class="list-tab">
+        <view class="list-tab mt8">
             <view class="header-wrapper"  style = "width: {{length *300}}rpx">
                 <view class = "single" wx:for="{{product}}" wx:for-index="index" data-index = "{{index}}"  bindtap="switchTab">
                     <text class = "text-detail {{curNav == index ? 'active' : ''}}">{{item.sta}}</text>
@@ -27,7 +27,7 @@
         </view>
     </view>
     <view class="main-container">
-        <view class="chanPing">
+        <view class="overflow">
             <block wx:if="{{list.minfo.length == 0 || error}}">
                 <view class = "wait-more">暂无数据</view>
             </block>

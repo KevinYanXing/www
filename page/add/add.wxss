@@ -11,3 +11,21 @@ page{
 .bright-Block{
   display: block;
 }
+.Back {
+background:#f7f7f7;
+
+
+}
+
+.Back .input-title {
+color:#999;
+
+
+}
+
+.n-b {
+border-width:0 2rpx 2rpx 0;
+
+
+}
+

@@ -8,49 +8,6 @@
     left: 0;
     top: 0;
 }
-/*tab切换css*/
-.list-tab{
-    height: 94rpx;
-  line-height: 94rpx;
-  width: 100%;
-  background: white;
-}
-.header-wrapper{
-  height:100%;
-  width:100%;
-  display:flex;
-  text-align:center;
-  border-bottom:1rpx solid #e8e8e8;
-}
-.single {
-  display:inline-block;
-  height:100%;
-  width:100%;
-  text-align:center;
-}
-.single {
-  position:relative;
-  top:1rpx;
-}
-.text-detail {
-  font-size: 32rpx;
-  height:100%;
-  color:#9097a2;
-  display:inline-block;
-}
-.single .active {
-  font-weight: 700;
-  color:#2fa7e0;
-  border-bottom:3rpx solid #2fa7e0;
-  height:92rpx;
-}
-/*tab切换css end*/
-.main-container {
-  width:100%;
-  position: absolute;
-  top:210rpx;
-  bottom:0;
-}
 .chanPing{
   margin: 0;
   overflow-x: hidden;

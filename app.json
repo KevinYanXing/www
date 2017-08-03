@@ -1,5 +1,7 @@
 {
   "pages": [
+    "page/add/add",
+    "page/add/product/addProduct",
     "page/index/index",
     "page/login/login",
     "page/corp/corp",
@@ -22,7 +24,7 @@
   ],
   "window": {
     "navigationBarTextStyle": "#ffffff",
-    "navigationBarTitleText": "维权系统",
+    "navigationBarTitleText": "维权大数据",
     "navigationBarBackgroundColor": "#01AFF6",
     "backgroundColor": "#ffffff"
     

@@ -1,134 +1,149 @@
 <view class="addr-body">
-    <form class = "form main-bottom" bindsubmit="formSubmit" bindreset="formReset">
-        <view class="top-sec">
-            <view class="city-detail mt20" bindtap="reselect">
-                <view class="pb20 inline-block">
-                    <view class="image">
-                        <image style="width: 100%; height:100%" mode="aspectFit" src="{{pinfo.logoid}}"></image>
-                    </view>
-                    <view class="d-right">
-                        <text>{{ pinfo.name }}</text>
-                        <text>条形码：{{ pinfo.num }}</text>
-                        <text>价格：<text class="red block-no">{{ pinfo.sprice }}</text>元</text>
-                    </view>
-                </view>
-            </view>
-            <view class="mb20">
-                <view class="noing">
-                    <view class="weuijz prl">
-                        <view class="weui">购样信息</view>
-                    </view>
-                </view>
-                <view class="input-wrapper {{showView?'':'Back'}}" bindtap="onChangeShowState">
-                    <view class="input-w">
-                        <view class="input-title"> {{showView?'添加购样明细':'收起购样明细'}}
-                    </view>
-                        <view class="input-cell tr">
-                            <view class="navigator-arrow {{showView?'':'n-b'}}"></view>
-                        </view>
-                    </view>
-                </view>
-                <view class="bright-No {{showView?'':'bright-Block'}}">
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">购样数量</view>
-                            <view class="input-cell">
-                                <input bindinput = "nums" type="number" placeholder="输入购样数量" value = "{{pinfo.nums}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">购样价格</view>
-                            <view class="input-cell">
-                                <input bindinput = "price" type="digit" placeholder="输入购样价格" value = "{{pinfo.price}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                            <view class="input-cell tr RMB">元</view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">产品批次</view>
-                            <view class="input-cell">
-                                <input bindinput = "bnum"  name="input" placeholder="输入产品批次" value = "{{pinfo.bnum}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">产品日期</view>
-                            <view class="input-cell">
-                                <picker  mode="date" value="{{mfd}}" start="1999-01-01" end="2999-12-12" bindchange="mfd">
-                                    <view class="input-text">{{mfd}}</view>
-                                    <view class="navigator-arrow"></view>
-                                </picker>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">失效日期</view>
-                            <view class="input-cell">
-                                <picker  mode="date" value="{{exp}}" start="1999-01-01" end="2999-12-12" bindchange="exp">
-                                    <view class="input-text">{{exp}}</view>
-                                    <view class="navigator-arrow"></view>
-                                </picker>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="bright-No {{psweep==1?'':'bright-Block'}}">
-                <view class="noing">
-                    <view class="weuijz prl">
-                        <view class="weui">查扣信息</view>
-                    </view>
-                </view>
-                <view class="input-wrapper {{seizedShow?'':'Back'}}" bindtap="onChangeShowState1">
-                    <view class="input-w">
-                        <view class="input-title"> {{showView?'添加查扣信息':'收起查扣信息'}}
-                    </view>
-                        <view class="input-cell tr">
-                            <view class="navigator-arrow {{seizedShow?'':'n-b'}}"></view>
-                        </view>
-                    </view>
-                </view>
-                <view class="bright-No {{seizedShow?'':'bright-Block'}}">
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">产品价格</view>
-                            <view class="input-cell">
-                                <input bindinput = "ssprice" type="number" placeholder="输入产品价格" value = "{{pinfo.ssprice?pinfo.ssprice:pinfo.sprice}}" placeholder-style = "color: #888888; "/>
-                            </view>
-                            <view class="input-cell tr RMB">元</view>
-                        </view>
-                    </view>
-                    <view class="input-wrapper">
-                        <view class="input-w">
-                            <view class="input-title">查扣类型</view>
-                            <view class="input-cell">
-                                <picker mode="selector" bindchange="stype" placeholder="选择情况" value="{{pinfo.stype}}" range="{{strike}}">
-                                    <view class="input-text" wx:if="{{strike[pinfo.stype]}}">{{strike[pinfo.stype]}}</view>
-                                    <view class="input-text" wx:else>{{strike[0]}}</view>
-                                    <view class="navigator-arrow"></view>
-                                </picker>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="bright-No {{seizedShow?'':'bright-Block'}}">
-                        <view class="input-wrapper">
-                            <view class="input-w">
-                                <view class="input-title">查扣数量</view>
-                                <view class="input-cell">
-                                    <input bindinput = "snums" type="number" placeholder="输入查扣数量" value = "{{pinfo.snums}}" placeholder-style = "color: #888888; "/>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-            </view>
+  <view class="top-sec">
+    <view class="city-detail" bindtap="reselect">
+      <view class="pb20 inline-block">
+          <view class="image">
+              <image style="width: 100%; height:100%" mode="aspectFit" src="{{pinfo.logoid}}"></image>
+          </view>
+          <view class="d-right">
+              <text>{{ pinfo.name }}</text>
+              <text>条形码：{{ pinfo.num }}</text>
+              <text>价格：<text class="red block-no">{{ pinfo.sprice }}</text>元</text>
+          </view>
+      </view>
+    </view>
+    <view class="mb20">
+          
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui>购样信息</view>
         </view>
-    </form>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title {{showView?'':'Back'}}" bindtap="onChangeShowState">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label {{showView?'':'weui'}}">{{showView?'添加购样明细':'收起购样明细'}}</view>
+          </view>
+          <view class="weui-cell__bd">
+              <view class="navigator-arrow {{showView?'':'n-b'}}"></view>
+          </view>
+        </view>
+      </view>
+      <!--隐藏输入-->
+      <view class="bright-No {{showView?'':'bright-Block'}}">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">购样数量</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" bindinput="nums" type="number" placeholder="输入购样数量" value = "{{pinfo.nums}}" placeholder-style = "color: #888888; "/>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">购样价格</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input text-overflow input-text w170" bindinput="price" type="digit" placeholder="输入购样价格" value = "{{pinfo.price}}" placeholder-style = "color: #888888; "/>
+              <view class="input-cell RMB">元</view>
+            </view>
+          </view>
+        </view>  
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">产品批次</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input"  bindinput = "bnum"  name="input" placeholder="输入产品批次" value = "{{pinfo.bnum}}" placeholder-style = "color: #888888; "/>
+              <view class="input-cell RMB">元</view>
+            </view>
+          </view>
+        </view> 
+
+        
+              <view class="input-wrapper">
+                  <view class="input-w">
+                      <view class="input-title">产品日期</view>
+                      <view class="input-cell">
+                          <picker  mode="date" value="{{mfd}}" start="1999-01-01" end="2999-12-12" bindchange="mfd">
+                              <view class="input-text">{{mfd}}</view>
+                              <view class="navigator-arrow"></view>
+                          </picker>
+                      </view>
+                  </view>
+              </view>
+              <view class="input-wrapper">
+                  <view class="input-w">
+                      <view class="input-title">失效日期</view>
+                      <view class="input-cell">
+                          <picker  mode="date" value="{{exp}}" start="1999-01-01" end="2999-12-12" bindchange="exp">
+                              <view class="input-text">{{exp}}</view>
+                              <view class="navigator-arrow"></view>
+                          </picker>
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </view>
+      <view class="bright-No {{psweep==1?'':'bright-Block'}}">
+          <view class="noing">
+              <view class="weuijz prl">
+                  <view class="weui">查扣信息</view>
+              </view>
+          </view>
+          <view class="input-wrapper {{seizedShow?'':'Back'}}" bindtap="onChangeShowState1">
+              <view class="input-w">
+                  <view class="input-title"> {{showView?'添加查扣信息':'收起查扣信息'}}
+              </view>
+                  <view class="input-cell tr">
+                      <view class="navigator-arrow {{seizedShow?'':'n-b'}}"></view>
+                  </view>
+              </view>
+          </view>
+          <view class="bright-No {{seizedShow?'':'bright-Block'}}">
+              <view class="input-wrapper">
+                  <view class="input-w">
+                      <view class="input-title">产品价格</view>
+                      <view class="input-cell">
+                          <input bindinput = "ssprice" type="number" placeholder="输入产品价格" value = "{{pinfo.ssprice?pinfo.ssprice:pinfo.sprice}}" placeholder-style = "color: #888888; "/>
+                      </view>
+                      <view class="input-cell tr RMB">元</view>
+                  </view>
+              </view>
+              <view class="input-wrapper">
+                  <view class="input-w">
+                      <view class="input-title">查扣类型</view>
+                      <view class="input-cell">
+                          <picker mode="selector" bindchange="stype" placeholder="选择情况" value="{{pinfo.stype}}" range="{{strike}}">
+                              <view class="input-text" wx:if="{{strike[pinfo.stype]}}">{{strike[pinfo.stype]}}</view>
+                              <view class="input-text" wx:else>{{strike[0]}}</view>
+                              <view class="navigator-arrow"></view>
+                          </picker>
+                      </view>
+                  </view>
+              </view>
+              <view class="bright-No {{seizedShow?'':'bright-Block'}}">
+                  <view class="input-wrapper">
+                      <view class="input-w">
+                          <view class="input-title">查扣数量</view>
+                          <view class="input-cell">
+                              <input bindinput = "snums" type="number" placeholder="输入查扣数量" value = "{{pinfo.snums}}" placeholder-style = "color: #888888; "/>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </view>
+
+    <view class="add-address btn-add">
+      <view class="btn-bottom address-btn">按钮预留位置</view>
+    </view>
+  </view>
     <view class="add-address">
         <button class = "address-btn" bindtap = "saveProduct">保存</button>
     </view>
