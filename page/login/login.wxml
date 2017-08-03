@@ -11,7 +11,7 @@
             </view>
             <view class="input-wrapper">
                 <view class="input-w">
-                    <view class="input-title">密码: </view>
+                    <view class="input-title">密码：</view>
                     <view class="input-cell">
                         <input bindinput = "pwd" type="password" placeholder="请输入密码" value = "{{pwd}}" placeholder-style = "color: #888888; "/>
                     </view>

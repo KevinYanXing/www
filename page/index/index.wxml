@@ -13,6 +13,7 @@
 			<view class="">
 				<view class="logo-cen">
 					<image src="/image/logo.png"/>
+					<!--<text>创建新的目标</text>-->
 					<text>创建新的目标与线索</text>
 					<text>可以直接选择添加按钮录入系统需要的数据</text>
 				</view>
