@@ -1,7 +1,6 @@
 {
   "pages": [
-    "page/add/add",
-     "page/index/index",
+    "page/index/index",
     "page/login/login",
     "page/corp/corp",
     "page/corp/corpDetail",
