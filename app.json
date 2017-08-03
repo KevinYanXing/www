@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "page/index/index",
     "page/login/login",
     "page/corp/corp",
@@ -24,7 +23,7 @@
   "window": {
     "navigationBarTextStyle": "#ffffff",
     "navigationBarTitleText": "维权系统",
-    "navigationBarBackgroundColor": "#0091ff",
+    "navigationBarBackgroundColor": "#01AFF6",
     "backgroundColor": "#ffffff"
     
   },
