@@ -42,11 +42,6 @@
       "iconPath": "image/1.png",
       "selectedIconPath": "image/hover1.png",
       "text": "目标列表"
-    },{
-      "pagePath": "page/clue/clue",
-      "iconPath": "image/1.png",
-      "selectedIconPath": "image/hover1.png",
-      "text": "线索列表"
     }, {
       "pagePath": "page/mine/mine",
       "iconPath": "image/3.png",
