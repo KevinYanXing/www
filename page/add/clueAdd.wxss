@@ -1,28 +1,27 @@
 @import "../../common/lib/weui.wxss";
+.nav-right {
+  float:right;
+  color:#01aff6;
+  display:inline-block;
+}
+.tb-width {
+  width:45rpx;
+  height:45rpx;
+  display:inline-block;
+  position:absolute;
+  top:50%;
+  margin-top:-11px;
+  right:53px;
+}
+.error {
+  padding:38rpx 0;
+  font-size:30rpx;
+  text-align:center;
+  padding-top:200rpx;
+  color:#7d7d7d;
+}
 
-.addr-body{
-}
-.top-sec{
-}
-.textarea-wrp{
-    width: 100%;
-    display:inline-block;
-}
-.input-cell textarea {
-    width:100%;
-    min-height: 186rpx;
-    position:initial;
-}
-.add-address{
-    position:initial;
-    bottom:0;
-    left:0;
-    right:0;
-    z-index:0;
-    background-color:initial;
-}
-
-/**没有黄框且不能拖拽**/
+/**自定义下拉菜单 end**/
 textarea{
     outline:none;
     resize:none;
@@ -84,3 +83,4 @@ textarea{
 .error{
     padding: 22rpx;
 }
+/**自定义下拉菜单 end**/

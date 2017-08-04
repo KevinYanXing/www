@@ -1,27 +1,30 @@
-<block wx:if="{{netError==true}}">
-    <import src="../internet/internet.wxml" />
-    <template is="netError"/>
-</block>
-<view class="header_search">
-    <view class="mon main-bottom">
-        <block wx:if="{{ brandInfo.length > 0 }}">
-        <view class="variety" wx:for="{{ brandInfo }}" wx:for-item="info">
-            <view class="name">
-                <view class="name-img">
-                    <image mode="scaleToFill" src="{{ info.photo }}"></image>
-                </view>
-                {{ info.title }}
-            </view>
-            <view class="inline-block min-h" wx:for="{{ info.brand }}">
-                <view class="category text-overflow {{ item.show==true?'light':'' }}" id="{{ item.id }}" bindtap="selectBrand">{{ item.name }}</view>
-            </view>
-        </view>
-        </block>
-        <block wx:else>
-            <view class="wait-more">暂无数据</view>
-        </block>
+<view class="addr-body">
+  <block wx:if="{{netError==true}}">
+      <import src="../internet/internet.wxml" />
+      <template is="netError"/>
+  </block>
+  <view class="header">
+    <block wx:if="{{ brandInfo.length > 0 }}">
+      <view class="variety" wx:for="{{ brandInfo }}" wx:for-item="info">
+          <view class="name">
+              <view class="name-img">
+                  <image mode="scaleToFill" src="{{ info.photo }}"></image>
+              </view>
+              {{ info.title }}
+          </view>
+          <view class="inline-block min-h" wx:for="{{ info.brand }}">
+              <view class="category text-overflow {{ item.show==true?'light':'' }}" id="{{ item.id }}" bindtap="selectBrand">{{ item.name }}</view>
+          </view>
+      </view>
+    </block>
+    <block wx:else>
+        <view class="wait-more">暂无数据</view>
+    </block>
+    <view class="add-address btn-add-w">
+      <view class="btn-bottom address-btn">按钮预留位置</view>
     </view>
-    <view class="add-address">
-        <button class = "address-btn" bindtap="nextStep">下一步</button>
-    </view>
-</view>
+  </view>
+  <view class="add-address">
+      <button class = "address-btn" bindtap="nextStep">下一步</button>
+  </view>
+</view> 

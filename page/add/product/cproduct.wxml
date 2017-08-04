@@ -1,19 +1,18 @@
 <!--page/add/product/cproduct.wxml-->
 <view class="addr-body">
-    <form class = "form main-bottom" bindsubmit="formSubmit" bindreset="formReset">
-        <view class="top-sec">
-                <view class="input-wrapper">
-                    <view class="input-w">
-                        <view class="input-title">产品名称</view>
-                        <view class="input-cell">
-                            <input bindinput = "cProduct"  name="input" placeholder="请输入产品的详细名称" placeholder-style = "color: #888888; "/>
-                        </view>
-                    </view>
-                </view>
-        </view>
-    </form>
-    <view class="add-address">
-        <button class = "address-btn" bindtap = "saveProduct">保存</button>
+  <view class="weui-cells weui-cells_after-title mt20">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">产品名称</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput="cProduct" type="password" placeholder="请输入产品的详细名称" value="{{pwd}}" placeholder-style = "color: #888888; "/>
+      </view>
     </view>
+  </view>
+
+  <view class="plr15 mt40">
+      <button class="address-btn" formType="submit" bindtap = "confirm">提交</button>
+  </view>
 </view>
 

@@ -62,6 +62,6 @@ page{
     background: #fff;
 }
 .light{
-    background: #2ea4ff;
+    background: #01AFF6;
     color:#fff;
 }

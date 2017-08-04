@@ -11,8 +11,11 @@ page {
 .f13{
   font-size:13px;
 }
+.position{
+  position:relative;
+}
 .mb20 {
-  margin-bottom:1.17647059em;
+  margin-bottom:1.17647059em!important;
   /*margin-bottom:22rpx !important;*/
 }
 .mt20{
@@ -190,6 +193,18 @@ picker {
   right:initial!important;
   padding:26rpx 22rpx!important;
 }
+.btn-add-w{
+  position:initial!important;
+  bottom:initial!important;
+  left:initial!important;
+  right:initial!important;
+  padding:26rpx 22rpx!important;
+  background: #ffffff!important;
+}
+.btn-add-w .btn-bottom{
+  color:#ffffff!important;
+  background: #ffffff!important;
+}
 .btn-bottom{
   color:#F1F2F6!important;
   background: #F1F2F6!important;
@@ -224,14 +239,13 @@ picker {
     height:75rpx;
     padding:20rpx;
 }
-.list-sous .non{
+.list-sous .non {
+  width: 100%;
   text-align:center;
   line-height:1.4rem;
     height:1.4rem;
 }
-.list-sous .non.search{
-    width: 100%;
-}
+
 .list-sous .non .icon{
   top:9rpx;
   left:-12rpx;
@@ -244,8 +258,10 @@ picker {
 .Block{
     display: block !important;
 }
+.none .search{
+  margin-right:68rpx;  
+}
 .list-sous .search {
-    margin-right:68rpx;
     color:#888;
     font-size: 26rpx;
     padding:10rpx;
@@ -292,6 +308,16 @@ picker {
     text-align:center;
 }
 /*详情搜索框 end*/
+
+/*详情预留位*/
+.main-container {
+  width:100%;
+  position: absolute;
+  top:196rpx;
+  bottom:0;
+}
+/*详情预留位 end*/
+
 /*详情tab切换css*/
 .list-tab{
   height: 94rpx;
@@ -323,13 +349,6 @@ picker {
   font-weight: 700;
   color:#2fa7e0;
   border-bottom:3rpx solid #2fa7e0;
-}
-/*预留位*/
-.main-container {
-  width:100%;
-  position: absolute;
-  top:195rpx;
-  bottom:0;
 }
 /*详情tab切换css end*/
 

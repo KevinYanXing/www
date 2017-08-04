@@ -1,6 +1,3 @@
-.purchase {
-    overflow-x:initial;
-}
 .header {
   width: 100%;
   border-bottom: 1rpx solid #f2f2f2;
