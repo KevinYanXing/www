@@ -79,7 +79,7 @@
                     <view class="weui-label">失效日期</view>
                   </view>
                   <view class="weui-cell__bd">
-                    <picker mode="date" value="{{exp}}" start="1999-01-01" end="2999-12-12" bindchange="mfd">
+                    <picker mode="date" value="{{exp}}" start="1999-01-01" end="2999-12-12" bindchange="exp">
                       <view class="input-text">{{exp}}</view>
                       <view class="navigator-arrow"></view>
                     </picker>

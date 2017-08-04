@@ -12,7 +12,7 @@
         </view>
     </view>
 </view>
-<view class="main-container">
+<view class="main-container overflow">
     <block wx:if="{{ list.length>0 }}">
         <block wx:if="{{ list[0].pname }}">
             <view class="back">
@@ -66,8 +66,13 @@
     <block wx:else>
         <view class="error">暂无数据</view>
     </block>
-</view>
-<view class="add-address">
-    <button class = "address-btn" formType="submit" bindtap = "setRead" data-type="curNav">全部标记已读</button>
-</view>
+
+    <view class="add-address btn-add">
+      <view class="btn-bottom address-btn">按钮预留位置</view>
+    </view>
+  </view>
+
+  <view class="add-address">
+      <button class = "address-btn" formType="submit" bindtap = "setRead" data-type="curNav">全部标记已读</button>
+  </view>
 </view>

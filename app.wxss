@@ -185,6 +185,27 @@ picker {
 /*提示 end*/
 
 /*按钮*/
+/*按钮在最底部*/
+.add-address {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:99999!important;
+  padding:22rpx;
+  background-color:#F1F2F6;
+}
+.address-btn {
+  text-align:center;
+  font-size:38rpx;
+  color:white;
+  background: #0292DB;
+  /*background-color:#2ea4ff;*/
+  display:block;
+  padding-left:28rpx;
+  padding-right:28rpx;
+  line-height:2.55555556;
+}
 /*预留按钮位置*/
 .btn-add{
   position:initial!important;
@@ -208,27 +229,6 @@ picker {
 .btn-bottom{
   color:#F1F2F6!important;
   background: #F1F2F6!important;
-}
-/*按钮在最底部*/
-.add-address {
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:99999!important;
-  padding:22rpx;
-  background-color:#F1F2F6;
-}
-.address-btn {
-  text-align:center;
-  font-size:38rpx;
-  color:white;
-  background: #0292DB;
-  /*background-color:#2ea4ff;*/
-  display:block;
-  padding-left:28rpx;
-  padding-right:28rpx;
-  line-height:2.55555556;
 }
 /*按钮*/
 
@@ -312,9 +312,10 @@ picker {
 /*详情预留位*/
 .main-container {
   width:100%;
-  position: absolute;
-  top:196rpx;
+  position:absolute;
+  top:0;
   bottom:0;
+  margin-top:195rpx;
 }
 /*详情预留位 end*/
 
@@ -347,8 +348,8 @@ picker {
 }
 .single .active {
   font-weight: 700;
-  color:#2fa7e0;
-  border-bottom:3rpx solid #2fa7e0;
+  color:#01AFF6;
+  border-bottom:3rpx solid #01AFF6;
 }
 /*详情tab切换css end*/
 

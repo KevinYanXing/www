@@ -12,7 +12,7 @@
             </view>
          </view>
     </view>
-    <view class="main-container">
+    <view class="main-container overflow">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
             <view class="view0 width20 mt20">
                 <scroll-view class="tableView">
