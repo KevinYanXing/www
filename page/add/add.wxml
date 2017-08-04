@@ -195,7 +195,7 @@
               </view>
             </view>
 
-            <view class="weui-cells weui-cells_after-title mb20"  bindtap="zLocs">
+            <view class="weui-cells weui-cells_after-title"  bindtap="zLocs">
               <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd" >
                   <view class="weui-label">执法地址</view>

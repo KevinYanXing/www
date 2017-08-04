@@ -21,31 +21,37 @@
                 <view class="S-text blue">{{ dataSum.c1 }}</view>
                 <view class="T-txet">发现线索</view>
             </view>
-            <view class="geliTiao" ></view>-->
+            <!--<view class="geliTiao" ></view>-->
             <!--<view class="t3" bindtap="cTarget">
                 <view class="S-text blue">{{ dataSum.c2 }}</view>
                 <view class="T-txet">指派线索</view>
             </view>-->
         </view>
     </view>
-    <view class="back mt20">
-        <view class="input-wrapper" bindtap="news">
-            <view class="input-w">
-                <view class="input-title">最新消息</view>
-                <view class="input-cell">
-                    <view class="digital" wx:if="{{ dataSum.news }}">{{ dataSum.news }}</view>
-                    <view class="navigator-arrow"></view>
-                </view>
+    <view class="mt20">
+        <view class="weui-cells weui-cells_after-title" bindtap="news">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">最新消息</view>
             </view>
-        </view>
-        <view class="input-wrapper">
-            <view class="input-w">
-                <view class="input-title">联系客服</view>
-                <view class="input-cell">
-                    <contact-button type="default-light" size="18"></contact-button>
-                </view>
+            <view class="weui-cell__bd">
+               <view class="digital" wx:if="{{ dataSum.news }}">{{ dataSum.news }}</view>
+                <view class="navigator-arrow"></view>
             </view>
+          </view>
         </view>
+
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">联系客服</view>
+            </view>
+            <view class="weui-cell__bd">
+               <contact-button type="default-light" size="18"></contact-button>
+            </view>
+          </view>
+        </view>
+       
     </view>
 </view>
 

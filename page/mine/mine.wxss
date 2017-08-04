@@ -1,3 +1,4 @@
+@import "../../common/lib/weui.wxss";
 /*头像*/
 .mine {
   position: relative;
@@ -7,11 +8,11 @@
     width: 100%;
     height: 468rpx;
     display: inline-block;
-    background-image: linear-gradient(top, #0091ff 25%, #14a0f9 63%);
-    background-image: -o-linear-gradient(top, #0091ff 25%, #14a0f9 63%);
-    background-image: -moz-linear-gradient(top, #0091ff 25%, #14a0f9 63%);
-    background-image: -webkit-linear-gradient(top, #0091ff 25%, #14a0f9 63%);
-    background-image: -ms-linear-gradient(top, #0091ff 25%, #14a0f9 63%);
+    background-image: linear-gradient(top, #01AFF6 25%, #27BBF9 63%);
+    background-image: -o-linear-gradient(top, #01AFF6 25%, #27BBF9 63%);
+    background-image: -moz-linear-gradient(top, #01AFF6 25%, #27BBF9 63%);
+    background-image: -webkit-linear-gradient(top, #01AFF6 25%, #27BBF9 63%);
+    background-image: -ms-linear-gradient(top, #01AFF6 25%, #27BBF9 63%);
 }
 .userinfo {
   position: absolute;
@@ -49,14 +50,14 @@
 }
 .tongJi .geliTiao{
     width:1rpx;
-    height:76rpx;
+    height:88rpx;
     display:inline-block;
-    background:#D9D9D9;
-    margin-top:38rpx;
+    background:#DDDDDD;
+    margin-top:35rpx;
 }
 .tongJi .t2{
-    margin-left:3rpx;
-    margin-right:1rpx;
+    margin-left:4rpx;
+    margin-right:5rpx;
 }
 .tongJi .t1 .S-text,.tongJi .t2 .S-text,.tongJi .t3 .S-text{
     font-size: 36rpx;
@@ -81,27 +82,7 @@
     right:0;
     border-bottom: 1px solid #ffffff;
 }
-.input-w:after {
-    content:" ";
-    position:absolute;
-    left:47rpx;
-    bottom:0;
-    right:0;
-    border-bottom: 1rpx solid #D9D9D9;
-}
-.input-wrapper {
-    padding:0 45rpx;
-    font-size:34rpx;
-    border-bottom:0;
-    border-top:0;
-    background: initial;
-    margin-bottom: 0;
-    position: relative;
-}
-.input-cell{
-    text-align:right;
-}
-.input-w image{
+.image{
     width: 48rpx;
     height: 48rpx;
     padding-right: 36rpx;
@@ -118,12 +99,15 @@
     border-radius: 50%;
     text-align: center;
     display:inline-block;
-    margin-right: 20rpx;
+    margin-right: 17px;
+    float: right;
 }
 /*设置 end*/
-.input-cell contact-button{
+contact-button{
+    float: right;
     padding: 8rpx;
     border-radius: 50%;
-    background: #0091ff;
+    background: #01AFF6;
     display: inline-block;
+    margin-right: 10px;
 }
