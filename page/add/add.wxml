@@ -138,81 +138,82 @@
           </view>
         </view>
       </view>
+      <!--隐藏输入-->
       <view class="bright-No {{showView?'':'bright-Block'}}">
         <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">执法时间</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker mode="date" bindchange="pType"  value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
-              <view class="input-text">{{pzinfo.ztime}}</view>
-              <view class="navigator-arrow"></view>
-            </picker>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">执法时间</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker mode="date" bindchange="pType"  value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
+                <view class="input-text">{{pzinfo.ztime}}</view>
+                <view class="navigator-arrow"></view>
+              </picker>
+            </view>
           </view>
         </view>
-      </view>
+      
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">执法机构</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
+            </view>
+          </view>
+        </view>
 
         <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">执法机构</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">负责人</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
+            </view>
           </view>
         </view>
-      </view>
 
         <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">负责人</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">职务</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
+            </view>
           </view>
         </view>
-      </view>
 
         <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">职务</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
-          </view>
-        </view>
-      </view>
-
-        <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">手机号码</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法负责人手机号码" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">手机号码</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法负责人手机号码" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
+            </view>
           </view>
         </view>
-      </view>
 
         <view class="weui-cells weui-cells_after-title mb20"  bindtap="zLocs">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd" >
-            <view class="weui-label">执法地址</view>
-          </view>
-          <view class="weui-cell__bd">
-              <view class="text-overflow input-text w170">
-                  <block wx:if="{{pzinfo.zlocs}}">{{pzinfo.zlocs}}</block>
-                  <block wx:else>在地图上选择地址</block>
-              </view>
-              <view class="navigator-arrow"></view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd" >
+              <view class="weui-label">执法地址</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class="text-overflow input-text w170">
+                    <block wx:if="{{pzinfo.zlocs}}">{{pzinfo.zlocs}}</block>
+                    <block wx:else>在地图上选择地址</block>
+                </view>
+                <view class="navigator-arrow"></view>
+            </view>
           </view>
         </view>
       </view>
-      </view>
-
+      <!--隐藏输入-->
       <view class="weui-cell">
         <view class="weui">
             描述执法过程
@@ -225,7 +226,6 @@
           </view>
         </view>
       </view>
-
     </view>
     <!--隐藏输入 end-->
     <view class="weui-cells mb20" bindtap="pProduct">

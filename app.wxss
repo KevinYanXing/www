@@ -99,6 +99,18 @@ page {
     font-weight: bold;
 }
 
+/*元字样式*/
+.RMB {
+ display:inline-block;
+  position:absolute;
+  top:50%;
+  margin-top:-21rpx;
+  right:14px;
+  float:right;
+
+}
+/*元字样式*/
+
 /*add录入样式*/
 .weui-cells_after-title {
   margin-bottom:-1rpx;

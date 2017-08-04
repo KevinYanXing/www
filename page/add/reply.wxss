@@ -1,5 +1,2 @@
-/* page/add/reply.wxss */
-.textarea-wrp wx-textarea {
-padding-bottom:22rpx;
+@import "../../common/lib/weui.wxss";
 
-}

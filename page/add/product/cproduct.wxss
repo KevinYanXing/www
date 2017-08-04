@@ -1,1 +1,1 @@
-/* page/add/product/cproduct.wxss */
+@import "../../../common/lib/weui.wxss";

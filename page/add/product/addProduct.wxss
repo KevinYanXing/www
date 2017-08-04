@@ -41,7 +41,7 @@
     padding-bottom: 20rpx;
 }
 /*操作*/
-.bottom-sec{
+/*.bottom-sec{
     padding-top: 18rpx;
     font-size: 30rpx;
     text-align:right;
@@ -56,9 +56,10 @@
     color:#f53135;
   display:inline-block;
   padding-right:20rpx;
-}
+}*/
 /*操作 end*/
 /*产品信息 end*/
+
 /*显示隐藏*/
 .bright-No{
  display: none;
@@ -72,12 +73,4 @@
 .Back{
     background: #f7f7f7;
 }
-.Back .input-title{
-    color: #9a9a9a;
-}
 /*显示隐藏 end*/
-.RMB{
-    position: absolute;
-    margin-top:-50rpx;
-    right:33rpx;
-}

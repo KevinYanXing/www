@@ -1,15 +1,32 @@
 <view class="addr-body">
-    <view class="page-section">
-        <view class="page-section-title">回复内容</view>
-        <view class="input-wrapper mb20">
-            <view class="textarea-wrp">
-                <textarea bindblur="pReply" value = "{{preply}}" placeholder="请输入回复内容" placeholder-style = "color: #888888; " style="height: 3em" auto-height />
-                
-                ++++
-            </view>
+  <view class="weui-cell">
+    <view class="weui">回复内容</view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <textarea class="txetarea" bindblur="pReply" value = "{{preply}}" placeholder="请输入回复内容" placeholder-style = "color: #888888; " style="height:1.5em" auto-height />
+              </view>
+              <view class="weui-uploader__bd">
+              <view class="weui-uploader__files">
+                  <block wx:for="{{imageList}}" wx:key="*this">
+                  <view class="weui-uploader__file">
+                      <image mode="aspectFill" class="weui-uploader__img" src="{{item}}" data-src="{{item}}" bindtap="pPhotoedit"></image>
+                  </view>
+                  </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                  <view class="weui-uploader__input" bindtap="pPhoto"></view>
+              </view>
+              </view>
+          </view>
         </view>
+      </view>
     </view>
-    <view class="add-address">
-        <button class = "address-btn" formType="submit" bindtap = "confirm">提交</button>
-    </view>
+
+  <view class="plr15 mt40">
+      <button class="address-btn" formType="submit" bindtap = "confirm">发送</button>
+  </view>
 </view>

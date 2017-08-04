@@ -1,7 +1,5 @@
 {
   "pages": [
-    "page/add/add",
-    "page/add/product/addProduct",
     "page/index/index",
     "page/login/login",
     "page/corp/corp",

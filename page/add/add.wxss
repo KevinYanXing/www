@@ -13,14 +13,9 @@ page{
 }
 .Back {
 background:#f7f7f7;
-
-
 }
-
 .Back .input-title {
-color:#999;
-
-
+  color:#999;
 }
 
 .n-b {
