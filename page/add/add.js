@@ -473,8 +473,6 @@ Page({
     var that = this
     var mTarget = wx.getStorageSync('mTarget')
     var mProduct = wx.getStorageSync('mProduct')
-    console.debug(mProduct)
-    console.debug(mTarget)
     //确认填写名称
     if(!that.data.pname){
       wx.showModal({
