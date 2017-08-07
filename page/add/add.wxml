@@ -43,7 +43,7 @@
           <view class="weui-label">联系方式</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" bindinput="pContact" name="input" placeholder="请输入手机/电话号码" value = "{{pcontact}}" placeholder-style = "color: #888888; "/>
+          <input class="weui-input" type="number" bindinput="pContact" name="input" placeholder="请输入手机/电话号码" value = "{{pcontact}}" placeholder-style = "color: #888888; "/>
         </view>
       </view>
      </view>
@@ -122,12 +122,12 @@
         <view class="weui-cell__bd p32">是否有执法信息</view>
         <view class="weui-cell__ft">
           <switch bindchange="pSweep" color="#01AFF6"  wx:if="{{psweep==2}}" checked/>
-          <switch bindchange="pSweep"  wx:else/>
+          <switch bindchange="pSweep" color="#01AFF6"  wx:else/>
         </view>
       </view>
     </view>
     <!--隐藏输入1-->
-    <view class="mb20 bright-No {{psweep==1?'bright-Block':''}}">
+    <view class="mb20 bright-No {{psweep==2?'bright-Block':''}}">
         <view class="weui-cells weui-cells_after-title {{showView?'':'Back'}}" bindtap="onChangeShowState">
             <view class="weui-cell weui-cell_input">
               <view class="weui-cell__hd">
@@ -146,7 +146,7 @@
                   <view class="weui-label">执法时间</view>
                 </view>
                 <view class="weui-cell__bd">
-                  <picker mode="date" bindchange="pType"  value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
+                  <picker mode="date" value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
                     <view class="input-text">{{pzinfo.ztime}}</view>
                     <view class="navigator-arrow"></view>
                   </picker>
@@ -159,7 +159,7 @@
                   <view class="weui-label">执法机构</view>
                 </view>
                 <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
+                  <input class="weui-input" bindinput = "zDepart" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
                 </view>
               </view>
             </view>
@@ -169,7 +169,7 @@
                   <view class="weui-label">负责人</view>
                 </view>
                 <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
+                  <input class="weui-input" bindinput = "zPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
                 </view>
               </view>
             </view>
@@ -179,7 +179,7 @@
                   <view class="weui-label">职务</view>
                 </view>
                 <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
+                  <input class="weui-input" bindinput = "zPosition" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
                 </view>
               </view>
             </view>
@@ -190,7 +190,7 @@
                   <view class="weui-label">手机号码</view>
                 </view>
                 <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输入执法负责人手机号码" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
+                  <input class="weui-input" type="number" bindinput = "zPhone" name="input" placeholder="请输入执法负责人手机号码" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
                 </view>
               </view>
             </view>

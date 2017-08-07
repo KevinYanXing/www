@@ -1,11 +1,11 @@
 .header {
   width: 100%;
-  /*position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  z-index: 999;*/
-
+  border-bottom: 1rpx solid #DDDDDD;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background: #F1F2F6;
 }
 .main-container {
   width:100%;
@@ -16,38 +16,8 @@
 .main-container swiper-item{
   display: inline-block;
 }
-/*tab切换css*/
-.list-tab{
-    height: 94rpx;
-  line-height: 94rpx;
-  width: 100%;
-  background: white;
-}
-.header-wrapper{
-  height: 100%;
-    width: 100%;
-    display: flex;
-  text-align:center;
-  border-bottom:1rpx solid #e8e8e8;
 
-}
-.single {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
-.text-detail {
-  font-size: 32rpx;
-  height: 100%;
-  color:#9097a2;
-  display: inline-block;
-}
-.single .active {
-  color: #2fa7e0;
-  border-bottom: 4rpx solid #2fa7e0;
-  height:92rpx;
-}
+/*tab切换内容*/
 .flexItem {
 }
 .list_active0 .view0, .list_active1 .view1{
@@ -55,9 +25,7 @@
 }
 .list_active0 .view0{
 display: block;
-
 }
-
 .list_active1 .view1{
   display: block;
 }
@@ -72,7 +40,6 @@ display: block;
     -moz-transition:all 0.4s ease-in-out;
     -webkit-transition:all 0.4s ease-in-out;
     -o-transition:all 0.4s ease-in-out;
-
 }
 .tab_con {
 
@@ -80,12 +47,12 @@ display: block;
 .width20 {
   width:100%;
   display: none;
-
 }
 .prl{
   padding:0 35rpx;
 }
-/*tab切换css end*/
+/*tab切换内容 end*/
+
 .puCha .top-slider {
   padding:0;
 }
@@ -133,7 +100,42 @@ display: block;
 .clue{
 
 }
-/*内容*/
+
+/*标题框*/
+.weuijz {
+  padding:0 34rpx;
+  position:relative;
+  height:96rpx;
+  line-height:96rpx;
+  color:#9097a2;
+}
+.weui {
+  font-size:33rpx;
+  line-height:31rpx;
+  margin-top:0;
+  display:inline-block;
+}
+.cellblock {
+  padding:23rpx 0;
+  line-height:52rpx;
+  border-bottom:1px solid #f0f0f0;
+}
+.cellTitle {
+  color:#666;
+  float:left;
+}
+.cellContent {
+  color:#828282;
+  margin-left:166rpx;
+}
+.celltext {
+  display:block;
+  width:100%;
+}
+
+/*标题框 end*/
+
+/*详情内容*/
 .title-content{
   padding:46rpx 0 30rpx;
   line-height:52rpx;
@@ -143,7 +145,6 @@ display: block;
   font-weight: 600;
 }
 .value-nare{
-  font-size:30rpx;
   color:#333;
   padding-top:20rpx;
   padding-left:4rpx;
@@ -159,7 +160,7 @@ display: block;
   line-height:52rpx;
   min-height:52rpx;
 }
-.border{ 
+.border-b{ 
   border-bottom:1px solid #f0f0f0;
 }
 .name{
@@ -243,6 +244,7 @@ display: block;
 }
 .order-state{
 	font-size:28rpx;
+  color: #333;
   position:absolute;
   right:4rpx;
   top:12rpx;
@@ -263,7 +265,7 @@ display: block;
   width:22rpx;
   height:10rpx;
   border-radius:50rpx;
-  background:#2fa7e0;
+  background:#01AFF6;
 }
 /*涉嫌产品 end*/
 
@@ -324,6 +326,8 @@ display: block;
   font-size:13px;
   color:#CECECE;
 }
+/*进展图片*/
+
 /*进展 end*/
 
 .mb20 .error{
@@ -344,6 +348,6 @@ display: block;
   padding:20rpx 40rpx 20rpx 25rpx;
   display:block;
   border-radius:100rpx 0 0 100rpx;
-  background-color:#5db8ff;
+  background-color:#01AFF6;
 }
 /*清与普标签 end*/

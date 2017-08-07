@@ -3,7 +3,8 @@
     <template is="netError"/>
 </block>
 <view class="purchase">
-    <view class="header list-tab">
+    <view class="header">
+      <view class="list-tab">
         <view class="header-wrapper">
             <view class="single" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
                 <view class="text-detail {{currentNavtab==idx ? 'active' : ''}}">
@@ -11,6 +12,7 @@
                 </view>
             </view>
          </view>
+      </view>
     </view>
     <view class="main-container overflow">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
@@ -19,7 +21,7 @@
                     <view class="back">
                         <view class="clue">
                             <view class="p35">
-                                <view class="title-content pos">
+                                <view class="title-content pos border-b">
                                     <view class="title mf60">{{ mdetail.pname }}</view>
                                     <view class="biaoti">
                                         <view class="heading_left">{{ mdetail.psweep==2?'目标':'目标' }}</view>
@@ -33,7 +35,7 @@
                         <block wx:if="{{ mdetail.pperson }}">
                         <view class="clue">
                             <view class="p35">
-                                <view class="content border tuBiao">
+                                <view class="content border-b tuBiao">
                                     <image src="../../image/x1.png"></image>
                                     <view class="value">
                                         <text class="value-text">{{ mdetail.pperson }}</text>
@@ -45,7 +47,7 @@
                         <block wx:if="{{ mdetail.ccontact }}">
                         <view class="clue">
                             <view class="p35">
-                                <view class="content border tuBiao">
+                                <view class="content border-b tuBiao">
                                     <image src="../../image/x2.png"></image>
                                     <view class="value">
                                         <text class="value-text">{{ mdetail.pcontact }}</text>
@@ -57,7 +59,7 @@
                         <block wx:if="{{ mdetail.pmarket }}">
                         <view class="clue">
                             <view class="p35">
-                                <view class="content border tuBiao">
+                                <view class="content border-b tuBiao">
                                     <image src="../../image/x5.png"></image>
                                     <view class="value">
                                         <text class="value-text">{{ mdetail.pmarket }}</text>
@@ -93,14 +95,14 @@
                     </view>
                     
                     <view class="mb20">
-                        <view class="noing border">
+                        <view class="border-b back-white">
                             <view class="weuijz prl">
                                 <view class="weui">产品</view>
                             </view>
                         </view>
                         <block wx:if="{{ mdetail.pproduct.length!=0 }}">
                         <view class="mychanPing mb20" wx:for="{{ mdetail.pproduct }}">
-                            <view class="p20 border">
+                            <view class="p20 border-b">
                                 <view class="order-info">
                                     <view wx:if="{{ item.mfd }}"><text class="cp-time">MFD:</text>{{ item.mfd }}</view>
                                     <view wx:if="{{ item.exp }}"><text class="cp-time">EXP:</text>{{ item.exp }}</view>
@@ -139,7 +141,7 @@
                         </block>
                     </view>
                     <view class="mb20" wx:if="{{ mdetail.psweep==2 }}">
-                        <view class="noing border">
+                        <view class="border-b back-white">
                             <view class="weuijz prl">
                                 <view class="weui">执法信息</view>
                             </view>
@@ -160,7 +162,7 @@
                             <block wx:if="{{ mdetail.pzinfo.zdepart }}">
                             <view class="clue">
                                 <view class="p35">
-                                    <view class="content border tuBiao">
+                                    <view class="content border-b tuBiao">
                                         <image src="../../image/x5.png"></image>
                                         <view class="value">
                                             <text class="value-text">部门：{{ mdetail.pzinfo.zdepart }}</text>
@@ -172,7 +174,7 @@
                             <block wx:if="{{ mdetail.pzinfo.zperson }}">
                             <view class="clue">
                                 <view class="p35">
-                                    <view class="content border tuBiao">
+                                    <view class="content border-b tuBiao">
                                         <image src="../../image/x1.png"></image>
                                         <view class="value">
                                             <text class="value-text">负责人：{{ mdetail.pzinfo.zperson }}</text>
@@ -184,7 +186,7 @@
                             <block wx:if="{{ mdetail.pzinfo.zposition }}">
                             <view class="clue">
                                 <view class="p35">
-                                    <view class="content border tuBiao">
+                                    <view class="content border-b tuBiao">
                                         <image src="../../image/x1.png"></image>
                                         <view class="value">
                                             <text class="value-text">职务：{{ mdetail.pzinfo.zposition }}</text>
@@ -196,7 +198,7 @@
                             <block wx:if="{{ mdetail.pzinfo.zphone }}">
                             <view class="clue">
                                 <view class="p35">
-                                    <view class="content border tuBiao">
+                                    <view class="content border-b tuBiao">
                                         <image src="../../image/x2.png"></image>
                                         <view class="value">
                                             <text class="value-text">手机：{{ mdetail.pzinfo.zphone }}</text>
@@ -208,7 +210,7 @@
                             <block wx:if="{{ mdetail.pzinfo.zlocs }}">
                             <view class="clue">
                                 <view class="p35">
-                                    <view class="content border tuBiao">
+                                    <view class="content border-b tuBiao">
                                         <image src="../../image/x3.png"></image>
                                         <view class="value">
                                             <text class="value-text">地址：{{ mdetail.pzinfo.zlocs }}</text>
@@ -283,6 +285,9 @@
                     <view class="error">暂无数据</view>
                 </scroll-view>
                 
+                 <view class="add-address btn-add">
+                  <view class="btn-bottom address-btn">按钮预留位置</view>
+                </view>
             </view>
     
         </view>
