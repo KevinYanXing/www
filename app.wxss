@@ -40,6 +40,12 @@ page {
     padding: 20rpx 35rpx;
     background: #ffffff;
 }
+.pt5{
+  padding-top: 10rpx;
+}
+.pb5{
+  padding-bottom: 10rpx;
+}
 .c-close {
   display: none;
 }
@@ -311,11 +317,11 @@ picker {
 
 /*详情预留位*/
 .main-container {
-  width:100%;
+  /*width:100%;
   position:absolute;
   top:0;
   bottom:0;
-  margin-top:195rpx;
+  margin-top:195rpx;*/
 }
 /*详情预留位 end*/
 
@@ -502,9 +508,6 @@ picker {
     height: 100%;
     overflow-x: hidden;
 }
-.main-container{
-    overflow-x: hidden;
-}
 .container {
   display: flex;
   flex-direction: column;
@@ -629,10 +632,6 @@ picker {
   color: #2ea4ff;
   font-size: 24rpx;
   margin: 20rpx 0;
-}
-.page input{
-    padding: 20rpx 30rpx;
-    background-color: #fff;
 }
 checkbox, radio{
     margin-right: 10rpx;
