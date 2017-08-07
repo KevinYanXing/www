@@ -27,6 +27,22 @@
         </view>
     </view>
     <view class="main-container overflow">
+       <!--预览位置-->
+       <view class="header yl-weizhi">
+        <view class="list-sous">
+            <view class="search">
+                <text>预览位置</text>
+            </view>
+        </view>
+        <view class="list-tab pt8">
+            <view class="header-wrapper" >
+                <view class="single">
+                    <text class="text-detail">预览位置</text>
+                </view>
+            </view>
+        </view>
+      </view>
+      <!--预览位置 end-->
       <block wx:if="{{list.minfo.length == 0 || error}}">
           <view class = "wait-more">暂无数据</view>
       </block>
@@ -45,8 +61,8 @@
                           <view class="go-r red">{{ item.sta_name }}</view>
                       </block>
                   </view>
-                  <view class="inline-block background">
-                      <view class="p35">
+                  <view class="inline-block">
+                      <view class="p35 pt5 pb5">
                           <view class="image" wx:if="{{item.imageName[0]}}">
                               <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>
                           </view>
@@ -60,8 +76,8 @@
                                   <view class="jioabiao"></view>
                               </view>
                               <view class = "top-title">
-                                  <view class = "title inline-block">品牌:</view>
-                                  <view class = "w70  text-overflow description inline-block blue" wx:if="{{item.pbrand.length>0}}">  
+                                  <view class = "title fl">品牌:</view>
+                                  <view class = "description blue" wx:if="{{item.pbrand.length>0}}">  
                                       <block wx:for="{{item.pbrand}}" wx:for-item="brand">
                                       {{ brand.name }} 
                                       </block>
@@ -70,20 +86,20 @@
                               </view>
                               <block wx:if="{{ item.ptype }}">
                                   <view class = "top-title">
-                                      <view class = "title inline-block">性质:</view>
-                                      <view class = "w70 description">{{item.ptype_name}}</view>
+                                      <view class = "title fl">性质:</view>
+                                      <view class = "description">{{item.ptype_name}}</view>
                                   </view>
                               </block>
                               <block wx:if="{{ item.pmarket }}">
                                   <view class = "top-title">
-                                      <view class = "title inline-block">市场:</view>
-                                      <view class = "w70 description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
+                                      <view class = "title fl">市场:</view>
+                                      <view class = "description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
                                   </view>
                               </block>
                               <block wx:if="{{ item.plocation }}">
                                   <view class = "top-title">
                                       <view class = "fl title">地址:</view>
-                                      <view class = "w70 description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
+                                      <view class = "description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
                                   </view>
                               </block>
                           </view>
@@ -104,7 +120,7 @@
                       <view class="fl title f-time">
                           时间：
                       </view>
-                      <view class="w80 f-time">
+                      <view class="f-time">
                           <block wx:if="{{ item.verify.length>0 }}">
                               {{item.verify[item.verify.length-1].d}}
                           </block>

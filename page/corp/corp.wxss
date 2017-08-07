@@ -4,8 +4,43 @@
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 9999;
 }
 
+/*头部预览位置*/
+.pt8{
+  padding-top:8px !important;
+}
+.yl-weizhi{
+  border-bottom: initial !important;
+  position: initial !important;
+  left: initial !important;
+  top: initial !important;
+  z-index:0!important;
+}
+.yl-weizhi .list-sous{
+  background:#fff;
+}
+.yl-weizhi .list-sous .search{
+  color:#fff;
+  border:1rpx solid #fff;
+}
+.yl-weizhi .list-tab{
+  background:#fff;
+}
+.yl-weizhi .list-tab .header-wrapper{
+  border-bottom:1rpx solid #fff;
+}
+.yl-weizhi .list-tab .single{
+
+}
+.yl-weizhi .list-tab .text-detail{
+ color:#fff;
+border-bottom:3rpx solid #fff;
+}
+/*头部预览位置 end*/
+
+/*列表*/
 .top-slider {
   display: block;
   width: 100%;
@@ -27,16 +62,15 @@
   background: white;
   margin-bottom: 25rpx;
 }
-
 .list-detail .list-sec {
   width: 100%;
   display:inline-block;
   padding: 18rpx 0 18rpx;
-
 }
 .background{
   width:100%;
-  background:#f5f5f5;
+  /*background:#f5f5f5;*/
+  background: #fff;
   padding:15rpx 0;
 }
 .image {
@@ -56,19 +90,19 @@
   height:150rpx;
 }
 .bottom-sec {
-  margin-left: 182rpx;
+  margin-left: 74px;
 }
 .now {
   color: #666;
-  font-size: 26rpx;
+  font-size: 14px;
   padding-bottom:6rpx; 
 }
 .top-title{
   padding-bottom:4rpx;
 }
-.top-title .inline-block, .price-wrapper .inline-block{
-    vertical-align: middle;
-}
+/*.top-title .inline-block, .price-wrapper .inline-block{
+    vertical-align:top;
+}*/
 .top-title .title{
   width: 14%;
   color: #BBBBBB;
@@ -78,6 +112,7 @@
   color: #BBBBBB;
   /*color: #4a4a4a;*/
   font-size: 26rpx;
+  margin-left:62rpx;
 }
 .go-buy{
   padding-bottom: 18rpx;
@@ -85,7 +120,7 @@
 }
 .time-l{
   display:inline-block;
-  color:#666;
+  color:#A6A6A6;
   font-size:26rpx;
 }
 .go-r {
@@ -98,11 +133,8 @@
 .not{
 	color: #ff7475;
 }
-.w70{
-    width:85%;
-    display: inline-block;
+/*列表 end*/
 
-}
 /*回复*/
 .reply{
   padding-top: 15rpx;
@@ -110,10 +142,7 @@
   color:#666;
   font-size:26rpx;
 }
-.w80{
-    width:79%;
-    display: inline-block;
-}
 .reply .f-time{
+  color:#A6A6A6;
 }
 /*回复 end*/

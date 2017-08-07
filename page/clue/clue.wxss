@@ -1,16 +1,15 @@
-.purchase {
+.purchase{
     overflow-x:initial;
 }
 .header {
     width: 100%;
     border-bottom: 1rpx solid #f2f2f2;
-    position: absolute;
+    /*position: absolute;
     left: 0;
-    top: 0;
+    top: 0;*/
 }
 .chanPing{
   margin: 0;
-  overflow-x: hidden;
 }
 .top-slider {
   display: block;
