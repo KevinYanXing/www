@@ -266,6 +266,9 @@
                                             <view class="content-time">
                                                 <view>{{ item.typ==2?'我':'客服' }}：</view>
                                                 <text>{{ item.descs }}</text>
+                                                <block wx:for="{{item.photo}}" wx:for-item="p">
+                                                    <image src="{{ p }}"></image>
+                                                </block>
                                             </view>
                                             <view class="time">{{ item.d }}</view>
                                         </view>

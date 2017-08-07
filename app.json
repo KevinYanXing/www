@@ -1,8 +1,9 @@
 {
   "pages": [
+    "page/corp/corp",
     "page/index/index",
     "page/login/login",
-    "page/corp/corp",
+    
     "page/corp/corpDetail",
     "page/clue/clue",
     "page/clue/clueDetail",
