@@ -16,8 +16,8 @@
                 <view class="S-text blue">{{ dataSum.m }}</view>
                 <view class="T-txet">发现目标</view>
             </view>
-            <view class="geliTiao" ></view>
-            <view class="t2" bindtap="cTarget">
+            <!--<view class="geliTiao" ></view>-->
+            <!--<view class="t2" bindtap="cTarget">
                 <view class="S-text blue">{{ dataSum.c1 }}</view>
                 <view class="T-txet">发现线索</view>
             </view>
