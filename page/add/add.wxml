@@ -82,7 +82,7 @@
         <view class="weui-cell__bd">
           <view class="weui-uploader">
             <view class="weui-uploader__hd">
-              <view class="weui-uploader__title f13">添加门店招牌、营业执照、店内情况等照片</view>
+              <view class="weui-uploader__title f14">添加门店招牌、营业执照、店内情况等照片</view>
               <view class="weui-uploader__info">{{imageList.length}}/{{count}}</view>
             </view>
             <view class="weui-uploader__bd">

@@ -11,6 +11,9 @@ page {
 .f13{
   font-size:13px;
 }
+.f14{
+  font-size:14px;
+}
 .position{
   position:relative;
 }
@@ -194,6 +197,14 @@ textarea {
 .weui{
   color:#999;
 }
+/*背景*/
+.Back {
+  background:#F1F2F6;
+}
+.Back .weui{
+  font-size: 14px;
+}
+
 /*提示 end*/
 
 /*按钮*/

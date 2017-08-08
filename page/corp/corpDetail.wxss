@@ -283,7 +283,7 @@ display: block;
 
 /*进展*/
 .mycase{
-  padding-bottom:83rpx;
+  
 }
 .caseMingcheng{
 
