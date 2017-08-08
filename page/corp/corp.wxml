@@ -64,7 +64,7 @@
                           <view class="go-r blue">{{ item.sta_name }}</view>
                       </block>
                   </view>
-                  <view class="inline-block">
+                  <view class="w100 inline-block">
                       <view class="p35 pt5 pb5">
                           <view class="image" wx:if="{{item.imageName[0]}}">
                               <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>

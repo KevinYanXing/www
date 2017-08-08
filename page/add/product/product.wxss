@@ -70,6 +70,7 @@ cp-box{
 }
 .order-state{
 	font-size:28rpx;
+  color: #333;
   position:absolute;
   right:4rpx;
   top:12rpx;

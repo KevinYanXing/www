@@ -3,7 +3,8 @@
     <template is="netError"/>
 </block>
 <view class="purchase">
-    <view class="header list-tab">
+    <view class="header">
+      <view class="list-tab">
         <view class="header-wrapper">
             <view class="single" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
                 <view class="text-detail {{currentNavtab==idx ? 'active' : ''}}">
@@ -11,6 +12,7 @@
                 </view>
             </view>
          </view>
+      </view>
     </view>
     <view class="main-container overflow">
         <view class="tab_con flexItem {{currentNavtab==0 ? 'list_active0' : ''}} {{currentNavtab==1 ? 'list_active1' : ''}} {{currentNavtab==2 ? 'list_active2' : ''}}">
