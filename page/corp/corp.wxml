@@ -112,7 +112,7 @@
                       <view class="fl title">
                           内容：
                       </view>
-                      <view clas ="w80">
+                      <view class="ml38">
                           <block wx:if="{{ item.verify.length>0 }}">
                               {{item.verify[item.verify.length-1].descs}}
                           </block>

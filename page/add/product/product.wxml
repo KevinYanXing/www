@@ -6,10 +6,15 @@
                     <block wx:if="{{ productSelected.length > 0 }}">
                         <view class="p20 mb20" wx:for="{{ productSelected }}" id="{{index}}" bindtap="editProduct">
                             <view class="order-info">
-                                <view wx:if="{{ item.mfd }}"><text class="cp-time">MFD:</text>{{ item.mfd }}</view>
-                                <view wx:if="{{ item.mfd }}"><text class="cp-time">EXP:</text>{{ item.exp }}</view>
                                 <view wx:if="{{ item.bnum }}">
-                                    <text class="order-state">{{ item.bnum }}</text>
+                                    <text class="order-state">批次：{{ item.bnum }}</text>
+                                </view>
+                                <view wx:else>
+                                    <text>无测购数据</text>
+                                </view>
+                                <view class="mfd-time">
+                                  <view wx:if="{{ item.mfd }}"><text class="cp-time">MFD:</text>{{ item.mfd }}</view>
+                                  <view wx:if="{{ item.mfd }}"><text class="cp-time">EXP:</text>{{ item.exp }}</view>
                                 </view>
                             </view>
                             <view class="inline-block" style="width:100%;">
@@ -20,8 +25,8 @@
                                     <view class="mingChen">
                                     {{ item.name }}
                                     </view>
-                                    <view class="tiaoxingMa inline-block">条形码：{{ item.num }}</view>
-                                    <view class="cp-shuLang cp-gy"  wx:if="{{ item.nums }}">购样数：
+                                    <view class="tiaoxingMa inline-block">产品条码：{{ item.num }}</view>
+                                    <view class="cp-shuLang cp-gy"  wx:if="{{ item.nums }}">测购数量：
                                         <text>{{ item.nums }}</text>
                                         <text wx:if="{{ item.price }}">金额：<text class="rmb red">￥{{ item.price }}元</text></text>
                                     </view>
@@ -34,6 +39,10 @@
                             请在下方添加产品
                         </view>
                     </block>
+
+                    <view class="add-address btn-add">
+                      <view class="btn-bottom address-btn">按钮预留位置</view>
+                    </view>
                 </view>
             </view> 
         </view>

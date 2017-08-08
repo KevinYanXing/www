@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  border-bottom: 1rpx solid #f2f2f2;
+  border-bottom: 1rpx solid #DDDDDD;
   position: fixed;
   left: 0;
   top: 0;
@@ -112,7 +112,7 @@ border-bottom:3rpx solid #fff;
   font-size:26rpx;
 }
 .top-title .description{
-  color: #BBBBBB;
+  color: #666;
   /*color: #4a4a4a;*/
   font-size: 26rpx;
   margin-left:66rpx;
@@ -135,6 +135,9 @@ border-bottom:3rpx solid #fff;
 }
 .not{
 	color: #ff7475;
+}
+.ml38{
+  margin-left: 38px;
 }
 /*列表 end*/
 

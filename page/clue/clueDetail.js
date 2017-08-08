@@ -69,6 +69,14 @@ Page({
       urls: that.data.imageName
     })
   },
+    bigImage1: function (e) {
+      var that = this
+      var current = e.currentTarget.dataset.src
+      wx.previewImage({
+        current: current,
+        urls: that.data.imageName
+      })
+    },
   switchTab: function(e){
     this.setData({
       currentNavtab: e.currentTarget.dataset.idx

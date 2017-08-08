@@ -25,6 +25,24 @@ cp-box{
     width: initial;
     height: initial;
 }
+/*时间与系列号*/
+.order-info{
+  height: 34px;
+  line-height: 34px;
+	position: relative;
+	font-size: 24rpx;
+	color: #a9a9a9;
+  padding-bottom: 10rpx;
+  border-bottom:1rpx solid #e5e5e5;
+}
+.mfd-time{
+  float: right;
+  position:absolute;
+  right:4rpx;
+  top:-3rpx;
+  line-height:18px;
+  display:inline-block;
+}
 .cp-time{
   width:60rpx;
   display:inline-block;
@@ -36,6 +54,10 @@ cp-box{
   padding:23rpx 0 10rpx;
   margin-left:172rpx;
 }
+.order-state{
+  color: #333;
+}
+/*时间与系列号 end*/
 .mingChen,.tiaoxingMa,.cp-shuLang{
   padding-bottom: 8rpx;
 }
@@ -46,7 +68,6 @@ cp-box{
   padding:10rpx 0 ;
   font-size:28rpx;
   color:#969696;
-
 }
 .cp-shuLang{
   padding: 0 0 10rpx;
@@ -60,20 +81,6 @@ cp-box{
 }
 .cp-gy .rmb{
   
-}
-.order-info{
-	position: relative;
-	font-size: 24rpx;
-	color: #a9a9a9;
-  padding-bottom: 10rpx;
-  border-bottom:1rpx solid #e5e5e5;
-}
-.order-state{
-	font-size:28rpx;
-  color: #333;
-  position:absolute;
-  right:4rpx;
-  top:12rpx;
 }
 /*操作*/
 .bottom-sec{

@@ -6,7 +6,7 @@ page {
   font-size:14px;
 }
 .overflow{
-  overflow-x:hidden;
+  overflow-x:hidden; 
 }
 .f13{
   font-size:13px;
@@ -154,6 +154,9 @@ picker {
   top:50%;
   margin-top:-8rpx;
   right:38rpx;
+}
+textarea {
+  width:700rpx;
 }
 /*add录入样式 end*/
 
@@ -481,7 +484,7 @@ picker {
 }
 .jb-txet{
     position:relative;
-    right:6rpx;
+    right:7rpx;
     top:0rpx;
     font-size:22rpx;
     text-align:center;

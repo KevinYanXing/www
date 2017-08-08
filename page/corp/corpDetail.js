@@ -42,6 +42,15 @@ Page({
       urls: that.data.imageName
     })
   },
+  bigImage1: function (e) {
+    var that = this
+    var current = e.currentTarget.dataset.src
+    console.debug(that.data.vphoto)
+    wx.previewImage({
+      current: current,
+      urls: that.data.vphoto
+    })
+  },
   switchTab: function(e){
     this.setData({
       currentNavtab: e.currentTarget.dataset.idx
@@ -61,11 +70,25 @@ Page({
       method: 'GET', 
       success: function(res){
         if(res.data.ok==true){
-            that.setData({
-                netError:false,
-                imageName:res.data.mdetail.imageName,
-                mdetail:res.data.mdetail
-            })
+          var tmp_photo = []
+          var mdetail = res.data.mdetail
+          
+          if (mdetail.verify && mdetail.verify.length>0){
+            
+            for (var i = 0; i < mdetail.verify.length; i++) {
+              if (mdetail.verify[i].photo && mdetail.verify[i].photo.length>0) {
+                for (var j = 0; j < mdetail.verify[i].photo.length; j++) {
+                  tmp_photo.push(mdetail.verify[i].photo[j])
+                }
+              }
+            }
+          }
+          that.setData({
+              netError:false,
+              imageName:res.data.mdetail.imageName,
+              mdetail:res.data.mdetail,
+              vphoto:tmp_photo
+          })
         }else{
           that.setData({
           netError:true

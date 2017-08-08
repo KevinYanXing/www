@@ -19,6 +19,7 @@
 				</view>
 			</view>
 			<view class="mon-b">
+      
 				<view class="submit-x" bindtap="addTarget">
 					<view class="icon">
 						<view class="vertical-centering">
@@ -31,8 +32,9 @@
 						</view>
 					</view>
 				</view>
-
-				<!--<view class="submit-x color-b" bindtap="addClue">
+       
+<!--
+				<view class="submit-x color-b" bindtap="addClue">
 					<view class="icon">
 						<view class="vertical-centering">
 							<view class="l-img">
@@ -43,8 +45,9 @@
 							</view>
 						</view>
 					</view>
-				</view>-->
-			</view>
+			  </view>-->
+
+      </view>
 		</view>
 	</view>
 </view>
