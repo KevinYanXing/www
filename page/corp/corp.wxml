@@ -57,8 +57,11 @@
                       <block wx:elif="{{ item.sta == 2 }}">
                           <view class="go-r green">{{ item.sta_name }}</view>
                       </block>
-                      <block wx:else>
+                      <block wx:elif="{{ item.sta == 3 }}">
                           <view class="go-r red">{{ item.sta_name }}</view>
+                      </block>
+                      <block wx:else>
+                          <view class="go-r blue">{{ item.sta_name }}</view>
                       </block>
                   </view>
                   <view class="w100 inline-block">
