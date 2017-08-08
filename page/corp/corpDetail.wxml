@@ -266,8 +266,8 @@
                                     <view class="detail" wx:for="{{ mdetail.verify }}">
                                         <view class="bdr">
                                             <view class="content-time">
-                                                <view>{{ item.typ==2?'我':'客服' }}：</view>
-                                                <text>{{ item.descs }}</text>
+                                                <view class="wo">{{ item.typ==2?'我':'客服' }}：</view>
+                                                <view>{{ item.descs }}</view>
                                                 <block wx:for="{{item.photo}}" wx:for-item="p">
                                                     <image src="{{ p }}"></image>
                                                 </block>
