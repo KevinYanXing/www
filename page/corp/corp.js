@@ -5,7 +5,7 @@ var checkExpire = util.checkExpire
 Page({
   data: {
     curNav: 0,
-    product:[{'sta':'全部','minfo':[]},{'sta':'待审核','minfo':[]},{'sta':'已通过','minfo':[]},{'sta':'已拒绝','minfo':[]}],
+    product:[{'sta':'全部','minfo':[]},{'sta':'待审核','minfo':[]},{'sta':'已通过','minfo':[]},{'sta':'已拒绝','minfo':[]},{'sta':'已完结','minfo':[]}],
     //搜索展开事件
     focus:false,
     showView:true,
@@ -108,7 +108,6 @@ Page({
         title:'加载中'
       })
       var uid = wx.getStorageSync('uid')
-      console.debug(uid,2222222)
       wx.request({
         url: app.globalData.url+'/check_expire/'+uid+'/',
         method: 'GET',
