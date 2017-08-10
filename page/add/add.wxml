@@ -220,7 +220,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
               <view class="weui-cell__hd">
-                <textarea class="weui-input" bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
+                <textarea class="weui-input" fixed="true" bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
               </view>
             </view>
         </view>
