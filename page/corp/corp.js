@@ -56,49 +56,54 @@ Page({
       var that = this
       var id = e.currentTarget.id
       var idx = e.currentTarget.dataset.value
-      wx.showActionSheet({
-          itemList: ['查看','编辑','删除'],
-          success: function (e) {
-            if(e.tapIndex==0){
-                wx.navigateTo({url: './corpDetail?id='+id})
-            }else if(e.tapIndex==1){
-                wx.setStorageSync('mTarget', that.data.list.minfo[idx])
-                wx.navigateTo({url: '../add/add',})
-            }else if(e.tapIndex==2){
-                wx.showModal({
-                    title: '警告',
-                    content: '您确定要删除这条记录吗？删除后无法恢复！',
-                    success: function(res) {
-                      if (res.confirm) {
-                          wx.showLoading({
-                            title:'加载中'
-                          })
-                          wx.request({
-                            url: app.globalData.url+'/mdel/'+ id +'/',
-                            data: {},
-                            method: 'GET',
-                            success: function(res){ 
-                                wx.hideLoading()
-                                wx.showToast({
-                                  title: '删除成功',
-                                  image:'../../image/cg-ico.png',
-                                  duration: 2000
-                                })
-                                that.onPullDownRefresh()
-                            },
-                            fail: function(res) {
-                                that.setData({
-                                    netError:true
-                                  })
+      var sta = e.currentTarget.dataset.sta
+      if(sta==4){
+        wx.navigateTo({url: './corpDetail?id='+id})
+      }else{
+        wx.showActionSheet({
+            itemList: ['查看','编辑','删除'],
+            success: function (e) {
+              if(e.tapIndex==0){
+                  wx.navigateTo({url: './corpDetail?id='+id})
+              }else if(e.tapIndex==1){
+                  wx.setStorageSync('mTarget', that.data.list.minfo[idx])
+                  wx.navigateTo({url: '../add/add',})
+              }else if(e.tapIndex==2){
+                  wx.showModal({
+                      title: '警告',
+                      content: '您确定要删除这条记录吗？删除后无法恢复！',
+                      success: function(res) {
+                        if (res.confirm) {
+                            wx.showLoading({
+                              title:'加载中'
+                            })
+                            wx.request({
+                              url: app.globalData.url+'/mdel/'+ id +'/',
+                              data: {},
+                              method: 'GET',
+                              success: function(res){ 
                                   wx.hideLoading()
-                            }
-                          })
+                                  wx.showToast({
+                                    title: '删除成功',
+                                    image:'../../image/cg-ico.png',
+                                    duration: 2000
+                                  })
+                                  that.onPullDownRefresh()
+                              },
+                              fail: function(res) {
+                                  that.setData({
+                                      netError:true
+                                    })
+                                    wx.hideLoading()
+                              }
+                            })
+                        }
                       }
-                    }
-                })
+                  })
+              }
             }
-          }
-        })
+          })
+      }
   },
   oninput: function (e) {
     var that = this;

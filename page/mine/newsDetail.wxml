@@ -3,7 +3,7 @@
     <template is="netError"/>
 </block>
 <view class="purchase">
-<view class="header">
+<!--<view class="header">
     <view class="list-tab">
         <view class="header-wrapper"  style = "width: {{length *300}}rpx">
             <view class = "single" wx:for="{{newsType}}" wx:for-index="index" data-index = "{{index}}"  bindtap="switchTab">
@@ -11,8 +11,9 @@
             </view>
         </view>
     </view>
-</view>
-<view class="main-container overflow">
+</view>-->
+<!--<view class="main-container overflow">-->
+<view class="">
     <block wx:if="{{ list.length>0 }}">
         <block wx:if="{{ list[0].pname }}">
             <view class="back">
@@ -31,7 +32,7 @@
                                 </block>
                             </view>
                             <view class="newsText {{ item.news == 1 ? 'new' : 'nonew' }}">名称：{{ item.pname }}</view>
-                            <view class="newsText {{ item.news == 1 ? 'new' : 'nonew' }}">审核：{{ item.verify[item.verify.length-1].descs }}</view>
+                            <view class="{{ item.news == 1 ? 'new' : 'nonew' }}">审核：{{ item.verify[item.verify.length-1].descs }}</view>
                         </view>
                         <view class="newsTime">{{ item.verify[item.verify.length-1].d }}</view>
                     </view>
