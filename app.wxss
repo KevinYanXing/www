@@ -160,7 +160,6 @@ picker {
 }
 textarea {
   width:700rpx;
-  z-index: 0;
 }
 /*add录入样式 end*/
 
