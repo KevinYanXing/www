@@ -17,6 +17,15 @@
     </view>
 </view>
 <form class="form main-top">
+  <!--预览位置-->
+  <view class="header yl-weizhi">
+    <view class="list-sous">
+        <view class="search">
+            <text>预览位置</text>
+        </view>
+    </view>
+  </view>
+  <!--预览位置 end-->
   <view class="content {{searchToggle==true ? 'c-close': 'c-show'}}">
     <scroll-view class="stateList" scroll-y="true">
       <view wx:for="{{state}}" class="state_name {{select == index?'active':'' }} ">
