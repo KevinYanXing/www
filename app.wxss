@@ -160,7 +160,6 @@ picker {
 }
 textarea {
   width:700rpx;
-  z-index: 10;
 }
 /*add录入样式 end*/
 
@@ -215,7 +214,7 @@ textarea {
   bottom:0;
   left:0;
   right:0;
-  z-index:99999!important;
+  z-index:110!important;
   padding:22rpx;
   background-color:#F1F2F6;
 }
