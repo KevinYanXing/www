@@ -66,7 +66,7 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-          <view class="weui-label">所在地址</view>
+          <view class="weui-label">所在区域</view>
         </view>
         <view class="weui-cell__bd">
             <view style="margin-right:0;" class="text-overflow input-text w170" >
@@ -141,6 +141,17 @@
         </view>
         <!--隐藏输入2-->
         <view class="bright-No {{showView?'bright-No':'bright-Block'}}">
+            
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view class="weui-label">执法机构</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <input class="weui-input" bindinput = "zDepart" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
+                </view>
+              </view>
+            </view>
             <view class="weui-cells weui-cells_after-title">
               <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
@@ -151,16 +162,6 @@
                     <view class="input-text">{{pzinfo.ztime}}</view>
                     <view class="navigator-arrow"></view>
                   </picker>
-                </view>
-              </view>
-            </view>
-            <view class="weui-cells weui-cells_after-title">
-              <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                  <view class="weui-label">执法机构</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "zDepart" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
                 </view>
               </view>
             </view>
@@ -210,21 +211,21 @@
                 </view>
               </view>
             </view>
-
+            <view class="weui-cell">
+                <view class="weui">
+                    描述执法过程
+                </view>
+            </view>
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell">
+                  <view class="weui-cell__hd">
+                    <textarea class="weui-input" bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
+                  </view>
+                </view>
+            </view>
         </view>
         <!--隐藏输入2 end-->
-        <view class="weui-cell">
-            <view class="weui">
-                描述执法过程
-            </view>
-        </view>
-        <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell">
-              <view class="weui-cell__hd">
-                <textarea class="weui-input" fixed="true" bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
-              </view>
-            </view>
-        </view>
+        
 
     </view>
     <!--隐藏输入1end-->

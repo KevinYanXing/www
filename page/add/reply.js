@@ -1,15 +1,15 @@
 var app = getApp();
 var util = require('../../util/util.js')
 var contains = util.contains
-var done = false
-function sendPhotos(arr){
-  var that = this
+
+function sendPhotos(arr, cb){
   if(arr.length != 0){
       wx.uploadFile({
         url: app.globalData.url+'/img/',
         filePath: arr[0],
         name: 'file',
         success: function(res){
+          console.debug('finish one')
           var rData = JSON.parse(res.data)
           var imageName = wx.getStorageSync('mImage')
           if(imageName && imageName.length>0){
@@ -18,8 +18,8 @@ function sendPhotos(arr){
             var imageName = [rData.filename]
           }
           wx.setStorageSync('mImage', imageName)
-          arr.splice(0,1)
-          sendPhotos(arr)
+          arr.splice(0,1) 
+          sendPhotos(arr, cb)
         },
         fail:function(res){
           wx.showToast({
@@ -29,8 +29,8 @@ function sendPhotos(arr){
           })
         },
     })
-  }else{
-     done = true
+  }else{ 
+    cb()
   }
 }
 Page({
@@ -116,12 +116,10 @@ Page({
               duration: 100000
           })
       var tempImage = that.data.imageList
+      
       //异步上传图片
-      sendPhotos(tempImage)
-      //定时器（检查是否上传完成）
-      var timer = setInterval(function checkUpload(){
-        if(done==true){
-          done = false
+      sendPhotos(tempImage, function checkUpload(){
+        
           var imageName = wx.getStorageSync('mImage')
           console.debug(imageName) 
           if(imageName.length>0){
@@ -157,10 +155,8 @@ Page({
                   })
                 }
               })
-            }
-        }
-        clearInterval(timer)
-        },1000)
+            } 
+      })
         // wx.showLoading({
         //   title:'正在上传'
         // })

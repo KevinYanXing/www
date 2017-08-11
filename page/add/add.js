@@ -3,9 +3,7 @@ var util = require('../../util/util.js')
 var checkExpire = util.checkExpire
 var contains = util.contains
 var loadAddress = util.loadAddress
-//图片上传
-var done = false
-function sendPhotos(arr){
+function sendPhotos(arr,cb){
   if(arr.length != 0){
       wx.uploadFile({
         url: app.globalData.url+'/img/',
@@ -24,7 +22,7 @@ function sendPhotos(arr){
           }
           wx.setStorageSync('mTarget', mTarget)
           arr.splice(0,1)
-          sendPhotos(arr)
+          sendPhotos(arr,cb)
         },
         fail:function(res){
           wx.showToast({
@@ -35,7 +33,7 @@ function sendPhotos(arr){
         },
     })
   }else{
-     done = true
+     cb()
   }
 }
 
@@ -180,6 +178,7 @@ Page({
               urls: that.data.imageList
             })
         }else if(e.tapIndex==1){
+          console.debug(that.data.imageList.length)
           var newList = []
           for(var i=0;i<that.data.imageList.length;i++){
             if(that.data.imageList[i]!=current){
@@ -191,6 +190,10 @@ Page({
           that.setData({
             imageList:newList
           })
+          var mTarget = wx.getStorageSync('mTarget')
+          mTarget.imageList = newList
+          wx.setStorageSync('mTarget', mTarget)
+          console.debug(that.data.imageList.length)
           var mTarget = wx.getStorageSync('mTarget')
           if(mTarget.id){
             var newName = []
@@ -514,10 +517,7 @@ Page({
             }
 
             //异步上传图片
-            sendPhotos(tempImage)
-            //定时器（检查是否上传完成）
-            var timer = setInterval(function checkUpload(){
-              if(done==true){
+            sendPhotos(tempImage,function checkUpload(){
                   mTarget = wx.getStorageSync('mTarget')
                   if(mTarget.imageName.length=0){
                       wx.showModal({
@@ -525,7 +525,6 @@ Page({
                         content: '图片上传失败，请重新上传'
                       })
                   }else{
-                      
                       var submitData = wx.getStorageSync('mTarget')
                       if(submitData){
                           wx.showLoading({
@@ -603,9 +602,7 @@ Page({
                         })
                     }
                   }
-              }
-              clearInterval(timer)
-              },1000)
+              })
         }else{
             wx.showModal({
               title: '提示',

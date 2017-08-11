@@ -95,13 +95,13 @@
                               </block>
                               <block wx:if="{{ item.pmarket }}">
                                   <view class = "top-title">
-                                      <view class = "title fl">市场:</view>
+                                      <view class = "title fl">地址:</view>
                                       <view class = "description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
                                   </view>
                               </block>
                               <block wx:if="{{ item.plocation }}">
                                   <view class = "top-title">
-                                      <view class = "fl title">地址:</view>
+                                      <view class = "fl title">区域:</view>
                                       <view class = "description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
                                   </view>
                               </block>
@@ -117,7 +117,7 @@
                               {{item.verify[item.verify.length-1].descs}}
                           </block>
                           <block wx:else>
-                                  暂未审核
+                            暂未审核
                           </block>
                       </view>
                       <view class="fl title f-time">
@@ -128,7 +128,7 @@
                               {{item.verify[item.verify.length-1].d}}
                           </block>
                           <block wx:else>
-                              暂未审核
+                            暂无时间
                           </block>
                       </view>
                   </view>
