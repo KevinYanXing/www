@@ -152,32 +152,32 @@ Page({
       })
     }
   },
-  onPullDownRefresh: function(){
-    wx.showLoading({
-      title: '加载中...',
-    })
-    wx.request({
-      url: app.globalData.url+'/plist/',
-      method: 'GET',
-      header: {
-        'Accept': 'application/json'
-      },
-      success: function (res) {
-        self.setData({
-          netError:false,
-          firstShow: res.data.data[0].plist,
-          state: res.data.data
-        })
-        wx.hideLoading();
-      },
-      fail:function(){
-        self.setData({
-          netError:true
-        })
-        wx.hideLoading();
-      }
-    })
-    wx.stopPullDownRefresh()
-  }
+  // onPullDownRefresh: function(){
+  //   wx.showLoading({
+  //     title: '加载中...',
+  //   })
+  //   wx.request({
+  //     url: app.globalData.url+'/plist/',
+  //     method: 'GET',
+  //     header: {
+  //       'Accept': 'application/json'
+  //     },
+  //     success: function (res) {
+  //       self.setData({
+  //         netError:false,
+  //         firstShow: res.data.data[0].plist,
+  //         state: res.data.data
+  //       })
+  //       wx.hideLoading();
+  //     },
+  //     fail:function(){
+  //       self.setData({
+  //         netError:true
+  //       })
+  //       wx.hideLoading();
+  //     }
+  //   })
+  //   wx.stopPullDownRefresh()
+  // }
   
 })

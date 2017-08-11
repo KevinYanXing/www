@@ -37,7 +37,7 @@
       "pagePath": "page/index/index",
       "iconPath": "image/4.png",
       "selectedIconPath": "image/hover4.png",
-      "text": "添加录入"
+      "text": "添加目标"
     }, {
       "pagePath": "page/corp/corp",
       "iconPath": "image/1.png",
