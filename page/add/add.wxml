@@ -69,10 +69,11 @@
           <view class="weui-label">所在地址</view>
         </view>
         <view class="weui-cell__bd">
-            <view class="text-overflow input-text w170" wx:if="{{plocation}}">
-                {{plocation}}
+            <view style="margin-right:0;" class="text-overflow input-text w170" >
+            <block wx:if="{{plocation}}">{{plocation}}</block>
+            <block wx:else>自动记录地址</block>
+                
             </view>
-            <view class="navigator-arrow"></view>
         </view>
       </view>
     </view>
@@ -220,7 +221,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
               <view class="weui-cell__hd">
-                <textarea class="weui-input" bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
+                <textarea class="weui-input" fixed="true" bindblur="zDesc" value = "{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
               </view>
             </view>
         </view>
