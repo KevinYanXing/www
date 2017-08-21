@@ -69,10 +69,9 @@
           <view class="weui-label">所在区域</view>
         </view>
         <view class="weui-cell__bd">
-            <view style="margin-right:0;" class="text-overflow input-text w170" >
-            <block wx:if="{{plocation}}">{{plocation}}</block>
-            <block wx:else>自动记录地址</block>
-                
+            <view style="margin-right:0;" class="text-overflow input-text w170">
+              <block wx:if="{{plocation}}">{{plocation}}</block>
+              <block wx:else>自动记录地址</block>  
             </view>
         </view>
       </view>
