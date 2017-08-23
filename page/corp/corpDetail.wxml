@@ -286,9 +286,9 @@
                       <view class="error">暂无数据</view>
                   </block>
                   <!--预览位置-->
-                   <view class="add-address btn-add{">
-                      <button class="address-btn btn-add-w">预览位置</button>
-                  </view> 
+                  <view class="add-address btn-add">
+                      <view class="btn-bottom address-btn">按钮预留位置</view>
+                    </view>
                   <!--预览位置 end-->
               </view>
               <view class="add-address {{currentNavtab==0 ? 'none' : ''}}">

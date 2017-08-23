@@ -210,7 +210,11 @@ textarea {
 /*按钮*/
 /*按钮在最底部*/
 .add-address {
-  z-index:110!important;
+  /* position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:110!important; */
   padding:22rpx;
   background-color:#F1F2F6;
 }
@@ -225,7 +229,30 @@ textarea {
   padding-right:28rpx;
   line-height:2.55555556;
 }
-
+/*预留按钮位置*/
+.btn-add{
+  position:initial!important;
+  bottom:initial!important;
+  left:initial!important;
+  right:initial!important;
+  padding:26rpx 22rpx!important;
+}
+.btn-bottom{
+  color:#F1F2F6!important;
+  background: #F1F2F6!important;
+}
+.btn-add-w{
+  position:initial!important;
+  bottom:initial!important;
+  left:initial!important;
+  right:initial!important;
+  padding:26rpx 22rpx!important;
+  background: #ffffff!important;
+}
+.btn-add-w .btn-bottom{
+  color:#ffffff!important;
+  background: #ffffff!important;
+}
 /*按钮*/
 
 /*详情搜索框*/
