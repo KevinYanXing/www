@@ -1,6 +1,6 @@
-<view class="overflow">
-    <view class="chanPing">
-          <view class="mychanPing" >
+<view class="overflow content">
+    <view class="width100">
+          <view class="chanPing">
             <block wx:if="{{ productSelected.length > 0 }}">
                 <view class="p20 mb20" wx:for="{{ productSelected }}" id="{{index}}" bindtap="editProduct">
                     <view class="order-info">

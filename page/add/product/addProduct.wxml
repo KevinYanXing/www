@@ -1,5 +1,5 @@
-<view class="addr-body">
-  <view class="top-sec main-bottom">
+<view class="content overflow">
+  <view class="width100">
       <view class="city-detail" bindtap="reselect">
           <view class="pb20 inline-block">
               <view class="image">
@@ -149,12 +149,11 @@
           <!--隐藏输入 end-->
       </view>
       <!--隐藏2 end-->
-      <view class="add-address btn-add">
+      <!-- <view class="add-address btn-add">
         <view class="btn-bottom address-btn">按钮预留位置</view>
-      </view>
+      </view> -->
   </view>
-  <view class="add-address">
-      <button class = "address-btn" bindtap = "saveProduct">保存</button>
-  </view>
-
+</view>
+<view class="add-address">
+    <button class = "address-btn" bindtap = "saveProduct">保存</button>
 </view>

@@ -17,6 +17,9 @@ page {
 .position{
   position:relative;
 }
+.width100 {
+  width:100%;
+}
 .mb20 {
   margin-bottom:1.17647059em!important;
   /*margin-bottom:22rpx !important;*/
@@ -26,6 +29,9 @@ page {
 }
 .mt15{
   margin-top: 15px !important;
+}
+.mt10{
+  margin-top: 10px !important;
 }
 .mt8{
   margin-top: 8px !important;
@@ -204,17 +210,20 @@ textarea {
 .Back .weui{
   font-size: 14px;
 }
+/*高度饱满*/
+.content {
+  display:flex;
+  height:100%;
+  flex-direction:row;
+  flex:1;
+}
+/*高度饱满 end*/
 
 /*提示 end*/
 
 /*按钮*/
 /*按钮在最底部*/
 .add-address {
-  /* position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:110!important; */
   padding:22rpx;
   background-color:#F1F2F6;
 }
@@ -229,6 +238,21 @@ textarea {
   padding-right:28rpx;
   line-height:2.55555556;
 }
+/*预留按钮位置*/
+/* .btn-add{
+  position:initial!important;
+  bottom:initial!important;
+  left:initial!important;
+  right:initial!important;
+  padding:23rpx 22rpx!important;
+}
+.btn-add-w{
+  position:initial!important;
+  color:#F1F2F6!important;
+  background-color: #F1F2F6!important;
+} */
+
+/*预留按钮位置 end*/
 /*预留按钮位置*/
 .btn-add{
   position:initial!important;

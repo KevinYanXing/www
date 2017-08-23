@@ -154,6 +154,11 @@
                         <block wx:else>
                             <view class="error">暂无数据</view>
                         </block>
+                        <!--预览位置-->
+                        <view class="add-address btn-add">
+                            <view class="btn-bottom address-btn">按钮预留位置</view>
+                          </view>
+                        <!--预览位置 end-->
                     </view>
                 </scroll-view>
             </view>

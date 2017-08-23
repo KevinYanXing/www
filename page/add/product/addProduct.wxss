@@ -1,15 +1,11 @@
 @import "../../../common/lib/weui.wxss";
-/*按钮在最底部*/
-.add-address {
-   position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:110!important; 
-  padding:22rpx;
-  background-color:#F1F2F6;
+/* 固定页面位置 */
+page{
+  display:flex;
+  flex-direction:column;
+  height:100%;
 }
-/*按钮在最底部 end*/
+/* 固定页面位置 end */
 
 /*产品信息*/
 .city-detail {
