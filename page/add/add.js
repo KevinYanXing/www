@@ -83,6 +83,7 @@ Page({
       }else{
         wx.setStorageSync('zInfo', {})
       }
+      console.debug(mTarget.plocation)
       that.setData({
         dTarget:mTarget,
         pname:mTarget.pname,
@@ -537,7 +538,16 @@ Page({
                                     method: 'GET', 
                                     success: function(res){
                                       //清除缓存
-                                      wx.removeStorageSync('mTarget')
+                                      var mdata = wx.getStorageSync('mTarget')
+                                      var mTarget = {}
+                                      mTarget.ptype = mdata.ptype
+                                      mTarget.pmarket = mdata.pmarket
+                                      mTarget.plocation = mdata.plocation
+                                      mTarget.pproduct = mdata.pproduct
+                                      wx.setStorageSync('mTarget', mTarget)
+                                      // wx.setStorageSync(key, data)
+                                      // wx.removeStorageSync('mTarget')
+                                      
                                       //跳转页面
                                       app.globalData.corpFresh = true
                                       wx.switchTab({
