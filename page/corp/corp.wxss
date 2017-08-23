@@ -5,6 +5,7 @@ page{
   height:100%;
 }
 /* 固定页面位置 end */
+
 .header {
   border-bottom: 1rpx solid #DDDDDD;
   /* position: fixed;
