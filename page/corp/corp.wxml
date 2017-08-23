@@ -2,139 +2,120 @@
     <import src="../internet/internet.wxml" />
     <template is="netError"/>
 </block>
-<view class="purchase">
-    <view class="header">
-        <view class="list-sous {{showView?'':'none'}}" bindtap="onChangeShowState">
-            <view class="non search">
-                <icon class="icon" type="search" size="14"></icon>
-                <text>搜索</text>
-            </view>
+<view class="header">
+    <view class="list-sous {{showView?'':'none'}}" bindtap="onChangeShowState">
+        <view class="non search">
+            <icon class="icon" type="search" size="14"></icon>
+            <text>搜索</text>
         </view>
-        <!--搜索状态-->
-        <view class="list-sous none {{showView?'':'Block'}}">
-            <view class="cancel" bindtap="onChangeShowState">取消</view>
-            <view class="search" bindtap="oninput">
-                <icon class="icon" type="search" size="14"></icon>
-                <input type="text" value="{{ searchValue }}" class="input" focus="{{ focus }}" confirm-type="search"  bindinput="oninput" placeholder="输入关键字搜索" />
-            </view>
+    </view>
+    <!--搜索状态-->
+    <view class="list-sous none {{showView?'':'Block'}}">
+        <view class="cancel" bindtap="onChangeShowState">取消</view>
+        <view class="search" bindtap="oninput">
+            <icon class="icon" type="search" size="14"></icon>
+            <input type="text" value="{{ searchValue }}" class="input" focus="{{ focus }}" confirm-type="search"  bindinput="oninput" placeholder="输入关键字搜索" />
         </view>
-        <view class="list-tab mt8">
-            <view class="header-wrapper"  style = "width: {{length *300}}rpx">
-                <view class = "single" wx:for="{{product}}" wx:for-index="index" data-index = "{{index}}"  bindtap="switchTab">
-                    <text class = "text-detail {{curNav == index ? 'active' : ''}}">{{item.sta}}</text>
-                </view>
+    </view>
+    <view class="list-tab mt8">
+        <view class="header-wrapper"  style = "width: {{length *300}}rpx">
+            <view class = "single" wx:for="{{product}}" wx:for-index="index" data-index = "{{index}}"  bindtap="switchTab">
+                <text class = "text-detail {{curNav == index ? 'active' : ''}}">{{item.sta}}</text>
             </view>
         </view>
     </view>
-    <view class="main-container overflow">
-       <!--预览位置-->
-       <view class="header yl-weizhi">
-        <view class="list-sous">
-            <view class="search">
-                <text>预览位置</text>
-            </view>
-        </view>
-        <view class="list-tab pt8">
-            <view class="header-wrapper" >
-                <view class="single">
-                    <text class="text-detail">预览位置</text>
-                </view>
-            </view>
-        </view>
-      </view>
-      <!--预览位置 end-->
-      <block wx:if="{{list.minfo.length == 0 || error}}">
-          <view class = "wait-more">暂无数据</view>
-      </block>
-      <block wx:else>
-          <view class = "list-detail cp-box" wx:for="{{list.minfo}}" wx:for-item="item" data-value = "{{item}}">
-              <view class="list-sec" bindtap="selected" id="{{ item.id }}" data-value="{{ index }}" data-sta="{{ item.sta }}">
-                  <view class="go-buy p35">
-                      <view class="time-l">提交：{{ item.d }}</view>
-                      <block wx:if="{{ item.sta == 1 }}">
-                          <view class="go-r yellow">{{ item.sta_name }}</view>
-                      </block>
-                      <block wx:elif="{{ item.sta == 2 }}">
-                          <view class="go-r green">{{ item.sta_name }}</view>
-                      </block>
-                      <block wx:elif="{{ item.sta == 3 }}">
-                          <view class="go-r red">{{ item.sta_name }}</view>
-                      </block>
-                      <block wx:else>
-                          <view class="go-r blue">{{ item.sta_name }}</view>
-                      </block>
-                  </view>
-                  <view class="w100 inline-block">
-                      <view class="p35 pt5 pb5">
-                          <view class="image" wx:if="{{item.imageName[0]}}">
-                              <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>
+</view>
+<view class="overflow">
+  <block wx:if="{{list.minfo.length == 0 || error}}">
+      <view class = "wait-more">暂无数据</view>
+  </block>
+  <block wx:else>
+      <view class = "list-detail cp-box" wx:for="{{list.minfo}}" wx:for-item="item" data-value = "{{item}}">
+          <view class="list-sec" bindtap="selected" id="{{ item.id }}" data-value="{{ index }}" data-sta="{{ item.sta }}">
+              <view class="go-buy p35">
+                  <view class="time-l">提交：{{ item.d }}</view>
+                  <block wx:if="{{ item.sta == 1 }}">
+                      <view class="go-r yellow">{{ item.sta_name }}</view>
+                  </block>
+                  <block wx:elif="{{ item.sta == 2 }}">
+                      <view class="go-r green">{{ item.sta_name }}</view>
+                  </block>
+                  <block wx:elif="{{ item.sta == 3 }}">
+                      <view class="go-r red">{{ item.sta_name }}</view>
+                  </block>
+                  <block wx:else>
+                      <view class="go-r blue">{{ item.sta_name }}</view>
+                  </block>
+              </view>
+              <view class="w100 inline-block">
+                  <view class="p35 pt5 pb5">
+                      <view class="image" wx:if="{{item.imageName[0]}}">
+                          <image mode="aspectFill" src="{{item.imageName[0]}}" background-size="cover"></image>
+                      </view>
+                      <view class="image" wx:else>
+                          <image mode="aspectFill" src="../../image/zw.png" background-size="cover"></image>
+                      </view>
+                      <view class = "bottom-sec pos">
+                          <view class="now mf60">{{item.pname}}</view>
+                          <view class="biaoqian" wx:if="{{ item.psweep==2 }}">
+                              <view class="jb-txet">执</view>
+                              <view class="jioabiao"></view>
                           </view>
-                          <view class="image" wx:else>
-                              <image mode="aspectFill" src="../../image/zw.png" background-size="cover"></image>
-                          </view>
-                          <view class = "bottom-sec pos">
-                              <view class="now mf60">{{item.pname}}</view>
-                              <view class="biaoqian" wx:if="{{ item.psweep==2 }}">
-                                  <view class="jb-txet">执</view>
-                                  <view class="jioabiao"></view>
+                          <view class = "top-title">
+                              <view class = "title fl">品牌:</view>
+                              <view class = "description blue" wx:if="{{item.pbrand.length>0}}">  
+                                  <block wx:for="{{item.pbrand}}" wx:for-item="brand">
+                                  {{ brand.name }} 
+                                  </block>
+                                  
                               </view>
+                          </view>
+                          <block wx:if="{{ item.ptype }}">
                               <view class = "top-title">
-                                  <view class = "title fl">品牌:</view>
-                                  <view class = "description blue" wx:if="{{item.pbrand.length>0}}">  
-                                      <block wx:for="{{item.pbrand}}" wx:for-item="brand">
-                                      {{ brand.name }} 
-                                      </block>
-                                      
-                                  </view>
+                                  <view class = "title fl">性质:</view>
+                                  <view class = "description">{{item.ptype_name}}</view>
                               </view>
-                              <block wx:if="{{ item.ptype }}">
-                                  <view class = "top-title">
-                                      <view class = "title fl">性质:</view>
-                                      <view class = "description">{{item.ptype_name}}</view>
-                                  </view>
-                              </block>
-                              <block wx:if="{{ item.pmarket }}">
-                                  <view class = "top-title">
-                                      <view class = "title fl">地址:</view>
-                                      <view class = "description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
-                                  </view>
-                              </block>
-                              <block wx:if="{{ item.plocation }}">
-                                  <view class = "top-title">
-                                      <view class = "fl title">区域:</view>
-                                      <view class = "description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
-                                  </view>
-                              </block>
-                          </view>
-                      </view>
-                  </view>
-                  <view class="reply p35">
-                      <view class="fl title">
-                          内容：
-                      </view>
-                      <view class="ml38">
-                          <block wx:if="{{ item.verify.length>0 }}">
-                              {{item.verify[item.verify.length-1].descs}}
                           </block>
-                          <block wx:else>
-                            暂未审核
+                          <block wx:if="{{ item.pmarket }}">
+                              <view class = "top-title">
+                                  <view class = "title fl">地址:</view>
+                                  <view class = "description" wx:if="{{item.pmarket}}">{{item.pmarket}}</view>
+                              </view>
                           </block>
-                      </view>
-                      <view class="fl title f-time">
-                          时间：
-                      </view>
-                      <view class="f-time">
-                          <block wx:if="{{ item.verify.length>0 }}">
-                              {{item.verify[item.verify.length-1].d}}
-                          </block>
-                          <block wx:else>
-                            暂无时间
+                          <block wx:if="{{ item.plocation }}">
+                              <view class = "top-title">
+                                  <view class = "fl title">区域:</view>
+                                  <view class = "description" wx:if="{{item.plocation}}">{{item.plocation}}</view>
+                              </view>
                           </block>
                       </view>
                   </view>
               </view>
+              <view class="reply p35">
+                  <view class="fl title">
+                      内容：
+                  </view>
+                  <view class="ml38">
+                      <block wx:if="{{ item.verify.length>0 }}">
+                          {{item.verify[item.verify.length-1].descs}}
+                      </block>
+                      <block wx:else>
+                        暂未审核
+                      </block>
+                  </view>
+                  <view class="fl title f-time">
+                      时间：
+                  </view>
+                  <view class="f-time">
+                      <block wx:if="{{ item.verify.length>0 }}">
+                          {{item.verify[item.verify.length-1].d}}
+                      </block>
+                      <block wx:else>
+                        暂无时间
+                      </block>
+                  </view>
+              </view>
           </view>
-      </block>
-    </view>
-
+      </view>
+  </block>
 </view>

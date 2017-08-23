@@ -16,55 +16,43 @@
         <input type="text" value="{{ searchValue }}" focus="{{ focus }}"  class="input" bindinput="oninput" confirm-type="search" placeholder="请输入产品名称/条形码/关键字检索" />
     </view>
 </view>
-<form class="form main-top">
-  <!--预览位置-->
-  <view class="header yl-weizhi">
-    <view class="list-sous">
-        <view class="search">
-            <text>预览位置</text>
-        </view>
+<!--产品列表--> 
+<view class="content {{searchToggle==true?'c-close': 'c-show'}}">
+  <scroll-view class="stateList" scroll-y="true">
+    <view wx:for="{{state}}" class="state_name {{select == index?'active':'' }} ">
+      <view class="item_name border" catchtap="changeContent" data-name="{{item.bname}}">
+        {{item.bname}}
+      </view>
     </view>
+  </scroll-view>
+  <scroll-view class="overflow" scroll-y="true">
+    <view class="city-detail" bindtap="selectProduct"  wx:for="{{firstShow}}" id="{{index}}" hover-class="none">
+      <image class="img" src="{{item.logoid}}"></image>
+      <view class="d-right">
+        <text>{{item.name}}</text>
+        <text>条形码：{{item.num}}</text>
+        <text>价格：<text class="red block-no">{{item.sprice}}</text>元</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="search-show overflow {{searchToggle==true?'s-show':'c-close'}}">
+  <view class="error {{error == true?'s-show':'c-close'}}">
+      非常抱歉，没有搜索到产品
   </view>
-  <!--预览位置 end-->
-  <view class="content {{searchToggle==true ? 'c-close': 'c-show'}}">
-    <scroll-view class="stateList" scroll-y="true">
-      <view wx:for="{{state}}" class="state_name {{select == index?'active':'' }} ">
-        <view class="item_name border" catchtap="changeContent" data-name="{{item.bname}}">
-          {{item.bname}}
-        </view>
-      </view>
-    </scroll-view>
-    <scroll-view class="cityList" scroll-y="true">
-      <view class="city-detail" bindtap="selectProduct"  wx:for="{{firstShow}}" id="{{index}}" hover-class="none">
-        <image class="img" src="{{item.logoid}}"></image>
-        <view class="d-right">
-          <text>{{item.name}}</text>
-          <text>条形码：{{item.num}}</text>
-          <text>价格：<text class="red block-no">{{item.sprice}}</text>元</text>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-  <view class="content {{searchToggle==true?'s-show':'c-close'}}">
-    <scroll-view class="cityList">
-      <view class="error {{error == true?'s-show':'c-close'}}">
-          非常抱歉，没有搜索到产品
-      </view>
-      <view class="cityList {{error == false?'s-show':'c-close'}}">
-        <view class="destination" wx:for="{{about}}" wx:if="{{item.plist.length > 0}}">
-          <view class="title">{{item.bname}}</view>
-          <view >
-            <view class="city-detail" bindtap="selectProduct"  wx:for="{{item.plist}}" id="{{index}}" hover-class="none" wx:for-item="itemplist" data-arr="{{itemplist}}">
-              <image class="img" src="{{itemplist.logoid}}"></image>
-              <view class="d-right">
-                <text>{{itemplist.name}}</text>
-                <text>条形码：{{itemplist.num}}</text>
-                <text>价格：<text class="red block-no">{{itemplist.sprice}}</text>元</text>
-              </view>
-            </view>
+  <view class="plr22 {{error == false?'s-show':'c-close'}}">
+    <view class="destination" wx:for="{{about}}" wx:if="{{item.plist.length > 0}}">
+      <view class="title">{{item.bname}}</view>
+      <view >
+        <view class="city-detail" bindtap="selectProduct"  wx:for="{{item.plist}}" id="{{index}}" hover-class="none" wx:for-item="itemplist" data-arr="{{itemplist}}">
+          <image class="img" src="{{itemplist.logoid}}"></image>
+          <view class="d-right">
+            <text>{{itemplist.name}}</text>
+            <text>条形码：{{itemplist.num}}</text>
+            <text>价格：<text class="red block-no">{{itemplist.sprice}}</text>元</text>
           </view>
         </view>
       </view>
-    </scroll-view>
+    </view>
   </view>
-</form>
+</view>

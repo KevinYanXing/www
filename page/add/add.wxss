@@ -1,4 +1,11 @@
 @import "../../common/lib/weui.wxss";
+/* 固定页面位置 */
+page{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+/* 固定页面位置 end */
 page{
   background: #F1F2F6;
 }

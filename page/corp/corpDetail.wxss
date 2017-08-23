@@ -1,18 +1,42 @@
+/* 固定页面位置 */
+page{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+/* 固定页面位置 end */
+.overflow{
+  overflow-x:hidden;
+}
 .header {
   width: 100%;
   border-bottom: 1rpx solid #DDDDDD;
-  position: fixed;
+  /* position: fixed;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 9999; */
   background: #F1F2F6;
 }
-.main-container {
-  width:100%;
-  position: absolute;
-  top:97rpx;
+/*预留按钮位置*/
+.add-address{
+   position:fixed;
   bottom:0;
+  left:0;
+  right:0; 
 }
+.btn-add{
+  position:initial!important;
+  bottom:initial!important;
+  left:initial!important;
+  right:initial!important;
+  padding:23rpx 22rpx!important;
+}
+.btn-add-w{
+  position:initial!important;
+  color:#F1F2F6!important;
+  background-color: #F1F2F6!important;
+}
+/*预留按钮位置 end*/
 .main-container swiper-item{
   display: inline-block;
 }
@@ -21,7 +45,7 @@
 .flexItem {
 }
 .list_active0 .view0, .list_active1 .view1{
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 .list_active0 .view0{
 display: block;
@@ -87,16 +111,16 @@ display: block;
 .back{
     position: relative;
     background: #ffffff;
-    margin-bottom: 22rpx;
+    margin-bottom: 5rpx;
 }
-.back:after {
+/* .back:after {
     content:" ";
     position:absolute;
     left:0;
     bottom:0;
     right:0;
     border-bottom: 1px solid #ffffff;
-}
+} */
 .clue{
 
 }

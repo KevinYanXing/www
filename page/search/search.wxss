@@ -1,71 +1,24 @@
 /* pages/index/index.wxss */
+/* 固定页面位置 */
+page{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+/* 固定页面位置 end */
+
 .header-top {
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:999;
   padding:22rpx;
   background-color:#fff;
+  border-bottom:1rpx solid #e8e8e8;
 }
-
-/*头部预览位置*/
-.yl-weizhi{
-  border-bottom: initial !important;
-  position: initial !important;
-  left: initial !important;
-  top: initial !important;
-  z-index:0!important;
+.plr22{
+  padding:0 22rpx;
 }
-.yl-weizhi .list-sous{
-  background:#fff;
-}
-.yl-weizhi .list-sous .search{
-  color:#fff;
-  border:1rpx solid #fff;
-}
-.yl-weizhi .list-tab{
-  background:#fff;
-}
-.yl-weizhi .list-tab .header-wrapper{
-  /*border-bottom:1rpx solid #fff;*/
-}
-.yl-weizhi .list-tab .single{
-
-}
-.yl-weizhi .list-tab .text-detail{
- color:#fff;
-border-bottom:3rpx solid #fff;
-}
-/*头部预览位置 end*/
-
-
-/*固定*/
-.form {
-  width:100%;
-  box-sizing:initial;
-  overflow-x:initial;
-}
-.main-top {
-  position:fixed;
-  /*top:119rpx;*/
-  top:0;
-  bottom:0;
-  overflow-x:initial;
-}
-.cityList{
-  overflow-x:hidden;
-}
-/*固定 end*/
 .active {
   color: #0091ff !important;
   background: #fff;
 }
-.header-top {
-  background-color:#fff;
-  border-bottom:1rpx solid #e8e8e8;
-}
-
 .header_search {
 padding:30rpx 20rpx;
 background:#01AFF6;
@@ -103,14 +56,12 @@ transform:rotate(-90deg);
   flex: 1;
   background: #ffffff;
 }
-
 .stateList {
   width: 25%;
   /*background: #f8f8f8;*/
   background: #eee;
   overflow-y: scroll;
 }
-
 .state_name {
   width: 100%;
   min-height: 100rpx;
@@ -120,24 +71,20 @@ transform:rotate(-90deg);
   color: #727272;
   overflow: hidden;
 }
-
 .item_name {
   width: 100%;
   height: 100rpx;
   text-align: center;
   position:relative;
 }
-
 .item_list {
   display: none;
   background: #f3f3f3;
   text-align: center;
 }
-
 .show_item_list {
   display: block;
 }
-
 .show_item_list image {
   transition: 0.3s;
   transform: rotate(-90deg);
@@ -155,19 +102,15 @@ transform:rotate(-90deg);
   transform: rotate(90deg);
 }
 
-
 /*输入框点击部分*/
-
 .destination {
   /*box-shadow: 0px 1px 3px 0.3px rgba(6, 0, 1, 0.11);
   box-sizing: border-box;*/
   margin-bottom: 14rpx;
 }
-
 .search-show {
   /*background: #fff;*/
 }
-
 .search-show .title {
   font-size: 32rpx;
   color: #666;
@@ -177,9 +120,6 @@ transform:rotate(-90deg);
   padding:18rpx 22rpx;
 }
 /*产品部分*/
-.cityList{
-  padding: 0 22rpx;
-}
 .city-detail .img {
   width:116rpx;
   height:116rpx;
@@ -187,21 +127,16 @@ transform:rotate(-90deg);
   vertical-align:top;
   margin-top:11rpx;
   border:1rpx solid #eaedf4;
-
 }
-
 .city-detail {
-  padding: 18rpx 0;
+  padding: 18rpx 22rpx;
   border-bottom:1rpx solid #eee;
   background-color: #ffffff;
 }
-
 .d-right {
   max-width:60%;
-display:inline-block;
-
+  display:inline-block;
 }
-
 .d-right text {
   display: block;
   font-size: 28rpx;
@@ -211,12 +146,10 @@ display:inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;*/
 }
-
 .d-right text:nth-child(2), text:nth-child(3) {
   font-size: 24rpx;
   color: #969696;
 }
-
 .location:before {
   content: "";
   display: inline-block;
@@ -227,7 +160,6 @@ display:inline-block;
   background: url('../image/loc.png') no-repeat;
   background-size: 24rpx;
 }
-
 .city-b{
   background-color: #ffffff;
 }
@@ -245,6 +177,7 @@ font-size:22rpx;
 position:relative;
 top:54rpx;
 }
+/*产品部分 end*/
 .c-show {
   display: flex;
 }

@@ -1,47 +1,24 @@
+/* 固定页面位置 */
+page{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+/* 固定页面位置 end */
 .header {
-  width: 100%;
   border-bottom: 1rpx solid #DDDDDD;
-  position: fixed;
+  /* position: fixed;
   left: 0;
-  top: 0;
+  top: 0; */
   z-index: 9999;
   background: #F1F2F6;
 }
 .w100{
   width: 100%
 }
-/*头部预览位置*/
-.pt8{
+ .pt8{
   padding-top:8px !important;
 }
-.yl-weizhi{
-  border-bottom: initial !important;
-  position: initial !important;
-  left: initial !important;
-  top: initial !important;
-  z-index:0!important;
-}
-.yl-weizhi .list-sous{
-  background:#fff;
-}
-.yl-weizhi .list-sous .search{
-  color:#fff;
-  border:1rpx solid #fff;
-}
-.yl-weizhi .list-tab{
-  background:#fff;
-}
-.yl-weizhi .list-tab .header-wrapper{
-  /*border-bottom:1rpx solid #fff;*/
-}
-.yl-weizhi .list-tab .single{
-
-}
-.yl-weizhi .list-tab .text-detail{
- color:#fff;
-border-bottom:3rpx solid #fff;
-}
-/*头部预览位置 end*/
 
 /*列表*/
 .top-slider {

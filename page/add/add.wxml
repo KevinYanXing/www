@@ -1,264 +1,258 @@
-<view class="addr-body">
-  <view class="top-sec">
-     <view class="weui-cells weui-cells_after-title mt20">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">目标名称</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input class="weui-input" bindinput = "pName" name="input" placeholder="请输入目标名称" value = "{{pname}}" focus="{{ focus }}" placeholder-style = "color: #888888; "/>
-        </view>
+<view class="top-sec overflow">
+    <view class="weui-cells weui-cells_after-title mt20">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">目标名称</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput = "pName" name="input" placeholder="请输入目标名称" value = "{{pname}}" focus="{{ focus }}" placeholder-style = "color: #888888; "/>
       </view>
     </view>
-
-     <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">目标性质</view>
-        </view>
-        <view class="weui-cell__bd">
-          <picker mode="selector" bindchange="pType" placeholder="选择性质" value="{{ptype}}" range="{{tarray}}">
-            <view class="input-text" wx:if="{{tarray[ptype]}}">{{tarray[ptype]}}</view>
-            <view class="input-text" wx:else>{{tarray[0]}}</view>
-            <view class="navigator-arrow"></view>
-          </picker>
-        </view>
-      </view>
-    </view>
-
-     <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">负责人</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输负责人姓名" value = "{{pperson}}" placeholder-style = "color: #888888; "/>
-        </view>
-      </view>
-    </view>
-
-     <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">联系方式</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input class="weui-input" type="number" bindinput="pContact" name="input" placeholder="请输入手机/电话号码" value = "{{pcontact}}" placeholder-style = "color: #888888; "/>
-        </view>
-      </view>
-     </view>
-
-    <view class="weui-cells weui-cells_after-title" bindtap="pMarket">
-      <view class="weui-cell weui-cell_input" >
-        <view class="weui-cell__hd">
-          <view class="weui-label">目标地址</view>
-        </view>
-        <view class="weui-cell__bd">
-            <view class="text-overflow input-text w170">
-                <block wx:if="{{pmarket}}">{{pmarket}}</block>
-                <block wx:else>在地图上选择地址</block>
-            </view>
-            <view class="navigator-arrow"></view>
-        </view>
-      </view>
-    </view>
+  </view>
 
     <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">所在区域</view>
-        </view>
-        <view class="weui-cell__bd">
-            <view style="margin-right:0;" class="text-overflow input-text w170">
-              <block wx:if="{{plocation}}">{{plocation}}</block>
-              <block wx:else>自动记录地址</block>  
-            </view>
-        </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">目标性质</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker mode="selector" bindchange="pType" placeholder="选择性质" value="{{ptype}}" range="{{tarray}}">
+          <view class="input-text" wx:if="{{tarray[ptype]}}">{{tarray[ptype]}}</view>
+          <view class="input-text" wx:else>{{tarray[0]}}</view>
+          <view class="navigator-arrow"></view>
+        </picker>
       </view>
     </view>
+  </view>
 
-    <view class="weui-cells mb20">
-      <view class="weui-cell">
-        <view class="weui-cell__bd">
-          <view class="weui-uploader">
-            <view class="weui-uploader__hd">
-              <view class="weui-uploader__title f14">添加门店招牌、营业执照、店内情况等照片</view>
-              <view class="weui-uploader__info">{{imageList.length}}/{{count}}</view>
+    <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">负责人</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput = "pPerson" name="input" placeholder="请输负责人姓名" value = "{{pperson}}" placeholder-style = "color: #888888; "/>
+      </view>
+    </view>
+  </view>
+
+    <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type="number" bindinput="pContact" name="input" placeholder="请输入手机/电话号码" value = "{{pcontact}}" placeholder-style = "color: #888888; "/>
+      </view>
+    </view>
+    </view>
+
+  <view class="weui-cells weui-cells_after-title" bindtap="pMarket">
+    <view class="weui-cell weui-cell_input" >
+      <view class="weui-cell__hd">
+        <view class="weui-label">目标地址</view>
+      </view>
+      <view class="weui-cell__bd">
+          <view class="text-overflow input-text w170">
+              <block wx:if="{{pmarket}}">{{pmarket}}</block>
+              <block wx:else>在地图上选择地址</block>
+          </view>
+          <view class="navigator-arrow"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">所在区域</view>
+      </view>
+      <view class="weui-cell__bd">
+          <view style="margin-right:0;" class="text-overflow input-text w170">
+            <block wx:if="{{plocation}}">{{plocation}}</block>
+            <block wx:else>自动记录地址</block>  
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells mb20">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader">
+          <view class="weui-uploader__hd">
+            <view class="weui-uploader__title f14">添加门店招牌、营业执照、店内情况等照片</view>
+            <view class="weui-uploader__info">{{imageList.length}}/{{count}}</view>
+          </view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files">
+              <block wx:for="{{imageList}}" wx:key="*this">
+                <view class="weui-uploader__file">
+                  <image class="weui-uploader__img" mode="aspectFill"  src="{{item}}" data-src="{{item}}" bindtap="pPhotoedit"></image>
+                </view>
+              </block>
             </view>
-            <view class="weui-uploader__bd">
-              <view class="weui-uploader__files">
-                <block wx:for="{{imageList}}" wx:key="*this">
-                  <view class="weui-uploader__file">
-                    <image class="weui-uploader__img" mode="aspectFill"  src="{{item}}" data-src="{{item}}" bindtap="pPhotoedit"></image>
-                  </view>
-                </block>
-              </view>
-              <view class="weui-uploader__input-box">
-                <view class="weui-uploader__input" bindtap="pPhoto"></view>
-              </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="pPhoto"></view>
             </view>
           </view>
         </view>
       </view>
     </view>
+  </view>
 
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">售假情况</view>
-        </view>
-        <view class="weui-cell__bd">
-          <picker mode="selector"  bindchange="pState" placeholder="选择情况" value="{{pstate}}" range="{{strike}}">
-            <view class="input-text" wx:if="{{strike[pstate]}}">{{strike[pstate]}}</view>
-            <view class="input-text" wx:else>{{strike[0]}}</view>
-            <view class="navigator-arrow"></view>
-          </picker>
-        </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">售假情况</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker mode="selector"  bindchange="pState" placeholder="选择情况" value="{{pstate}}" range="{{strike}}">
+          <view class="input-text" wx:if="{{strike[pstate]}}">{{strike[pstate]}}</view>
+          <view class="input-text" wx:else>{{strike[0]}}</view>
+          <view class="navigator-arrow"></view>
+        </picker>
       </view>
     </view>
+  </view>
 
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_switch">
-        <view class="weui-cell__bd p32">是否有执法信息</view>
-        <view class="weui-cell__ft">
-          <switch bindchange="pSweep" color="#01AFF6"  wx:if="{{psweep==2}}" checked/>
-          <switch bindchange="pSweep" color="#01AFF6"  wx:else/>
-        </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_switch">
+      <view class="weui-cell__bd p32">是否有执法信息</view>
+      <view class="weui-cell__ft">
+        <switch bindchange="pSweep" color="#01AFF6"  wx:if="{{psweep==2}}" checked/>
+        <switch bindchange="pSweep" color="#01AFF6"  wx:else/>
       </view>
     </view>
-    <!--隐藏输入1-->
-    <view class="mb20 bright-No {{psweep==2?'bright-Block':''}}">
-        <view class="weui-cells weui-cells_after-title {{showView?'':'Back'}}" bindtap="onChangeShowState">
+  </view>
+  <!--隐藏输入1-->
+  <view class="mb20 bright-No {{psweep==2?'bright-Block':''}}">
+      <view class="weui-cells weui-cells_after-title {{showView?'':'Back'}}" bindtap="onChangeShowState">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label {{showView?'':'weui'}}">{{showView?'添加执法信息':'收起执法信息'}}</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class="navigator-arrow {{showView?'':'n-b'}}"></view>
+            </view>
+          </view>
+      </view>
+      <!--隐藏输入2-->
+      <view class="bright-No {{showView?'bright-No':'bright-Block'}}">
+          
+          <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
               <view class="weui-cell__hd">
-                <view class="weui-label {{showView?'':'weui'}}">{{showView?'添加执法信息':'收起执法信息'}}</view>
+                <view class="weui-label">执法机构</view>
               </view>
               <view class="weui-cell__bd">
-                  <view class="navigator-arrow {{showView?'':'n-b'}}"></view>
+                <input class="weui-input" bindinput = "zDepart" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
               </view>
             </view>
-        </view>
-        <!--隐藏输入2-->
-        <view class="bright-No {{showView?'bright-No':'bright-Block'}}">
-            
-            <view class="weui-cells weui-cells_after-title">
-              <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                  <view class="weui-label">执法机构</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "zDepart" name="input" placeholder="请输入执法机构名称" value = "{{pzinfo.zdepart}}" placeholder-style = "color: #888888; "/>
-                </view>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">执法时间</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker mode="date" value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
+                  <view class="input-text">{{pzinfo.ztime}}</view>
+                  <view class="navigator-arrow"></view>
+                </picker>
               </view>
             </view>
-            <view class="weui-cells weui-cells_after-title">
-              <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                  <view class="weui-label">执法时间</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <picker mode="date" value="{{pzinfo.ztime}}" start="1999-01-01" end="2999-12-12" bindchange="zTime">
-                    <view class="input-text">{{pzinfo.ztime}}</view>
-                    <view class="navigator-arrow"></view>
-                  </picker>
-                </view>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">负责人</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" bindinput = "zPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
               </view>
             </view>
-            <view class="weui-cells weui-cells_after-title">
-              <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                  <view class="weui-label">负责人</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "zPerson" name="input" placeholder="请输入负责人姓名" value = "{{pzinfo.zperson}}" placeholder-style = "color: #888888; "/>
-                </view>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">职务</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" bindinput = "zPosition" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
               </view>
             </view>
-            <view class="weui-cells weui-cells_after-title">
-              <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                  <view class="weui-label">职务</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <input class="weui-input" bindinput = "zPosition" name="input" placeholder="请输入执法负责人职务" value = "{{pzinfo.zposition}}" placeholder-style = "color: #888888; "/>
-                </view>
-              </view>
-            </view>
+          </view>
 
-            <view class="weui-cells weui-cells_after-title">
-              <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                  <view class="weui-label">手机号码</view>
-                </view>
-                <view class="weui-cell__bd">
-                  <input class="weui-input" type="number" bindinput = "zPhone" name="input" placeholder="请输入执法负责人手机号码" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
-                </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">手机号码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" type="number" bindinput = "zPhone" name="input" placeholder="请输入执法负责人手机号码" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
               </view>
             </view>
+          </view>
 
-            <view class="weui-cells weui-cells_after-title"  bindtap="zLocs">
-              <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd" >
-                  <view class="weui-label">执法地址</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <view class="text-overflow input-text w170">
-                        <block wx:if="{{pzinfo.zlocs}}">{{pzinfo.zlocs}}</block>
-                        <block wx:else>在地图上选择地址</block>
-                    </view>
-                    <view class="navigator-arrow"></view>
-                </view>
+          <view class="weui-cells weui-cells_after-title"  bindtap="zLocs">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd" >
+                <view class="weui-label">执法地址</view>
               </view>
-            </view>
-            <view class="weui-cell">
-                <view class="weui">
-                    描述执法过程
-                </view>
-            </view>
-            <view class="weui-cells weui-cells_after-title">
-                <view class="weui-cell">
-                  <view class="weui-cell__hd">
-                    <textarea class="weui-input" maxlength="-1" bindblur="zDesc" value="{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
+              <view class="weui-cell__bd">
+                  <view class="text-overflow input-text w170">
+                      <block wx:if="{{pzinfo.zlocs}}">{{pzinfo.zlocs}}</block>
+                      <block wx:else>在地图上选择地址</block>
                   </view>
+                  <view class="navigator-arrow"></view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-cell">
+              <view class="weui">
+                  描述执法过程
+              </view>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell">
+                <view class="weui-cell__hd">
+                  <textarea class="weui-input" maxlength="-1" bindblur="zDesc" value="{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="height:4em"></textarea>
                 </view>
-            </view>
-        </view>
-        <!--隐藏输入2 end-->
-        
-
-    </view>
-    <!--隐藏输入1end-->
-    <view class="weui-cells mb20" bindtap="pProduct">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">产品信息</view>
-        </view>
-        <view class="weui-cell__bd">
-            <view class="text-overflow input-text w170">
-              <block wx:if="{{dTarget.pproduct}}">
-                <block wx:for="{{dTarget.pproduct}}">
-                    <block wx:if="{{ index+1<dTarget.pproduct.length }}">
-                        {{ item.name }}、
-                    </block>
-                    <block wx:else>
-                        {{ item.name }}
-                    </block>
-                </block>
-              </block>
-            </view>
-            <view class="navigator-arrow"></view>
-        </view>
+              </view>
+          </view>
       </view>
-    </view>
+      <!--隐藏输入2 end-->
       
-    <view class="add-address btn-add">
-      <view class="btn-bottom address-btn">按钮预留位置</view>
-    </view>
 
   </view>
-  <form bindsubmit="pConfirm" report-submit='true'>
-      <view class="add-address">
-          <button class = "address-btn" formType="submit">保存</button>
+  <!--隐藏输入1end-->
+  <view class="weui-cells mb20" bindtap="pProduct">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">产品信息</view>
       </view>
-  </form>
+      <view class="weui-cell__bd">
+          <view class="text-overflow input-text w170">
+            <block wx:if="{{dTarget.pproduct}}">
+              <block wx:for="{{dTarget.pproduct}}">
+                  <block wx:if="{{ index+1<dTarget.pproduct.length }}">
+                      {{ item.name }}、
+                  </block>
+                  <block wx:else>
+                      {{ item.name }}
+                  </block>
+              </block>
+            </block>
+          </view>
+          <view class="navigator-arrow"></view>
+      </view>
+    </view>
+  </view>
+  
 </view>
+<form bindsubmit="pConfirm" report-submit='true'>
+    <view class="add-address">
+        <button class = "address-btn" formType="submit">保存</button>
+    </view>
+</form>
