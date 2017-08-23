@@ -19,6 +19,7 @@ Page({
   },
   onLoad: function (options) {
     var self = this;
+    var uid = wx.getStorageSync('uid')
     if(options.idx){
         this.setData({    
             idx: options.idx,
@@ -29,24 +30,51 @@ Page({
       title: '加载中...',
     })
     wx.request({
-      url: app.globalData.url+'/plist/',
+      url: app.globalData.url + '/check_expire/' + uid + '/',
       method: 'GET',
-      header: {
-        'Accept': 'application/json'
-      },
       success: function (res) {
-        self.setData({
-          netError:false,
-          firstShow: res.data.data[0].plist,
-          state: res.data.data
-        })
-        wx.hideLoading();
+        if (res.data.ok == true) {
+          wx.request({
+            url: app.globalData.url + '/plist/?uid=' + uid,
+            method: 'GET',
+            header: {
+              'Accept': 'application/json'
+            },
+            success: function (res) {
+              self.setData({
+                netError: false,
+                firstShow: res.data.data[0].plist,
+                state: res.data.data
+              })
+              wx.hideLoading();
+            },
+            fail: function () {
+              self.setData({
+                netError: true
+              })
+              wx.hideLoading();
+            }
+          })
+        }
+        else {
+          wx.showModal({
+            title: '提示',
+            content: '身份验证已过期，请重新载入',
+            complete: function (res) {
+              app.globalData.indexFresh == true
+              wx.switchTab({
+                url: '../index/index',
+              })
+            }
+          })
+        }
       },
-      fail:function(){
-        self.setData({
-          netError:true
+      fail: function () {
+        wx.showToast({
+          title: '上传失败',
+          image: '../../image/cw-ico.png',
+          duration: 2000
         })
-        wx.hideLoading();
       }
     })
   },

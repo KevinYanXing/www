@@ -122,9 +122,7 @@ Page({
   },
   //店铺名称
   pName:function(e){
-    this.setData({
-      pname: e.detail.value
-    })
+    this.data.pname = e.detail.value;
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pname = e.detail.value
     wx.setStorageSync('mTarget', mTarget)
@@ -216,27 +214,31 @@ Page({
     var that = this
     wx.chooseLocation({
       success: function (res) {
+        that.setData({
+          pmarket:res.name,
+        })
+        
         wx.request({ 
-          url: 'https://api.map.baidu.com/geocoder/v2/?ak=dFzXvFYNosKSGxAV9G6nsCHk1OSf5U9V&location='+res.latitude+','+res.longitude+'&output=json', 
+          url:'https://apis.map.qq.com/ws/geocoder/v1/?location='+res.latitude+','+res.longitude+'&key=RZIBZ-OXCK6-YGLSQ-EHIIX-UALAK-XEFM2&get_poi=1',
+          // url: 'https://api.map.baidu.com/geocoder/v2/?ak=dFzXvFYNosKSGxAV9G6nsCHk1OSf5U9V&location='+res.latitude+','+res.longitude+'&output=json', 
           data: {}, 
           header:{ 
             'Content-Type':'application/json'
           }, 
           success: function(res){
-            var province=res.data.result.addressComponent.province;
-            var city=res.data.result.addressComponent.city;
-            var district=res.data.result.addressComponent.district;
+            var province=res.data.result.address_component.province;
+            var city=res.data.result.address_component.city;
+            var district=res.data.result.address_component.district;
             that.setData({
-              plocation:province+'/'+city+'/'+district
+              plocation:province+'/'+city+'/'+district,
+              pmarket:res.data.result.address
             })
             var mTarget = wx.getStorageSync('mTarget')
             mTarget.plocation = province+'/'+city+'/'+district
             wx.setStorageSync('mTarget', mTarget)
           }
         })
-        that.setData({
-          pmarket:res.name,
-        })
+        
         var mTarget = wx.getStorageSync('mTarget')
         mTarget.pmarket = res.name
         wx.setStorageSync('mTarget', mTarget)
@@ -245,18 +247,14 @@ Page({
   },
   //负责人
   pPerson:function(e){
-    this.setData({
-      pperson:e.detail.value
-    })
+    this.data.pperson = e.detail.value;
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pperson = e.detail.value
     wx.setStorageSync('mTarget', mTarget)
   },
   //联系方式
   pContact:function(e){
-    this.setData({
-      pcontact:e.detail.value
-    })
+    this.data.pcontact = e.detail.value;
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pcontact = e.detail.value
     wx.setStorageSync('mTarget', mTarget)
@@ -277,7 +275,6 @@ Page({
     var zInfo = wx.getStorageSync('zInfo')
     zInfo.ztime = e.detail.value
     wx.setStorageSync('zInfo', zInfo)
-
     this.setData({
       pzinfo:zInfo
     })
@@ -292,9 +289,7 @@ Page({
     zInfo.zdepart = e.detail.value
     wx.setStorageSync('zInfo', zInfo)
 
-    this.setData({
-      pzinfo:zInfo
-    })
+    this.data.pzinfo = zInfo;
 
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pzinfo = zInfo
@@ -306,9 +301,7 @@ Page({
     zInfo.zperson = e.detail.value
     wx.setStorageSync('zInfo', zInfo)
 
-    this.setData({
-      pzinfo:zInfo
-    })
+    this.data.pzinfo = zInfo;
 
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pzinfo = zInfo
@@ -320,9 +313,7 @@ Page({
     zInfo.zposition = e.detail.value
     wx.setStorageSync('zInfo', zInfo)
 
-    this.setData({
-      pzinfo:zInfo
-    })
+    this.data.pzinfo = zInfo;
 
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pzinfo = zInfo
@@ -335,9 +326,7 @@ Page({
     zInfo.zphone = e.detail.value
     wx.setStorageSync('zInfo', zInfo)
 
-    this.setData({
-      pzinfo:zInfo
-    })
+    this.data.pzinfo = zInfo;
 
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pzinfo = zInfo
@@ -391,9 +380,7 @@ Page({
     zInfo.zdesc = e.detail.value
     wx.setStorageSync('zInfo', zInfo)
 
-    this.setData({
-      pzinfo:zInfo
-    })
+    this.data.pzinfo = zInfo;
 
     var mTarget = wx.getStorageSync('mTarget')
     mTarget.pzinfo = zInfo
@@ -473,6 +460,10 @@ Page({
   },
   //提交数据
   pConfirm: function(e) {
+    var fid = e.detail.formId
+    var mTarget = wx.getStorageSync('mTarget')
+    mTarget.formid = fid
+    wx.setStorageSync('mTarget', mTarget)
     var that = this
     var mTarget = wx.getStorageSync('mTarget')
     var mProduct = wx.getStorageSync('mProduct')

@@ -57,9 +57,7 @@ Page({
   },
   pReply:function(e){
     console.debug(e.detail.value)
-      this.setData({
-      preply: e.detail.value
-    })
+    this.data.preply = e.detail.value
   },
   pPhoto: function(e) {
     var that = this
@@ -108,6 +106,7 @@ Page({
       })
   },
   confirm:function(e){
+    var fid = e.detail.formId
     var that = this
     if(that.data.preply){
       wx.showToast({
@@ -121,7 +120,6 @@ Page({
       sendPhotos(tempImage, function checkUpload(){
         
           var imageName = wx.getStorageSync('mImage')
-          console.debug(imageName) 
           if(imageName.length>0){
               wx.removeStorageSync('mImage')
               that.setData({
@@ -136,7 +134,7 @@ Page({
             }else{
               wx.request({
                 url: app.globalData.url+'/mreply/'+ that.data.id + '/',
-                data:{'descs':that.data.preply,'photo':that.data.imageName},
+                data:{'descs':that.data.preply,'photo':that.data.imageName,'fid':fid},
                 method: 'GET',
                 success: function(res){
                   wx.showToast({

@@ -64,7 +64,7 @@ Page({
             itemList: ['查看','编辑','删除'],
             success: function (e) {
               if(e.tapIndex==0){
-                  wx.navigateTo({url: './corpDetail?id='+id})
+                  wx.navigateTo({url: './corpDetail?curr=0&id='+id})
               }else if(e.tapIndex==1){
                   wx.setStorageSync('mTarget', that.data.list.minfo[idx])
                   wx.navigateTo({url: '../add/add',})

@@ -25,8 +25,9 @@
         </view>
       </view>
     </view>
-
-  <view class="plr15 mt40">
-      <button class="address-btn" formType="submit" bindtap = "confirm">发送</button>
-  </view>
+  <form bindsubmit="confirm" report-submit='true'>
+      <view class="plr15 mt40">
+          <button class="address-btn" formType="submit">发送</button>
+      </view>
+  </form>
 </view>

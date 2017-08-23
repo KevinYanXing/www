@@ -282,7 +282,7 @@ textarea {
     display: block !important;
 }
 .none .search{
-  margin-right:68rpx;  
+  margin-right:84rpx;  
 }
 .list-sous .search {
     color:#888;
@@ -325,7 +325,7 @@ textarea {
     position:relative;
     top:0rpx;
     right:0;
-    width:64rpx;
+    width:68rpx;
     height:74rpx;
     line-height:74rpx;
     text-align:center;

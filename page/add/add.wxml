@@ -257,7 +257,9 @@
     </view>
 
   </view>
-  <view class="add-address">
-    <button class = "address-btn" formType="submit" bindtap = "pConfirm">保存</button>
-  </view>
+  <form bindsubmit="pConfirm" report-submit='true'>
+      <view class="add-address">
+          <button class = "address-btn" formType="submit">保存</button>
+      </view>
+  </form>
 </view>
