@@ -1,13 +1,13 @@
 @import "../../common/lib/weui.wxss";
-/* 固定页面位置 */
-page{
-  display:flex;
-  flex-direction:column;
-  height:100%;
-}
-/* 固定页面位置 end */
 page{
   background: #F1F2F6;
+}
+.add-address{
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
 }
 .weui-uploader__info {
   color:#424242;
