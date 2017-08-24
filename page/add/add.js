@@ -380,7 +380,9 @@ Page({
     var zInfo = wx.getStorageSync('zInfo')
     zInfo.zdesc = e.detail.value
     wx.setStorageSync('zInfo', zInfo)
-
+    // that.setData({
+    //   pzinfo: zInfo
+    // })
     this.data.pzinfo = zInfo;
 
     var mTarget = wx.getStorageSync('mTarget')

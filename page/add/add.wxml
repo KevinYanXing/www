@@ -190,7 +190,7 @@
                 <view class="weui-label">手机号码</view>
               </view>
               <view class="weui-cell__bd">
-                <input class="weui-input" type="number" bindinput = "zPhone" name="input" placeholder="请输入执法负责人手机号码" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
+                <input class="weui-input" type="number" bindinput = "zPhone" name="input" placeholder="请输入执法负责人手机" value = "{{pzinfo.zphone}}" placeholder-style = "color: #888888; "/>
               </view>
             </view>
           </view>
