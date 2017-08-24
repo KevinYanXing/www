@@ -1,4 +1,4 @@
-<view class="top-sec overflow">
+<view class="top-sec">
     <view class="weui-cells weui-cells_after-title mt20">
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
@@ -217,7 +217,7 @@
           <view class="weui-cells weui-cells_after-title">
               <view class="weui-cell">
                 <view class="weui-cell__hd">
-                  <textarea maxlength="-1" bindblur="zDesc" value="{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style="color: #888888;" style="min-height:6em" auto-height />
+                  <textarea class="weui-input" maxlength="-1" bindblur="zDesc" value="{{pzinfo.zdesc}}" placeholder="说些过程" placeholder-style = "color: #888888; " style="min-height:4em" auto-height ></textarea>
                 </view>
               </view>
           </view>
@@ -249,7 +249,11 @@
       </view>
     </view>
   </view>
-  
+  <!--预览位置-->
+  <view class="add-address btn-add">
+      <view class="btn-bottom address-btn">按钮预留位置</view>
+    </view>
+  <!--预览位置 end-->
 </view>
 <form bindsubmit="pConfirm" report-submit='true'>
     <view class="add-address">
